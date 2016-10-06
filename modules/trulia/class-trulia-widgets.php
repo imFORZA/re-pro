@@ -2,7 +2,7 @@
 /**
  * Adds Trulia Widgets
  *
- * @package IdxFORZA
+ * @package RE-PRO
  *
  * Trulia Widgets URL: http://www.trulia.com/tools/#widgets
  */
@@ -12,8 +12,7 @@
  *
  * @extends WP_Widget
  */
-class TruliaWidgets extends WP_Widget
-{
+class TruliaWidgets extends WP_Widget {
 
 
 	/**
@@ -25,11 +24,11 @@ class TruliaWidgets extends WP_Widget
 	public function __construct() {
 
 		parent::__construct(
-			'idxforza-trulia-widget',
-			__( 'Trulia Widgets', 'idxforza' ),
+			'trulia-widget',
+			__( 'Trulia Widgets', 're-pro' ),
 			array(
-			 'description' => __( 'Display a Trulia Widget', 'idxforza' ),
-			 'classname'   => 'idxforza-widget idxforza-trulia-widget',
+			 'description' => __( 'Display a Trulia Widget', 're-pro' ),
+			 'classname'   => 'widget trulia-widget',
 			)
 		);
 
@@ -46,11 +45,23 @@ class TruliaWidgets extends WP_Widget
 	 */
 	public function widget( $args, $instance ) {
 
+				$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+				$trulia_widget = ! empty( $instance['trulia_widget'] ) ? $instance['trulia_widget'] : '';
+
 				echo $args['before_widget'];
 
-				echo $args['before_title'] . esc_attr( $idxforza_title ) . $args['after_title'];
+				echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-				/* DISPLAY TRULIA WIDGETS HERE - Example */
+				if ( $trulia_widget == 'map-search') {
+
+					?>
+
+				<iframe src="https://synd.trulia.com/tools/map-search/embedded?params%5Blocation%5D=91307&params%5BlocationId%5D=76380&params%5Bagent_id%5D=&params%5Bproperty_status%5D=for+sale&params%5Btitle%5D=Map+Search&params%5Bcolor%5D=green&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=300&params%5Bheight%5D=250&params%5Bguid%5D=57f6e0a7b75e3" style="height: 185px; overflow: hidden;">
+				<p>Your browser does not support iframes</p></iframe>
+					<?php
+
+				}
+
 
 				echo $args['after_widget'];
 
@@ -68,28 +79,28 @@ class TruliaWidgets extends WP_Widget
 
 		// Set default values.
 		$instance = wp_parse_args( (array) $instance, array(
-			'idxforza_idxforza_trulia_widget' => '',
-			'idxforza_title' => '',
+			'trulia_widget' => '',
+			'title' => '',
 		));
 
 		// Retrieve an existing value from the database.
-		$idxforza_title = ! empty( $instance['idxforza_title'] ) ? $instance['idxforza_title'] : '';
-		$idxforza_idxforza_trulia_widget = ! empty( $instance['idxforza_idxforza_trulia_widget'] ) ? $instance['idxforza_idxforza_trulia_widget'] : '';
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$trulia_widget = ! empty( $instance['trulia_widget'] ) ? $instance['trulia_widget'] : '';
 
 		// Form fields.
 		echo '<p>';
-		echo '	<label for="' . esc_attr( $this->get_field_id( 'idxforza_title' ) ) . '" class="idxforza_title_label">' . esc_attr_e( 'Title', 'idxforza' ) . '</label>';
-		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'idxforza_title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'idxforza_title' ) ) . '" class="widefat" placeholder="' . esc_attr_e( '', 'idxforza' ) . '" value="' . esc_attr( $idxforza_title ) . '">';
-		echo '	<span class="description">' . esc_attr_e( 'Title', 'idxforza' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title_label">' . esc_attr_e( 'Title', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" class="widefat" placeholder="' . esc_attr_e( '', 're-pro' ) . '" value="' . esc_attr( $title ) . '">';
+		echo '	<span class="description">' . esc_attr_e( 'Title', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		echo '<p>';
-		echo '	<label for="' . esc_attr( $this->get_field_id( 'idxforza_idxforza_trulia_widget' ) ) . '" class="idxforza_idxforza_trulia_widget_label">' . esc_attr_e( 'Widget Type', 'idxforza' ) . '</label>';
-		echo '	<select id="' . esc_attr( $this->get_field_id( 'idxforza_idxforza_trulia_widget' ) ) . '" name="' . esc_attr( $this->get_field_name( 'idxforza_idxforza_trulia_widget' ) ) . '" class="widefat">';
-		echo '		<option value="map-search" ' . selected( $idxforza_idxforza_trulia_widget, 'map-search', false ) . '> ' . esc_attr_e( 'Map Search', 'idxforza' ) . '</option>';
-		echo '		<option value="home-showcase" ' . selected( $idxforza_idxforza_trulia_widget, 'home-showcase', false ) . '> ' . esc_attr_e( 'Home Showcase', 'idxforza' ) . '</option>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'trulia_widget' ) ) . '" class="trulia_widget_label">' . esc_attr_e( 'Widget Type', 're-pro' ) . '</label>';
+		echo '	<select id="' . esc_attr( $this->get_field_id( 'trulia_widget' ) ) . '" name="' . esc_attr( $this->get_field_name( 'trulia_widget' ) ) . '" class="widefat">';
+		echo '		<option value="map-search" ' . selected( $trulia_widget, 'map-search', false ) . '> ' . esc_attr( 'Map Search', 're-pro' ) . '</option>';
+		echo '		<option value="home-showcase" ' . selected( $trulia_widget, 'home-showcase', false ) . '> ' . esc_attr( 'Home Showcase', 're-pro' ) . '</option>';
 		echo '	</select>';
-		echo '	<span class="description">' . esc_attr_e( 'Choose a Trulia Widget Type. Full examples can be found at http://www.trulia.com/tools/#widgets', 'idxforza' ) . '</span>';
+		echo '	<span class="description">' . esc_attr_e( 'Choose a Trulia Widget Type. Full examples can be found at http://www.trulia.com/tools/#widgets', 're-pro' ) . '</span>';
 		echo '</p>';
 
 	}
@@ -106,8 +117,8 @@ class TruliaWidgets extends WP_Widget
 
 		$instance = $old_instance;
 
-		$instance['idxforza_idxforza_trulia_widget'] = ! empty( $new_instance['idxforza_idxforza_trulia_widget'] ) ? strip_tags( $new_instance['idxforza_idxforza_trulia_widget'] ) : '';
-		$instance['idxforza_title'] = ! empty( $new_instance['idxforza_title'] ) ? strip_tags( $new_instance['idxforza_title'] ) : '';
+		$instance['trulia_widget'] = ! empty( $new_instance['trulia_widget'] ) ? strip_tags( $new_instance['trulia_widget'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
 
 		return $instance;
 
@@ -116,13 +127,13 @@ class TruliaWidgets extends WP_Widget
 
 
 /**
- * Idxforza_register_widgets function.
+ * register_widgets function.
  *
  * @access public
  * @return void
  */
-function idxforza_register_widgets() {
+function register_widgets() {
 
 	register_widget( 'TruliaWidgets' );
 }
-add_action( 'widgets_init', 'idxforza_register_widgets' );
+add_action( 'widgets_init', 'register_widgets' );

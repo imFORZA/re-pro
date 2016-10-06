@@ -55,7 +55,7 @@ class RealtorcomWidgets extends WP_Widget {
 		if ( 'rent-or-buy-calc' === $widget_type ) {
 		?>
 		  <div class="re-pro realtorcom-rent-buy-calc">
-			<iframe height="620px" width="300px" frameborder="0" scrolling="no" src="http://www.realtor.com/mortgage/widget/rent-buy-calculator/" style="width:100%;min-width:300px;min-height=625px;"></iframe>
+			<iframe height="620px" width="300px" frameborder="0" scrolling="no" src="http://www.realtor.com/mortgage/widget/rent-buy-calculator/" style="width:100%;min-width:300px;min-height:625px;"></iframe>
 		  </div>
 		<?php
 		}
