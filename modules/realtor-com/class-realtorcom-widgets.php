@@ -98,8 +98,8 @@ class RealtorcomWidgets extends WP_Widget {
 		echo '<p>';
 		echo '	<label for="' . esc_attr( $this->get_field_id( 'widget_type' ) ) . '" class="widget_type_label">' . esc_attr_e( 'Widget Type', 're-pro' ) . '</label>';
 		echo '	<select id="' . esc_attr( $this->get_field_id( 'widget_type' ) ) . '" name="' . esc_attr( $this->get_field_name( 'widget_type' ) ) . '" class="widefat">';
-		echo '		<option value="rent-or-buy-calc" ' . selected( $widget_type, 'rent-or-buy-calc', false ) . '> ' . esc_attr_e( 'Rent or Buy Calculator', 're-pro' ) . '</option>';
-				echo '		<option value="mortgage-rate-trends" ' . selected( $widget_type, 'mortgage-rate-trends', false ) . '> ' . esc_attr_e( 'Mortgage Rate Trends', 're-pro' ) . '</option>';
+		echo '		<option value="rent-or-buy-calc" ' . selected( $widget_type, 'rent-or-buy-calc', false ) . '> ' . esc_attr( 'Rent or Buy Calculator', 're-pro' ) . '</option>';
+				echo '		<option value="mortgage-rate-trends" ' . selected( $widget_type, 'mortgage-rate-trends', false ) . '> ' . esc_attr( 'Mortgage Rate Trends', 're-pro' ) . '</option>';
 		echo '	</select>';
 		echo '	<span class="description">' . esc_attr_e( 'Widget Type', 're-pro' ) . '</span>';
 		echo '</p>';
