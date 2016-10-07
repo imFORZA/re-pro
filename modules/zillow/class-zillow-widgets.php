@@ -2,7 +2,7 @@
 /**
  * Zillow Widgets
  *
- * @package idxFORZA
+ * @package RE-PRO
  */
 
 /**
