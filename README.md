@@ -1,2 +1,2 @@
-# template-plugin
-Template code to create wordpress plugin
+# Real Estate Pro by imFORZA
+Widgets, Badges, and tools for Real Estate Websites.
