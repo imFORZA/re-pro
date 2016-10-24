@@ -5,3 +5,5 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // Include Review Widget.
 include('widgets/class-review-widget.php');
+
+include('widgets/class-sales-widget.php');
