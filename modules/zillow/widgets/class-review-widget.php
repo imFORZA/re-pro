@@ -29,7 +29,7 @@ class ZillowReviewWidget extends WP_Widget {
 			'zillow_review_widget',
 			__( 'Zillow Reviews', 're-pro' ),
 			array(
-				'description' => __( 'Display a widget of your Zillow Reviews.', 're-pro' ),
+				'description' => __( 'Display your Zillow Reviews.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-reviews',
 			)
 		);
@@ -48,24 +48,20 @@ class ZillowReviewWidget extends WP_Widget {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
-		$size = ! empty( $instance['size'] ) ? $instance['size'] : '';
+		$size = ! empty( $instance['size'] ) ? $instance['size'] : 'wide';
+		$zmod = ! empty( $instance['zmod'] ) ? $instance['zmod'] : 'true';
+		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
+		$width = ! empty( $instance['width'] ) ? $instance['width'] : '';
 
 		echo $args['before_widget'];
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		?>
-
-		<iframe scrolling="no" src="http://www.zillow.com/widgets/reputation/Rating.htm?did=rw-widget-container&ezuid=X1-ZUyymx5957gao9_9prla&scrnname=bkhubbard&size=wide&type=iframe&zmod=true" width="298" frameborder="0" style="display:block;width:100%;max-width:100%;" height="78"></iframe>
-
-
-
-		<?php
+		echo '<iframe scrolling="yes" src="http://www.zillow.com/widgets/reputation/Rating.htm?did=rw-widget-container&ezuid=' . $zuid .'&scrnname=' . $screenname . '&size=' .$size . '&type=iframe&zmod='. $zmod .'" width="'. $width .'" frameborder="0" style="display:block;max-width:100%;" height="'. $height .'"></iframe>';
 
 
 		echo $args['after_widget'];
 	}
-
 
 	/**
 	 * Form function.
@@ -80,20 +76,44 @@ class ZillowReviewWidget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => '',
 			'screenname' => '',
-			'zuid' => ''
+			'zuid' => '',
+			'size' => 'wide',
+			'zmod' => 'true',
+			'width' => '',
+			'height' => ''
 		));
 
 		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
+		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
+		$size = ! empty( $instance['size'] ) ? $instance['size'] : '';
+		$zmod = ! empty( $instance['zmod'] ) ? $instance['zmod'] : '';
+		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
+		$width = ! empty( $instance['width'] ) ? $instance['width'] : '';
 
 		// Form fields.
 		echo '<p>';
-		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title_label">' . esc_attr__( 'Title:', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $title ) . '" class="widefat" placeholder="' . esc_attr__( 'Title', 're-pro' ) . '" value="' . esc_attr( $title ) . '">';
+		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
 		echo '</p>';
 
-	}
+		echo '<p>';
+		echo '	<label for="' . $this->get_field_id( 'screenname' ) . '" class="title-label">' . __( 'Zillow Screenname:', 're-pro' ) . '</label>';
+		echo '	<input id="' . $this->get_field_id( 'screenname' ) . '" name="' . $this->get_field_name( 'screenname' ) . '" value="' . $screenname  . '" class="widefat">';
+		echo '</p>';
 
+		echo '<p>';
+		echo '	<label for="' . $this->get_field_id( 'zuid' ) . '" class="title-label">' . __( 'Zillow User ID:', 're-pro' ) . '</label>';
+		echo '	<input id="' . $this->get_field_id( 'zuid' ) . '" name="' . $this->get_field_name( 'zuid' ) . '" value="' . $zuid  . '" class="widefat">';
+		echo '</p>';
+
+		// Dropdown for Size
+
+		// Option for Zmod
+
+
+	}
 
 	/**
 	 * Update.
@@ -115,7 +135,6 @@ class ZillowReviewWidget extends WP_Widget {
 		return $instance;
 	}
 }
-
 
 /**
  * Register Zillow Review Widget.
