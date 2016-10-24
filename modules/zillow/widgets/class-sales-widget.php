@@ -29,7 +29,7 @@ class ZillowPastSalesWidget extends WP_Widget {
 			'zillow_past_sales_widget',
 			__( 'Zillow Past Sales', 're-pro' ),
 			array(
-				'description' => __( 'Display a widget of past sales from Zillow.', 're-pro' ),
+				'description' => __( 'Display your past sales from Zillow.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-past-sales',
 				'customize_selective_refresh' => true
 			)
@@ -57,7 +57,7 @@ class ZillowPastSalesWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class=" scrolling="no" src="https://www.zillow.com/widgets/profile/PastSalesListingWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/widgets/profile/PastSalesListingWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
