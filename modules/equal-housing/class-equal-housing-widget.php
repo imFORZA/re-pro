@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * EqualHousingWidget class.
  *
@@ -23,7 +21,7 @@ class EqualHousingWidget extends WP_Widget {
 			__( 'Equal Housing Opportunity', 're-pro' ),
 			array(
 				'description' => __( 'Display the Equal Housing Opportunity Logo.', 're-pro' ),
-				'classname'   => 're-pro equal-housing',
+				'classname'   => 're-pro re-pro-widget equal-housing',
 			)
 		);
 

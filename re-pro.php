@@ -80,8 +80,10 @@ class RePro {
 	 * Enqueue CSS.
 	 */
 	public function admin_scripts() {
+		if ( ! is_admin() ) {
 		wp_register_style( 're-pro', plugins_url( 'assets/css/re-pro-min.css', TEMPLATE_PLUGIN_FILE ) );
-		wp_enqueue_style( 're-pro' );
+		// wp_enqueue_style( 're-pro' );
+		}
 	}
 
 	/**
