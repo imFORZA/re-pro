@@ -22,6 +22,7 @@ class EqualHousingWidget extends WP_Widget {
 			array(
 				'description' => __( 'Display the Equal Housing Opportunity Logo.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget equal-housing',
+				'customize_selective_refresh' => true,
 			)
 		);
 

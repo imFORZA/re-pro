@@ -31,6 +31,7 @@ class ZillowReviewWidget extends WP_Widget {
 			array(
 				'description' => __( 'Display your Zillow Reviews.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-reviews',
+				'customize_selective_refresh' => true
 			)
 		);
 	}
