@@ -30,7 +30,7 @@ class ZillowListingsWidget extends WP_Widget {
 			__( 'Zillow Listings', 're-pro' ),
 			array(
 				'description' => __( 'Display your active listings from Zillow.', 're-pro' ),
-				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-listings',
+				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-my-listings',
 				'customize_selective_refresh' => true
 			)
 		);
