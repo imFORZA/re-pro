@@ -28,13 +28,12 @@ class EqualHousingWidget extends WP_Widget {
 
 	}
 
-
 	/**
 	 * Display Equal Housing Widget.
 	 *
 	 * @access public
-	 * @param mixed $args
-	 * @param mixed $instance
+	 * @param mixed $args Arguments.
+	 * @param mixed $instance Instance.
 	 * @return void
 	 */
 	public function widget( $args, $instance ) {
@@ -57,12 +56,11 @@ class EqualHousingWidget extends WP_Widget {
 
 	}
 
-
 	/**
 	 * Widget Form.
 	 *
 	 * @access public
-	 * @param mixed $instance
+	 * @param mixed $instance Instance.
 	 * @return void
 	 */
 	public function form( $instance ) {
@@ -106,8 +104,8 @@ class EqualHousingWidget extends WP_Widget {
 	 * Update Widget.
 	 *
 	 * @access public
-	 * @param mixed $new_instance
-	 * @param mixed $old_instance
+	 * @param mixed $new_instance New Widget Instance.
+	 * @param mixed $old_instance Old Widget instance.
 	 * @return void
 	 */
 	public function update( $new_instance, $old_instance ) {
