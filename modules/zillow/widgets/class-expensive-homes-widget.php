@@ -49,6 +49,7 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$type = ! empty( $instance['type'] ) ? $instance['type'] : '';
 		$size = ! empty( $instance['size'] ) ? $instance['size'] : '';
+		$location = ! empty( $instance['location'] ) ? $instance['location'] : '';
 
 		echo $args['before_widget'];
 
@@ -72,7 +73,8 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => '',
 			'type' => 'iframe',
-			'size' => 'wide'
+			'size' => 'wide',
+			'location' => 'El Segundo, CA',
 		));
 
 		// Retrieve an existing value from the database.
@@ -100,6 +102,9 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 		$instance = $old_instance;
 
 		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['type'] = ! empty( $new_instance['type'] ) ? strip_tags( $new_instance['type'] ) : '';
+		$instance['size'] = ! empty( $new_instance['size'] ) ? strip_tags( $new_instance['size'] ) : '';
+		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
 
 		return $instance;
 	}
