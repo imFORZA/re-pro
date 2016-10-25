@@ -21,3 +21,5 @@ include('widgets/class-affordability-calc-widget.php');
 include('widgets/class-mortgage-rate-table-widget.php');
 
 include('widgets/class-mortgage-calc-widget.php');
+
+// include('widgets/class-expensive-homes-widget.php');
