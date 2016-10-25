@@ -17,3 +17,5 @@ include('widgets/class-mortgage-rate-widget.php');
 include('widgets/class-monthlypay-calc-widget.php');
 
 include('widgets/class-affordability-calc-widget.php');
+
+include('widgets/class-mortgage-rate-table-widget.php');
