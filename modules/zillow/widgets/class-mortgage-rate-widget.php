@@ -49,6 +49,7 @@ class ZillowMortgageRateWidget extends WP_Widget {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 		$region = ! empty( $instance['region'] ) ? $instance['region'] : '';
+		$textcolor = ! empty( $instance['textcolor'] ) ? $instance['textcolor'] : '';
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
 		$format = ! empty( $instance['format'] ) ? $instance['format'] : '';
 		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
@@ -58,7 +59,7 @@ class ZillowMortgageRateWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" src="http://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor=b22222&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" src="http://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
@@ -77,8 +78,8 @@ class ZillowMortgageRateWidget extends WP_Widget {
 			'title' => '',
 			'screenname' => '',
 			'region' => '',
+			'textcolor' => '000000',
 			'zuid' => '',
-			'format' => 'normalWidget',
 			'width' => '',
 			'height' => ''
 		));
@@ -86,6 +87,7 @@ class ZillowMortgageRateWidget extends WP_Widget {
 		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
+		$textcolor = ! empty( $instance['textcolor'] ) ? $instance['textcolor'] : '';
 		$region = ! empty( $instance['region'] ) ? $instance['region'] : '';
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
 		$format = ! empty( $instance['format'] ) ? $instance['format'] : 'format';
@@ -108,6 +110,12 @@ class ZillowMortgageRateWidget extends WP_Widget {
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'region' ) . '" class="title-label">' . __( 'Region:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'region' ) . '" name="' . $this->get_field_name( 'region' ) . '" value="' . $region  . '" class="widefat">';
+		echo '</p>';
+
+		// Text Color
+		echo '<p>';
+		echo '	<label for="' . $this->get_field_id( 'textcolor' ) . '" class="title-label">' . __( 'Text Color:', 're-pro' ) . '</label>';
+		echo '	<input id="' . $this->get_field_id( 'textcolor' ) . '" name="' . $this->get_field_name( 'textcolor' ) . '" value="' . $region  . '" class="widefat">';
 		echo '</p>';
 
 		// Zillow User ID.
@@ -147,6 +155,7 @@ class ZillowMortgageRateWidget extends WP_Widget {
 		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? strip_tags( $new_instance['screenname'] ) : '';
 		$instance['region'] = ! empty( $new_instance['region'] ) ? strip_tags( $new_instance['region'] ) : '';
+		$instance['textcolor'] = ! empty( $new_instance['textcolor'] ) ? strip_tags( $new_instance['textcolor'] ) : '';
 		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? strip_tags( $new_instance['zuid'] ) : '';
 		$instance['format'] = ! empty( $new_instance['format'] ) ? strip_tags( $new_instance['format'] ) : '';
 		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? strip_tags( $new_instance['zmod'] ) : '';

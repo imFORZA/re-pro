@@ -50,14 +50,12 @@ class ZillowListingsWidget extends WP_Widget {
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
 		$format = ! empty( $instance['format'] ) ? $instance['format'] : '';
-		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
-		$width = ! empty( $instance['width'] ) ? $instance['width'] : '';
 
 		echo $args['before_widget'];
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/widgets/profile/NewListingsWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/widgets/profile/NewListingsWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="500" height="250" frameborder="0" style="display:block;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
@@ -77,8 +75,6 @@ class ZillowListingsWidget extends WP_Widget {
 			'screenname' => '',
 			'zuid' => '',
 			'format' => 'normalWidget',
-			'width' => '',
-			'height' => ''
 		));
 
 		// Retrieve an existing value from the database.
@@ -86,8 +82,6 @@ class ZillowListingsWidget extends WP_Widget {
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
 		$format = ! empty( $instance['format'] ) ? $instance['format'] : 'format';
-		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
-		$width = ! empty( $instance['width'] ) ? $instance['width'] : '';
 
 		// Title.
 		echo '<p>';
@@ -107,19 +101,6 @@ class ZillowListingsWidget extends WP_Widget {
 		echo '	<input id="' . $this->get_field_id( 'zuid' ) . '" name="' . $this->get_field_name( 'zuid' ) . '" value="' . $zuid  . '" class="widefat">';
 		echo '</p>';
 
-		// Dropdown for Format.
-
-		// Width Option.
-		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'width' ) . '" class="title-label">' . __( 'Width:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'width' ) . '" name="' . $this->get_field_name( 'width' ) . '" value="' . $width  . '" class="widefat">';
-		echo '</p>';
-
-		// Height Option
-		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'height' ) . '" class="title-label">' . __( 'Height:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'height' ) . '" name="' . $this->get_field_name( 'height' ) . '" value="' . $height  . '" class="widefat">';
-		echo '</p>';
 
 	}
 
@@ -140,8 +121,6 @@ class ZillowListingsWidget extends WP_Widget {
 		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? strip_tags( $new_instance['zuid'] ) : '';
 		$instance['format'] = ! empty( $new_instance['format'] ) ? strip_tags( $new_instance['format'] ) : '';
 		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? strip_tags( $new_instance['zmod'] ) : '';
-		$instance['width'] = ! empty( $new_instance['width'] ) ? strip_tags( $new_instance['width'] ) : '';
-		$instance['height'] = ! empty( $new_instance['height'] ) ? strip_tags( $new_instance['height'] ) : '';
 
 		return $instance;
 	}
