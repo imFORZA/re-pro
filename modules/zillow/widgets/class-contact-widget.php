@@ -55,7 +55,7 @@ class ZillowContactWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/widgets/contact/ContactFormWidget.htm?email='. $email .'&size=wide" width="350" height="250" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" title="'. __('Contact me on Zillow', 're-rpo') .'" src="https://www.zillow.com/widgets/contact/ContactFormWidget.htm?email='. $email .'&size=wide" width="350" height="250" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}

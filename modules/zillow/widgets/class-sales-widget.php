@@ -55,7 +55,7 @@ class ZillowPastSalesWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/widgets/profile/PastSalesListingWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="500" height="250" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" title="'. __('My Sales on Zillow', 're-rpo') .'" src="https://www.zillow.com/widgets/profile/PastSalesListingWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="500" height="250" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}

@@ -116,7 +116,7 @@ class ZillowMortgageRateWidget extends WP_Widget {
 
 		<?php
 
-		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="130" height="100" frameborder="0" style="display:block;width:50%;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" title="'. __('Zillow Mortgage Rate Table', 're-rpo') .'" src="https://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="130" height="100" frameborder="0" style="display:block;width:50%;max-width:100%;"></iframe>';
 
 		?>
 

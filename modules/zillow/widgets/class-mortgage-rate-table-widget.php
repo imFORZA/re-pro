@@ -52,7 +52,7 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/webtools/widgets/RateTableDistributionWidget.htm" width="306" height="215" frameborder="0" style="display:block;width:100%;min-height:215px;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" title="'. __('Zillow Mortgage Rate Table', 're-rpo') .'" src="https://www.zillow.com/webtools/widgets/RateTableDistributionWidget.htm" width="306" height="215" frameborder="0" style="display:block;width:100%;min-height:215px;max-width:100%;"></iframe>';
 
 
 
