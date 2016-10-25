@@ -65,14 +65,14 @@ class RePro {
 		register_activation_hook( REPRO_PLUGIN_FILE, array( $this, 'activate' ) );
 		register_deactivation_hook( REPRO_PLUGIN_FILE, array( $this, 'deactivate' ) );
 
-		/* Set menu page */
+		/* Set menu page. */
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
-		/** Enqueue css and js files */
+		/** Enqueue css and js files. */
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 
-		/* Add link to settings in plugins admin page */
-		// add_filter( 'plugin_action_links_' . REPRO_BASE_NAME , array( $this, 'plugin_links' ) );
+		/* Add link to settings in plugins admin page. */
+		add_filter( 'plugin_action_links_' . REPRO_BASE_NAME , array( $this, 'plugin_links' ) );
 	}
 
 	/**
