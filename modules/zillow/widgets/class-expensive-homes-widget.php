@@ -54,9 +54,7 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-
 		echo '<iframe id="" class="" scrolling="no" title="'. __('Zillow Most Expensive Homes', 're-rpo') .'" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=meh-large-iframe-widget-container&type=iframe&size=wide&rn=Seattle+WA&widgettype=meh" width="287" height="121" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
-
 
 		echo $args['after_widget'];
 	}
