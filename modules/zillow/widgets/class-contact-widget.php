@@ -50,15 +50,12 @@ class ZillowContactWidget extends WP_Widget {
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 		$email = ! empty( $instance['email'] ) ? $instance['email'] : '';
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
-		$size = ! empty( $instance['size'] ) ? $instance['size'] : '';
-		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
-		$width = ! empty( $instance['width'] ) ? $instance['width'] : '';
 
 		echo $args['before_widget'];
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/widgets/contact/ContactFormWidget.htm?email='. $email .'&size='. $size .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/widgets/contact/ContactFormWidget.htm?email='. $email .'&size=wide" width="350" height="250" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
@@ -77,9 +74,6 @@ class ZillowContactWidget extends WP_Widget {
 			'title' => '',
 			'screenname' => '',
 			'zuid' => '',
-			'size' => 'wide',
-			'width' => '300',
-			'height' => '500'
 		));
 
 		// Retrieve an existing value from the database.
@@ -108,20 +102,6 @@ class ZillowContactWidget extends WP_Widget {
 		echo '	<input id="' . $this->get_field_id( 'zuid' ) . '" name="' . $this->get_field_name( 'zuid' ) . '" value="' . $zuid  . '" class="widefat">';
 		echo '</p>';
 
-		// Dropdown for Format.
-
-		// Width Option.
-		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'width' ) . '" class="title-label">' . __( 'Width:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'width' ) . '" name="' . $this->get_field_name( 'width' ) . '" value="' . $width  . '" class="widefat">';
-		echo '</p>';
-
-		// Height Option
-		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'height' ) . '" class="title-label">' . __( 'Height:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'height' ) . '" name="' . $this->get_field_name( 'height' ) . '" value="' . $height  . '" class="widefat">';
-		echo '</p>';
-
 	}
 
 	/**
@@ -139,11 +119,7 @@ class ZillowContactWidget extends WP_Widget {
 		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? strip_tags( $new_instance['screenname'] ) : '';
 		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? strip_tags( $new_instance['zuid'] ) : '';
-		$instance['size'] = ! empty( $new_instance['size'] ) ? strip_tags( $new_instance['size'] ) : '';
 		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? strip_tags( $new_instance['zmod'] ) : '';
-		$instance['width'] = ! empty( $new_instance['width'] ) ? strip_tags( $new_instance['width'] ) : '';
-		$instance['height'] = ! empty( $new_instance['height'] ) ? strip_tags( $new_instance['height'] ) : '';
-
 		return $instance;
 	}
 }

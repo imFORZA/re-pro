@@ -59,7 +59,7 @@ class ZillowMortgageRateWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" src="http://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" src="http://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="300" height="150" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
@@ -80,8 +80,6 @@ class ZillowMortgageRateWidget extends WP_Widget {
 			'region' => '',
 			'textcolor' => '000000',
 			'zuid' => '',
-			'width' => '',
-			'height' => ''
 		));
 
 		// Retrieve an existing value from the database.
@@ -91,8 +89,6 @@ class ZillowMortgageRateWidget extends WP_Widget {
 		$region = ! empty( $instance['region'] ) ? $instance['region'] : '';
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
 		$format = ! empty( $instance['format'] ) ? $instance['format'] : 'format';
-		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
-		$width = ! empty( $instance['width'] ) ? $instance['width'] : '';
 
 		// Title.
 		echo '<p>';
@@ -159,8 +155,6 @@ class ZillowMortgageRateWidget extends WP_Widget {
 		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? strip_tags( $new_instance['zuid'] ) : '';
 		$instance['format'] = ! empty( $new_instance['format'] ) ? strip_tags( $new_instance['format'] ) : '';
 		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? strip_tags( $new_instance['zmod'] ) : '';
-		$instance['width'] = ! empty( $new_instance['width'] ) ? strip_tags( $new_instance['width'] ) : '';
-		$instance['height'] = ! empty( $new_instance['height'] ) ? strip_tags( $new_instance['height'] ) : '';
 
 		return $instance;
 	}
