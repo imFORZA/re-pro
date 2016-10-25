@@ -49,7 +49,7 @@ class EqualHousingWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-	echo '<img src="'. esc_url( plugins_url( '../../assets/images/equalhousing/equal_housing.svg', __FILE__ ) ) .'" alt="'. __('Equal Housing Opportunity', 're-pro') .'" height="' . $logo_size . '" width="' . $logo_size . '" class="re-pro equal-housing-opportunity">';
+	echo '<img src="'. esc_url( plugins_url( '../../../assets/images/equalhousing/equal_housing.svg', __FILE__ ) ) .'" alt="'. __('Equal Housing Opportunity', 're-pro') .'" height="' . $logo_size . '" width="' . $logo_size . '" class="re-pro equal-housing-opportunity">';
 
 
 	echo $args['after_widget'];
