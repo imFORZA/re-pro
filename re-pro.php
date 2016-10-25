@@ -26,15 +26,17 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /** Instantiate the plugin. */
 new RePro();
 
+
 /**
- * TemplatePlugin class.
- *
- * @package IDX-Exporter
- **/
+ * RePro class.
+ */
 class RePro {
 
 	/**
-	 * Plugin Constructor.
+	 * Constructor.
+	 *
+	 * @access public
+	 * @return void
 	 */
 	public function __construct() {
 		/* Define Constants */
@@ -48,14 +50,18 @@ class RePro {
 		$this->init();
 	}
 
+
 	/**
-	 * Initialize
+	 * Init.
+	 *
+	 * @access private
+	 * @return void
 	 */
 	private function init() {
-		/* Language Support */
+		/* Language Support. */
 		load_plugin_textdomain( 're-pro', false, dirname( REPRO_BASE_NAME ) . '/languages' );
 
-		/* IDX Broker Plugin Activation/De-Activation. */
+		/* Plugin Activation/De-Activation. */
 		register_activation_hook( REPRO_PLUGIN_FILE, array( $this, 'activate' ) );
 		register_deactivation_hook( REPRO_PLUGIN_FILE, array( $this, 'deactivate' ) );
 
