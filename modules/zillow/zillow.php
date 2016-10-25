@@ -11,3 +11,5 @@ include('widgets/class-sales-widget.php');
 include('widgets/class-listings-widget.php');
 
 include('widgets/class-contact-widget.php');
+
+include('widgets/class-mortgage-rate-widget.php');
