@@ -1,7 +1,7 @@
 <?php
 
 // Equal Housing.
-include_once('equal-housing/class-equal-housing-widget.php');
+include_once('equal-housing/equal-housing.php');
 
 // Zillow.
 include_once('zillow/zillow.php');
