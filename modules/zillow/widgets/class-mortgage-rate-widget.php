@@ -55,7 +55,77 @@ class ZillowMortgageRateWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" src="http://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="300" height="150" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+		?>
+
+		<style>
+			.zillow-mortage-rate-table {
+				overflow:hidden;text-align:center;margin:0 auto;text-transform:none;line-height:normal;
+			}
+			.zillow-mortage-rate-table .current-label {
+				padding-left:137px;
+				color:#<?php echo $textcolor; ?>;
+			}
+			.zillow-mortage-rate-table .lastweek-label {
+				padding-left:23px;
+				color:#<?php echo $textcolor; ?>;
+			}
+			.zillow-mortage-rate-table .rate-label-row {
+				box-sizing:content-box;
+				height:29px;
+				border-bottom:1px solid #ccc;
+			}
+			.zillow-mortage-rate-table .rate-labels-wrapper {
+				box-sizing:content-box;
+				width:50%;
+				float:left;
+			}
+			.zillow-mortage-rate-table .rate-label {
+				box-sizing:content-box;
+				padding:9px 0 0 8px;
+				text-align:left;
+			}
+		</style>
+
+    <div id="" class="zillow-mortage-rate-table">
+
+
+        <div style="margin:5px 0 1px;">
+            <span class="current-label"><?php _e('Current', 're-pro'); ?></span><span class="lastweek-label"><?php _e('Last Week', 're-pro'); ?></span>
+        </div>
+
+        <div style="">
+            <div class="rate-labels-wrapper">
+                <div id="30-year-label-row" class="rate-label-row">
+                    <div id="30-year-label" class="rate-label">
+                        <?php _e('30 Year Fixed', 're-pro'); ?>
+                    </div>
+                </div>
+
+                <div id="15-year-label-row" class="rate-label-row">
+                    <div id="15-year-label" class="rate-label">
+                        <?php _e('15 Year Fixed', 're-pro'); ?>
+                    </div>
+                </div>
+
+                <div id="5-1-adjustable-label-row" class="rate-label-row">
+                    <div id="5-1-adjustable-label" class="rate-label">
+                        <?php _e('5/1 Adjustable', 're-pro'); ?>
+                    </div>
+                </div>
+            </div>
+
+		<?php
+
+		echo '<iframe id="" class="" scrolling="no" src="https://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="130" height="100" frameborder="0" style="display:block;width:50%;max-width:100%;"></iframe>';
+
+		?>
+
+
+        </div>
+
+		<?php
+
+
 
 		echo $args['after_widget'];
 	}

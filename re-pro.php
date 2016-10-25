@@ -66,7 +66,7 @@ class RePro {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 
 		/* Add link to settings in plugins admin page */
-		add_filter( 'plugin_action_links_' . REPRO_BASE_NAME , array( $this, 'plugin_links' ) );
+		// add_filter( 'plugin_action_links_' . REPRO_BASE_NAME , array( $this, 'plugin_links' ) );
 	}
 
 	/**
