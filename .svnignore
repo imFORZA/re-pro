@@ -1,0 +1,16 @@
+.git
+.gitignore
+.sass-cache
+.jshintrc
+.jshintignore
+.travis.yml
+readme.md
+.github
+phpunit.xml.dist
+tests
+package.json
+gulpfile.js
+.editorconfig
+.codeclimate.yml
+tests
+bin
