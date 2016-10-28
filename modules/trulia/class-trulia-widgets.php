@@ -52,16 +52,15 @@ class TruliaWidgets extends WP_Widget {
 
 				echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-				if ( $trulia_widget == 'map-search') {
+		if ( $trulia_widget == 'map-search' ) {
 
-					?>
+			?>
 
-				<iframe src="https://synd.trulia.com/tools/map-search/embedded?params%5Blocation%5D=91307&params%5BlocationId%5D=76380&params%5Bagent_id%5D=&params%5Bproperty_status%5D=for+sale&params%5Btitle%5D=Map+Search&params%5Bcolor%5D=green&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=300&params%5Bheight%5D=250&params%5Bguid%5D=57f6e0a7b75e3" style="min-height: 185px; overflow: hidden;">
-				<p>Your browser does not support iframes</p></iframe>
-					<?php
+		<iframe src="https://synd.trulia.com/tools/map-search/embedded?params%5Blocation%5D=91307&params%5BlocationId%5D=76380&params%5Bagent_id%5D=&params%5Bproperty_status%5D=for+sale&params%5Btitle%5D=Map+Search&params%5Bcolor%5D=green&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=300&params%5Bheight%5D=250&params%5Bguid%5D=57f6e0a7b75e3" style="min-height: 185px; overflow: hidden;">
+		<p>Your browser does not support iframes</p></iframe>
+			<?php
 
-				}
-
+		}
 
 				echo $args['after_widget'];
 

@@ -31,7 +31,7 @@ class ZillowReviewWidget extends WP_Widget {
 			array(
 				'description' => __( 'Display a ratings link to your Zillow Reviews.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-reviews',
-				'customize_selective_refresh' => true
+				'customize_selective_refresh' => true,
 			)
 		);
 	}
@@ -58,7 +58,7 @@ class ZillowReviewWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="zillow-reviews" scrolling="yes" title="'. __('My Reviews on Zillow', 're-rpo') .'" src="https://www.zillow.com/widgets/reputation/Rating.htm?did=rw-widget-container&ezuid=' . $zuid .'&scrnname=' . $screenname . '&size=' .$size . '&type=iframe&zmod='. $zmod .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="zillow-reviews" scrolling="yes" title="'. __( 'My Reviews on Zillow', 're-rpo' ) .'" src="https://www.zillow.com/widgets/reputation/Rating.htm?did=rw-widget-container&ezuid=' . $zuid .'&scrnname=' . $screenname . '&size=' .$size . '&type=iframe&zmod='. $zmod .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
@@ -80,7 +80,7 @@ class ZillowReviewWidget extends WP_Widget {
 			'size' => 'wide',
 			'zmod' => 'true',
 			'width' => '',
-			'height' => ''
+			'height' => '',
 		));
 
 		// Retrieve an existing value from the database.
@@ -111,9 +111,7 @@ class ZillowReviewWidget extends WP_Widget {
 		echo '</p>';
 
 		// Dropdown for Size.
-
 		// Dropdown for Zmod
-
 		// Width Option.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'width' ) . '" class="title-label">' . __( 'Width:', 're-pro' ) . '</label>';

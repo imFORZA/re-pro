@@ -10,4 +10,4 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 
 // Equal Housing.
-include_once('modules/modules.php');
+include_once( 'modules/modules.php' );

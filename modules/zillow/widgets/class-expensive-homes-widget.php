@@ -31,7 +31,7 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 			array(
 				'description' => __( 'Display the most expensive homes from Zillow.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-expensive-homes',
-				'customize_selective_refresh' => true
+				'customize_selective_refresh' => true,
 			)
 		);
 	}
@@ -55,7 +55,7 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __('Zillow Most Expensive Homes', 're-rpo') .'" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=meh-large-iframe-widget-container&type=iframe&size=wide&rn=Seattle+WA&widgettype=meh" width="287" height="121" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" title="'. __( 'Zillow Most Expensive Homes', 're-rpo' ) .'" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=meh-large-iframe-widget-container&type=iframe&size=wide&rn=Seattle+WA&widgettype=meh" width="287" height="121" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
@@ -85,7 +85,6 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
 		echo '</p>';
-
 
 	}
 

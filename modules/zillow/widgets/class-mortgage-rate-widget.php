@@ -31,7 +31,7 @@ class ZillowMortgageRateWidget extends WP_Widget {
 			array(
 				'description' => __( 'Display a Mortgage Rate Table from Zillow.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-mortgage-rate-table',
-				'customize_selective_refresh' => true
+				'customize_selective_refresh' => true,
 			)
 		);
 	}
@@ -86,46 +86,44 @@ class ZillowMortgageRateWidget extends WP_Widget {
 			}
 		</style>
 
-    <div id="" class="zillow-mortage-rate-table">
+	<div id="" class="zillow-mortage-rate-table">
 
 
-        <div style="margin:5px 0 1px;">
-            <span class="current-label"><?php _e('Current', 're-pro'); ?></span><span class="lastweek-label"><?php _e('Last Week', 're-pro'); ?></span>
-        </div>
+		<div style="margin:5px 0 1px;">
+			<span class="current-label"><?php _e( 'Current', 're-pro' ); ?></span><span class="lastweek-label"><?php _e( 'Last Week', 're-pro' ); ?></span>
+		</div>
 
-        <div style="">
-            <div class="rate-labels-wrapper">
-                <div id="30-year-label-row" class="rate-label-row">
-                    <div id="30-year-label" class="rate-label">
-                        <?php _e('30 Year Fixed', 're-pro'); ?>
-                    </div>
-                </div>
+		<div style="">
+			<div class="rate-labels-wrapper">
+				<div id="30-year-label-row" class="rate-label-row">
+					<div id="30-year-label" class="rate-label">
+						<?php _e( '30 Year Fixed', 're-pro' ); ?>
+					</div>
+				</div>
 
-                <div id="15-year-label-row" class="rate-label-row">
-                    <div id="15-year-label" class="rate-label">
-                        <?php _e('15 Year Fixed', 're-pro'); ?>
-                    </div>
-                </div>
+				<div id="15-year-label-row" class="rate-label-row">
+					<div id="15-year-label" class="rate-label">
+						<?php _e( '15 Year Fixed', 're-pro' ); ?>
+					</div>
+				</div>
 
-                <div id="5-1-adjustable-label-row" class="rate-label-row">
-                    <div id="5-1-adjustable-label" class="rate-label">
-                        <?php _e('5/1 Adjustable', 're-pro'); ?>
-                    </div>
-                </div>
-            </div>
+				<div id="5-1-adjustable-label-row" class="rate-label-row">
+					<div id="5-1-adjustable-label" class="rate-label">
+						<?php _e( '5/1 Adjustable', 're-pro' ); ?>
+					</div>
+				</div>
+			</div>
 
 		<?php
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __('Zillow Mortgage Rate Table', 're-rpo') .'" src="https://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="130" height="100" frameborder="0" style="display:block;width:50%;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" title="'. __( 'Zillow Mortgage Rate Table', 're-rpo' ) .'" src="https://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="130" height="100" frameborder="0" style="display:block;width:50%;max-width:100%;"></iframe>';
 
 		?>
 
 
-        </div>
+		</div>
 
 		<?php
-
-
 
 		echo $args['after_widget'];
 	}

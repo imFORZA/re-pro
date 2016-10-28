@@ -38,8 +38,8 @@ class EqualHousingWidget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		if ( !empty( $instance['title'] ) ) {
-		$title = $instance['title'];
+		if ( ! empty( $instance['title'] ) ) {
+			$title = $instance['title'];
 		} else {
 			$title = '';
 		}
@@ -49,10 +49,9 @@ class EqualHousingWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-	echo '<img src="'. esc_url( plugins_url( '../../../assets/images/equalhousing/equal_housing.svg', __FILE__ ) ) .'" alt="'. __('Equal Housing Opportunity', 're-pro') .'" height="' . $logo_size . '" width="' . $logo_size . '" class="re-pro equal-housing-opportunity">';
+		echo '<img src="'. esc_url( plugins_url( '../../../assets/images/equalhousing/equal_housing.svg', __FILE__ ) ) .'" alt="'. __( 'Equal Housing Opportunity', 're-pro' ) .'" height="' . $logo_size . '" width="' . $logo_size . '" class="re-pro equal-housing-opportunity">';
 
-
-	echo $args['after_widget'];
+		echo $args['after_widget'];
 
 	}
 
@@ -72,8 +71,8 @@ class EqualHousingWidget extends WP_Widget {
 		) );
 
 		// Retrieve an existing value from the database
-		$title = !empty( $instance['title'] ) ? $instance['title'] : '';
-		$logo_size = !empty( $instance['logo_size'] ) ? $instance['logo_size'] : '';
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$logo_size = ! empty( $instance['logo_size'] ) ? $instance['logo_size'] : '';
 
 		// Form fields
 		echo '<p>';
@@ -112,13 +111,12 @@ class EqualHousingWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = !empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['logo_size'] = !empty( $new_instance['logo_size'] ) ? strip_tags( $new_instance['logo_size'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['logo_size'] = ! empty( $new_instance['logo_size'] ) ? strip_tags( $new_instance['logo_size'] ) : '';
 
 		return $instance;
 
 	}
-
 }
 
 

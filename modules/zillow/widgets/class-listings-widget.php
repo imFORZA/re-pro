@@ -31,7 +31,7 @@ class ZillowListingsWidget extends WP_Widget {
 			array(
 				'description' => __( 'Display your active listings from Zillow.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-my-listings',
-				'customize_selective_refresh' => true
+				'customize_selective_refresh' => true,
 			)
 		);
 	}
@@ -55,7 +55,7 @@ class ZillowListingsWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __('My Listings on Zillow', 're-rpo') .'" src="https://www.zillow.com/widgets/profile/NewListingsWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="500" height="250" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" title="'. __( 'My Listings on Zillow', 're-rpo' ) .'" src="https://www.zillow.com/widgets/profile/NewListingsWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="500" height="250" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
@@ -100,7 +100,6 @@ class ZillowListingsWidget extends WP_Widget {
 		echo '	<label for="' . $this->get_field_id( 'zuid' ) . '" class="title-label">' . __( 'Zillow User ID:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'zuid' ) . '" name="' . $this->get_field_name( 'zuid' ) . '" value="' . $zuid  . '" class="widefat">';
 		echo '</p>';
-
 
 	}
 

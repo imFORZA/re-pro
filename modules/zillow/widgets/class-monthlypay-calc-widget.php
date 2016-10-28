@@ -31,7 +31,7 @@ class ZillowMonthlyPaymentCalcWidget extends WP_Widget {
 			array(
 				'description' => __( 'Display a Monthly Payment Calculator from Zillow.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-monthly-payment-calculator',
-				'customize_selective_refresh' => true
+				'customize_selective_refresh' => true,
 			)
 		);
 	}
@@ -52,10 +52,7 @@ class ZillowMonthlyPaymentCalcWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __('Monthly Payment Calculator', 're-rpo') .'" src="https://www.zillow.com/mortgage/MortgageCalculatorWidgetLarge.htm" width="688" height="700" frameborder="0" style="display:block;width:100%;min-height:700px;max-width:100%;"></iframe>';
-
-
-
+		echo '<iframe id="" class="" scrolling="no" title="'. __( 'Monthly Payment Calculator', 're-rpo' ) .'" src="https://www.zillow.com/mortgage/MortgageCalculatorWidgetLarge.htm" width="688" height="700" frameborder="0" style="display:block;width:100%;min-height:700px;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
@@ -86,7 +83,6 @@ class ZillowMonthlyPaymentCalcWidget extends WP_Widget {
 		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
 		echo '</p>';
-
 
 	}
 

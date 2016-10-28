@@ -87,8 +87,8 @@ class RePro {
 	 */
 	public function admin_scripts() {
 		if ( ! is_admin() ) {
-		wp_register_style( 're-pro', plugins_url( 'assets/css/re-pro-min.css', REPRO_PLUGIN_FILE ) );
-		// wp_enqueue_style( 're-pro' );
+			wp_register_style( 're-pro', plugins_url( 'assets/css/re-pro-min.css', REPRO_PLUGIN_FILE ) );
+			// wp_enqueue_style( 're-pro' );
 		}
 	}
 

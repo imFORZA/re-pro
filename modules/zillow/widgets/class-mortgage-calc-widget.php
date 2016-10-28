@@ -30,7 +30,7 @@ class ZillowMortgageCalcWidget extends WP_Widget {
 			array(
 				'description' => __( 'Display Mortgage Calculator from Zillow.', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-mortgage-calculator',
-				'customize_selective_refresh' => true
+				'customize_selective_refresh' => true,
 			)
 		);
 	}
@@ -60,7 +60,7 @@ class ZillowMortgageCalcWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __('Zillow Mortgage Calculator', 're-rpo') .'" src="https://www.zillow.com/mortgage/SmallMortgageLoanCalculatorWidget.htm?widgetOrientationType='. $orientation .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+		echo '<iframe id="" class="" scrolling="no" title="'. __( 'Zillow Mortgage Calculator', 're-rpo' ) .'" src="https://www.zillow.com/mortgage/SmallMortgageLoanCalculatorWidget.htm?widgetOrientationType='. $orientation .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
 
 		echo $args['after_widget'];
 	}
