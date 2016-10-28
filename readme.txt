@@ -1,5 +1,5 @@
 === Real Estate Pro ===
-Contributors: bhubbard, imforza
+Contributors: bhubbard, imforza, sgarza
 Tags: real estate
 Requires at least: 4.6
 Tested up to: 4.6.1
