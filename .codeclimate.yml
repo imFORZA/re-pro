@@ -54,3 +54,4 @@ exclude_paths:
   - "**.gif"
   - "**.jpg"
   - "**.jpeg"
+  - "phpcs.ruleset.xml"
