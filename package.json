@@ -1,7 +1,7 @@
 {
-  "name": "template-plugin",
+  "name": "re-pro",
   "version": "1.0.0",
-  "description": "Plugin Template",
+  "description": "Real Estate Pro, bringing widgets, shortcode and data to Real Estate Websites.",
   "private": true,
   "dependencies": {},
   "devDependencies": {
@@ -20,5 +20,5 @@
     "run-sequence": "^1.1.5"
   },
   "author": "imFORZA",
-  "license": "All rights reserved"
+  "license": "GPLv3"
 }
