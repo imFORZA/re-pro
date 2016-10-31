@@ -1,6 +1,6 @@
 === Real Estate Pro ===
 Contributors: bhubbard, imforza, sgarza
-Tags: real estate
+Tags: Real Estate, Zillow, imFORZA, Equal Housing Opportunity
 Requires at least: 4.6
 Tested up to: 4.6.1
 Stable tag: trunk
