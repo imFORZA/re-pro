@@ -460,7 +460,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_kindofneighbor_quiz_widget( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'konq', $zillow_screenname ) {
 
-			echo '<iframe scrolling="no" src="httsp://www.zillow.com/widgets/quiz/QuizWidget.htm?did=neighbor-quiz-iframe-container&type=iframe&widgetcode=konq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'kindofneighbor-quiz' ) .'" title="'. __( 'Zillow Kind of Neighbor Quiz', 're-pro' ) .'" scrolling="no" src="httsp://www.zillow.com/widgets/quiz/QuizWidget.htm?did=neighbor-quiz-iframe-container&type=iframe&widgetcode=konq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -477,7 +477,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_mortgage_quiz( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'mq', $zillow_screenname ) {
 
-			echo '<iframe scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=mortgage-iframe-container&type=iframe&widgetcode=mq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-quiz' ) .'" title="'. __( 'Zillow Mortgage Quiz', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=mortgage-iframe-container&type=iframe&widgetcode=mq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -494,7 +494,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_mortgage_harp_quiz( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'hec', $zillow_screenname ) {
 
-			echo '<iframe scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=mortgage-iframe-container&type=iframe&widgetcode=hec&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-harp-quiz' ) .'" title="'. __( 'Zillow Mortgage HARP Quiz', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=mortgage-iframe-container&type=iframe&widgetcode=hec&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -511,7 +511,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_buyeriq_quiz( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'biq', $zillow_screenname ) {
 
-			echo '<iframe scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=buyer-iframe-container&type=iframe&widgetcode=biq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'buyeriq-quiz' ) .'" title="'. __( 'Zillow Buyer IQ Quiz', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=buyer-iframe-container&type=iframe&widgetcode=biq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -530,7 +530,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_moving_boxes_widget( $widget_type = 'iframe', $iframe_id = '', $zillow_city_id, $button_text, $custom_text, $button_link ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'moving-boxes' ) .'" scrolling="no" src="https://www.zillow.com/widgets/misc/MovingBoxEstimatorWidget.htm?bc='.$zillow_city_id.'&bt='.$button_text.'&cap='.$custom_text.'&bl='.$button_link.'" width="168" frameborder="0" height="315"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'moving-boxes' ) .'" title="'. __( 'Zillow Moving Box Calculator', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/misc/MovingBoxEstimatorWidget.htm?bc='.$zillow_city_id.'&bt='.$button_text.'&cap='.$custom_text.'&bl='.$button_link.'" width="168" frameborder="0" height="315"></iframe>';
 
 		}
 
