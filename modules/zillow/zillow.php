@@ -8,6 +8,8 @@
 /* Exit if accessed directly. */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
+include( 'widgets/class-zillow-widgets.php' );
+
 // Include Review Widget.
 include( 'widgets/class-review-widget.php' );
 

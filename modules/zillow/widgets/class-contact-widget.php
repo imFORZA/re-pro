@@ -46,6 +46,7 @@ class ZillowContactWidget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 		$email = ! empty( $instance['email'] ) ? $instance['email'] : '';
@@ -55,7 +56,9 @@ class ZillowContactWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __( 'Contact me on Zillow', 're-rpo' ) .'" src="https://www.zillow.com/widgets/contact/ContactFormWidget.htm?email='. $email .'&size=wide" width="350" height="250" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+		$zillow_widgets = new ZillowWidgets();
+
+		return $zillow_widgets->get_contact_widget( $iframe_id, $email );
 
 		echo $args['after_widget'];
 	}

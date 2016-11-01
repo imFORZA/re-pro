@@ -46,6 +46,7 @@ class ZillowReviewWidget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
@@ -58,7 +59,9 @@ class ZillowReviewWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="zillow-reviews" scrolling="yes" title="'. __( 'My Reviews on Zillow', 're-rpo' ) .'" src="https://www.zillow.com/widgets/reputation/Rating.htm?did=rw-widget-container&ezuid=' . $zuid .'&scrnname=' . $screenname . '&size=' .$size . '&type=iframe&zmod='. $zmod .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;max-width:100%;"></iframe>';
+		$zillow_widgets = new ZillowWidgets();
+
+		return $zillow_widgets->get_review_widget( $iframe_id, $zuid, $screenname, $size, $zmod, $width, $height );
 
 		echo $args['after_widget'];
 	}
@@ -110,8 +113,6 @@ class ZillowReviewWidget extends WP_Widget {
 		echo '	<input id="' . $this->get_field_id( 'zuid' ) . '" name="' . $this->get_field_name( 'zuid' ) . '" value="' . $zuid  . '" class="widefat">';
 		echo '</p>';
 
-		// Dropdown for Size.
-		// Dropdown for Zmod
 		// Width Option.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'width' ) . '" class="title-label">' . __( 'Width:', 're-pro' ) . '</label>';
