@@ -46,6 +46,7 @@ class ZillowPastSalesWidget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
@@ -55,7 +56,9 @@ class ZillowPastSalesWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __( 'My Sales on Zillow', 're-rpo' ) .'" src="https://www.zillow.com/widgets/profile/PastSalesListingWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="500" height="250" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+		$zillow_widgets = new ZillowWidgets();
+
+		return $zillow_widgets->get_past_listings_widget( $iframe_id, $zuid );
 
 		echo $args['after_widget'];
 	}

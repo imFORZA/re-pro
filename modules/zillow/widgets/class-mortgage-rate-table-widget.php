@@ -48,9 +48,7 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 
 		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
-		$textcolor = ! empty( $instance['textcolor'] ) ? $instance['textcolor'] : '';
-		$region = ! empty( $instance['region'] ) ? $instance['region'] : '';
-		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
+
 
 		echo $args['before_widget'];
 
@@ -58,7 +56,7 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 
 		$zillow_widgets = new ZillowWidgets();
 
-		return $zillow_widgets->get_mortgage_rate_table_widget( $iframe_id, $textcolor, $screenname, $region );
+		return $zillow_widgets->get_mortage_rate_widget( $iframe_id );
 
 		echo $args['after_widget'];
 	}
@@ -75,16 +73,10 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 		// Set default values.
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => '',
-			'screenname' => '',
-			'region' => '',
-			'textcolor' => '000000',
 		));
 
 		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
-		$textcolor = ! empty( $instance['textcolor'] ) ? $instance['textcolor'] : '';
-		$region = ! empty( $instance['region'] ) ? $instance['region'] : '';
-		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 
 		// Title.
 		echo '<p>';
