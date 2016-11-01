@@ -52,8 +52,6 @@ class ZillowReviewWidget extends WP_Widget {
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
 		$size = ! empty( $instance['size'] ) ? $instance['size'] : 'wide';
 		$zmod = ! empty( $instance['zmod'] ) ? $instance['zmod'] : 'true';
-		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
-		$width = ! empty( $instance['width'] ) ? $instance['width'] : '';
 
 		echo $args['before_widget'];
 
@@ -61,7 +59,7 @@ class ZillowReviewWidget extends WP_Widget {
 
 		$zillow_widgets = new ZillowWidgets();
 
-		return $zillow_widgets->get_review_widget( $iframe_id, $zuid, $screenname, $size, $zmod, $width, $height );
+		return $zillow_widgets->get_review_widget( $iframe_id, $zuid, $screenname, $size, $zmod );
 
 		echo $args['after_widget'];
 	}
@@ -82,8 +80,6 @@ class ZillowReviewWidget extends WP_Widget {
 			'zuid' => '',
 			'size' => 'wide',
 			'zmod' => 'true',
-			'width' => '',
-			'height' => '',
 		));
 
 		// Retrieve an existing value from the database.
@@ -92,8 +88,6 @@ class ZillowReviewWidget extends WP_Widget {
 		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
 		$size = ! empty( $instance['size'] ) ? $instance['size'] : '';
 		$zmod = ! empty( $instance['zmod'] ) ? $instance['zmod'] : '';
-		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
-		$width = ! empty( $instance['width'] ) ? $instance['width'] : '';
 
 		// Title.
 		echo '<p>';
@@ -144,8 +138,6 @@ class ZillowReviewWidget extends WP_Widget {
 		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? strip_tags( $new_instance['zuid'] ) : '';
 		$instance['size'] = ! empty( $new_instance['size'] ) ? strip_tags( $new_instance['size'] ) : '';
 		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? strip_tags( $new_instance['zmod'] ) : '';
-		$instance['width'] = ! empty( $new_instance['width'] ) ? strip_tags( $new_instance['width'] ) : '';
-		$instance['height'] = ! empty( $new_instance['height'] ) ? strip_tags( $new_instance['height'] ) : '';
 
 		return $instance;
 	}
