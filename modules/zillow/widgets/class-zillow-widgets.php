@@ -307,7 +307,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 * @return void
 		 */
 		public function get_paymentbreakout_calc_widget( $iframe_id = '', $price, $region_id, $textcolor = '000000' ) { {
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-rates' ) .'" scrolling="no" src="https://www.zillow.com/mortgage/MortgageLoanCalculatorWidget.htm?skin=custom&price='. $price .'&rid='. $region_id .'&textcolor='. $textcolor .'" frameborder="0" title="'. __( 'Zillow Mortgage Calculator', 're-rpo' ) .'" width="176" height="298px"></iframe>'
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-payment-breakout' ) .'" scrolling="no" src="https://www.zillow.com/mortgage/MortgageLoanCalculatorWidget.htm?skin=custom&price='. $price .'&rid='. $region_id .'&textcolor='. $textcolor .'" frameborder="0" title="'. __( 'Zillow Mortgage Calculator', 're-rpo' ) .'" width="176" height="298px"></iframe>'
 		}
 
 		/* DATA AND STATS. */
@@ -328,7 +328,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_home_value_estimate_widget( $iframe_id = '', $type = 'iframe', $address, $searchbox = 'yes', $region, $skinny_widget = 'true', $textcolor = '000000', $bgcolor = 'FFFFFF' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-rates' ) .'" scrolling="no" src="https://www.zillow.com/widgets/zestimate/ZestimateLargeWidget.htm?did=zillow-shv-large-iframe-widget&type='.$type.'&address='.$address.'&searchbox='. $searchbox .'&region='.$region.'&skinnyWidget='.$skinny_widget.'&tc='. $textcolor .'&bgc='. $bgcolor .'" width="296" frameborder="0" height="360"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'home-value-estimate' ) .'" scrolling="no" src="https://www.zillow.com/widgets/zestimate/ZestimateLargeWidget.htm?did=zillow-shv-large-iframe-widget&type='.$type.'&address='.$address.'&searchbox='. $searchbox .'&region='.$region.'&skinnyWidget='.$skinny_widget.'&tc='. $textcolor .'&bgc='. $bgcolor .'" width="296" frameborder="0" height="360"></iframe>';
 		}
 
 		/**
@@ -351,7 +351,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_realestate_stats_widget( $iframe_id = '', $cs, $did = 'rsw-wide', $dys, $mt, $region_id, $sid, $type = 'iframe', $wtype = 'rhv', $skinny_widget = 'true', $textcolor = '000000', $bgcolor = 'FFFFFF' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-rates' ) .'" scrolling="no" src="https://www.zillow.com/widgets/geo/RegionalStatsWidget.htm?cs='. $cs .'&did='. $did .'&dys='.$dys.'&mt='.$mt.'&rid='.$region_id.'&sid='.$sid.'&type='.$type.'&wtype='. $type .'&skinnyWidget='.$skinny_widget.'&textcolor='.$textcolor.'&backgroundColor='. $bgcolor .'" width="286" frameborder="0" height="280"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'realestate-stats' ) .'" scrolling="no" src="https://www.zillow.com/widgets/geo/RegionalStatsWidget.htm?cs='. $cs .'&did='. $did .'&dys='.$dys.'&mt='.$mt.'&rid='.$region_id.'&sid='.$sid.'&type='.$type.'&wtype='. $type .'&skinnyWidget='.$skinny_widget.'&textcolor='.$textcolor.'&backgroundColor='. $bgcolor .'" width="286" frameborder="0" height="280"></iframe>';
 		}
 
 		/**
@@ -371,7 +371,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_rent_validation_widget($iframe_id = '', $type = 'iframe', $skinny_widget = 'true', $searchbox = 'yes', $for_rent = 'true', $address, $region, $textcolor = '000000', $bgcolor = 'FFFFF' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-rates' ) .'" scrolling="no" src="https://www.zillow.com/widgets/zestimate/ZestimateLargeWidget.htm?did=zillow-shv-large-iframe-widget&type='.$type.'&forRent='.$for_rent.'&tc='.$textcolor.'&bgc='.$bgcolor.'&address='. $address .'&searchbox='.$searchbox.'&region='.$region.'&skinnyWidget='.$skinny_widget.'" frameborder="0" width="296" height="360"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'rent-validation' ) .'" scrolling="no" src="https://www.zillow.com/widgets/zestimate/ZestimateLargeWidget.htm?did=zillow-shv-large-iframe-widget&type='.$type.'&forRent='.$for_rent.'&tc='.$textcolor.'&bgc='.$bgcolor.'&address='. $address .'&searchbox='.$searchbox.'&region='.$region.'&skinnyWidget='.$skinny_widget.'" frameborder="0" width="296" height="360"></iframe>';
 		}
 
 		/* LISTINGS. */
@@ -388,11 +388,66 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_expensive_homes_widget( $iframe_id = '', $location, $type = 'iframe', $size = ' wide' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'expensive-homes' ) .'" scrolling="no" title="'. __( 'Zillow Most Expensive Homes', 're-rpo' ) .'" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=meh-large-iframe-widget-container&type='. $type .'&size='.$size.'&rn='. $location .'&widgettype=meh" width="287" height="121" frameborder="0" style="width:100%;"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'expensive-homes' ) .'" scrolling="no" title="'. __( 'Zillow Most Expensive Homes', 're-rpo' ) .'" src="https://www.zillow.com/widgets/fmr/FMRWidget.htm?did=meh-large-iframe-widget-container&type='. $type .'&size='.$size.'&rn='. $location .'&widgettype=meh" width="287" height="121" frameborder="0" style="width:100%;"></iframe>';
+
+		}
+
+		/**
+		 * get_zillow_search_widget function.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '')
+		 * @param string $use_user_location (default: 'false')
+		 * @param string $is_public (default: 'true')
+		 * @param string $bucket (default: 'map')
+		 * @param mixed $zillow_screenname
+		 * @param mixed $region_id
+		 * @return void
+		 */
+		public function get_zillow_search_widget( $iframe_id = '', $use_user_location = 'false', $is_public = 'true', $bucket = 'map', $zillow_screenname, $region_id ) {
+
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'expensive-homes' ) .'" src="https://www.zillow.com/widgets/search/PartnerAdWidget.htm?ulbm='.$use_user_location.'&isPublic='.$is_public.'&bucket='.$bucket.'&pn='.$zillow_screenname.'&rid='.$region_id.'&style=default" scrolling="no" frameborder="0" width="298" height="272"></iframe>';
+
+		}
+
+		/**
+		 * get_lg_zillow_search_widget function.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '')
+		 * @param mixed $zillow_screenname
+		 * @param string $type (default: 'iframe')
+		 * @param mixed $region_name
+		 * @param string $include_home_val_info (default: 'yes')
+		 * @return void
+		 */
+		public function get_lg_zillow_search_widget( $iframe_id = '', $zillow_screenname, $type = 'iframe', $region_name, $include_home_val_info = 'yes' ) {
+
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'expensive-homes' ) .'" scrolling="no" src="https://www.zillow.com/widgets/search/LargeSearchBoxWidget.htm?did=zillow-large-search-box-iframe-widget&scrnname='.$zillow_screenname.'&type='.$type.'&rgname='.$region_name.'&shvi='.$include_home_val_info.'" width="430" frameborder="0" height="400"></iframe>';
 
 		}
 
 		/* POLLS & QUIZZES. */
+
+		public function get_refinance_quiz_widget() {
+
+		}
+
+		public function get_kindofneighbor_quiz_widget() {
+
+		}
+
+		public function get_mortgage_quiz() {
+
+		}
+
+		public function get_mortgage_harp_quiz() {
+
+		}
+
+		public function get_buyeriq_quiz() {
+
+		}
 
 		/* MISCELLANEOUS. */
 
@@ -409,7 +464,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_moving_boxes_widget( $iframe_id = '', $zillow_city_id, $button_text, $custom_text, $button_link ) {
 
-			echo '<iframe scrolling="no" src="http://www.zillow.com/widgets/misc/MovingBoxEstimatorWidget.htm?bc='.$zillow_city_id.'&bt='.$button_text.'&cap='.$custom_text.'&bl='.$button_link.'" width="168" frameborder="0" height="315"></iframe>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'moving-boxes' ) .'" scrolling="no" src="https://www.zillow.com/widgets/misc/MovingBoxEstimatorWidget.htm?bc='.$zillow_city_id.'&bt='.$button_text.'&cap='.$custom_text.'&bl='.$button_link.'" width="168" frameborder="0" height="315"></iframe>';
 
 		}
 
