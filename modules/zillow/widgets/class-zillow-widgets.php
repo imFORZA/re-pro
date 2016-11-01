@@ -414,6 +414,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 * get_lg_zillow_search_widget function.
 		 *
 		 * @access public
+		 * @param string $widget_type (default: 'iframe')
 		 * @param string $iframe_id (default: '')
 		 * @param mixed $zillow_screenname
 		 * @param string $type (default: 'iframe')
@@ -429,23 +430,88 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 
 		/* POLLS & QUIZZES. */
 
-		public function get_refinance_quiz_widget() {
+		/**
+		 * get_refinance_quiz_widget function.
+		 *
+		 * @access public
+		 * @param string $widget_type (default: 'iframe')
+		 * @param string $iframe_id (default: '')
+		 * @param string $type (default: 'iframe')
+		 * @param string $widgetcode (default: 'refq')
+		 * @param mixed $zillow_screenname
+		 * @return void
+		 */
+		public function get_refinance_quiz_widget( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'refq', $zillow_screenname ) {
+
+			echo '<iframe scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=refinance-quiz-iframe-container&type=iframe&widgetcode=refq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
-		public function get_kindofneighbor_quiz_widget() {
+		/**
+		 * get_kindofneighbor_quiz_widget function.
+		 *
+		 * @access public
+		 * @param string $widget_type (default: 'iframe')
+		 * @param string $iframe_id (default: '')
+		 * @param string $type (default: 'iframe')
+		 * @param string $widgetcode (default: 'konq')
+		 * @param mixed $zillow_screenname
+		 * @return void
+		 */
+		public function get_kindofneighbor_quiz_widget( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'konq', $zillow_screenname ) {
+
+			echo '<iframe scrolling="no" src="httsp://www.zillow.com/widgets/quiz/QuizWidget.htm?did=neighbor-quiz-iframe-container&type=iframe&widgetcode=konq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
-		public function get_mortgage_quiz() {
+		/**
+		 * get_mortgage_quiz function.
+		 *
+		 * @access public
+		 * @param string $widget_type (default: 'iframe')
+		 * @param string $iframe_id (default: '')
+		 * @param string $type (default: 'iframe')
+		 * @param string $widgetcode (default: 'mq')
+		 * @param mixed $zillow_screenname
+		 * @return void
+		 */
+		public function get_mortgage_quiz( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'mq', $zillow_screenname ) {
+
+			echo '<iframe scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=mortgage-iframe-container&type=iframe&widgetcode=mq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
-		public function get_mortgage_harp_quiz() {
+		/**
+		 * get_mortgage_harp_quiz function.
+		 *
+		 * @access public
+		 * @param string $widget_type (default: 'iframe')
+		 * @param string $iframe_id (default: '')
+		 * @param string $type (default: 'iframe')
+		 * @param string $widgetcode (default: 'hec')
+		 * @param mixed $zillow_screenname
+		 * @return void
+		 */
+		public function get_mortgage_harp_quiz( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'hec', $zillow_screenname ) {
+
+			echo '<iframe scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=mortgage-iframe-container&type=iframe&widgetcode=hec&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
-		public function get_buyeriq_quiz() {
+		/**
+		 * get_buyeriq_quiz function.
+		 *
+		 * @access public
+		 * @param string $widget_type (default: 'iframe')
+		 * @param string $iframe_id (default: '')
+		 * @param string $type (default: 'iframe')
+		 * @param string $widgetcode (default: 'biq')
+		 * @param mixed $zillow_screenname
+		 * @return void
+		 */
+		public function get_buyeriq_quiz( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'biq', $zillow_screenname ) {
+
+			echo '<iframe scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=buyer-iframe-container&type=iframe&widgetcode=biq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -462,7 +528,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 * @param mixed $button_link
 		 * @return void
 		 */
-		public function get_moving_boxes_widget( $iframe_id = '', $zillow_city_id, $button_text, $custom_text, $button_link ) {
+		public function get_moving_boxes_widget( $widget_type = 'iframe', $iframe_id = '', $zillow_city_id, $button_text, $custom_text, $button_link ) {
 
 			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'moving-boxes' ) .'" scrolling="no" src="https://www.zillow.com/widgets/misc/MovingBoxEstimatorWidget.htm?bc='.$zillow_city_id.'&bt='.$button_text.'&cap='.$custom_text.'&bl='.$button_link.'" width="168" frameborder="0" height="315"></iframe>';
 
