@@ -46,13 +46,16 @@ class ZillowMonthlyPaymentCalcWidget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 
 		echo $args['before_widget'];
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __( 'Monthly Payment Calculator', 're-rpo' ) .'" src="https://www.zillow.com/mortgage/MortgageCalculatorWidgetLarge.htm" width="688" height="700" frameborder="0" style="display:block;width:100%;min-height:700px;max-width:100%;"></iframe>';
+		$zillow_widgets = new ZillowWidgets();
+
+		return $zillow_widgets->get_monthlypay_calc_widget( $iframe_id );
 
 		echo $args['after_widget'];
 	}

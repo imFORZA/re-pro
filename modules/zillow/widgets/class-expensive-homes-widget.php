@@ -46,6 +46,7 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$type = ! empty( $instance['type'] ) ? $instance['type'] : '';
 		$size = ! empty( $instance['size'] ) ? $instance['size'] : '';
@@ -55,7 +56,11 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __( 'Zillow Most Expensive Homes', 're-rpo' ) .'" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=meh-large-iframe-widget-container&type=iframe&size=wide&rn=Seattle+WA&widgettype=meh" width="287" height="121" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+
+		$zillow_widgets = new ZillowWidgets();
+
+		return $zillow_widgets->get_expensive_homes_widget( $iframe_id, $location, 'iframe', 'wide' );
+
 
 		echo $args['after_widget'];
 	}
@@ -79,11 +84,18 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 
 		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$location = ! empty( $instance['location'] ) ? $instance['location'] : '';
 
 		// Title.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '</p>';
+
+		// Location.
+		echo '<p>';
+		echo '	<label for="' . $this->get_field_id( 'location' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . $this->get_field_id( 'location' ) . '" placeholder="El Segundo, CA" name="' . $this->get_field_name( 'location' ) . '" value="' . $location  . '" class="widefat">';
 		echo '</p>';
 
 	}

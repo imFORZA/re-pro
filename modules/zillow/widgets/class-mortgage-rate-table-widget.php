@@ -46,13 +46,19 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$textcolor = ! empty( $instance['textcolor'] ) ? $instance['textcolor'] : '';
+		$region = ! empty( $instance['region'] ) ? $instance['region'] : '';
+		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 
 		echo $args['before_widget'];
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __( 'Zillow Mortgage Rate Table', 're-rpo' ) .'" src="https://www.zillow.com/webtools/widgets/RateTableDistributionWidget.htm" width="306" height="215" frameborder="0" style="display:block;width:100%;min-height:215px;max-width:100%;"></iframe>';
+		$zillow_widgets = new ZillowWidgets();
+
+		return $zillow_widgets->get_mortgage_rate_table_widget( $iframe_id, $textcolor, $screenname, $region );
 
 		echo $args['after_widget'];
 	}
@@ -72,11 +78,13 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 			'screenname' => '',
 			'region' => '',
 			'textcolor' => '000000',
-			'zuid' => '',
 		));
 
 		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$textcolor = ! empty( $instance['textcolor'] ) ? $instance['textcolor'] : '';
+		$region = ! empty( $instance['region'] ) ? $instance['region'] : '';
+		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
 
 		// Title.
 		echo '<p>';

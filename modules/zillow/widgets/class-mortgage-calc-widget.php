@@ -45,6 +45,7 @@ class ZillowMortgageCalcWidget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$orientation = ! empty( $instance['orientation'] ) ? $instance['orientation'] : '';
 
@@ -60,7 +61,10 @@ class ZillowMortgageCalcWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<iframe id="" class="" scrolling="no" title="'. __( 'Zillow Mortgage Calculator', 're-rpo' ) .'" src="https://www.zillow.com/mortgage/SmallMortgageLoanCalculatorWidget.htm?widgetOrientationType='. $orientation .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="display:block;width:100%;max-width:100%;"></iframe>';
+		$zillow_widgets = new ZillowWidgets();
+
+		return $zillow_widgets->get_mortgage_calc_widget( $iframe_id, $orientation );
+
 
 		echo $args['after_widget'];
 	}
