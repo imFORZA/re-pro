@@ -18,6 +18,9 @@
  */
 function get_trulia_rss_listing_feed( $type = 'for_sale', $city, $state, $min_price = '', $max_price = '', $property_type = '', $min_bath = '', $max_bath = '', $min_sqft = '', $max_sqft = '' ) {
 
-	return esc_url( 'https://www.trulia.com/rss2/'.$type.'/'.$city.','.$state.'/' );
+	$url = esc_url( 'https://www.trulia.com/rss2/'. urlencode($type ).'/'. urlencode( $city ).','. urlencode( $state ).'/'  );
+
+	return $url;
+
 
 }
