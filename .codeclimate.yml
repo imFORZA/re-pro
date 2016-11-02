@@ -16,6 +16,17 @@ engines:
       standard: "WordPress-Core,WordPress-Docs,WordPress-Extra"
   phpmd:
     enabled: true
+    checks:
+      Controversial/CamelCaseParameterName:
+        enabled: false
+      Controversial/CamelCaseMethodName:
+        enabled: false
+      Controversial/CamelCasePropertyName:
+        enabled: false
+      Controversial/CamelCaseVariableName:
+        enabled: false
+      CleanCode/ElseExpression:
+        enabled: false
   eslint:
     enabled: true
     channel: "eslint-2"
@@ -49,6 +60,8 @@ exclude_paths:
   - "**.txt"
   - "**-min.js"
   - "**-min.css"
+  - "**.min.js"
+  - "**.min.css"
   - "**.dist"
   - "**.sh"
   - "**.gif"
