@@ -73,6 +73,82 @@ if ( ! class_exists( 'TruliaWidgets' ) ) {
 
 		}
 
+		/**
+		 * get_community_advice_widget function.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '')
+		 * @param mixed $display_answers
+		 * @param mixed $title
+		 * @param string $email (default: '')
+		 * @return void
+		 */
+		public function get_community_advice_widget( $iframe_id = '', $display_answers, $title, $email = '' ) {
+			echo '<iframe id="'. $this->trulia_iframe_id( $iframe_id ) .'" class="'. $this->trulia_iframe_class( 'community-advice' ) .'" src="https://synd.trulia.com/tools/expert-community-advice/embedded?params%5Bwhose_answer%5D=&params%5Bdisplay_answers%5D=true&params%5Btitle%5D=Expert+Community+Advice&params%5Bcolor%5D=grey&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=300&params%5Bheight%5D=350&params%5Bguid%5D=58237a792f772"></iframe>';
+		}
+
+		/**
+		 * get_rent_buy_calc_widget function.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '')
+		 * @param mixed $location
+		 * @param mixed $width
+		 * @param mixed $height
+		 * @param string $email (default: '')
+		 * @return void
+		 */
+		public function get_rent_buy_calc_widget( $iframe_id = '', $location, $width, $height, $email = '' ) {
+			echo '<iframe id="'. $this->trulia_iframe_id( $iframe_id ) .'" class="'. $this->trulia_iframe_class( 'rent-buy-calc' ) .'" src="https://synd.trulia.com/tools/rent-vs-buy-calculator/embedded?params%5Btool_metro_area%5D=31084&params%5Btitle%5D=Rent+vs.+Buy+Calculator&params%5Bcolor%5D=grey&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=600&params%5Bheight%5D=300&params%5Bguid%5D=582379f9264e8"></iframe>';
+		}
+
+		/**
+		 * get_rental_market_widget function.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '')
+		 * @param mixed $location
+		 * @param mixed $width
+		 * @param mixed $height
+		 * @param string $email (default: '')
+		 * @return void
+		 */
+		public function get_rental_market_widget( $iframe_id = '', $location, $width, $height, $email = '' ) {
+
+			echo '<iframe id="'. $this->trulia_iframe_id( $iframe_id ) .'" class="'. $this->trulia_iframe_class( 'rental-market' ) .'" src="https://synd.trulia.com/tools/rental-market-monitor/embedded?params%5Blocation%5D=Los+Angeles%2C+CA&params%5BlocationId%5D=22637&params%5Bcolor%5D=grey&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Btitle%5D=Rental+Market+Monitor&params%5Bwidth%5D=300&params%5Bheight%5D=250&params%5Bguid%5D=582379637cf2e"></iframe>';
+
+		}
+
+
+		/**
+		 * get_map_search_widget function.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '')
+		 * @param mixed $location
+		 * @param mixed $width
+		 * @param mixed $height
+		 * @param string $email (default: '')
+		 * @return void
+		 */
+		public function get_map_search_widget( $iframe_id = '', $location, $width, $height, $email = '' ) {
+			echo '<iframe id="'. $this->trulia_iframe_id( $iframe_id ) .'" class="'. $this->trulia_iframe_class( 'map-search' ) .'" src="https://synd.trulia.com/tools/map-search/embedded?params%5Blocation%5D=West+Hills%2C+CA&params%5BlocationId%5D=39307&params%5Bagent_id%5D=&params%5Bproperty_status%5D=for+sale&params%5Btitle%5D=Map+Search&params%5Bcolor%5D=grey&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=600&params%5Bheight%5D=300&params%5Bguid%5D=582378f4c0432"></iframe>';
+		}
+
+		/**
+		 * get_home_gallery_widget function.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '')
+		 * @param mixed $location
+		 * @param mixed $width
+		 * @param mixed $height
+		 * @param string $email (default: '')
+		 * @return void
+		 */
+		public function get_home_gallery_widget( $iframe_id = '', $location, $width, $height, $email = '' ) {
+			echo '<iframe id="'. $this->trulia_iframe_id( $iframe_id ) .'" class="'. $this->trulia_iframe_class( 'home-gallery' ) .'" src="https://synd.trulia.com/tools/home-gallery/embedded?params%5Blocation%5D=Los+Angeles%2C+CA&params%5BlocationId%5D=22637&params%5Bmin_price%5D=&params%5Bmax_price%5D=&params%5Bnum_beds%5D=&params%5Bnum_baths%5D=&params%5Bagent_id%5D=&params%5Bspeed%5D=5000&params%5Btitle%5D=Home+Gallery&params%5Bcolor%5D=green&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=300&params%5Bheight%5D=300&params%5Bguid%5D=582371b703b0d&params%5Bslides_per_page%5D=3&city=Los Angeles&state_code=CA"></iframe>';
+		}
 
 		/**
 		 * get_home_showcase_widget function.
@@ -86,7 +162,7 @@ if ( ! class_exists( 'TruliaWidgets' ) ) {
 		 * @return void
 		 */
 		public function get_home_showcase_widget( $iframe_id = '', $location, $width, $height, $email = '' ) {
-			echo '<iframe  id="'. $this->trulia_iframe_id( $iframe_id ) .'" class="'. $this->trulia_iframe_class( 'home-showcase' ) .'" src="https://synd.trulia.com/tools/home-showcase/embedded?params%5Blocation%5D=Los+Angeles%2C+CA&params%5BlocationId%5D=22637&params%5Bmin_price%5D=&params%5Bmax_price%5D=&params%5Bnum_beds%5D=&params%5Bnum_baths%5D=&params%5Bagent_id%5D=&params%5Bspeed%5D=5000&params%5Btitle%5D=My+Listings&params%5Bcolor%5D=grey&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=300&params%5Bheight%5D=350&params%5Bguid%5D=582370ce64073"></iframe>';
+			echo '<iframe id="'. $this->trulia_iframe_id( $iframe_id ) .'" class="'. $this->trulia_iframe_class( 'home-showcase' ) .'" src="https://synd.trulia.com/tools/home-showcase/embedded?params%5Blocation%5D=Los+Angeles%2C+CA&params%5BlocationId%5D=22637&params%5Bmin_price%5D=&params%5Bmax_price%5D=&params%5Bnum_beds%5D=&params%5Bnum_baths%5D=&params%5Bagent_id%5D=&params%5Bspeed%5D=5000&params%5Btitle%5D=My+Listings&params%5Bcolor%5D=grey&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=300&params%5Bheight%5D=350&params%5Bguid%5D=582370ce64073"></iframe>';
 		}
 
 		/**
