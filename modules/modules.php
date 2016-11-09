@@ -7,3 +7,5 @@ include_once( 'equal-housing/equal-housing.php' );
 include_once( 'zillow/zillow.php' );
 
 include_once( 'trulia/trulia.php' );
+
+include_once( 'inman/inman.php' );
