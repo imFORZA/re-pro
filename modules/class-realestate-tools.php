@@ -7,10 +7,15 @@ if ( ! class_exists( 'RealEstateTools' ) ) {
 	 */
 	class RealEstateTools {
 
+		/**
+		 * __construct function.
+		 *
+		 * @access public
+		 * @return void
+		 */
 		public function __construct() {
 
 		}
-
 
 		/**
 		 * extract_zipcode function.
