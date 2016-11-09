@@ -55,39 +55,41 @@ class TruliaRssListingWidget extends WP_Widget {
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
 
-		$rss =  fetch_feed( get_trulia_rss_listing_feed( 'for_sale', 'Sacramento', 'CA')  );
-
+		$rss =  fetch_feed( get_trulia_rss_listing_feed( 'for_sale', 'Sacramento', 'CA' ) );
 
 		/* Sometimes the feed has errors so we must use SimplePie ForceFeed. */
-		add_action('wp_feed_options', 'trulia_force_feed', 10, 2);
-		function trulia_force_feed($feed, $rss) {
-			if ( $feed === $rss ) {
-				$feed->force_feed(true);
-			}
+		add_action('wp_feed_options', 'trulia_force_feed' , 10, 1);
+		function trulia_force_feed($rss) {
+
+				$rss->force_feed(true);
+
 		}
 
 		// echo get_trulia_rss_listing_feed( 'for_sale', 'Sacramento', 'CA');
+		if( ! is_wp_error( $rss ) ) {
 
+			$max_items = $rss->get_item_quantity(3);
+			$rss_items = $rss->get_items(0,3);
 
-		$rss_items = $rss->get_items(0,3);
+			// echo $rss->get_title();
+			// echo $rss->get_description();
 
-		// echo $rss->get_title();
-		// echo $rss->get_description();
+			foreach( $rss_items as $item ) {
 
-		foreach( $rss_items as $item ) {
+				echo '<div style="margin:20px 0;">';
+				echo '<h4><a href="'. $item->get_link() .'" rel="nofollow" target="_blank">' . $item->get_title() . '</a></h4>';
+				echo '</div>';
 
-			echo '<div style="margin:20px 0;">';
-			echo '<h4><a href="'. $item->get_link() .'" rel="nofollow" target="_blank">' . $item->get_title() . '</a></h4>';
-			echo '</div>';
+				echo $item->get_content();
 
-			echo $item->get_content();
+				echo '<div style="margin:20px 0;text-align:right;">';
+				echo '<small> Updated on '.$item->get_date('F j, Y') . '.</small>';
+				echo '</div>';
+			}
 
-			echo '<div style="margin:20px 0;text-align:right;">';
-			echo '<small> Updated on '.$item->get_date('F j, Y') . '.</small>';
-			echo '</div>';
+		} else {
+			echo $rss->get_error_message();
 		}
-
-
 
 		echo $args['after_widget'];
 	}
