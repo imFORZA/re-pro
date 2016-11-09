@@ -74,7 +74,20 @@ if ( ! class_exists( 'TruliaWidgets' ) ) {
 		}
 
 
-
+		/**
+		 * get_home_showcase_widget function.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '')
+		 * @param mixed $location
+		 * @param mixed $width
+		 * @param mixed $height
+		 * @param string $email (default: '')
+		 * @return void
+		 */
+		public function get_home_showcase_widget( $iframe_id = '', $location, $width, $height, $email = '' ) {
+			echo '<iframe  id="'. $this->trulia_iframe_id( $iframe_id ) .'" class="'. $this->trulia_iframe_class( 'home-showcase' ) .'" src="https://synd.trulia.com/tools/home-showcase/embedded?params%5Blocation%5D=Los+Angeles%2C+CA&params%5BlocationId%5D=22637&params%5Bmin_price%5D=&params%5Bmax_price%5D=&params%5Bnum_beds%5D=&params%5Bnum_baths%5D=&params%5Bagent_id%5D=&params%5Bspeed%5D=5000&params%5Btitle%5D=My+Listings&params%5Bcolor%5D=grey&params%5Bemail%5D=&params%5Buser_url%5D=&params%5Bwidth%5D=300&params%5Bheight%5D=350&params%5Bguid%5D=582370ce64073"></iframe>';
+		}
 
 		/**
 		 * get_homefinder_widget function.
