@@ -9,3 +9,5 @@ include_once( 'zillow/zillow.php' );
 include_once( 'trulia/trulia.php' );
 
 include_once( 'inman/inman.php' );
+
+include_once( 'homes-com/homes-com.php' );
