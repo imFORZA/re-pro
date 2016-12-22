@@ -2,7 +2,7 @@
 Contributors: bhubbard, imforza, sgarza
 Tags: Real Estate, Zillow, imFORZA, Equal Housing Opportunity
 Requires at least: 4.6
-Tested up to: 4.6.1
+Tested up to: 4.7
 Stable tag: trunk
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
