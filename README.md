@@ -15,12 +15,14 @@ With a Zillow module you can start to bring in Zillow features right into your w
 #### Widgets
 
 ###### You On Zillow Widgets
+
 - My Zillow Listings Widget
 - My Past Sales Widget
 - Zillow Reviews Widget
 - Zillow Contact Form Widget
 
 ###### Mortgage Widgets
+
 - Mortgage Rate Table Widget
 - Monthly Payment Calculator Widget
 - Affordability Calculator Widget
@@ -30,16 +32,19 @@ With a Zillow module you can start to bring in Zillow features right into your w
 - Mortgage Calcuator Widget
 
 ###### Data and Stats Widgets
+
 - Home Value Estimate Widget
 - Real Estate Stats Chart Widget
 - Rent Valuation Widget
 
 ###### Listings Widgets
+
 - Zillow Search Box Widget
 - Large Zillow Search Box Widget
 - Most Expensive Homes Widget
 
 ###### Polls & Quizes Widgets
+
 - DO YOU QUALIFY FOR A REFINANCE? QUIZ Widget
 - MORTGAGE QUIZ WIDGET
 - BUYER IQ QUIZ Widget
@@ -47,6 +52,7 @@ With a Zillow module you can start to bring in Zillow features right into your w
 - HARP ELIGIBILITY CALCULATOR Widget
 
 ###### Misc Widgets
+
 - Moving Boxes Estimator Widget
 
 
