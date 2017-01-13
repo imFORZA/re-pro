@@ -12,4 +12,4 @@ include( 'wp-streetadvisor-api.php' );
 
 include( 'widgets/streetadvisor-details.php' );
 
-include( 'widgets/streetadvisor-reviews.php' );
+// include( 'widgets/streetadvisor-reviews.php' );
