@@ -68,7 +68,7 @@ echo '<style>.sa-column{width:100%;float:left;display:inline-block;}.streetadvis
 echo '<img id="" class="" src="'.$photo_url.'" srcset="" sizes="" alt="'. $name .'" height="" width="">';
 
 
-echo '<p>' . $name . ' has a score of <strong>' . $score . ' out of 10</strong> on <a href="'. $streetadvisor_url .'" rel="nofollow">StreetAdvisor</a>. '. $ranking_description .'.</p>';
+echo '<p>' . $name . ' has a score of <strong>' . $score . ' out of 10</strong> on <a href="'. $streetadvisor_url .'" rel="nofollow">StreetAdvisor</a>. '. $ranking_description .'</p>';
 
 echo '<div class="sa-column">';
 
@@ -127,6 +127,12 @@ echo $args['after_widget'];
 
 		// Form fields
 		echo '<p>';
+		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title_label">' . __( 'Title', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $title ) . '">';
+		echo '	<span class="description">' . __( 'Title', 're-pro' ) . '</span>';
+		echo '</p>';
+
+		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'latitude' ) . '" class="latitude_label">' . __( 'Latitude', 're-pro' ) . '</label>';
 		echo '	<input type="text" id="' . $this->get_field_id( 'latitude' ) . '" name="' . $this->get_field_name( 'latitude' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $latitude ) . '">';
 		echo '	<span class="description">' . __( 'Latitude', 're-pro' ) . '</span>';
@@ -140,15 +146,11 @@ echo $args['after_widget'];
 
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'level' ) . '" class="level_label">' . __( 'Level', 're-pro' ) . '</label>';
-		echo '	<input type="number" id="' . $this->get_field_id( 'level' ) . '" name="' . $this->get_field_name( 'level' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $level ) . '">';
+		echo '	<input type="number" id="' . $this->get_field_id( 'level' ) . '" name="' . $this->get_field_name( 'level' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $level ) . '" step="1" min="0" max="50">';
 		echo '	<span class="description">' . __( 'Level', 're-pro' ) . '</span>';
 		echo '</p>';
 
-		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title_label">' . __( 'Title', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $title ) . '">';
-		echo '	<span class="description">' . __( 'Title', 're-pro' ) . '</span>';
-		echo '</p>';
+
 
 	}
 
