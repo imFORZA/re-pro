@@ -60,7 +60,7 @@ if ( ! class_exists( 'NarWidgets' ) ) {
 		 */
 		public function get_mvp_program_widget() {
 
-			echo '<iframe frameborder="0" id="'. nar_iframe_id() .'" class="'. $this->zillow_iframe_class( 'mvp-program' ) .'" title="'. __('NAR MVP Program.', 're-pro') .'" src="http://www.realtor.org/ro/widget/mvpwidget.html" scrolling="no" width="300"  height="250"></iframe>';
+			echo '<iframe frameborder="0" id="'. nar_iframe_id() .'" class="'. $this->zillow_iframe_class( 'mvp-program' ) .'" title="'. __('NAR MVP Program.', 're-pro') .'" src="https://static.realtor.org/ro/widget/mvpwidget.html" scrolling="no" width="300"  height="250"></iframe>';
 		}
 
 		/**
@@ -73,7 +73,7 @@ if ( ! class_exists( 'NarWidgets' ) ) {
 
 			// wp_enqueue_script( 'nar-message', 'http://www.realtor.org/sites/all/themes/rotheme/js/narmessage.js', 'jquery', null, true);
 
-			echo '<iframe id="'. nar_iframe_id() .' class="'. $this->zillow_iframe_class( 'home-ownership-matters' ) .'"  title="'. __('NAR Home Hownership Matters.', 're-pro') .'"  src="http://www.realtor.org/sites/all/themes/rotheme/html/narmessage.html" frameborder="0" width="180" height="250" scrolling="no"></iframe></noscript>';
+			echo '<iframe id="'. nar_iframe_id() .' class="'. $this->zillow_iframe_class( 'home-ownership-matters' ) .'"  title="'. __('NAR Home Hownership Matters.', 're-pro') .'"  src="https://www.realtor.org/sites/all/themes/rotheme/html/narmessage.html" frameborder="0" width="180" height="250" scrolling="no"></iframe></noscript>';
 		}
 
 		/**
@@ -83,7 +83,7 @@ if ( ! class_exists( 'NarWidgets' ) ) {
 		 * @return void
 		 */
 		public function get_code_of_ethics_widget() {
-			echo '<iframe id="'. nar_iframe_id() .' class="'. $this->zillow_iframe_class( 'code-of-ethics' ) .'" title="'. __('NAR Code of Ethics.', 're-pro') .'" frameborder="0" width="300" height="250" src="http://www.realtor.org/node/7504/embed" scrolling="no"></iframe>';
+			echo '<iframe id="'. nar_iframe_id() .' class="'. $this->zillow_iframe_class( 'code-of-ethics' ) .'" title="'. __('NAR Code of Ethics.', 're-pro') .'" frameborder="0" width="300" height="250" src="https://www.realtor.org/node/7504/embed" scrolling="no"></iframe>';
 		}
 
 		/**
@@ -93,7 +93,7 @@ if ( ! class_exists( 'NarWidgets' ) ) {
 		 * @return void
 		 */
 		public function get_nar_conf_expo_widget() {
-			echo '<iframe id="'. nar_iframe_id() .' class="'. $this->zillow_iframe_class( 'conference-expo' ) .'" title="'. __('NAR Conferences and Expos.', 're-pro') .'" frameborder="0" width="300" height="250" src="http://www.realtor.org/node/10695/embed" scrolling="no"></iframe>';
+			echo '<iframe id="'. nar_iframe_id() .' class="'. $this->zillow_iframe_class( 'conference-expo' ) .'" title="'. __('NAR Conferences and Expos.', 're-pro') .'" frameborder="0" width="300" height="250" src="https://www.realtor.org/node/10695/embed" scrolling="no"></iframe>';
 		}
 
 	}
