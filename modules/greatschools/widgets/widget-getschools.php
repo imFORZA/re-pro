@@ -16,11 +16,41 @@ class greatschools_getschools extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 
-		$greatschools = new GreatSchoolsAPI( '' );
+	$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 
-			$schools = $greatschools->get_schools('CA','El Segundo');
+	$greatschools_state = !empty( $instance['greatschools_state'] ) ? $instance['greatschools_state'] : '';
+	$greatschools_city = !empty( $instance['greatschools_city'] ) ? $instance['greatschools_city'] : '';
 
-				var_dump($schools);
+	// Call our API.
+	$greatschools = new GreatSchoolsAPI( '' );
+	$schools = $greatschools->get_schools($greatschools_state,$greatschools_city);
+
+
+
+		echo $args['before_widget'];
+
+		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
+
+				// var_dump($schools);
+
+				foreach($schools as $school) {
+
+					foreach($school as $school_item) {
+
+						$name = $school_item['name'];
+						$type =$school_item['type'];
+						$grade_range = $school_item['gradeRange'];
+						$state = $school_item['state'];
+						$city = $school_item['city'];
+						$overview_link = $school_item['overviewLink'];
+
+						echo '<li><a href="'.$overview_link.'" rel="nofollow">' . $name . '</a></li>';
+					}
+
+
+				}
+
+		echo $args['after_widget'];
 
 	}
 
