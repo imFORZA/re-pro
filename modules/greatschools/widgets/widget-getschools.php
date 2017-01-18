@@ -16,8 +16,7 @@ class greatschools_getschools extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 
-	$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
-
+	$greatschools_title = !empty( $instance['greatschools_title'] ) ? $instance['greatschools_title'] : '';
 	$greatschools_state = !empty( $instance['greatschools_state'] ) ? $instance['greatschools_state'] : '';
 	$greatschools_city = !empty( $instance['greatschools_city'] ) ? $instance['greatschools_city'] : '';
 
@@ -29,7 +28,7 @@ class greatschools_getschools extends WP_Widget {
 
 		echo $args['before_widget'];
 
-		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
+		echo $args['before_title'] . esc_attr( $greatschools_title ) . $args['after_title'];
 
 				// var_dump($schools);
 
