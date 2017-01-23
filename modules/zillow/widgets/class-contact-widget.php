@@ -133,8 +133,8 @@ class ZillowContactWidget extends WP_Widget {
  * @access public
  * @return void
  */
-function repro_zillow_contact_widget() {
+/*function repro_zillow_contact_widget() {
 
 	register_widget( 'ZillowContactWidget' );
 }
-add_action( 'widgets_init', 'repro_zillow_contact_widget' );
+add_action( 'widgets_init', 'repro_zillow_contact_widget' );*/

@@ -198,8 +198,8 @@ class ZillowMortgageRateWidget extends WP_Widget {
  * @access public
  * @return void
  */
-function repro_zillow_mortgage_rate_widget() {
+/*function repro_zillow_mortgage_rate_widget() {
 
 	register_widget( 'ZillowMortgageRateWidget' );
 }
-add_action( 'widgets_init', 'repro_zillow_mortgage_rate_widget' );
+add_action( 'widgets_init', 'repro_zillow_mortgage_rate_widget' );*/

@@ -122,8 +122,8 @@ class ZillowPastSalesWidget extends WP_Widget {
  * @access public
  * @return void
  */
-function repro_zillow_past_sales_widget() {
+/*function repro_zillow_past_sales_widget() {
 
 	register_widget( 'ZillowPastSalesWidget' );
 }
-add_action( 'widgets_init', 'repro_zillow_past_sales_widget' );
+add_action( 'widgets_init', 'repro_zillow_past_sales_widget' );*/

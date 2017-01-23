@@ -110,9 +110,8 @@ class ZillowLargeRateTableWidget extends WP_Widget {
  * @access public
  * @return void
  */
-function repro_zillow_rate_table_widget() {
+/*function repro_zillow_rate_table_widget() {
 
 	register_widget( 'ZillowLargeRateTableWidget' );
 }
-add_action( 'widgets_init', 'repro_zillow_rate_table_widget' );
-
+add_action( 'widgets_init', 'repro_zillow_rate_table_widget' );*/
