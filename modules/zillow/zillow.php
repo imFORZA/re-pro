@@ -19,8 +19,9 @@ include('widgets/class-zillow-badges-widget.php');
 // Include Large Search Box Widget.
 include('widgets/class-large-search-box.php');
 
+// Include Listings Widgets.
 include('widgets/class-expensive-homes-widget.php');
-
+include('widgets/class-newest-homes-widget.php');
 
 // Widgets no longer supported
 /*include( 'widgets/class-sales-widget.php' );

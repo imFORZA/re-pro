@@ -398,6 +398,46 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		}
 
 		/**
+		 * Get Newest For Sale Homes Widget.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '')
+		 * @param mixed $location
+		 * @param string $type (default: 'iframe')
+		 * @param string $size (default: ' wide')
+		 * @return void
+		 */
+		public function get_newest_forsale_homes_widget( $iframe_id = '', $location, $type = 'iframe', $size = ' wide' ) {
+
+			// TODO - Check for HTTPS, as this widget does not support it.
+			// TODO - Support JS Version.
+
+		?>
+		<style>
+			.zillow-newest-forsale-widget-container {
+				width: 298px;
+				height: 180px;
+				background-color: #eff3ff;
+				overflow: hidden;
+				text-align: center;
+				border: 1px solid #adcfff;
+				margin-bottom: 1.5em;
+			}
+			.zillow-newest-forsale-widget-container h5 {
+				font-size: 9px;
+				text-align: center;
+				color: #3366bb;
+				margin-top: 8px;
+			}
+			</style>
+			<div class="zillow-newest-forsale-widget-container">
+				<h5>Newest For Sale Homes in <?php echo $location ?></h5>
+				<?php
+				echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'newest-homes' ) .'" title="'. __( 'Zillow Newest For Sale Homes', 're-pro' ) .'" scrolling="no" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=nfs-large-iframe-widget-container&type='. $type .'&size='.$size.'&rn='. $location .'&widgettype=nfs" width="286" height="123" frameborder="0"></iframe>';
+			echo '</div>';
+		}
+
+		/**
 		 * get_zillow_search_widget function.
 		 *
 		 * @access public
