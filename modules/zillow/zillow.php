@@ -13,7 +13,17 @@ include( 'widgets/class-zillow-widgets.php' );
 // Include Review Widget.
 include( 'widgets/class-review-widget.php' );
 
-include( 'widgets/class-sales-widget.php' );
+// Include Badges Widget
+include('widgets/class-zillow-badges-widget.php');
+
+// Include Large Search Box Widget.
+include('widgets/class-large-search-box.php');
+
+include('widgets/class-expensive-homes-widget.php');
+
+
+// Widgets no longer supported
+/*include( 'widgets/class-sales-widget.php' );
 
 include( 'widgets/class-listings-widget.php' );
 
@@ -27,9 +37,4 @@ include( 'widgets/class-affordability-calc-widget.php' );
 
 include( 'widgets/class-mortgage-rate-table-widget.php' );
 
-include( 'widgets/class-mortgage-calc-widget.php' );
-
-include('widgets/class-expensive-homes-widget.php');
-
-
-include('widgets/class-zillow-badges-widget.php');
+include( 'widgets/class-mortgage-calc-widget.php' );*/
