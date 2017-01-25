@@ -21,7 +21,7 @@ class greatschools_getschools extends WP_Widget {
 	$greatschools_city = !empty( $instance['greatschools_city'] ) ? $instance['greatschools_city'] : '';
 
 	// Call our API.
-	$greatschools = new GreatSchoolsAPI( 'pqxtbx9sz1bflnxvpypjgwxx' );
+	$greatschools = new GreatSchoolsAPI( '' );
 	$schools = $greatschools->get_schools($greatschools_state,$greatschools_city);
 
 
