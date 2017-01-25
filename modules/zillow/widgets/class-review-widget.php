@@ -59,7 +59,7 @@ class ZillowReviewWidget extends WP_Widget {
 
 		$zillow_widgets = new ZillowWidgets();
 
-		return $zillow_widgets->get_review_widget( $iframe_id, $zuid, $screenname, $size, $zmod );
+		$zillow_widgets->get_review_widget( $iframe_id, $zuid, $screenname, $size, $zmod );
 
 		echo $args['after_widget'];
 	}

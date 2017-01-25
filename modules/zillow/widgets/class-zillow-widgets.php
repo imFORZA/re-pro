@@ -360,7 +360,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 			// TODO - Check for HTTPS, as this widget does not support it.
 			// TODO - Support JS Version.
 
-			echo '<div class="zillow-meh-widget-container">';
+			echo '<div class="zillow-listings-widget-container zillow-meh-widget-container">';
 			echo '<h5>Most Expensive Homes in ' . $location . '</h5>';
 			echo '<div class="zillow-meh-outer">';
 			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'expensive-homes' ) .'" title="'. __( 'Zillow Most Expensive Homes', 're-pro' ) .'" scrolling="no" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=meh-large-iframe-widget-container&type='. $type .'&size='.$size.'&rn='. $location .'&widgettype=meh" width="" height="121" frameborder="0" style="width:100%;"></iframe>';
@@ -384,7 +384,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 			// TODO - Check for HTTPS, as this widget does not support it.
 			// TODO - Support JS Version.
 
-			echo '<div class="zillow-nfs-widget-container">';
+			echo '<div class="zillow-listings-widget-container zillow-nfs-widget-container">';
 			echo '<h5>Newest For Sale Homes in ' . $location . '</h5>';
 			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'newest-homes' ) .'" title="'. __( 'Zillow Newest For Sale Homes', 're-pro' ) .'" scrolling="no" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=nfs-large-iframe-widget-container&type='. $type .'&size='.$size.'&rn='. $location .'&widgettype=nfs" width="286" height="123" frameborder="0"></iframe>';
 			echo '<img alt="Zillow Real Estate" style="border:0;" src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=%2Fstatic%2Fimages%2Fpowered-by-zillow.gif" />';

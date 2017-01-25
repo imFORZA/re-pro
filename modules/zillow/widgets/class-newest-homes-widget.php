@@ -59,7 +59,7 @@ class ZillowNewestHomesWidget extends WP_Widget {
 
 		$zillow_widgets = new ZillowWidgets();
 
-		return $zillow_widgets->get_newest_forsale_homes_widget( $iframe_id, $location, 'iframe', 'wide' );
+		$zillow_widgets->get_newest_forsale_homes_widget( $iframe_id, $location, 'iframe', 'wide' );
 
 
 		echo $args['after_widget'];

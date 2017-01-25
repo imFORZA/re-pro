@@ -61,8 +61,7 @@ class ZillowLargeSearchBox extends WP_Widget {
 
 		$zillow_widgets = new ZillowWidgets();
 
- 		return $zillow_widgets->get_lg_zillow_search_widget( $iframe_id, $screenname, 'iframe', $location, $home_val_info );
-
+ 		$zillow_widgets->get_lg_zillow_search_widget( $iframe_id, $screenname, 'iframe', $location, $home_val_info );
 
 		echo $args['after_widget'];
 	}
