@@ -13,6 +13,9 @@ Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 
 == Changelog ==
+= 1.0.2 =
+* Removed widgets no longer supported by Zillow. For details please visit https://www.zillow.com/advice-thread/Where-are-the-widgets/684351/
+
 = 1.0.1 =
 * New Zillow Widgets
 

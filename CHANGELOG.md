@@ -1,5 +1,7 @@
 # Real Estate Pro Changelog
 This is the up-to-date changelog for [Real Estate Pro](https://wordpress.org/plugins/re-pro/).
+## [1.0.2] - 2017-01-25
+- Removed widgets no longer offered by Zillow.
 
 ## [1.0.1] - 2016-12-26
 - More Zillow Widgets
