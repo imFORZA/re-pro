@@ -134,8 +134,8 @@ class ZillowListingsWidget extends WP_Widget {
  * @access public
  * @return void
  */
-function repro_zillow_listings_widget() {
+/*function repro_zillow_listings_widget() {
 
 	register_widget( 'ZillowListingsWidget' );
 }
-add_action( 'widgets_init', 'repro_zillow_listings_widget' );
+add_action( 'widgets_init', 'repro_zillow_listings_widget' );*/

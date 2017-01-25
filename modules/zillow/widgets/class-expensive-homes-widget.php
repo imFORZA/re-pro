@@ -59,8 +59,7 @@ class ZillowExpensiveHomesWidget extends WP_Widget {
 
 		$zillow_widgets = new ZillowWidgets();
 
-		return $zillow_widgets->get_expensive_homes_widget( $iframe_id, $location, 'iframe', 'wide' );
-
+		$zillow_widgets->get_expensive_homes_widget( $iframe_id, $location, 'iframe', 'wide' );
 
 		echo $args['after_widget'];
 	}
@@ -132,4 +131,3 @@ function repro_zillow_expensive_homes_widget() {
 	register_widget( 'ZillowExpensiveHomesWidget' );
 }
 add_action( 'widgets_init', 'repro_zillow_expensive_homes_widget' );
-

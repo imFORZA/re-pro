@@ -4,17 +4,17 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /**
- * Zillow Large Rate Table Widget (https://www.zillow.com/webtools/widgets/large-rate-table-widget/)
+ * Zillow Newest For Sale Homes Widget (http://www.zillow.com/webtools/widgets/NewestForSaleHomes.htm)
  *
  * @package RE-PRO
  */
 
 /**
- * ZillowLargeRateTableWidget class.
+ * ZillowNewestHomesWidget class.
  *
  * @extends WP_Widget
  */
-class ZillowLargeRateTableWidget extends WP_Widget {
+class ZillowNewestHomesWidget extends WP_Widget {
 
 
 	/**
@@ -26,11 +26,11 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			'zillow_lg_ratetable_widget',
-			__( 'Zillow Large Mortgage Rate Table', 're-pro' ),
+			'zillow_newest_forsale_homes_widget',
+			__( 'Zillow Newest For Sale Homes', 're-pro' ),
 			array(
-				'description' => __( 'Display a large Mortgage Rate Table from Zillow.', 're-pro' ),
-				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-lg-rate-table',
+				'description' => __( 'Display the most recent for sale homes from Zillow.', 're-pro' ),
+				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-newest-homes',
 				'customize_selective_refresh' => true,
 			)
 		);
@@ -48,15 +48,19 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 
 		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
-
+		$type = ! empty( $instance['type'] ) ? $instance['type'] : '';
+		$size = ! empty( $instance['size'] ) ? $instance['size'] : '';
+		$location = ! empty( $instance['location'] ) ? $instance['location'] : '';
 
 		echo $args['before_widget'];
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
+
 		$zillow_widgets = new ZillowWidgets();
 
-		return $zillow_widgets->get_mortage_rate_widget( $iframe_id );
+		$zillow_widgets->get_newest_forsale_homes_widget( $iframe_id, $location, 'iframe', 'wide' );
+
 
 		echo $args['after_widget'];
 	}
@@ -73,15 +77,25 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 		// Set default values.
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => '',
+			'type' => 'iframe',
+			'size' => 'wide',
+			'location' => 'El Segundo, CA',
 		));
 
 		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$location = ! empty( $instance['location'] ) ? $instance['location'] : '';
 
 		// Title.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '</p>';
+
+		// Location.
+		echo '<p>';
+		echo '	<label for="' . $this->get_field_id( 'location' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . $this->get_field_id( 'location' ) . '" placeholder="El Segundo, CA" name="' . $this->get_field_name( 'location' ) . '" value="' . $location  . '" class="widefat">';
 		echo '</p>';
 
 	}
@@ -99,6 +113,9 @@ class ZillowLargeRateTableWidget extends WP_Widget {
 		$instance = $old_instance;
 
 		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['type'] = ! empty( $new_instance['type'] ) ? strip_tags( $new_instance['type'] ) : '';
+		$instance['size'] = ! empty( $new_instance['size'] ) ? strip_tags( $new_instance['size'] ) : '';
+		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
 
 		return $instance;
 	}
@@ -110,8 +127,8 @@ class ZillowLargeRateTableWidget extends WP_Widget {
  * @access public
  * @return void
  */
-/*function repro_zillow_rate_table_widget() {
+function repro_zillow_newest_homes_widget() {
 
-	register_widget( 'ZillowLargeRateTableWidget' );
+	register_widget( 'ZillowNewestHomesWidget' );
 }
-add_action( 'widgets_init', 'repro_zillow_rate_table_widget' );*/
+add_action( 'widgets_init', 'repro_zillow_newest_homes_widget' );

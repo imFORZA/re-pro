@@ -130,9 +130,8 @@ class ZillowMortgageCalcWidget extends WP_Widget {
  * @access public
  * @return void
  */
-function repro_zillow_mortgage_calc_widget() {
+/*function repro_zillow_mortgage_calc_widget() {
 
 	register_widget( 'ZillowMortgageCalcWidget' );
 }
-add_action( 'widgets_init', 'repro_zillow_mortgage_calc_widget' );
-
+add_action( 'widgets_init', 'repro_zillow_mortgage_calc_widget' );*/

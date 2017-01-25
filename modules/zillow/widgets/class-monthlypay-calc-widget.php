@@ -113,8 +113,8 @@ class ZillowMonthlyPaymentCalcWidget extends WP_Widget {
  * @access public
  * @return void
  */
-function repro_zillow_monthly_pay_calc_widget() {
+/*function repro_zillow_monthly_pay_calc_widget() {
 
 	register_widget( 'ZillowMonthlyPaymentCalcWidget' );
 }
-add_action( 'widgets_init', 'repro_zillow_monthly_pay_calc_widget' );
+add_action( 'widgets_init', 'repro_zillow_monthly_pay_calc_widget' );*/

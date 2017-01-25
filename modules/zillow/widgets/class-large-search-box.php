@@ -4,17 +4,17 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /**
- * Zillow Contact Widget (https://www.zillow.com/webtools/widgets/contact-form-widget.htm)
+ * Zillow Large Search Box Widget (http://www.zillow.com/webtools/widgets/ZillowLargeSearchBox.htm)
  *
  * @package RE-PRO
  */
 
 /**
- * ZillowContactWidget class.
+ * ZillowLargeSearchBox class.
  *
  * @extends WP_Widget
  */
-class ZillowContactWidget extends WP_Widget {
+class ZillowLargeSearchBox extends WP_Widget {
 
 
 	/**
@@ -26,11 +26,11 @@ class ZillowContactWidget extends WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			'zillow_contact_widget',
-			__( 'Zillow Contact Form', 're-pro' ),
+			'zillow_large_search_box',
+			__( 'Zillow Large Search Box', 're-pro' ),
 			array(
-				'description' => __( 'Display a form to contact you on Zillow.', 're-pro' ),
-				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-contact',
+				'description' => __( 'Display a Large Search Box from Zillow.', 're-pro' ),
+				'classname'   => 're-pro re-pro-widget zillow-widget zillow-widget-search-box',
 				'customize_selective_refresh' => true,
 			)
 		);
@@ -48,9 +48,12 @@ class ZillowContactWidget extends WP_Widget {
 
 		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$type = ! empty( $instance['type'] ) ? $instance['type'] : '';
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
-		$email = ! empty( $instance['email'] ) ? $instance['email'] : '';
-		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
+		$location = ! empty( $instance['location'] ) ? $instance['location'] : '';
+		$home_val_info = ! empty( $instance['home_val_info'] ) ? $instance['home_val_info'] : '';
+		$home_val_info = ( $home_val_info ) ? 'no' : 'yes';
+
 
 		echo $args['before_widget'];
 
@@ -58,7 +61,7 @@ class ZillowContactWidget extends WP_Widget {
 
 		$zillow_widgets = new ZillowWidgets();
 
-		return $zillow_widgets->get_contact_widget( $iframe_id, $email );
+ 		$zillow_widgets->get_lg_zillow_search_widget( $iframe_id, $screenname, 'iframe', $location, $home_val_info );
 
 		echo $args['after_widget'];
 	}
@@ -75,17 +78,18 @@ class ZillowContactWidget extends WP_Widget {
 		// Set default values.
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => '',
+			'type' => 'iframe',
 			'screenname' => '',
-			'zuid' => '',
+			'location' => '',
+			'home_val_info' => 0,
 		));
 
 		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$screenname = ! empty( $instance['screenname'] ) ? $instance['screenname'] : '';
-		$zuid = ! empty( $instance['zuid'] ) ? $instance['zuid'] : '';
-		$size = ! empty( $instance['size'] ) ? $instance['size'] : '';
-		$height = ! empty( $instance['height'] ) ? $instance['height'] : '';
-		$width = ! empty( $instance['width'] ) ? $instance['width'] : '';
+		$location = ! empty( $instance['location'] ) ? $instance['location'] : '';
+		$home_val_info = ! empty( $instance['home_val_info'] ) ? $instance['home_val_info'] : 0;
+
 
 		// Title.
 		echo '<p>';
@@ -99,11 +103,18 @@ class ZillowContactWidget extends WP_Widget {
 		echo '	<input id="' . $this->get_field_id( 'screenname' ) . '" name="' . $this->get_field_name( 'screenname' ) . '" value="' . $screenname  . '" class="widefat">';
 		echo '</p>';
 
-		// Zillow User ID.
+		// Location.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'zuid' ) . '" class="title-label">' . __( 'Zillow User ID:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'zuid' ) . '" name="' . $this->get_field_name( 'zuid' ) . '" value="' . $zuid  . '" class="widefat">';
+		echo '	<label for="' . $this->get_field_id( 'location' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . $this->get_field_id( 'location' ) . '" placeholder="El Segundo, CA" name="' . $this->get_field_name( 'location' ) . '" value="' . $location  . '" class="widefat">';
 		echo '</p>';
+
+		// Home Value Info
+		echo '<p>';
+		echo '<input value="1" type="checkbox"' . checked( esc_attr( $home_val_info ), 1, false ) . 'id="' . esc_attr( $this->get_field_id( 'home_val_info' ) ) . '" name="' . esc_attr( $this->get_field_name( 'home_val_info' ) ) . '" />';
+		echo '<label for="' . $this->get_field_id( 'home_val_info' ) . '">Hide home value information</label>';
+		echo '</p>';
+
 
 	}
 
@@ -121,20 +132,22 @@ class ZillowContactWidget extends WP_Widget {
 
 		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? strip_tags( $new_instance['screenname'] ) : '';
-		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? strip_tags( $new_instance['zuid'] ) : '';
-		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? strip_tags( $new_instance['zmod'] ) : '';
+		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
+		$instance['home_val_info'] = ! empty( $new_instance['home_val_info'] ) ? strip_tags( $new_instance['home_val_info'] ) : 0;
+
+
 		return $instance;
 	}
 }
 
 /**
- * Register Zillow Review Widget.
+ * Register Zillow Large Search Box.
  *
  * @access public
  * @return void
  */
-/*function repro_zillow_contact_widget() {
+function repro_zillow_search_box_widget() {
 
-	register_widget( 'ZillowContactWidget' );
+	register_widget( 'ZillowLargeSearchBox' );
 }
-add_action( 'widgets_init', 'repro_zillow_contact_widget' );*/
+add_action( 'widgets_init', 'repro_zillow_search_box_widget' );
