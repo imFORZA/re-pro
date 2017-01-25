@@ -32,20 +32,57 @@
 	text-align:left;
 }
 
-.zillow-newest-forsale-widget-container {
+.zillow-nfs-widget-container {
 	width: 298px;
-	height: 180px;
-	background-color: #eff3ff;
+	height: 215px;
+	background-color: #e7f1fd;
 	overflow: hidden;
 	text-align: center;
 	border: 1px solid #adcfff;
 	margin-bottom: 1.5em;
 }
-.zillow-newest-forsale-widget-container h5 {
+
+.zillow-nfs-widget-container iframe {
+	margin-bottom: 0;
+}
+
+.zillow-nfs-widget-container h5, .zillow-meh-widget-container h5 {
 	font-size: 9px;
 	text-align: center;
 	color: #3366bb;
 	margin-top: 8px;
+}
+
+.zillow-meh-widget-container {
+	width: 198px;
+	height: 230px;
+	background-color: #e7f1fd;
+	overflow: hidden;
+	text-align: center;
+	border: 1px solid #adcfff;
+	margin-bottom: 1.5em;
+	padding: 0 8px;
+}
+
+.zillow-meh-widget-container iframe {
+	position: absolute;
+	right: 0px;
+	left: 35px;
+}
+
+.zillow-meh-outer {
+	background-color: #fff;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  border: 1px solid #ADCFFF;
+	height: 140px;
+	padding: 10px 20px;
+}
+
+.zillow-meh-widget-container img {
+	margin-top: 6px;
 }
 
 .zillow-lg-search-iframe {
