@@ -200,48 +200,15 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_mortgage_rate_table_widget( $iframe_id = '', $textcolor, $screenname, $region ) {
 
-			?>
-			<style>
-			.zillow-mortage-rate-table {
-				overflow:hidden;
-				text-align:center;
-				margin:0 auto;
-				text-transform:none;
-				line-height:normal;
-			}
-			.zillow-mortage-rate-table .header-labels {
-				margin:5px 0 1px;
-			}
-			.zillow-mortage-rate-table .current-label {
-				padding-left:137px;
-				color:#<?php echo $textcolor; ?>;
-			}
-			.zillow-mortage-rate-table .lastweek-label {
-				padding-left:23px;
-				color:#<?php echo $textcolor; ?>;
-			}
-			.zillow-mortage-rate-table .rate-label-row {
-				box-sizing:content-box;
-				height:29px;
-				border-bottom:1px solid #ccc;
-			}
-			.zillow-mortage-rate-table .rate-labels-wrapper {
-				box-sizing:content-box;
-				width:50%;
-				float:left;
-			}
-			.zillow-mortage-rate-table .rate-label {
-				box-sizing:content-box;
-				padding:9px 0 0 8px;
-				text-align:left;
-			}
-		</style>
-
-	<div id="" class="zillow-mortage-rate-table">
-
-
+		?>
+		<div id="" class="zillow-mortage-rate-table">
 		<div class="header-labels">
-			<span class="current-label"><?php _e( 'Current', 're-pro' ); ?></span><span class="lastweek-label"><?php _e( 'Last Week', 're-pro' ); ?></span>
+			<span class="current-label" style="color:#<?php echo $textcolor ?>">
+				<?php _e( 'Current', 're-pro' ); ?>
+			</span>
+			<span class="lastweek-label" style="color:#<?php echo $textcolor ?>">
+				<?php _e( 'Last Week', 're-pro' ); ?>
+			</span>
 		</div>
 
 		<div>
@@ -412,28 +379,9 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 			// TODO - Check for HTTPS, as this widget does not support it.
 			// TODO - Support JS Version.
 
-		?>
-		<style>
-			.zillow-newest-forsale-widget-container {
-				width: 298px;
-				height: 180px;
-				background-color: #eff3ff;
-				overflow: hidden;
-				text-align: center;
-				border: 1px solid #adcfff;
-				margin-bottom: 1.5em;
-			}
-			.zillow-newest-forsale-widget-container h5 {
-				font-size: 9px;
-				text-align: center;
-				color: #3366bb;
-				margin-top: 8px;
-			}
-			</style>
-			<div class="zillow-newest-forsale-widget-container">
-				<h5>Newest For Sale Homes in <?php echo $location ?></h5>
-				<?php
-				echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'newest-homes' ) .'" title="'. __( 'Zillow Newest For Sale Homes', 're-pro' ) .'" scrolling="no" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=nfs-large-iframe-widget-container&type='. $type .'&size='.$size.'&rn='. $location .'&widgettype=nfs" width="286" height="123" frameborder="0"></iframe>';
+			echo '<div class="zillow-newest-forsale-widget-container">';
+			echo '<h5>Newest For Sale Homes in' . $location . '</h5>';
+			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'newest-homes' ) .'" title="'. __( 'Zillow Newest For Sale Homes', 're-pro' ) .'" scrolling="no" src="http://www.zillow.com/widgets/fmr/FMRWidget.htm?did=nfs-large-iframe-widget-container&type='. $type .'&size='.$size.'&rn='. $location .'&widgettype=nfs" width="286" height="123" frameborder="0"></iframe>';
 			echo '</div>';
 		}
 
@@ -468,36 +416,15 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 * @return void
 		 */
 		public function get_lg_zillow_search_widget( $iframe_id = '', $zillow_screenname, $type = 'iframe', $region_name, $include_home_val_info = 'yes' ) {
-		?>
-			<style>
-			.zillow-lg-search-iframe {
-				max-width: none;
-			}
-			.zillow-large-search-box-widget-container {
-				width: 432px;
-				overflow: hidden;
-				background-color: #e7f1fd;
-				border: 1px solid #adcfff;
-				margin-bottom: 1.5em;
-			}
-			.zillow-large-search-box-widget-container h2 {
-				color: #d61;
-				font-size: 20px;
-				float: left;
-				margin-left: 10px;
-				margin-top: 5px;
-			}
-			</style>
-			<div class="zillow-large-search-box-widget-container">
-				<h2>Find Homes</h2>
-				<div style="float:right;">
-					<img alt="Zillow Real Estate Information" style="border:0;" src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=%2Fstatic%2Fimages%2Fpowered-by-zillow.gif" />
-				</div>
-				<?php echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'lg-search' ) .'" scrolling="no" title="'. __( 'Zillow Search', 're-pro' ) .'" src="https://www.zillow.com/widgets/search/LargeSearchBoxWidget.htm?did=zillow-large-search-box-iframe-widget&scrnname='.$zillow_screenname.'&type='.$type.'&rgname='.$region_name.'&shvi='.$include_home_val_info.'" width="430" frameborder="0" height="400"></iframe>'; ?>
-			</div>
-		<?php
-		}
 
+			echo '<div class="zillow-large-search-box-widget-container">';
+			echo '	<h2>Find Homes</h2>';
+			echo '	<div style="float:right;">';
+			echo '		<img alt="Zillow Real Estate Information" style="border:0;" src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=%2Fstatic%2Fimages%2Fpowered-by-zillow.gif" />';
+			echo '	</div>';
+			echo '	<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'lg-search' ) .'" scrolling="no" title="'. __( 'Zillow Search', 're-pro' ) .'" src="https://www.zillow.com/widgets/search/LargeSearchBoxWidget.htm?did=zillow-large-search-box-iframe-widget&scrnname='.$zillow_screenname.'&type='.$type.'&rgname='.$region_name.'&shvi='.$include_home_val_info.'" width="430" frameborder="0" height="400"></iframe>';
+			echo '</div>';
+		}
 
 		/* POLLS & QUIZZES. */
 

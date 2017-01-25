@@ -70,6 +70,7 @@ class RePro {
 
 		/** Enqueue css and js files. */
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+		add_action( 'wp_enqueue_scripts', 	 array( $this, 'widget_styles' ) );
 
 		/* Add link to settings in plugins admin page. */
 		add_filter( 'plugin_action_links_' . REPRO_BASE_NAME , array( $this, 'plugin_links' ) );
@@ -90,6 +91,14 @@ class RePro {
 			wp_register_style( 're-pro', plugins_url( 'assets/css/re-pro-min.css', REPRO_PLUGIN_FILE ) );
 			// wp_enqueue_style( 're-pro' );
 		}
+	}
+
+	/**
+	 * Register Widget CSS.
+	 */
+	public function widget_styles() {
+		wp_register_style( 're-pro-widgets', plugins_url( 'assets/css/re-pro-widgets.min.css', REPRO_PLUGIN_FILE ) );
+		wp_enqueue_style( 're-pro-widgets' );
 	}
 
 	/**
