@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function() {
 	if( typeof idxfListing !== 'undefined' ){
 		google.maps.event.addDomListener(window, 'load', initialize_map );

@@ -49,10 +49,11 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 
 			add_action( 'wp_footer', array($this, 'footer'),  11);
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
+			add_shortcode( 'wp_google_maps', array( $this, 'shortcode' ) );
 		}
 
 		public function enqueue(){
-			wp_enqueue_script( 'wpapi-google-maps',plugins_url( 'google-maps.min.js', plugins_url( 'google-maps.min.js', __FILE__ ) ), array( 'jquery' ), null, true );
+			wp_enqueue_script( 'wpapi-google-maps',plugins_url( 'google-maps.js', __FILE__ ), array( 'jquery' ), null, true );
 		}
 
 		public function footer(){
@@ -64,7 +65,7 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 
 		public function print_map( $width, $height, $map_data ){
 			$map_data = apply_filters( 'wpapi_google_map_data', $map_data );
-			wp_localize_script( 'idxforza-maps', 'idxfListing', $map_data );
+			wp_localize_script( 'wpapi-google-maps', 'idxfListing', $map_data );
 
 			// Print Map
 			echo '<div id="listing-map"><div id="map-canvas" style="width: ' . $width . '; height: ' . $height . '"></div></div><!-- .listing-map -->';
@@ -87,6 +88,7 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 				'map_info_content' => $atts['info'],
 				'lat' => $atts['lat'],
 				'lng' => $atts['lng'],
+				'style' => '[]',
 			);
 
 			$this->print_map( $atts['width'], $atts['height'], $map_data);
@@ -95,4 +97,4 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 
 }
 
-new GoogleMaps( 123 );
+new GoogleMaps( 'AIzaSyBxEwigXKSxW53_7efZPagQ3uML-vX8rPY' );
