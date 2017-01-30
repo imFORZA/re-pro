@@ -47,3 +47,6 @@ after_success:
 addons:
     code_climate:
         repo_token: 846050e5b28d9e84a08b025ba7129b03f94f22063a4e9a56f5aad4a53a8e56e6
+
+notifications:
+  slack: imforza:b42wXlDhskIbr60uyPENaX4o
