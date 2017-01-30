@@ -17,6 +17,8 @@
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 if ( ! class_exists( 'GoogleMaps' ) ) {
+	include_once('maps-widget.php');
+
 	/**
 	 * GreatSchools API Class.
 	 */
@@ -48,6 +50,7 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 			static::$api_key = $api_key;
 
 			add_action( 'wp_footer', array($this, 'footer'),  11);
+			add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_shortcode( 'wp_google_maps', array( $this, 'shortcode' ) );
 		}
@@ -84,7 +87,7 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 				array(
 					'width' => '100%',
 					'height' => '300px',
-					'info' => 'title',
+					'info' => '',
 					'lat' => '',
 					'lng' => '',
 				),
@@ -98,6 +101,16 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 			);
 
 			$this->print_map( $atts['width'], $atts['height'], $map_data);
+		}
+
+		/**
+		 * Register idxFORZA Widgets.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		public function register_widgets() {
+			register_widget( 'WP_API_MAPS_WIDGET' );
 		}
 	}
 
