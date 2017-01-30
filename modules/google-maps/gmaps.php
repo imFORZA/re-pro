@@ -64,7 +64,14 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		}
 
 		public function print_map( $width, $height, $map_data ){
-			$map_data = apply_filters( 'wpapi_google_map_data', $map_data );
+      $default = array(
+        'lat' => '',
+        'lng' => '',
+				'map_info_content' => '',
+        'style' => '[]',
+      );
+
+			$map_data = apply_filters( 'wpapi_google_map_data', wp_parse_args( $map_data, $default ) );
 			wp_localize_script( 'wpapi-google-maps', 'idxfListing', $map_data );
 
 			// Print Map
@@ -88,7 +95,6 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 				'map_info_content' => $atts['info'],
 				'lat' => $atts['lat'],
 				'lng' => $atts['lng'],
-				'style' => '[]',
 			);
 
 			$this->print_map( $atts['width'], $atts['height'], $map_data);
