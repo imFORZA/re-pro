@@ -13,7 +13,8 @@
     },
     "require-dev": {
         "stevegrunwell/wp-enforcer": "^0.4.1",
-        "codeclimate/php-test-reporter": "dev-master"
+        "codeclimate/php-test-reporter": "dev-master",
+        "phpunit/phpunit": "3.7.*"
     },
     "archive": {
         "exclude": ["/.*", "/composer.lock"]
