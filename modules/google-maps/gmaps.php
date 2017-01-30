@@ -66,7 +66,7 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 			}
 		}
 
-		public function print_map( $width, $height, $map_data ){
+		public static function print_map( $width, $height, $map_data ){
       $default = array(
         'lat' => '',
         'lng' => '',
@@ -100,7 +100,7 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 				'lng' => $atts['lng'],
 			);
 
-			$this->print_map( $atts['width'], $atts['height'], $map_data);
+			static::print_map( $atts['width'], $atts['height'], $map_data);
 		}
 
 		/**
