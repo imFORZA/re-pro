@@ -1,20 +1,18 @@
 <?php
-
-/* Exit if accessed directly. */
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-
 /**
  * Homes.com Commute Time Widget (http://www.homes.com/widget/commute-time/)
  *
  * @package RE-PRO
  */
 
+	/* Exit if accessed directly. */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
 /**
  * HomesCommuteTimeWidget class.
  *
  * @extends WP_Widget
  */
-
 class HomesCommuteTimeWidget extends WP_Widget {
 
 	/**
@@ -70,14 +68,14 @@ class HomesCommuteTimeWidget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		// Set default values
+		// Set default values.
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => '',
 			'addr' => '',
 			'color' => '0054a0',
 		) );
 
-		// Retrieve an existing value from the database
+		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$addr = ! empty( $instance['addr'] ) ? $instance['addr'] : '';
 		$color = ! empty( $instance['color'] ) ? $instance['color'] : '';
@@ -94,7 +92,7 @@ class HomesCommuteTimeWidget extends WP_Widget {
 		echo '	<input id="' . $this->get_field_id( 'addr' ) . '" name="' . $this->get_field_name( 'addr' ) . '" value="' . $addr  . '" class="widefat">';
 		echo '</p>';
 
-		// Text Color
+		// Button Color
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'color' ) . '" class="title-label">' . __( 'Button Color:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'color' ) . '" name="' . $this->get_field_name( 'color' ) . '" value="' . $color  . '" class="widefat">';
@@ -114,14 +112,12 @@ class HomesCommuteTimeWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = !empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['addr'] = ! empty( $new_instance['addr'] ) ? strip_tags( $new_instance['addr'] ) : '';
 		$instance['color'] = ! empty( $new_instance['color'] ) ? strip_tags( $new_instance['color'] ) : '';
 
 		return $instance;
-
 	}
-
 }
 
 /**

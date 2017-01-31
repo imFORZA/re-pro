@@ -5,7 +5,7 @@
  * @package RE-PRO
  */
 
- // Exit if accessed directly.
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 include( 'widgets/class-homes-com-widgets.php' );
