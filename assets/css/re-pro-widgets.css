@@ -1,140 +1,147 @@
 .zillow-mortage-rate-table {
-	overflow: hidden;
-	text-align: center;
-	margin: 0 auto;
-	text-transform: none;
-	line-height: normal; }
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+  text-transform: none;
+  line-height: normal; }
 
 .zillow-mortage-rate-table .header-labels {
-	margin: 5px 0 1px; }
+  margin: 5px 0 1px; }
 
 .zillow-mortage-rate-table .current-label {
-	padding-left: 137px; }
+  padding-left: 137px; }
 
 .zillow-mortage-rate-table .lastweek-label {
-	padding-left: 23px; }
+  padding-left: 23px; }
 
 .zillow-mortage-rate-table .rate-label-row {
-	box-sizing: content-box;
-	height: 29px;
-	border-bottom: 1px solid #ccc; }
+  box-sizing: content-box;
+  height: 29px;
+  border-bottom: 1px solid #ccc; }
 
 .zillow-mortage-rate-table .rate-labels-wrapper {
-	box-sizing: content-box;
-	width: 50%;
-	float: left; }
+  box-sizing: content-box;
+  width: 50%;
+  float: left; }
 
 .zillow-mortage-rate-table .rate-label {
-	box-sizing: content-box;
-	padding: 9px 0 0 8px;
-	text-align: left; }
+  box-sizing: content-box;
+  padding: 9px 0 0 8px;
+  text-align: left; }
 
 .zillow-listings-widget-container {
-	background-color: #e7f1fd;
-	overflow: hidden;
-	text-align: center;
-	border: 1px solid #adcfff;
-	margin-bottom: 1.5em; }
+  background-color: #e7f1fd;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid #adcfff;
+  margin-bottom: 1.5em; }
 
 .zillow-nfs-widget-container {
-	width: 298px;
-	height: 210px; }
-	.zillow-nfs-widget-container iframe {
-	margin-bottom: 0; }
+  width: 298px;
+  height: 210px; }
+  .zillow-nfs-widget-container iframe {
+    margin-bottom: 0; }
 
 .zillow-listings-widget-container h5 {
-	font-size: 9px;
-	text-align: center;
-	color: #3366bb;
-	margin-top: 8px;
-	margin-bottom: 8px; }
+  font-size: 9px;
+  text-align: center;
+  color: #3366bb;
+  margin-top: 8px;
+  margin-bottom: 8px; }
 
 .zillow-meh-widget-container {
-	width: 198px;
-	height: 230px;
-	padding: 0 8px; }
-	.zillow-meh-widget-container img {
-	margin-top: 6px; }
-	.zillow-meh-widget-container iframe {
-	position: absolute;
-	right: 0px;
-	left: 35px; }
+  width: 198px;
+  height: 230px;
+  padding: 0 8px; }
+  .zillow-meh-widget-container img {
+    margin-top: 6px; }
+  .zillow-meh-widget-container iframe {
+    position: absolute;
+    right: 0px;
+    left: 35px; }
 
 .zillow-meh-outer {
-	background-color: #fff;
-	display: block;
-	overflow: hidden;
-	position: relative;
-	text-align: center;
-	border: 1px solid #ADCFFF;
-	height: 140px;
-	padding: 10px 20px; }
+  background-color: #fff;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  border: 1px solid #ADCFFF;
+  height: 140px;
+  padding: 10px 20px; }
 
 .zillow-lg-search-iframe {
-	max-width: none; }
+  max-width: none; }
 
 .zillow-large-search-box-widget-container {
-	width: 432px;
-	overflow: hidden;
-	background-color: #e7f1fd;
-	border: 1px solid #adcfff;
-	margin-bottom: 1.5em; }
+  width: 432px;
+  overflow: hidden;
+  background-color: #e7f1fd;
+  border: 1px solid #adcfff;
+  margin-bottom: 1.5em; }
 
 .zillow-large-search-box-widget-container h2 {
-	color: #d61;
-	font-size: 20px;
-	float: left;
-	margin-left: 10px;
-	margin-top: 5px; }
+  color: #d61;
+  font-size: 20px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 5px; }
 
-.commute-time-widget {
-	overflow: hidden; }
+.commute-time-widget, .featured-listings-widget {
+  overflow: hidden; }
 
 .commute-time-widget::before,
-.commute-time-widget::after {
-	content: '';
-	display: table;
-	width: 100%; }
+.commute-time-widget::after,
+.featured-listings-widget::before,
+.featured-listings-widget::after {
+  content: '';
+  display: table;
+  width: 100%; }
 
 .commute-time-widget h1 {
-	font-weight: 400;
-	font-size: 17px;
-	line-height: 20px;
-	margin: .3em 0 .7em; }
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  margin: .3em 0 .7em; }
+
+.homes-widget .commute-time-frame,
+.homes-widget .featured-listings-frame {
+  border: 0;
+  border-bottom: 1px solid #eeeae9;
+  margin: 0 0 .5em;
+  overflow: hidden; }
 
 .commute-time-widget .commute-time-frame {
-	border: 0;
-	border-bottom: 1px solid #eeeae9;
-	margin: 0 0 .5em;
-	overflow: hidden;
-	height: 200px; }
+  height: 200px; }
 
-.commute-time-widget a {
-	font-weight: 700;
-	color: #0054a0;
-	text-decoration: none;
-	font-size: .75em;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis; }
+.homes-widget a {
+  font-weight: 700;
+  color: #0054a0;
+  text-decoration: none;
+  font-size: .75em;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
-.commute-time-widget a:hover {
-	text-decoration: underline; }
+.homes-widget .logo {
+  background: transparent url(http://cdn1.static-homes.com/media/portalimgcache/widget/builder/logo-widget.png) 0 0 no-repeat;
+  width: 139px;
+  height: 22px;
+  overflow: hidden;
+  direction: ltr;
+  text-indent: -3000px;
+  float: left; }
 
-.commute-time-widget .logo {
-	background: transparent url(http://cdn1.static-homes.com/media/portalimgcache/widget/builder/logo-widget.png) 0 0 no-repeat;
-	width: 139px;
-	height: 22px;
-	overflow: hidden;
-	direction: ltr;
-	text-indent: -3000px;
-	float: right; }
+.featured-listings-widget h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1em;
+  font-weight: 700; }
 
-.commute-time-widget .footer a {
-	margin: 0; }
+.featured-listings-widget .featured-listings-frame {
+  height: 240px; }
 
-.commute-time-widget .footer .link {
-	max-width: 50%;
-	display: block; }
+.featured-listings-widget .listing-stat {
+  text-transform: capitalize; }

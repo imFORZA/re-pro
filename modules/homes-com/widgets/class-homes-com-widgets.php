@@ -91,13 +91,36 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			// wp_enqueue_scripts( 'commute-time', 'http://www.homes.com/widget/commute-time/remote.js?show_only_destination=NO&text_color=%230054a0&direction_link=%2FHomesCom%2FInclude%2FListingDetail%2FMap%2FPrintDirections%2Ecfm%3FstartAddress%3D%25%25source%5Faddress%25%25%26endAddress%3D%25%25destination%5Faddress%25%25&button_color=%23' . $color . '&cobrand=&source_address=' . $start_addr . '&property_id=', array( 'jquery' ), null, true);
 
 			echo '<div class="commute-time-widget">';
-			echo '	<h1>Commute Time</h1>';
-			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="commute-time-frame '. $this->homes_iframe_class( 'commute-time-widget' ) .'" scrolling="no" title="'. __( 'Commute Time on Homes', 're-pro' ) .'" src="http://www.homes.com/widget/commute-time/frame/?show_only_destination=NO&text_color=%230054a0&direction_link=%2FHomesCom%2FInclude%2FListingDetail%2FMap%2FPrintDirections%2Ecfm%3FstartAddress%3D%25%25source%5Faddress%25%25%26endAddress%3D%25%25destination%5Faddress%25%25&button_color=%23' . $color .'&cobrand=&source_address=' . $start_addr . '"&property_id=" width="100%" frameborder="0"></iframe>';
+			echo '	<h1 style="color:#' . $color . '">Commute Time</h1>';
+			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="commute-time-frame '. $this->homes_iframe_class( 'commute-time-widget' ) .'" scrolling="no" title="'. __( 'Commute Time on Homes', 're-pro' ) .'" src="http://www.homes.com/widget/commute-time/frame/?show_only_destination=NO&text_color=%230054a0&direction_link=%2FHomesCom%2FInclude%2FListingDetail%2FMap%2FPrintDirections%2Ecfm%3FstartAddress%3D%25%25source%5Faddress%25%25%26endAddress%3D%25%25destination%5Faddress%25%25&button_color=%23' . $color .'&cobrand=&source_address=' . $start_addr . '"&property_id=" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<div class="footer">';
 			echo '		<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '			Powered By Homes.com';
 			echo '		</a>';
 			echo '	</div>';
+			echo '</div>';
+
+		}
+
+		/**
+		 * Get Featured Listings Widget.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '').
+		 * @param mixed  $location Location.
+		 * @param mixed  $color Text Color.
+		 * @param mixed  $status Listing Status.
+		 * @return void
+		 */
+		public function get_featured_listings( $iframe_id = '', $location, $color, $status ) {
+			//echo '<script src="http://www.homes.com/widget/featured-listings/remote.js?text_color=%230054a0&amp;listing_status=FOR%20SALE&amp;inner_color=%230054a0&amp;cobrand=&amp;location=El%20Segundo" type="text/javascript"></script>';
+
+			echo '<div class="featured-listings-widget">';
+			echo '	<h1 style="color:#' . $color . '">Featured Homes for <span class="listing-stat">' . $status . '</span></h1>';
+			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="featured-listings-frame '. $this->homes_iframe_class( 'featured-listings-widget' ) .'" scrolling="no" title="'. __( 'Featured Listings on Homes', 're-pro' ) .'" src="http://www.homes.com/widget/featured-listings/frame/?text_color=%23' . $color .'&listing_status=' . $status .'&inner_color=%23' . $color .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
+			echo '		Powered By Homes.com';
+			echo '	</a>';
 			echo '</div>';
 
 		}

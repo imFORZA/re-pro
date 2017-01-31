@@ -101,11 +101,13 @@
 
 // Homes.com Widgets
 
-.commute-time-widget{
+.commute-time-widget, .featured-listings-widget {
 	overflow: hidden;
 }
 .commute-time-widget::before,
-.commute-time-widget::after {
+.commute-time-widget::after,
+.featured-listings-widget::before,
+.featured-listings-widget::after {
 	content: '';
 	display: table;
 	width:100%;
@@ -116,14 +118,18 @@
 	line-height: 20px;
 	margin: .3em 0 .7em;
 }
-.commute-time-widget .commute-time-frame {
+
+.homes-widget .commute-time-frame,
+.homes-widget .featured-listings-frame {
 	border:0;
 	border-bottom: 1px solid #eeeae9;
 	margin: 0 0 .5em;
 	overflow: hidden;
+}
+.commute-time-widget .commute-time-frame {
 	height: 200px;
 }
-.commute-time-widget a {
+.homes-widget a {
 	font-weight: 700;
 	color: #0054a0;
 	text-decoration: none;
@@ -134,22 +140,26 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-.commute-time-widget a:hover {
-	text-decoration: underline;
-}
-.commute-time-widget .logo {
+
+.homes-widget .logo {
 	background: transparent url(http://cdn1.static-homes.com/media/portalimgcache/widget/builder/logo-widget.png) 0 0 no-repeat;
 	width: 139px;
 	height: 22px;
 	overflow: hidden;
 	direction: ltr;
 	text-indent: -3000px;
-	float: right;
+	float: left;
 }
-.commute-time-widget .footer a {
-	margin: 0;
+
+.featured-listings-widget h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1em;
+  font-weight: 700;
 }
-.commute-time-widget .footer .link {
-	max-width: 50%;
-	display: block;
+.featured-listings-widget .featured-listings-frame {
+  height: 240px;
+}
+.featured-listings-widget .listing-stat {
+	text-transform: capitalize;
 }
