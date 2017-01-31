@@ -1,15 +1,15 @@
 <?php
 
-class homes_com extends WP_Widget {
+class HomesCommuteTime extends WP_Widget {
 
 	public function __construct() {
 
 		parent::__construct(
-			'homes-commute-time',
+			'homes_commute_time',
 			__( 'Homes.com - Commute Time', 're-pro' ),
 			array(
-				'description' => __( 'Commute Time', 're-pro' ),
-				'classname'   => 'homes-commute-time',
+				'description' => __( 'Display Commute Time from Homes.com', 're-pro' ),
+				'classname'   => 're-pro re-pro-widget homes-widget homes-commute-time',
 			)
 		);
 
@@ -17,15 +17,20 @@ class homes_com extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 
-		if ( is_ssl( site_url() ) ) {
-			echo 'This widget does not yet support SSL. Please contact homes.com asking them support SSL for this widget.';
-		} else {
+		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$addr = ! empty( $instance['addr'] ) ? $instance['addr'] : '';
+		$color = ! empty( $instance['color'] ) ? $instance['color'] : '0054a0';
 
-	echo '<iframe src="http://www.homes.com/widget/commute-time/frame/?show_only_destination=NO&text_color=%230054a0&direction_link=%2FHomesCom%2FInclude%2FListingDetail%2FMap%2FPrintDirections%2Ecfm%3FstartAddress%3D%25%25source%5Faddress%25%25%26endAddress%3D%25%25destination%5Faddress%25%25&button_color=%23f7841b&cobrand=&source_address=&property_id=" class="commute-time-frame" width="100%" seamless frameborder="0"></iframe>';
+		echo $args['before_widget'];
 
-	echo'<script src="http://www.homes.com/widget/commute-time/remote.js?show_only_destination=NO&text_color=%230054a0&direction_link=%2FHomesCom%2FInclude%2FListingDetail%2FMap%2FPrintDirections%2Ecfm%3FstartAddress%3D%25%25source%5Faddress%25%25%26endAddress%3D%25%25destination%5Faddress%25%25&button_color=%23f7841b&cobrand=&source_address=&property_id=" type="text/javascript"></script></div>';
+		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-	}
+		$homes_widgets = new HomesWidgets();
+
+		$homes_widgets->get_commute_time_widget( $iframe_id, $addr, $color );
+
+	echo $args['after_widget'];
 
 	}
 
@@ -33,16 +38,16 @@ class homes_com extends WP_Widget {
 
 		// Set default values
 		$instance = wp_parse_args( (array) $instance, array(
-			'repro_title' => '',
+			'title' => '',
 		) );
 
 		// Retrieve an existing value from the database
-		$repro_title = !empty( $instance['repro_title'] ) ? $instance['repro_title'] : '';
+		$title = !empty( $instance['title'] ) ? $instance['title'] : '';
 
 		// Form fields
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'repro_title' ) . '" class="repro_title_label">' . __( 'Title', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'repro_title' ) . '" name="' . $this->get_field_name( 'repro_title' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $repro_title ) . '">';
+		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title_label">' . __( 'Title', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $title ) . '">';
 		echo '	<span class="description">' . __( 'Title', 're-pro' ) . '</span>';
 		echo '</p>';
 
@@ -52,7 +57,7 @@ class homes_com extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['repro_title'] = !empty( $new_instance['repro_title'] ) ? strip_tags( $new_instance['repro_title'] ) : '';
+		$instance['title'] = !empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
 
 		return $instance;
 
@@ -61,6 +66,10 @@ class homes_com extends WP_Widget {
 }
 
 function repro_register_homes_com_commute_widgets() {
-	register_widget( 'homes_com' );
+	if ( is_ssl() ) {
+		echo 'This widget does not yet support SSL. Please contact homes.com asking them to support SSL for this widget.';
+	} else {
+		register_widget( 'HomesCommuteTime' );
+	}
 }
 add_action( 'widgets_init', 'repro_register_homes_com_commute_widgets' );
