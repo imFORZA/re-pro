@@ -1,5 +1,14 @@
 <?php
+/**
+ * Homes.com Module
+ *
+ * @package RE-PRO
+ */
 
-include_once( 'widgets/commute-time.php' );
+ // Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 include( 'widgets/class-homes-com-widgets.php' );
+
+// Include Commute Time Widget.
+include( 'widgets/class-commute-time-widget.php' );

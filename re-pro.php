@@ -99,6 +99,8 @@ class RePro {
 	public function widget_styles() {
 		wp_register_style( 're-pro-widgets', plugins_url( 'assets/css/re-pro-widgets.min.css', REPRO_PLUGIN_FILE ) );
 		wp_enqueue_style( 're-pro-widgets' );
+		wp_register_style( 'homes-com-widgets', plugins_url( 'assets/css/homes-com-widgets.min.css', REPRO_PLUGIN_FILE ) );
+		wp_enqueue_style( 'homes-com-widgets' );
 	}
 
 	/**
