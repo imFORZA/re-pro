@@ -121,5 +121,40 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			echo '</div>';
 
 		}
+
+		/**
+		 * Get Home Values Widget.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '').
+		 * @param mixed  $location Location.
+		 * @param mixed  $firstColor Color 1.
+		 * @param mixed  $secondColor Color 2.
+		 * @param mixed  $average Average Value.
+		 * @param mixed  $median Median Value.
+		 * @return void
+		 */
+		public function get_home_values( $iframe_id = '', $location, $firstColor, $secondColor, $average, $median ) {
+
+			$valueTypes = 'MEAN,MEDIAN';
+			if( $average && $median ) {
+				$valueTypes = 'MEAN,MEDIAN';
+			} else if( $average ) {
+				$valueTypes = 'MEAN';
+			} else if( $median ) {
+				$valueTypes = 'MEDIAN';
+			}
+
+			echo '<div class="home-values-widget">';
+			echo '	<h1 style="color:#' . $firstColor . '">Search Home Values</h1>';
+			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="home-values-frame '. $this->homes_iframe_class( 'home-values-widget' ) .'" scrolling="no" title="'. __( 'Home Values on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/home-values/frame/?avm_types=' . $valueTypes .'&text_color=%23' . $firstColor .'&button_color=%23' . $secondColor .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<div class="footer">';
+			echo	'		<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
+			echo '			Powered By Homes.com';
+			echo '		</a>';
+			echo '	</div>';
+			echo '</div>';
+
+		}
 	}
 }

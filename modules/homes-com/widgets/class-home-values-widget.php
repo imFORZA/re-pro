@@ -46,30 +46,18 @@ class HomesHomeValuesWidget extends WP_Widget {
 		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$location = ! empty( $instance['location'] ) ? $instance['location'] : '';
-		$avgColor = ! empty( $instance['avgColor'] ) ? $instance['avgColor'] : '';
-		$medianColor = ! empty( $instance['medianColor'] ) ? $instance['medianColor'] : '';
-		$average = ! empty( $instance['average'] ) ? $instance['average'] : 1;
-		$median = ! empty( $instance['median'] ) ? $instance['median'] : 1;
+		$firstColor = ! empty( $instance['firstColor'] ) ? $instance['firstColor'] : '';
+		$secondColor = ! empty( $instance['secondColor'] ) ? $instance['secondColor'] : '';
+		$average = ! empty( $instance['average'] ) ? $instance['average'] : '';
+		$median = ! empty( $instance['median'] ) ? $instance['median'] : '';
 
 		echo $args['before_widget'];
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		//$homes_widgets = new HomesWidgets();
+		$homes_widgets = new HomesWidgets();
 
-		//$homes_widgets->get_featured_listings( $iframe_id, $location, $color, $status );
-		?>
-
-
-		<div class="home-values-widget">
-			<h1>Search Home Values</h1>
-			<iframe src="http://www.homes.com/widget/home-values/frame/?avm_types=MEAN%2CMEDIAN&text_color=%230054a0&button_color=%23f7841b&cobrand=&location=El%20Segundo%2C%20CA" class="home-values-frame" width="100%" seamless frameborder="0"></iframe>
-			<div class="footer">
-				<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">
-					Powered By Homes.com
-				</a>
-			</div>
-		<?php
+		$homes_widgets->get_home_values( $iframe_id, $location, $firstColor, $secondColor, $average, $median );
 
 		echo $args['after_widget'];
 	}
@@ -87,19 +75,24 @@ class HomesHomeValuesWidget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => '',
 			'location' => '',
-			'avgColor' => '0054a0',
-			'medianColor' => '0054a0',
-			'average' => 'yes',
-			'median' => 'yes',
+			'firstColor' => '0054a0',
+			'secondColor' => 'f7841b',
+			'average' => 1,
+			'median' => 1,
 		) );
 
 		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$location = ! empty( $instance['location'] ) ? $instance['location'] : '';
-		$avgColor = ! empty( $instance['avgColor'] ) ? $instance['avgColor'] : '';
-		$medianColor = ! empty( $instance['medianColor'] ) ? $instance['medianColor'] : '';
+		$firstColor = ! empty( $instance['firstColor'] ) ? $instance['firstColor'] : '';
+		$secondColor = ! empty( $instance['secondColor'] ) ? $instance['secondColor'] : '';
 		$average = ! empty( $instance['average'] ) ? $instance['average'] : '';
 		$median = ! empty( $instance['median'] ) ? $instance['median'] : '';
+
+		if( empty( $average ) && empty( $median ) ) {
+			$average = 1;
+			$median = 1;
+		}
 
 		// Title.
 		echo '<p>';
@@ -115,24 +108,24 @@ class HomesHomeValuesWidget extends WP_Widget {
 
 		// Average Color
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'avgColor' ) . '" class="title-label">' . __( 'Average Home Value Color:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'avgColor' ) . '" name="' . $this->get_field_name( 'avgColor' ) . '" value="' . $avgColor  . '" class="widefat">';
+		echo '	<label for="' . $this->get_field_id( 'firstColor' ) . '" class="title-label">' . __( 'Color 1:', 're-pro' ) . '</label>';
+		echo '	<input id="' . $this->get_field_id( 'firstColor' ) . '" name="' . $this->get_field_name( 'firstColor' ) . '" value="' . $firstColor  . '" class="widefat">';
 		echo '</p>';
 
 		// Median Color
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'medianColor' ) . '" class="title-label">' . __( 'Median Home Value Color:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'medianColor' ) . '" name="' . $this->get_field_name( 'medianColor' ) . '" value="' . $medianColor  . '" class="widefat">';
+		echo '	<label for="' . $this->get_field_id( 'secondColor' ) . '" class="title-label">' . __( 'Color 2:', 're-pro' ) . '</label>';
+		echo '	<input id="' . $this->get_field_id( 'secondColor' ) . '" name="' . $this->get_field_name( 'secondColor' ) . '" value="' . $secondColor  . '" class="widefat">';
 		echo '</p>';
 
 		// Home Value Types
 		echo '<p>';
 		echo '<label for="home-values-type" class="homes_value_type_label">' . __( 'Home Value Types:', 're-pro' ) . '</label>';
 		echo '<br />';
-		echo '<input value="yes" type="checkbox"' . checked( $average, 'yes', false ) . 'id="' . $this->get_field_id( 'average' ) . '" name="' . $this->get_field_name( 'average' )  . '" />';
+		echo '<input value="1" type="checkbox"' . checked( $average, 1, false ) . 'id="' . $this->get_field_id( 'average' ) . '" name="' . $this->get_field_name( 'average' )  . '" />';
 		echo '<label for="' . $this->get_field_id( 'average' ) . '">Average Home Value</label>';
 		echo '<br />';
-		echo '<input value="yes" type="checkbox"' . checked( $median, 'yes', false ) . 'id="' . $this->get_field_id( 'median' ) . '" name="' . $this->get_field_name( 'median' ) . '" />';
+		echo '<input value="1" type="checkbox"' . checked( $median, 1, false ) . 'id="' . $this->get_field_id( 'median' ) . '" name="' . $this->get_field_name( 'median' ) . '" />';
 		echo '<label for="' . $this->get_field_id( 'median' ) . '">Median Home Value</label>';
 		echo '</p>';
 	}
@@ -151,8 +144,8 @@ class HomesHomeValuesWidget extends WP_Widget {
 
 		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
-		$instance['avgColor'] = ! empty( $new_instance['avgColor'] ) ? strip_tags( $new_instance['avgColor'] ) : '';
-		$instance['medianColor'] = ! empty( $new_instance['medianColor'] ) ? strip_tags( $new_instance['medianColor'] ) : '';
+		$instance['firstColor'] = ! empty( $new_instance['firstColor'] ) ? strip_tags( $new_instance['firstColor'] ) : '';
+		$instance['secondColor'] = ! empty( $new_instance['secondColor'] ) ? strip_tags( $new_instance['secondColor'] ) : '';
 		$instance['average'] = ! empty( $new_instance['average'] ) ? strip_tags( $new_instance['average'] ) : '';
 		$instance['median'] = ! empty( $new_instance['median'] ) ? strip_tags( $new_instance['median'] ) : '';
 
