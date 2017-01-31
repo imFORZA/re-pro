@@ -25,9 +25,9 @@ class HomesCommuteTimeWidget extends WP_Widget {
 
 		parent::__construct(
 			'homes_commute_time',
-			__( 'Homes.com - Commute Time', 're-pro' ),
+			__( 'Homes Commute Time', 're-pro' ),
 			array(
-				'description' => __( 'Display Commute Time from Homes.com', 're-pro' ),
+				'description' => __( 'Display a form that checks the commute time from Homes.com', 're-pro' ),
 				'classname'   => 're-pro re-pro-widget homes-widget homes-commute-time',
 				'customize_selective_refresh' => true,
 			)
@@ -126,11 +126,11 @@ class HomesCommuteTimeWidget extends WP_Widget {
  * @access public
  * @return void
  */
-function repro_register_homes_com_commute_widget() {
+function repro_homes_com_commute_widget() {
 	if ( is_ssl() ) {
 		echo 'This widget does not yet support SSL. Please contact homes.com asking them to support SSL for this widget.';
 	} else {
 		register_widget( 'HomesCommuteTimeWidget' );
 	}
 }
-add_action( 'widgets_init', 'repro_register_homes_com_commute_widget' );
+add_action( 'widgets_init', 'repro_homes_com_commute_widget' );
