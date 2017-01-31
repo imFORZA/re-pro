@@ -5,16 +5,16 @@
  * @package WP-Google-Maps-API
  */
 
-	/*
-	* Plugin Name: WP Google Maps API
-	* Plugin URI: https://github.com/wp-api-libraries/wp-google-maps-api
-	* Description: Perform API requests to Google Maps API.
-	* Author: WP API Libraries, sgarza
-	* Version: 1.0.0
-	* Author URI: https://wp-api-libraries.com
-	* GitHub Plugin URI: https://github.com/wp-api-libraries/wp-google-maps-api
-	* GitHub Branch: master
-*/
+/*
+ * Plugin Name: WP Google Maps API
+ * Plugin URI: https://github.com/wp-api-libraries/wp-google-maps-api
+ * Description: Perform API requests to Google Maps API.
+ * Author: WP API Libraries, sgarza
+ * Version: 1.0.0
+ * Author URI: https://wp-api-libraries.com
+ * GitHub Plugin URI: https://github.com/wp-api-libraries/wp-google-maps-api
+ * GitHub Branch: master
+ */
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
