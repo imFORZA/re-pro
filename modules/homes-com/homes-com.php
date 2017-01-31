@@ -15,3 +15,6 @@ include( 'widgets/class-commute-time-widget.php' );
 
 // Include Featured Listings Widget.
 include( 'widgets/class-featured-listings-widget.php' );
+
+// Include Home Values Widget.
+include( 'widgets/class-home-values-widget.php' );

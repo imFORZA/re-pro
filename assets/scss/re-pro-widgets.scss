@@ -101,13 +101,17 @@
 
 // Homes.com Widgets
 
-.commute-time-widget, .featured-listings-widget {
+.commute-time-widget,
+.featured-listings-widget,
+.home-values-widget {
 	overflow: hidden;
 }
 .commute-time-widget::before,
 .commute-time-widget::after,
 .featured-listings-widget::before,
-.featured-listings-widget::after {
+.featured-listings-widget::after,
+.home-values-widget::before,
+.home-values-widget::after {
 	content: '';
 	display: table;
 	width:100%;
@@ -120,7 +124,8 @@
 }
 
 .homes-widget .commute-time-frame,
-.homes-widget .featured-listings-frame {
+.homes-widget .featured-listings-frame,
+.homes-widget .home-values-frame {
 	border:0;
 	border-bottom: 1px solid #eeeae9;
 	margin: 0 0 .5em;
@@ -162,4 +167,17 @@
 }
 .featured-listings-widget .listing-stat {
 	text-transform: capitalize;
+}
+
+.home-values-widget h1 {
+	color:#0054a0;
+	margin:0;
+	font-size:24px;
+	line-height:1em;
+	font-weight:700;
+	text-align:center;
+}
+
+.home-values-widget .home-values-frame {
+	height: 320px;
 }
