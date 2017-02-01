@@ -6,27 +6,29 @@ jQuery(document).ready(function() {
 
 // Initialize map
 function initialize_map() {
-	var mapCanvas = document.getElementById('map-canvas');
-	var myLatLng = new google.maps.LatLng( wpapi_gmaps.lat , wpapi_gmaps.lng );
-	var map_style = JSON.parse(wpapi_gmaps.style);
+	wpapi_gmaps.forEach(function(single_gmap, index){
+		var mapCanvas = document.getElementById('wpapi-gmap-' + index);
+		var myLatLng = new google.maps.LatLng( single_gmap.lat , single_gmap.lng );
+		var map_style = JSON.parse(single_gmap.style);
 
-	var mapOptions = {
-		center: myLatLng,
-		zoom: 14,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		styles: map_style
-	}
+		var mapOptions = {
+			center: myLatLng,
+			zoom: 14,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			styles: map_style
+		}
 
-	var marker = new google.maps.Marker({
-		position: myLatLng
+		var marker = new google.maps.Marker({
+			position: myLatLng
+		});
+
+		var infoContent =  single_gmap.info;
+		var infowindow = new google.maps.InfoWindow({
+			content: infoContent
+		});
+
+		var map = new google.maps.Map(mapCanvas, mapOptions);
+		marker.setMap(map);
+		infowindow.open(map, marker);
 	});
-
-	var infoContent =  wpapi_gmaps.info;
-	var infowindow = new google.maps.InfoWindow({
-		content: infoContent
-	});
-
-	var map = new google.maps.Map(mapCanvas, mapOptions);
-	marker.setMap(map);
-	infowindow.open(map, marker);
 }

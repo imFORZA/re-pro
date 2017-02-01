@@ -73,6 +73,8 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		 * Handle multiple google maps js api enqueues on the footer.
 		 */
 		public function footer() {
+			wp_localize_script( 'wpapi-google-maps', 'wpapi_gmaps', static::$map_data );
+
 			// Only enqueue google maps API if yoast hasnt enqueued it already.
 			if ( ! wp_script_is( 'maps-geocoder' ) ) {
 				wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=' . static::$api_key, array(), null );
@@ -88,17 +90,18 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		 */
 		public static function print_map( $width, $height, $map_data ) {
 			$default = array(
-				'lat' => '',
-				'lng' => '',
+				'lat' => '0',
+				'lng' => '0',
 				'info' => '',
 				'style' => '[]',
 			);
 
-			static::$map_data = apply_filters( 'wpapi_google_map_data', wp_parse_args( $map_data, $default ) );
-			wp_localize_script( 'wpapi-google-maps', 'wpapi_gmaps', static::$map_data );
+			static::$map_data[] = apply_filters( 'wpapi_google_map_data', wp_parse_args( $map_data, $default ) );
+
+			$index = count( static::$map_data ) - 1;
 
 			// Print Map.
-			echo '<div id="listing-map"><div id="map-canvas" style="width: ' . esc_attr( $width ) . '; height: ' . esc_attr( $height ) . '"></div></div><!-- .listing-map -->';
+			echo '<div id="listing-map"><div id="wpapi-gmap-' . $index . '" style="width: ' . esc_attr( $width ) . '; height: ' . esc_attr( $height ) . '"></div></div><!-- .listing-map -->';
 		}
 
 		/**
