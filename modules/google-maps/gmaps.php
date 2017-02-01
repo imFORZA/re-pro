@@ -99,8 +99,8 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		/**
 		 * Print dat map.
 		 *
-		 * @param  [Mixed]  $map_data : Array of map data to send to js.
-		 * @param  [Bool]   $echo     : If html should be returned or echoed, defaults to true.
+		 * @param  [Mixed] $map_data : Array of map data to send to js.
+		 * @param  [Bool]  $echo     : If html should be returned or echoed, defaults to true.
 		 */
 		public static function print_map( $map_data, $echo = true ) {
 
@@ -109,11 +109,11 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 
 			$index = count( static::$map_data ) - 1;
 
-			$html = '<div id="listing-map"><div id="wpapi-gmap-' . $index . '" style="width:' . esc_attr( $map_data['width'] ) . ';height:' . esc_attr( $map_data['height'] ) . '"></div></div><!-- .listing-map -->';
+			$html = '<div id="wpapi-gmap-' . $index . '" style="width:' . esc_attr( $map_data['width'] ) . ';height:' . esc_attr( $map_data['height'] ) . '"></div>';
 
-			if( $echo ){
-				echo $html; }
-			else {
+			if ( $echo ) {
+				echo $html;
+			} else {
 				return $html;
 			}
 		}

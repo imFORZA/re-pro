@@ -163,9 +163,15 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		return $instance;
 	}
 
-	private function parse_args( $instance ){
+	/**
+	 * Parse default arguments.
+	 *
+	 * @param  [Array] $args : Array of arguments to parse.
+	 * @return [Array]       : Parsed arguments.
+	 */
+	private function parse_args( $args ) {
 		// Set default values.
-		$instance = wp_parse_args( $instance, array(
+		$args = wp_parse_args( $args, array(
 			'title' => '',
 			'width'	 => '300px',
 			'height' => '300px',
@@ -176,7 +182,6 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 			'zoom'	 => 8,
 		) );
 
-		return $instance;
+		return $args;
 	}
 }
-?>
