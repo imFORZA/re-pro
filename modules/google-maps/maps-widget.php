@@ -39,6 +39,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 	 * @return void
 	 */
 	public function widget( $args, $instance ) {
+		$instance = $this->parse_args( $instance );
 
 		// Display widget title.
 		if ( isset( $instance['title'] ) ) {
@@ -47,7 +48,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 			echo $args['after_title'];
 		}
 
-		GoogleMaps::print_map( '100%', '300px', $instance);
+		GoogleMaps::print_map( '100%', '300px', $instance );
 	}
 
 	/**
@@ -58,17 +59,8 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 	 * @return void
 	 */
 	public function form( $instance ) {
-
 		// Set default values.
-		$instance = wp_parse_args( (array) $instance, array(
-			'title' => '',
-			'width' => '',
-			'height' => '',
-			'lat' => '',
-			'lng' => '',
-			'map_info_content' => '',
-			'style' => '[]',
-		) );
+		$instance = $this->parse_args( $instance );
 
 		// Retrieve an existing value from the database.
 		$title['val'] = ! empty( $instance['title'] ) ? $instance['title'] : '';
@@ -155,6 +147,21 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$instance['lng'] = ! empty( $new_instance['lng'] ) ? strip_tags( $new_instance['lng'] ) : '';
 		$instance['map_info_content'] = ! empty( $new_instance['map_info_content'] ) ? strip_tags( $new_instance['map_info_content'] ) : '';
 		$instance['style'] = ! empty( $new_instance['style'] ) ? strip_tags( $new_instance['style'] ) : '';
+
+		return $instance;
+	}
+
+	private function parse_args( $instance ){
+		// Set default values.
+		$instance = wp_parse_args( (array) $instance, array(
+			'title' => '',
+			'width' => '',
+			'height' => '',
+			'lat' => '',
+			'lng' => '',
+			'map_info_content' => '',
+			'style' => '',
+		) );
 
 		return $instance;
 	}

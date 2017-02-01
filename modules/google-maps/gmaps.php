@@ -81,10 +81,10 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		 */
 		public static function print_map( $width, $height, $map_data ) {
 			$default = array(
-			'lat' => '',
-			'lng' => '',
+				'lat' => '',
+				'lng' => '',
 				'map_info_content' => '',
-			'style' => '[]',
+				'style' => '[]',
 			);
 
 			$map_data = apply_filters( 'wpapi_google_map_data', wp_parse_args( $map_data, $default ) );
