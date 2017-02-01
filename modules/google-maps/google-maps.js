@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-	if( typeof idxfListing !== 'undefined' ){
+	if( typeof wpapi_gmaps !== 'undefined' ){
 		google.maps.event.addDomListener(window, 'load', initialize_map );
 	}
 });
@@ -7,8 +7,8 @@ jQuery(document).ready(function() {
 // Initialize map
 function initialize_map() {
 	var mapCanvas = document.getElementById('map-canvas');
-	var myLatLng = new google.maps.LatLng( idxfListing.lat , idxfListing.lng );
-	var map_style = JSON.parse(idxfListing.style);
+	var myLatLng = new google.maps.LatLng( wpapi_gmaps.lat , wpapi_gmaps.lng );
+	var map_style = JSON.parse(wpapi_gmaps.style);
 
 	var mapOptions = {
 		center: myLatLng,
@@ -18,11 +18,10 @@ function initialize_map() {
 	}
 
 	var marker = new google.maps.Marker({
-		position: myLatLng,
-		icon: '//s3.amazonaws.com/ae-plugins/wp-listings/images/active.png'
+		position: myLatLng
 	});
 
-	var infoContent =  idxfListing.map_info_content;
+	var infoContent =  wpapi_gmaps.info;
 	var infowindow = new google.maps.InfoWindow({
 		content: infoContent
 	});

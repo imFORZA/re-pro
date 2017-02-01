@@ -66,7 +66,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$title['val'] = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$lat['val']   = ! empty( $instance['lat'] ) ? $instance['lat'] : '';
 		$lng['val']   = ! empty( $instance['lng'] ) ? $instance['lng'] : '';
-		$map_info_content['val'] = ! empty( $instance['map_info_content'] ) ? $instance['map_info_content'] : '';
+		$info['val'] = ! empty( $instance['info'] ) ? $instance['info'] : '';
 		$style['val'] = ! empty( $instance['style'] ) ? $instance['style'] : '';
 		$width['val'] = ! empty( $instance['width'] ) ? $instance['width'] : '';
 		$height['val'] = ! empty( $instance['height'] ) ? $instance['height'] : '';
@@ -74,7 +74,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$title['id'] 	= $this->get_field_id( 'title' );
 		$lat['id'] 		= $this->get_field_id( 'lat' );
 		$lng['id']		= $this->get_field_id( 'lng' );
-		$map_info_content['id'] = $this->get_field_id( 'map_info_content' );
+		$info['id'] = $this->get_field_id( 'info' );
 		$style['id'] 	= $this->get_field_id( 'style' );
 		$width['id'] 	= $this->get_field_id( 'width' );
 		$height['id'] 	= $this->get_field_id( 'height' );
@@ -82,7 +82,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$title['name'] = $this->get_field_name( 'title' );
 		$lat['name'] 	 = $this->get_field_name( 'lat' );
 		$lng['name']	 = $this->get_field_name( 'lng' );
-		$map_info_content['name'] = $this->get_field_name( 'map_info_content' );
+		$info['name'] = $this->get_field_name( 'info' );
 		$style['name'] = $this->get_field_name( 'style' );
 		$width['name'] = $this->get_field_name( 'width' );
 		$height['name'] = $this->get_field_name( 'height' );
@@ -119,8 +119,8 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 
 		// Info content input.
 		echo '<p>';
-		echo '	<label for="' . esc_attr( $map_info_content['id'] ) . '" class="wp-api-maps_lng_label">' . esc_attr( 'Info window content:' ) . '</label>';
-		echo '	<input type="text" id="' . esc_attr( $map_info_content['id'] ) . '" name="' . esc_attr( $map_info_content['name'] ) . '" class="widefat" value="' . esc_attr( $map_info_content['val'] ) . '">';
+		echo '	<label for="' . esc_attr( $info['id'] ) . '" class="wp-api-maps_lng_label">' . esc_attr( 'Info window content:' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $info['id'] ) . '" name="' . esc_attr( $info['name'] ) . '" class="widefat" value="' . esc_attr( $info['val'] ) . '">';
 		echo '</p>';
 
 		// Json style input.
@@ -145,7 +145,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['lat'] = ! empty( $new_instance['lat'] ) ? strip_tags( $new_instance['lat'] ) : '';
 		$instance['lng'] = ! empty( $new_instance['lng'] ) ? strip_tags( $new_instance['lng'] ) : '';
-		$instance['map_info_content'] = ! empty( $new_instance['map_info_content'] ) ? strip_tags( $new_instance['map_info_content'] ) : '';
+		$instance['info'] = ! empty( $new_instance['info'] ) ? strip_tags( $new_instance['info'] ) : '';
 		$instance['style'] = ! empty( $new_instance['style'] ) ? strip_tags( $new_instance['style'] ) : '';
 
 		return $instance;
@@ -159,7 +159,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 			'height' => '',
 			'lat' => '',
 			'lng' => '',
-			'map_info_content' => '',
+			'info' => '',
 			'style' => '',
 		) );
 

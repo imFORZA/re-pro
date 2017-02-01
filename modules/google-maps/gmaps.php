@@ -41,6 +41,13 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		static private $output;
 
 		/**
+		 * Map data to be sent to JS.
+		 *
+		 * @var [Array]
+		 */
+		static private $map_data;
+
+		/**
 		 * __construct function.
 		 *
 		 * @access public
@@ -83,12 +90,12 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 			$default = array(
 				'lat' => '',
 				'lng' => '',
-				'map_info_content' => '',
+				'info' => '',
 				'style' => '[]',
 			);
 
-			$map_data = apply_filters( 'wpapi_google_map_data', wp_parse_args( $map_data, $default ) );
-			wp_localize_script( 'wpapi-google-maps', 'idxfListing', $map_data );
+			static::$map_data = apply_filters( 'wpapi_google_map_data', wp_parse_args( $map_data, $default ) );
+			wp_localize_script( 'wpapi-google-maps', 'wpapi_gmaps', static::$map_data );
 
 			// Print Map.
 			echo '<div id="listing-map"><div id="map-canvas" style="width: ' . esc_attr( $width ) . '; height: ' . esc_attr( $height ) . '"></div></div><!-- .listing-map -->';
@@ -112,13 +119,7 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 				$atts, 'wp_google_maps'
 			);
 
-			$map_data = array(
-				'map_info_content' => $atts['info'],
-				'lat' => $atts['lat'],
-				'lng' => $atts['lng'],
-			);
-
-			static::print_map( $atts['width'], $atts['height'], $map_data );
+			static::print_map( $atts['width'], $atts['height'], $atts );
 		}
 
 		/**
