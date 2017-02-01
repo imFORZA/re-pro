@@ -132,7 +132,7 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		}
 
 		/**
-		 * Register idxFORZA Widgets.
+		 * Register Google maps Widgets.
 		 *
 		 * @access public
 		 * @return void

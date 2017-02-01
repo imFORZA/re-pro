@@ -2,11 +2,11 @@
 /**
  * Property Showcase widget.
  *
- * @package idxFORZA
+ * @package WP-API-Libraries
  **/
 
 /**
- * IdxForzaPropShowcase class.
+ * WP_API_MAPS_WIDGET class.
  *
  * @extends WP_Widget
  */
@@ -22,9 +22,9 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 
 		parent::__construct(
 			'wp-api-maps',
-			__( 'Google Maps', 'idxforza' ),
+			__( 'Google Maps' ),
 			array(
-				'description' => __( 'Display a location on google maps', 'idxforza' ),
+				'description' => __( 'Display a location on google maps' ),
 				'classname'   => 'wp-api-libraries',
 			)
 		);
