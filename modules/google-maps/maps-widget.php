@@ -48,7 +48,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 			echo $args['after_title'];
 		}
 
-		GoogleMaps::print_map( $instance['width'], $instance['height'], $instance );
+		GoogleMaps::print_map( $instance );
 	}
 
 	/**
@@ -70,6 +70,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$style['val'] = ! empty( $instance['style'] ) ? $instance['style'] : '';
 		$width['val'] = ! empty( $instance['width'] ) ? $instance['width'] : '';
 		$height['val'] = ! empty( $instance['height'] ) ? $instance['height'] : '';
+		$zoom['val'] = ! empty( $instance['zoom'] ) ? $instance['zoom'] : '';
 
 		$title['id'] 	= $this->get_field_id( 'title' );
 		$lat['id'] 		= $this->get_field_id( 'lat' );
@@ -78,6 +79,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$style['id'] 	= $this->get_field_id( 'style' );
 		$width['id'] 	= $this->get_field_id( 'width' );
 		$height['id'] 	= $this->get_field_id( 'height' );
+		$zoom['id'] 	= $this->get_field_id( 'zoom' );
 
 		$title['name'] = $this->get_field_name( 'title' );
 		$lat['name'] 	 = $this->get_field_name( 'lat' );
@@ -86,6 +88,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$style['name'] = $this->get_field_name( 'style' );
 		$width['name'] = $this->get_field_name( 'width' );
 		$height['name'] = $this->get_field_name( 'height' );
+		$zoom['name'] = $this->get_field_name( 'zoom' );
 
 		// Widget title.
 		echo '<p>';
@@ -119,14 +122,20 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 
 		// Info content input.
 		echo '<p>';
-		echo '	<label for="' . esc_attr( $info['id'] ) . '" class="wp-api-maps_lng_label">' . esc_attr( 'Info window content:' ) . '</label>';
+		echo '	<label for="' . esc_attr( $info['id'] ) . '" class="wp-api-maps_info_label">' . esc_attr( 'Info window content:' ) . '</label>';
 		echo '	<input type="text" id="' . esc_attr( $info['id'] ) . '" name="' . esc_attr( $info['name'] ) . '" class="widefat" value="' . esc_attr( $info['val'] ) . '">';
 		echo '</p>';
 
 		// Json style input.
 		echo '<p>';
-		echo '	<label for="' . esc_attr( $style['id'] ) . '" class="wp-api-maps_lng_label">' . esc_attr( 'JSON style:' ) . '</label>';
+		echo '	<label for="' . esc_attr( $style['id'] ) . '" class="wp-api-maps_style_label">' . esc_attr( 'JSON style:' ) . '</label>';
 		echo '	<input type="text" id="' . esc_attr( $style['id'] ) . '" name="' . esc_attr( $style['name'] ) . '" class="widefat" value="' . esc_attr( $style['val'] ) . '">';
+		echo '</p>';
+
+		// Zoom input.
+		echo '<p>';
+		echo '	<label for="' . esc_attr( $zoom['id'] ) . '" class="wp-api-maps_zoom_label">' . esc_attr( 'Zoom:' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $zoom['id'] ) . '" name="' . esc_attr( $zoom['name'] ) . '" class="widefat" value="' . esc_attr( $zoom['val'] ) . '">';
 		echo '</p>';
 	}
 
@@ -149,6 +158,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$instance['lng'] = ! empty( $new_instance['lng'] ) ? strip_tags( $new_instance['lng'] ) : '';
 		$instance['info'] = ! empty( $new_instance['info'] ) ? strip_tags( $new_instance['info'] ) : '';
 		$instance['style'] = ! empty( $new_instance['style'] ) ? strip_tags( $new_instance['style'] ) : null;
+		$instance['zoom'] = ! empty( $new_instance['zoom'] ) ? strip_tags( $new_instance['zoom'] ) : null;
 
 		return $instance;
 	}
@@ -157,12 +167,13 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		// Set default values.
 		$instance = wp_parse_args( $instance, array(
 			'title' => '',
-			'width' => '',
-			'height' => '',
-			'lat' => '',
-			'lng' => '',
-			'info' => '',
-			'style' => '[]',
+			'width'	 => '300px',
+			'height' => '300px',
+			'lat'		 => '-17.7134',
+			'lng'		 => '178.0650',
+			'info'	 => '',
+			'style'	 => '[]',
+			'zoom'	 => 8,
 		) );
 
 		return $instance;

@@ -13,7 +13,7 @@ function initialize_map() {
 
 		var mapOptions = {
 			center: myLatLng,
-			zoom: 14,
+			zoom: Number(single_gmap.zoom),
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			styles: map_style
 		}

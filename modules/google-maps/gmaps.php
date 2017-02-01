@@ -48,6 +48,21 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		static private $map_data;
 
 		/**
+		 * Default map options.
+		 *
+		 * @var [Array]
+		 */
+		static public $defaults = array(
+			'width'	 => '300px',
+			'height' => '300px',
+			'lat'		 => '-17.7134',
+			'lng'		 => '178.0650',
+			'info'	 => '',
+			'style'	 => '[]',
+			'zoom'	 => 8,
+		);
+
+		/**
 		 * __construct function.
 		 *
 		 * @access public
@@ -84,24 +99,23 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		/**
 		 * Print dat map.
 		 *
-		 * @param  [String] $width    : Width of map.
-		 * @param  [String] $height   : Height of map.
 		 * @param  [Mixed]  $map_data : Array of map data to send to js.
+		 * @param  [Bool]   $echo     : If html should be returned or echoed, defaults to true.
 		 */
-		public static function print_map( $width, $height, $map_data ) {
-			$default = array(
-				'lat' => '0',
-				'lng' => '0',
-				'info' => '',
-				'style' => '[]',
-			);
+		public static function print_map( $map_data, $echo = true ) {
 
-			static::$map_data[] = apply_filters( 'wpapi_google_map_data', wp_parse_args( $map_data, $default ) );
+			$map_data = apply_filters( 'wpapi_google_map_data', wp_parse_args( $map_data, static::$defaults ) );
+			static::$map_data[] = $map_data;
 
 			$index = count( static::$map_data ) - 1;
 
-			// Print Map.
-			echo '<div id="listing-map"><div id="wpapi-gmap-' . $index . '" style="width: ' . esc_attr( $width ) . '; height: ' . esc_attr( $height ) . '"></div></div><!-- .listing-map -->';
+			$html = '<div id="listing-map"><div id="wpapi-gmap-' . $index . '" style="width:' . esc_attr( $map_data['width'] ) . ';height:' . esc_attr( $map_data['height'] ) . '"></div></div><!-- .listing-map -->';
+
+			if( $echo ){
+				echo $html; }
+			else {
+				return $html;
+			}
 		}
 
 		/**
@@ -111,18 +125,10 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 		 */
 		public function shortcode( $atts ) {
 			// Set widget info.
-			$atts = shortcode_atts(
-				array(
-					'width' => '100%',
-					'height' => '300px',
-					'info' => '',
-					'lat' => '',
-					'lng' => '',
-				),
-				$atts, 'wp_google_maps'
-			);
+			$atts = shortcode_atts( static::$defaults, $atts, 'wp_google_maps' );
 
-			static::print_map( $atts['width'], $atts['height'], $atts );
+			return static::print_map( $atts, false );
+
 		}
 
 		/**
