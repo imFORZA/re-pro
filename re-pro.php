@@ -25,6 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /** Instantiate the plugin. */
 new RePro();
+include_once( 'settings.php');
 
 
 /**
