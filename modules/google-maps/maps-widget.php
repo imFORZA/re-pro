@@ -1,6 +1,6 @@
 <?php
 /**
- * Property Showcase widget.
+ * Google maps API library.
  *
  * @package WP-API-Libraries
  **/
@@ -48,7 +48,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 			echo $args['after_title'];
 		}
 
-		GoogleMaps::print_map( $instance );
+		WPAPI_GOOGLE_MAPS::print_map( $instance );
 	}
 
 	/**
@@ -63,32 +63,29 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$instance = $this->parse_args( $instance );
 
 		// Retrieve an existing value from the database.
-		$title['val'] = ! empty( $instance['title'] ) ? $instance['title'] : '';
-		$lat['val']   = ! empty( $instance['lat'] ) ? $instance['lat'] : '';
-		$lng['val']   = ! empty( $instance['lng'] ) ? $instance['lng'] : '';
-		$info['val'] = ! empty( $instance['info'] ) ? $instance['info'] : '';
-		$style['val'] = ! empty( $instance['style'] ) ? $instance['style'] : '';
-		$width['val'] = ! empty( $instance['width'] ) ? $instance['width'] : '';
+		$title['val']  = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$lat['val']    = ! empty( $instance['lat'] ) ? $instance['lat'] : '';
+		$lng['val']    = ! empty( $instance['lng'] ) ? $instance['lng'] : '';
+		$info['val'] 	 = ! empty( $instance['info'] ) ? $instance['info'] : '';
+		$width['val']  = ! empty( $instance['width'] ) ? $instance['width'] : '';
 		$height['val'] = ! empty( $instance['height'] ) ? $instance['height'] : '';
-		$zoom['val'] = ! empty( $instance['zoom'] ) ? $instance['zoom'] : '';
+		$zoom['val'] 	 = ! empty( $instance['zoom'] ) ? $instance['zoom'] : '';
 
 		$title['id'] 	= $this->get_field_id( 'title' );
 		$lat['id'] 		= $this->get_field_id( 'lat' );
 		$lng['id']		= $this->get_field_id( 'lng' );
-		$info['id'] = $this->get_field_id( 'info' );
-		$style['id'] 	= $this->get_field_id( 'style' );
+		$info['id']		= $this->get_field_id( 'info' );
 		$width['id'] 	= $this->get_field_id( 'width' );
-		$height['id'] 	= $this->get_field_id( 'height' );
+		$height['id'] = $this->get_field_id( 'height' );
 		$zoom['id'] 	= $this->get_field_id( 'zoom' );
 
-		$title['name'] = $this->get_field_name( 'title' );
-		$lat['name'] 	 = $this->get_field_name( 'lat' );
-		$lng['name']	 = $this->get_field_name( 'lng' );
-		$info['name'] = $this->get_field_name( 'info' );
-		$style['name'] = $this->get_field_name( 'style' );
-		$width['name'] = $this->get_field_name( 'width' );
+		$title['name'] 	= $this->get_field_name( 'title' );
+		$lat['name'] 	 	= $this->get_field_name( 'lat' );
+		$lng['name']	 	= $this->get_field_name( 'lng' );
+		$info['name']  	= $this->get_field_name( 'info' );
+		$width['name'] 	= $this->get_field_name( 'width' );
 		$height['name'] = $this->get_field_name( 'height' );
-		$zoom['name'] = $this->get_field_name( 'zoom' );
+		$zoom['name'] 	= $this->get_field_name( 'zoom' );
 
 		// Widget title.
 		echo '<p>';
@@ -126,12 +123,6 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		echo '	<input type="text" id="' . esc_attr( $info['id'] ) . '" name="' . esc_attr( $info['name'] ) . '" class="widefat" value="' . esc_attr( $info['val'] ) . '">';
 		echo '</p>';
 
-		// Json style input.
-		echo '<p>';
-		echo '	<label for="' . esc_attr( $style['id'] ) . '" class="wp-api-maps_style_label">' . esc_attr( 'JSON style:' ) . '</label>';
-		echo '	<input type="text" id="' . esc_attr( $style['id'] ) . '" name="' . esc_attr( $style['name'] ) . '" class="widefat" value="' . esc_attr( $style['val'] ) . '">';
-		echo '</p>';
-
 		// Zoom input.
 		echo '<p>';
 		echo '	<label for="' . esc_attr( $zoom['id'] ) . '" class="wp-api-maps_zoom_label">' . esc_attr( 'Zoom:' ) . '</label>';
@@ -157,7 +148,6 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$instance['lat'] = ! empty( $new_instance['lat'] ) ? strip_tags( $new_instance['lat'] ) : '';
 		$instance['lng'] = ! empty( $new_instance['lng'] ) ? strip_tags( $new_instance['lng'] ) : '';
 		$instance['info'] = ! empty( $new_instance['info'] ) ? strip_tags( $new_instance['info'] ) : '';
-		$instance['style'] = ! empty( $new_instance['style'] ) ? strip_tags( $new_instance['style'] ) : null;
 		$instance['zoom'] = ! empty( $new_instance['zoom'] ) ? strip_tags( $new_instance['zoom'] ) : null;
 
 		return $instance;
@@ -178,7 +168,6 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 			'lat'		 => '-17.7134',
 			'lng'		 => '178.0650',
 			'info'	 => '',
-			'style'	 => '[]',
 			'zoom'	 => 8,
 		) );
 

@@ -143,5 +143,3 @@ if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
 	}
 
 }
-
-new WPAPI_GOOGLE_MAPS( 'AIzaSyBxEwigXKSxW53_7efZPagQ3uML-vX8rPY' );

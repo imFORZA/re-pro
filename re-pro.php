@@ -59,6 +59,8 @@ class RePro {
 	 * @return void
 	 */
 	private function init() {
+		$this->general_settings = get_option('re_pro_settings');
+
 		/* Language Support. */
 		load_plugin_textdomain( 're-pro', false, dirname( REPRO_BASE_NAME ) . '/languages' );
 
@@ -75,6 +77,32 @@ class RePro {
 
 		/* Add link to settings in plugins admin page. */
 		add_filter( 'plugin_action_links_' . REPRO_BASE_NAME , array( $this, 'plugin_links' ) );
+
+		add_filter( 'wpapi_google_map_data', array( $this, 'gmap_style' ), 1 );
+
+		$this->init_modules();
+	}
+
+	private function init_modules(){
+		$gmaps_key = isset( $this->general_settings['gmaps_key'] ) ? $this->general_settings['gmaps_key'] : null;
+
+		if ( isset( $this->general_settings['gmaps_active'] ) && isset( $gmaps_key ) ) {
+			new WPAPI_GOOGLE_MAPS( $gmaps_key );
+		}
+	}
+
+	public function gmap_style( $map_data ){
+		// Grab style option.
+		$map_json = $this->general_settings['gmaps_style'] ?? '[]';
+
+		// Validate JSON.
+		json_decode($map_json);
+		$json_valid = json_last_error();
+
+		// Set style to map_data.
+		$map_data['style'] = ( $json_valid === JSON_ERROR_NONE ) ? $map_json : '[]';
+
+		return $map_data;
 	}
 
 	/**
