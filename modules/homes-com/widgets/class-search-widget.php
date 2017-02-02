@@ -100,7 +100,7 @@ class HomesSearchWidget extends WP_Widget {
 
 		// Color
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'color' ) . '" class="title-label">' . __( 'Color 1:', 're-pro' ) . '</label>';
+		echo '	<label for="' . $this->get_field_id( 'color' ) . '" class="title-label">' . __( 'Color:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'color' ) . '" name="' . $this->get_field_name( 'color' ) . '" value="' . $color  . '" class="widefat">';
 		echo '</p>';
 
