@@ -112,9 +112,15 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 		 */
 		public function get_featured_listings( $iframe_id = '', $location, $color, $status ) {
 
+			if( 'RENT' === $status ) {
+				$showTitle = 'Rent';
+			} else {
+				$showTitle = 'Sale';
+			}
+
 			echo '<div class="featured-listings-widget">';
-			echo '	<h1 style="color:#' . $color . '">Featured Homes for <span class="listing-stat">' . $status . '</span></h1>';
-			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="featured-listings-frame '. $this->homes_iframe_class( 'featured-listings-widget' ) .'" scrolling="no" title="'. __( 'Featured Listings on Homes', 're-pro' ) .'" src="http://www.homes.com/widget/featured-listings/frame/?text_color=%23' . $color .'&listing_status=' . $status .'&inner_color=%23' . $color .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<h1 style="color:#' . $color . '">Featured Homes for <span class="listing-stat">' . $showTitle . '</span></h1>';
+			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="featured-listings-frame '. $this->homes_iframe_class( 'featured-listings-widget' ) .'" scrolling="no" title="'. __( 'Featured Listings on Homes', 're-pro' ) .'" src="http://www.homes.com/widget/featured-listings/frame/?text_color=%23' . $color .'&listing_status=FOR%20' . $status .'&inner_color=%23' . $color .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';

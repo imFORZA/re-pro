@@ -74,7 +74,7 @@ class HomesFeaturedListingsWidget extends WP_Widget {
 			'title' => '',
 			'location' => '',
 			'color' => '0054a0',
-			'status' => 'sale',
+			'status' => 'SALE',
 		) );
 
 		// Retrieve an existing value from the database.
@@ -105,8 +105,8 @@ class HomesFeaturedListingsWidget extends WP_Widget {
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'status' ) . '" class="title-label">' . __( 'Listing Status:', 're-pro' ) . '</label>';
 		echo '	<br />';
-		echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="sale"' . checked( $status, 'sale', false ) . '>For Sale<br />' . "\n";
-    echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="rent"' . checked( $status, 'rent', false ) . '>For Rent<br />' . "\n";
+		echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="SALE"' . checked( $status, 'SALE', false ) . '>For Sale<br />' . "\n";
+    echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="RENT"' . checked( $status, 'RENT', false ) . '>For Rent<br />' . "\n";
 		echo '</p>';
 
 	}
