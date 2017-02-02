@@ -249,5 +249,26 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			echo '	</a>';
 			echo '</div>';
 		}
+
+		/**
+		 * Get Real Estate (Tall) Search Widget.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '').
+		 * @param mixed  $location Location.
+		 * @param mixed  $color Text Color.
+		 * @param mixed  $status Listing Status.
+		 * @return void
+		 */
+		public function get_tall_search( $iframe_id = '', $location, $color, $status ) {
+
+			echo '<div class="tall-search-widget">';
+			echo '	<h1 style="color:#' . $color . '">Search Homes</h1>';
+			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="tall-search-frame '. $this->homes_iframe_class( 'tall-search-widget' ) .'" scrolling="no" title="'. __( 'Tall Search on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/tall-search/frame/?text_color=%23' . $color .'&listing_status=' . $status .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
+			echo '		Powered By Homes.com';
+			echo '	</a>';
+			echo '</div>';
+		}
 	}
 }

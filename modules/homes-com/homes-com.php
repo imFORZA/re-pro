@@ -25,5 +25,8 @@ include( 'widgets/class-search-widget.php' );
 // Include Mortgage Calculator Widget.
 include( 'widgets/class-mortgage-calculator-widget.php' );
 
-// Include Real Estate Search Widget.
+// Include Simple Search Widget.
 include( 'widgets/class-simple-search-widget.php' );
+
+// Include Tall Search Widget.
+include( 'widgets/class-tall-search-widget.php' );
