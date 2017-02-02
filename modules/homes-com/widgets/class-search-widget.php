@@ -54,84 +54,10 @@ class HomesSearchWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		//$homes_widgets = new HomesWidgets();
+		$homes_widgets = new HomesWidgets();
 
-		//$homes_widgets->get_home_values( $iframe_id, $location, $color, $sale, $rent );
-		?>
+		$homes_widgets->get_search( $iframe_id, $location, $color, $sale, $rent );
 
-<style>
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700);
-.HOMES-medium-search-widget {
-	font: 12px/1.5em 'Open Sans', Arial, sans-serif;
-	color:#484848;
-	padding: 7px 10px 10px;
-	overflow: hidden;
-	clear:both;
-}
-.HOMES-medium-search-widget::before,
-.HOMES-medium-search-widget::after {
-	content: '';
-	display: table;
-	width:100%;
-	clear:both;
-}
-.HOMES-medium-search-widget h1 {
-	color:#0054a0;
-	margin:0;
-	font-size:24px;
-	line-height:1em;
-	font-weight:700;
-}
-.HOMES-medium-search-widget .medium-search-frame {
-	border:0;
-	border-bottom: 1px solid #eeeae9;
-	margin: 0 0 .5em;
-	overflow: hidden;
-	height: 16.5em;
-}
-.HOMES-medium-search-widget a {
-	font-weight: 700;
-	color:#0054a0;
-	text-decoration:none;
-	font-size:.75em;
-	max-width:240px;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
-	overflow:hidden;
-	white-space:nowrap;
-	text-overflow:ellipsis;
-}
-.HOMES-medium-search-widget a:hover {
-	text-decoration: underline;
-}
-.HOMES-medium-search-widget .logo {
-	float:right;background: transparent url(http://cdn1.static-homes.com/media/portalimgcache/widget/builder/logo-widget.png) 0 0 no-repeat;
-	width:139px;
-	height: 22px;
-	overflow: hidden;
-	direction: ltr;
-	text-indent: -3000px;
-}
-.HOMES-medium-search-widget .footer a {
-	margin:0;
-}
-.HOMES-medium-search-widget .footer .link {
-	max-width: 50%;
-	display: block;
-}
-.HOMES-medium-search-widget .medium-search-frame {
-	height: 16.5em;
-}
-</style>
-<div class="HOMES-medium-search-widget">
-	<h1>Search Homes</h1>
-	<iframe src="http://www.homes.com/widget/medium-search/frame/?text_color=%230054a0&listing_status=FOR%20SALE%2CFOR%20RENT&cobrand=&location=Norfolk%2C%20VA" class="medium-search-frame" width="100%" seamless frameborder="0"></iframe>
-	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">
-		Powered By Homes.com
-	</a>
-</div>
-
-		<?php
 		echo $args['after_widget'];
 	}
 
@@ -159,11 +85,6 @@ class HomesSearchWidget extends WP_Widget {
 		$color = ! empty( $instance['color'] ) ? $instance['color'] : '';
 		$sale = ! empty( $instance['sale'] ) ? $instance['sale'] : '';
 		$rent = ! empty( $instance['rent'] ) ? $instance['rent'] : '';
-
-		if( empty( $sale ) && empty( $rent ) ) {
-			$sale = 1;
-			$rent = 1;
-		}
 
 		// Title.
 		echo '<p>';

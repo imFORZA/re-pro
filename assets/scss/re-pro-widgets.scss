@@ -103,7 +103,8 @@
 
 .commute-time-widget,
 .featured-listings-widget,
-.home-values-widget {
+.home-values-widget,
+.medium-search-widget {
 	overflow: hidden;
 }
 .commute-time-widget::before,
@@ -111,7 +112,9 @@
 .featured-listings-widget::before,
 .featured-listings-widget::after,
 .home-values-widget::before,
-.home-values-widget::after {
+.home-values-widget::after,
+.medium-search-widget::before,
+.medium-search-widget::after {
 	content: '';
 	display: table;
 	width:100%;
@@ -125,7 +128,8 @@
 
 .homes-widget .commute-time-frame,
 .homes-widget .featured-listings-frame,
-.homes-widget .home-values-frame {
+.homes-widget .home-values-frame,
+.homes-widget .medium-search-frame {
 	border:0;
 	border-bottom: 1px solid #eeeae9;
 	margin: 0 0 .5em;
@@ -156,7 +160,8 @@
 	float: left;
 }
 
-.featured-listings-widget h1 {
+.featured-listings-widget h1,
+.medium-search-widget h1 {
   margin: 0;
   font-size: 24px;
   line-height: 1em;
@@ -180,4 +185,8 @@
 .home-values-widget .home-values-frame {
 	height: 320px;
 	margin-top: 1em;
+}
+
+.medium-search-widget .medium-search-frame {
+	height: 220px;
 }
