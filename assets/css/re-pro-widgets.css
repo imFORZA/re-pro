@@ -87,11 +87,16 @@
   margin-left: 10px;
   margin-top: 5px; }
 
+.homes-widget a.logo,
+.homes-widget a.logo:hover {
+  box-shadow: none !important; }
+
 .commute-time-widget,
 .featured-listings-widget,
 .home-values-widget,
 .medium-search-widget,
-.mortgage-calculator-widget {
+.mortgage-calculator-widget,
+.simple-search-widget {
   overflow: hidden; }
 
 .commute-time-widget::before,
@@ -103,10 +108,13 @@
 .medium-search-widget::before,
 .medium-search-widget::after,
 .mortgage-calculator-widget::before,
-.mortgage-calculator-widget::after {
+.mortgage-calculator-widget::after,
+.simple-search-widget::before,
+.simple-search-widget::after {
   content: '';
   display: table;
-  width: 100%; }
+  width: 100%;
+  clear: both; }
 
 .commute-time-widget h1 {
   font-weight: 400;
@@ -118,7 +126,8 @@
 .homes-widget .featured-listings-frame,
 .homes-widget .home-values-frame,
 .homes-widget .medium-search-frame,
-.homes-widget .mortgage-calculator-frame {
+.homes-widget .mortgage-calculator-frame,
+.homes-widget .simple-search-frame {
   border: 0;
   border-bottom: 1px solid #eeeae9;
   margin: 0 0 .5em;
@@ -149,7 +158,8 @@
 
 .featured-listings-widget h1,
 .medium-search-widget h1,
-.mortgage-calculator-widget h1 {
+.mortgage-calculator-widget h1,
+.simple-search-widget h1 {
   margin: 0;
   font-size: 24px;
   line-height: 1em;
@@ -186,6 +196,5 @@
   display: block;
   float: none; }
 
-.homes-widget a.logo,
-.homes-widget a.logo:hover {
-  box-shadow: none !important; }
+.simple-search-widget .simple-search-frame {
+  height: 130px; }

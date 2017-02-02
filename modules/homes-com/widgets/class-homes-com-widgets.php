@@ -210,5 +210,38 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			echo '</div>';
 
 		}
+
+		/**
+		 * Get Real Estate (Simple) Search Widget.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '').
+		 * @param mixed  $location Location.
+		 * @param mixed  $color Color.
+		 * @param bool  $sale (default: true) For Sale homes.
+		 * @param bool  $rent (default: true) For Rent homes.
+		 * @return void
+		 */
+		public function get_simple_search( $iframe_id = '', $location, $color, $sale, $rent ) {
+
+			if( ( empty( $sale ) && empty( $rent ) ) || ( $sale && $rent ) ) {
+				$searchTypes = 'FOR SALE,FOR RENT';
+				$showTitle = '';
+			} else if( $sale ) {
+				$searchTypes = 'FOR SALE';
+				$showTitle = 'for Sale';
+			} else if( $rent ) {
+				$searchTypes = 'FOR RENT';
+				$showTitle = 'for Rent';
+			}
+
+			echo '<div class="simple-search-widget">';
+			echo '<h1 style="color:#' . $color . '">Search Homes <span class="listing-stat">' . $showTitle . '</span></h1>';
+			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="simple-search-frame '. $this->homes_iframe_class( 'simple-search-widget' ) .'" scrolling="no" title="'. __( 'Simple Search on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/simple-search/frame/?text_color=%23' . $color .'&listing_status=' . $searchTypes .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
+			echo '		Powered By Homes.com';
+			echo '	</a>';
+			echo '</div>';
+		}
 	}
 }
