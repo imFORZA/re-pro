@@ -115,6 +115,7 @@
 .tall-search-widget {
 	overflow: hidden;
 }
+
 .commute-time-widget::before,
 .commute-time-widget::after,
 .featured-listings-widget::before,
@@ -134,28 +135,25 @@
 	width:100%;
 	clear:both;
 }
-.commute-time-widget h1 {
-	font-weight:400;
-	font-size: 17px;
-	line-height: 20px;
-	margin: .3em 0 .7em;
+
+.featured-listings-widget h1,
+.medium-search-widget h1,
+.mortgage-calculator-widget h1,
+.simple-search-widget h1,
+.tall-search-widget h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1em;
+  font-weight: 700;
 }
 
-.homes-widget .commute-time-frame,
-.homes-widget .featured-listings-frame,
-.homes-widget .home-values-frame,
-.homes-widget .medium-search-frame,
-.homes-widget .mortgage-calculator-frame,
-.homes-widget .simple-search-frame,
-.homes-widget .tall-search-frame {
+.homes-iframe {
 	border:0;
 	border-bottom: 1px solid #eeeae9;
 	margin: 0 0 .5em;
 	overflow: hidden;
 }
-.commute-time-widget .commute-time-frame {
-	height: 200px;
-}
+
 .homes-widget a {
 	font-weight: 700;
 	color: #0054a0;
@@ -178,29 +176,12 @@
 	float: left;
 }
 
-.featured-listings-widget h1,
-.medium-search-widget h1,
-.mortgage-calculator-widget h1,
-.simple-search-widget h1,
-.tall-search-widget h1 {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1em;
-  font-weight: 700;
-}
-.featured-listings-widget .featured-listings-frame {
-  height: 240px;
-}
-.featured-listings-widget .listing-stat {
-	text-transform: capitalize;
+.commute-time-widget .commute-time-frame {
+	height: 200px;
 }
 
-.home-values-widget h1 {
-	margin:0;
-	font-size:24px;
-	line-height:1em;
-	font-weight:700;
-	text-align:center;
+.featured-listings-widget .featured-listings-frame {
+  height: 240px;
 }
 
 .home-values-widget .home-values-frame {
@@ -212,18 +193,8 @@
 	height: 220px;
 }
 
-.mortgage-calculator-widget h1 {
-	text-align:center;
-}
-
 .mortgage-calculator-widget .mortgage-calculator-frame {
 	height: 500px;
-}
-
-.mortgage-calculator-widget .logo {
-	margin:1em auto;
-	display:block;
-	float:none;
 }
 
 .simple-search-widget .simple-search-frame {
@@ -235,10 +206,23 @@
 	border: 0;
 }
 
-.tall-search-widget {
-	padding:0;
-	width:160px;
-	border: 1px solid black;
+.commute-time-widget h1 {
+	font-weight:400;
+	font-size: 17px;
+	line-height: 20px;
+	margin: .3em 0 .7em;
+}
+
+.home-values-widget h1 {
+	margin:0;
+	font-size:24px;
+	line-height:1em;
+	font-weight:700;
+	text-align:center;
+}
+
+.mortgage-calculator-widget h1 {
+	text-align:center;
 }
 
 .tall-search-widget h1 {
@@ -249,16 +233,28 @@
 	margin-right:15px;
 }
 
-.tall-search-widget a {
-	display: block;
-	max-width: 160px;
-	margin: 0 12px .5em;
-	text-align: center;
-	white-space: normal;
+.mortgage-calculator-widget .logo {
+	margin:1em auto;
+	display:block;
+	float:none;
 }
 
 .tall-search-widget .logo {
 	float: none;
 	margin-bottom: 0;
 	height:40px;
+}
+
+.tall-search-widget {
+	padding:0;
+	width:160px;
+	border: 1px solid black;
+}
+
+.tall-search-widget a {
+	display: block;
+	max-width: 160px;
+	margin: 0 12px .5em;
+	text-align: center;
+	white-space: normal;
 }
