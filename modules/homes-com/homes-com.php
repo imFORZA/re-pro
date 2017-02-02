@@ -18,3 +18,6 @@ include( 'widgets/class-featured-listings-widget.php' );
 
 // Include Home Values Widget.
 include( 'widgets/class-home-values-widget.php' );
+
+// Include Search Widget.
+include( 'widgets/class-search-widget.php' );
