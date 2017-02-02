@@ -21,3 +21,6 @@ include( 'widgets/class-home-values-widget.php' );
 
 // Include Search Widget.
 include( 'widgets/class-search-widget.php' );
+
+// Include Mortgage Calculator Widget.
+include( 'widgets/class-mortgage-calculator-widget.php' );

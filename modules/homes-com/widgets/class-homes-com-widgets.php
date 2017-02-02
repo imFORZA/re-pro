@@ -189,6 +189,25 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			echo '	</a>';
 			echo '</div>';
 
+		}
+
+		/**
+		 * Get Mortgage Calculator Widget.
+		 *
+		 * @access public
+		 * @param string $iframe_id (default: '').
+		 * @param mixed  $color Color.
+		 * @return void
+		 */
+		public function get_mortgage_calc( $iframe_id = '', $color ) {
+
+			echo '<div class="mortgage-calculator-widget">';
+			echo '	<h1 style="color:#' . $color . '">Mortgage Calculator</h1>';
+			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
+			echo '		Powered By Homes.com';
+			echo '	</a>';
+			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="mortgage-calculator-frame '. $this->homes_iframe_class( 'mortgage-calc-widget' ) .'" scrolling="no" title="'. __( 'Mortgage Calculator on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/mortgage-calculator/frame/?text_color=%23' . $color .'&cobrand=" width="100%" seamless frameborder="0"></iframe>';
+			echo '</div>';
 
 		}
 	}
