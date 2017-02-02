@@ -18,13 +18,13 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-if ( ! class_exists( 'GoogleMaps' ) ) {
+if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
 	include_once( 'maps-widget.php' );
 
 	/**
 	 * GreatSchools API Class.
 	 */
-	class GoogleMaps {
+	class WPAPI_GOOGLE_MAPS {
 
 		/**
 		 * API Key.
@@ -144,4 +144,4 @@ if ( ! class_exists( 'GoogleMaps' ) ) {
 
 }
 
-new GoogleMaps( 'AIzaSyBxEwigXKSxW53_7efZPagQ3uML-vX8rPY' );
+new WPAPI_GOOGLE_MAPS( 'AIzaSyBxEwigXKSxW53_7efZPagQ3uML-vX8rPY' );
