@@ -5,20 +5,23 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "browser-sync": "^2.11.2",
-    "gulp": "^3.9.1",
-    "gulp-bless": "^3.1.0",
-    "gulp-clean-css": "^2.0.4",
-    "gulp-minify": "0.0.7",
-    "gulp-postcss": "^6.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.2.0",
-    "gulp-util": "^3.0.7",
-    "gulp-watch": "^4.3.5",
-    "gulp-zip": "^3.2.0",
-    "run-sequence": "^1.1.5"
+    "autoprefixer": "6.4.1",
+    "browser-sync": "2.16.0",
+    "gulp": "3.9.1",
+    "gulp-bless": "3.1.0",
+    "gulp-clean-css": "2.0.12",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-minify": "0.0.14",
+    "gulp-postcss": "6.2.0",
+    "gulp-rename": "1.2.2",
+    "gulp-sass": "2.3.2",
+    "gulp-util": "3.0.7",
+    "gulp-watch": "4.3.9",
+    "gulp-zip": "3.2.0"
+  },
+  "scripts": {
+    "env": "env"
   },
   "author": "imFORZA",
-  "license": "GPLv3"
+  "license": "All rights reserved"
 }
