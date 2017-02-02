@@ -123,7 +123,7 @@ class RePro {
 	 * @return [Array]        : Array of links on plugin page.
 	 */
 	public function plugin_links( $links ) {
-		$settings_link = '<a href="#">Settings</a>';
+		$settings_link = '<a href="options-general.php?page=re-pro-settings">Settings</a>';
 		array_unshift( $links, $settings_link );
 		return $links;
 	}
