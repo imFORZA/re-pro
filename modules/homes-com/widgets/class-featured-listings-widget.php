@@ -106,7 +106,7 @@ class HomesFeaturedListingsWidget extends WP_Widget {
 		echo '	<label for="' . $this->get_field_id( 'status' ) . '" class="title-label">' . __( 'Listing Status:', 're-pro' ) . '</label>';
 		echo '	<br />';
 		echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="SALE"' . checked( $status, 'SALE', false ) . '>For Sale<br />' . "\n";
-    echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="RENT"' . checked( $status, 'RENT', false ) . '>For Rent<br />' . "\n";
+		echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="RENT"' . checked( $status, 'RENT', false ) . '>For Rent<br />' . "\n";
 		echo '</p>';
 
 	}

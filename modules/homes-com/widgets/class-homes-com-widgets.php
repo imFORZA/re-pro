@@ -112,7 +112,7 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 		 */
 		public function get_featured_listings( $iframe_id = '', $location, $color, $status ) {
 
-			if( 'RENT' === $status ) {
+			if ( 'RENT' === $status ) {
 				$showTitle = 'Rent';
 			} else {
 				$showTitle = 'Sale';
@@ -143,11 +143,11 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 		public function get_home_values( $iframe_id = '', $location, $firstColor, $secondColor, $average, $median ) {
 
 			$valueTypes = 'MEAN,MEDIAN';
-			if( $average && $median ) {
+			if ( $average && $median ) {
 				$valueTypes = 'MEAN,MEDIAN';
-			} else if( $average ) {
+			} else if ( $average ) {
 				$valueTypes = 'MEAN';
-			} else if( $median ) {
+			} else if ( $median ) {
 				$valueTypes = 'MEDIAN';
 			}
 
@@ -170,19 +170,19 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 		 * @param string $iframe_id (default: '').
 		 * @param mixed  $location Location.
 		 * @param mixed  $color Color.
-		 * @param bool  $sale (default: true) For Sale homes.
-		 * @param bool  $rent (default: true) For Rent homes.
+		 * @param bool   $sale (default: true) For Sale homes.
+		 * @param bool   $rent (default: true) For Rent homes.
 		 * @return void
 		 */
 		public function get_search( $iframe_id = '', $location, $color, $sale, $rent ) {
 
-			if( ( empty( $sale ) && empty( $rent ) ) || ( $sale && $rent ) ) {
+			if ( ( empty( $sale ) && empty( $rent ) ) || ( $sale && $rent ) ) {
 				$searchTypes = 'FOR SALE,FOR RENT';
 				$showTitle = '';
-			} else if( $sale ) {
+			} else if ( $sale ) {
 				$searchTypes = 'FOR SALE';
 				$showTitle = 'for Sale';
-			} else if( $rent ) {
+			} else if ( $rent ) {
 				$searchTypes = 'FOR RENT';
 				$showTitle = 'for Rent';
 			}
@@ -224,19 +224,19 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 		 * @param string $iframe_id (default: '').
 		 * @param mixed  $location Location.
 		 * @param mixed  $color Color.
-		 * @param bool  $sale (default: true) For Sale homes.
-		 * @param bool  $rent (default: true) For Rent homes.
+		 * @param bool   $sale (default: true) For Sale homes.
+		 * @param bool   $rent (default: true) For Rent homes.
 		 * @return void
 		 */
 		public function get_simple_search( $iframe_id = '', $location, $color, $sale, $rent ) {
 
-			if( ( empty( $sale ) && empty( $rent ) ) || ( $sale && $rent ) ) {
+			if ( ( empty( $sale ) && empty( $rent ) ) || ( $sale && $rent ) ) {
 				$searchTypes = 'FOR SALE,FOR RENT';
 				$showTitle = '';
-			} else if( $sale ) {
+			} else if ( $sale ) {
 				$searchTypes = 'FOR SALE';
 				$showTitle = 'for Sale';
-			} else if( $rent ) {
+			} else if ( $rent ) {
 				$searchTypes = 'FOR RENT';
 				$showTitle = 'for Rent';
 			}

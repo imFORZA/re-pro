@@ -98,13 +98,13 @@ class HomesSearchWidget extends WP_Widget {
 		echo '	<input id="' . $this->get_field_id( 'location' ) . '" name="' . $this->get_field_name( 'location' ) . '" value="' . $location . '" class="widefat">';
 		echo '</p>';
 
-		// Color
+		// Color.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'color' ) . '" class="title-label">' . __( 'Color:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'color' ) . '" name="' . $this->get_field_name( 'color' ) . '" value="' . $color  . '" class="widefat">';
 		echo '</p>';
 
-		// Search Types
+		// Search Types.
 		echo '<p>';
 		echo '<label for="search-type" class="search_type_label">' . __( 'Search Types:', 're-pro' ) . '</label>';
 		echo '<br />';

@@ -57,7 +57,6 @@ class HomesTallSearchWidget extends WP_Widget {
 
 		$homes_widgets->get_tall_search( $iframe_id, $location, $color, $status );
 
-
 		echo $args['after_widget'];
 	}
 
@@ -96,18 +95,18 @@ class HomesTallSearchWidget extends WP_Widget {
 		echo '	<input id="' . $this->get_field_id( 'location' ) . '" name="' . $this->get_field_name( 'location' ) . '" value="' . $location . '" class="widefat">';
 		echo '</p>';
 
-		// Color
+		// Color.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'color' ) . '" class="title-label">' . __( 'Color:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'color' ) . '" name="' . $this->get_field_name( 'color' ) . '" value="' . $color  . '" class="widefat">';
 		echo '</p>';
 
-		// Listing Status
+		// Listing Status.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'status' ) . '" class="title-label">' . __( 'Search Types:', 're-pro' ) . '</label>';
 		echo '	<br />';
 		echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="FOR SALE"' . checked( $status, 'FOR SALE', false ) . '>For Sale<br />' . "\n";
-    echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="FOR RENT"' . checked( $status, 'FOR RENT', false ) . '>For Rent<br />' . "\n";
+		echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="FOR RENT"' . checked( $status, 'FOR RENT', false ) . '>For Rent<br />' . "\n";
 		echo '</p>';
 	}
 

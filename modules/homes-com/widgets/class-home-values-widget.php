@@ -89,7 +89,7 @@ class HomesHomeValuesWidget extends WP_Widget {
 		$average = ! empty( $instance['average'] ) ? $instance['average'] : '';
 		$median = ! empty( $instance['median'] ) ? $instance['median'] : '';
 
-		if( empty( $average ) && empty( $median ) ) {
+		if ( empty( $average ) && empty( $median ) ) {
 			$average = 1;
 			$median = 1;
 		}
@@ -106,19 +106,19 @@ class HomesHomeValuesWidget extends WP_Widget {
 		echo '	<input id="' . $this->get_field_id( 'location' ) . '" name="' . $this->get_field_name( 'location' ) . '" value="' . $location . '" class="widefat">';
 		echo '</p>';
 
-		// Average Color
+		// Average Color.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'firstColor' ) . '" class="title-label">' . __( 'Color 1:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'firstColor' ) . '" name="' . $this->get_field_name( 'firstColor' ) . '" value="' . $firstColor  . '" class="widefat">';
 		echo '</p>';
 
-		// Median Color
+		// Median Color.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'secondColor' ) . '" class="title-label">' . __( 'Color 2:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'secondColor' ) . '" name="' . $this->get_field_name( 'secondColor' ) . '" value="' . $secondColor  . '" class="widefat">';
 		echo '</p>';
 
-		// Home Value Types
+		// Home Value Types.
 		echo '<p>';
 		echo '<label for="home-values-type" class="homes_value_type_label">' . __( 'Home Value Types:', 're-pro' ) . '</label>';
 		echo '<br />';
