@@ -93,7 +93,7 @@ class RePro {
 
 	public function gmap_style( $map_data ){
 		// Grab style option.
-		$map_json = $this->general_settings['gmaps_style'] ?? '[]';
+		$map_json = ( isset( $this->general_settings['gmaps_style'] ) ) ? $this->general_settings['gmaps_style'] : '[]';
 
 		// Validate JSON.
 		json_decode($map_json);
