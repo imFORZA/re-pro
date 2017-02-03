@@ -12,7 +12,7 @@
 	Description: A WordPress plugin for Real Estate websites, offering tools such as widgets and badges. Built by <a href="https://www.imforza.com">imFORZA</a>.
 	Version: 1.0.2
 	Author: imFORZA
-	Contributors: imforza, bhubbard, sfgarza
+	Contributors: imforza, bhubbard, sfgarza, matoledo
 	Text Domain: re-pro
 	Author URI: https://www.imforza.com
 	License: GPLv3 or later
