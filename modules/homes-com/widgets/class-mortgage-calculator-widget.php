@@ -117,7 +117,7 @@ class HomesMortgageCalculatorWidget extends WP_Widget {
  * @return void
  */
 function repro_homes_com_mortgage_calc() {
-	if ( is_ssl() ) {
+	if ( ! is_ssl() ) {
 		register_widget( 'HomesMortgageCalculatorWidget' );
 	}
 }
