@@ -139,9 +139,7 @@ class HomesFeaturedListingsWidget extends WP_Widget {
  * @return void
  */
 function repro_homes_com_featured_listings() {
-	if ( is_ssl() ) {
-		echo 'This widget does not yet support SSL. Please contact homes.com asking them to support SSL for this widget.';
-	} else {
+	if ( ! is_ssl() ) {
 		register_widget( 'HomesFeaturedListingsWidget' );
 	}
 }

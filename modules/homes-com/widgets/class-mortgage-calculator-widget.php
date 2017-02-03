@@ -118,8 +118,6 @@ class HomesMortgageCalculatorWidget extends WP_Widget {
  */
 function repro_homes_com_mortgage_calc() {
 	if ( is_ssl() ) {
-		echo 'This widget does not yet support SSL. Please contact homes.com asking them to support SSL for this widget.';
-	} else {
 		register_widget( 'HomesMortgageCalculatorWidget' );
 	}
 }
