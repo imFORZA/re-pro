@@ -1,5 +1,8 @@
 <?php
 
+// Google maps.
+include_once( 'google-maps/gmaps.php' );
+
 // Equal Housing.
 include_once( 'equal-housing/equal-housing.php' );
 
