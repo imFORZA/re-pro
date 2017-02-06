@@ -13,8 +13,22 @@ Widgets, Badges, and tools for Real Estate Websites.
 
 With a Zillow module you can start to bring in Zillow features right into your website.
 
-
-
 ### Equal Housing
 
 - Display the Equal Housing Logo
+
+### Google Maps
+
+- Display a single listing using a shortcode or a widget.
+- Easy custom styling for maps.
+
+### Homes.com
+
+- Commute Time Widget
+- Featured Listing Widget
+- Home Values Widget
+- Search Widget
+- Mortgage Calculator Widget
+- Simple Search Widget
+- Tall Search Widget
+- Check for widgets
