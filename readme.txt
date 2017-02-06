@@ -12,6 +12,8 @@ Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 == Description ==
 Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 
+Please visit our wiki on [https://github.com/imFORZA/re-pro/wiki GitHub] for more info.
+
 == Changelog ==
 = 1.0.3 =
 * HTTPS Check for widgets
