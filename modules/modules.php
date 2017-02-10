@@ -19,3 +19,5 @@ include_once( 'homes-com/homes-com.php' );
 include_once( 'streetadvisor/streetadvisor.php' );
 
 include_once( 'greatschools/greatschools.php' );
+
+include_once( 'homefinder/homefinder.php' );
