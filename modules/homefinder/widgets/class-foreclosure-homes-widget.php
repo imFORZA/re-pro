@@ -1,6 +1,6 @@
 <?php
 /**
- * HomeFinder Homes for Sale Widget (http://www.homefinder.com/widgets/)
+ * HomeFinder Forseclosure Homes Widget (http://www.homefinder.com/widgets/)
  *
  * @package RE-PRO
  */
@@ -9,11 +9,11 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /**
- * HomeFinderHomesForSale class.
+ * HomeFinderForeclosureHomes class.
  *
  * @extends WP_Widget
  */
-class HomeFinderHomesForSale extends WP_Widget {
+class HomeFinderForeclosureHomes extends WP_Widget {
 
 	/**
 	 * __construct function.
@@ -24,11 +24,11 @@ class HomeFinderHomesForSale extends WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			'homefinder_homes_for_sale',
-			__( 'HomeFinder Homes for Sale', 're-pro' ),
+			'homefinder_forclosure_homes',
+			__( 'HomeFinder Foreclosure Homes', 're-pro' ),
 			array(
-				'description' => __( 'Display a search box from HomeFinder.com', 're-pro' ),
-				'classname'   => 're-pro re-pro-widget homefinder-widget homefinder-homes-for-sale',
+				'description' => __( 'Display a forclosures search box from HomeFinder.com', 're-pro' ),
+				'classname'   => 're-pro re-pro-widget homefinder-widget homefinder-foreclosure-homes',
 				'customize_selective_refresh' => true,
 			)
 		);
@@ -51,7 +51,7 @@ class HomeFinderHomesForSale extends WP_Widget {
 
 		$homefinder_widgets = new HomeFinderWidgets();
 
-		$homefinder_widgets->get_homes_for_sale_widget();
+		$homefinder_widgets->get_foreclosure_homes_widget();
 
 		echo $args['after_widget'];
 	}
@@ -101,12 +101,12 @@ class HomeFinderHomesForSale extends WP_Widget {
 }
 
 /**
- * Register HomeFinder.com Homes for Sale Widget.
+ * Register HomeFinder.com Foreclosure Homes Widget.
  *
  * @access public
  * @return void
  */
-function repro_homefinder_homes_for_sale() {
-		register_widget( 'HomeFinderHomesForSale' );
+function repro_homefinder_forclosure_homes() {
+		register_widget( 'HomeFinderForeclosureHomes' );
 }
-add_action( 'widgets_init', 'repro_homefinder_homes_for_sale' );
+add_action( 'widgets_init', 'repro_homefinder_forclosure_homes' );

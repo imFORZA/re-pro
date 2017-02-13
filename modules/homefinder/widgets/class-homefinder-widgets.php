@@ -23,29 +23,73 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		public function __construct() {
 		}
 
-		/* Homes WIDGETS. */
+		/**
+		 * HomeFinder div Class Names.
+		 *
+		 * @access public
+		 * @param string $widget_name (default: '').
+		 * @return string class name.
+		 */
+		public function homefinder_class( $widget_name = '' ) {
+
+			if ( '' !== $widget_name ) {
+				return 'homefinder homefinder-widget homefinder-' . sanitize_html_class( $widget_name ) . '-widget';
+			} else {
+				return 'homefinder homefinder-widget';
+			}
+
+		}
+
+		/* HomeFinder WIDGETS. */
 
 		/**
 		 * Get Homes For Sale Widget.
 		 *
 		 * @access public
-		 * @param string $iframe_id (default: '').
-		 * @param mixed  $start_addr Start Address.
-		 * @param mixed  $color Button Color.
 		 * @return void
 		 */
 		public function get_homes_for_sale_widget() {
-			?>
-			<div id="homeSearchWidget" style="width: 300px; height: 250px;"></div>
-			<script src="https://www.homefinder.com/widgets/js/widgetLoader.js?ver=887bb2d54cbc812a0d20eb52dc1ba8db" ></script>
-			<script type="text/javascript">
-	  		var hfWidget = [ {type: 'homeSearch', container: 'homeSearchWidget'}];
-	    	HomeFinder.widgetLoader.getWidgets(hfWidget);
-			</script>
 
+			echo '<div id="homeSearchWidget" class="'. $this->homefinder_class( 'homes-for-sale' ) .'"></div>';
+			echo '<script src="https://www.homefinder.com/widgets/js/widgetLoader.js?ver=887bb2d54cbc812a0d20eb52dc1ba8db"></script>';
+			echo '<script type="text/javascript">';
+	  	echo 'var hfWidget = [ {type: "homeSearch", container: "homeSearchWidget"}];';
+	    echo 'HomeFinder.widgetLoader.getWidgets(hfWidget);';
+			echo '</script>';
 
-			<?php
+		}
 
+		/**
+		 * Get Open House Widget.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		public function get_open_house_widget() {
+
+			echo '<div id="openHouseSearchWidget"' . $this->homefinder_class( 'open-house' ) .'"></div>';
+			echo '<script src="https://www.homefinder.com/widgets/js/widgetLoader.js?ver=887bb2d54cbc812a0d20eb52dc1ba8db"></script>';
+			echo '<script type="text/javascript">';
+			echo 'var hfWidget = [ {type: "openHouseSearch", container: "openHouseSearchWidget"} ];';
+			echo 'HomeFinder.widgetLoader.getWidgets(hfWidget);';
+			echo '</script>';
+
+		}
+
+		/**
+		 * Get Foreclosure Homes Widget.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		public function get_foreclosure_homes_widget() {
+
+			echo '<div id="foreclosureSearchWidget"' . $this->homefinder_class( 'foreclosure-homes' ) .'"></div>';
+			echo '<script src="https://www.homefinder.com/widgets/js/widgetLoader.js?ver=887bb2d54cbc812a0d20eb52dc1ba8db"></script>';
+			echo '<script type="text/javascript">';
+      echo 'var hfWidget = [ {type: "foreclosureSearch", container: "foreclosureSearchWidget"} ];';
+      echo 'HomeFinder.widgetLoader.getWidgets(hfWidget);';
+  		echo '</script>';
 
 		}
 
