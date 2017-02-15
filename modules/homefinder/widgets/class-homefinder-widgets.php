@@ -108,6 +108,34 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 
 		}
 
+		/**
+		 * Get Advertiser Directory Widget.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		public function get_advertiser_directory_widget( $directory_data ) {
+
+			//wp_enqueue_script( 'hf-affiliate-search', plugins_url( 'affiliate-search.js', __FILE__ ), array( 'jquery' ), null, true );
+			//wp_localize_script( 'hf-affiliate-search', 'widget_data', $search_data);
+
+			echo '<div id="directoryPreview" class="'. $this->homefinder_class( 'adveritser-directory' ) .'"></div>';
+			wp_enqueue_script( 'hf-widget-loader', 'http://www.homefinder.com/widgets/js/widgetLoader.js', array( 'jquery' ), null, true );
+			?>
+			<script>
+  		(function () {
+    		var widget = new HomeFinder.Widgets.AdvertiserDirectory({
+      		container: 'directoryPreview',
+      		data: {
+        		profileName: 'carmount',
+        		maxCount: 6
+      		}
+    		});
+  		})();
+		</script>
+		<?php
+		}
+
 
 	}
 }

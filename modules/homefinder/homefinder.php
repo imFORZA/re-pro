@@ -21,3 +21,6 @@ include( 'widgets/class-foreclosure-homes-widget.php' );
 
 // Affiliate Search Widget.
 include( 'widgets/class-affiliate-search-widget.php' );
+
+// Advertiser Directory Widget.
+include( 'widgets/class-advertiser-directory-widget.php' );
