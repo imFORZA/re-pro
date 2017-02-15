@@ -87,15 +87,15 @@ class HomeFinderAdvertiserDirectory extends WP_Widget {
 
 		// Affiliate Profile Name.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'affiliate' ) . '" class="title-label">' . __( 'Affiliate Name:', 're-pro' ) . '</label>';
+		echo '	<label for="' . $this->get_field_id( 'affiliate' ) . '" class="title-label">' . __( 'Affiliate Profile Name:', 're-pro' ) . '</label>';
 		echo '	<input id="' . $this->get_field_id( 'affiliate' ) . '" name="' . $this->get_field_name( 'affiliate' ) . '" value="' . $affiliate . '" class="widefat">';
 		echo '</p>';
 
 		// Max Count.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'count' ) . '" class="title-label">' . __( 'Number of agents to display:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'count' ) . '" name="' . $this->get_field_name( 'count' ) . '" value="' . $count . '" class="widefat">';
-		echo '	<span class="description">' . __( 'Max:50', 're-pro' ) . '</span>';
+		echo '	<label for="' . $this->get_field_id( 'count' ) . '" class="title-label">' . __( 'Display Count:', 're-pro' ) . '</label>';
+		echo '	<input type="number" id="' . $this->get_field_id( 'count' ) . '" name="' . $this->get_field_name( 'count' ) . '" min="1" max="50" value="' . $count . '">';
+		echo '	<span class="description">' . __( 'Max Count: 50', 're-pro' ) . '</span>';
 		echo '</p>';
 
 	}
