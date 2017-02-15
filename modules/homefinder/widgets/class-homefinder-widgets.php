@@ -67,7 +67,7 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 */
 		public function get_open_house_widget() {
 
-			echo '<div id="openHouseSearchWidget"' . $this->homefinder_class( 'open-house' ) .'"></div>';
+			echo '<div id="openHouseSearchWidget" class="'. $this->homefinder_class( 'open-house' ) .'"></div>';
 			echo '<script src="https://www.homefinder.com/widgets/js/widgetLoader.js?ver=887bb2d54cbc812a0d20eb52dc1ba8db"></script>';
 			echo '<script type="text/javascript">';
 			echo 'var hfWidget = [ {type: "openHouseSearch", container: "openHouseSearchWidget"} ];';
@@ -84,7 +84,7 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 */
 		public function get_foreclosure_homes_widget() {
 
-			echo '<div id="foreclosureSearchWidget"' . $this->homefinder_class( 'foreclosure-homes' ) .'"></div>';
+			echo '<div id="foreclosureSearchWidget" class="'. $this->homefinder_class( 'foreclosure-homes' ) .'"></div>';
 			echo '<script src="https://www.homefinder.com/widgets/js/widgetLoader.js?ver=887bb2d54cbc812a0d20eb52dc1ba8db"></script>';
 			echo '<script type="text/javascript">';
       echo 'var hfWidget = [ {type: "foreclosureSearch", container: "foreclosureSearchWidget"} ];';
@@ -100,10 +100,9 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 * @return void
 		 */
 		public function get_affiliate_search_widget( $search_data ) {
-		?>
-		<div id="searchPreview"><div>
-		<script src="http://www.homefinder.com/widgets/js/widgetLoader.js"></script>
-		<?php
+
+			echo '<div id="searchPreview" class="'. $this->homefinder_class( 'affiliate-search' ) .'"><div>';
+			wp_enqueue_script( 'hf-widget-loader', 'http://www.homefinder.com/widgets/js/widgetLoader.js', array( 'jquery' ), null, true );
 			wp_enqueue_script( 'hf-affiliate-search', plugins_url( 'affiliate-search.js', __FILE__ ), array( 'jquery' ), null, true );
 			wp_localize_script( 'hf-affiliate-search', 'widget_data', $search_data);
 
