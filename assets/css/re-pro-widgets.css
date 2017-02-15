@@ -223,6 +223,8 @@
   text-align: center;
   white-space: normal; }
 
-.homefinder-widget {
+.homefinder-homes-for-sale-widget,
+.homefinder-open-house-widget,
+.homefinder-foreclosure-homes-widget {
   width: 300px;
   height: 250px; }

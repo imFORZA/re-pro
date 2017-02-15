@@ -1,4 +1,12 @@
 <?php
+/**
+ * HomeFinder Module
+ *
+ * @package RE-PRO
+ */
+
+/* Exit if accessed directly. */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 include( 'widgets/class-homefinder-widgets.php' );
 
@@ -10,3 +18,6 @@ include( 'widgets/class-open-house-widget.php' );
 
 // Foreclosure Homes Widget.
 include( 'widgets/class-foreclosure-homes-widget.php' );
+
+// Affiliate Search Widget.
+include( 'widgets/class-affiliate-search-widget.php' );

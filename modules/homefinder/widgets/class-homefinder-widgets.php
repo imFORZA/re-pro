@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 	/**
-	 * HomesWidgets class.
+	 * HomeFinderWidgets class.
 	 */
 	class HomeFinderWidgets {
 
@@ -90,6 +90,22 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
       echo 'var hfWidget = [ {type: "foreclosureSearch", container: "foreclosureSearchWidget"} ];';
       echo 'HomeFinder.widgetLoader.getWidgets(hfWidget);';
   		echo '</script>';
+
+		}
+
+		/**
+		 * Get Affiliate Search Widget.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		public function get_affiliate_search_widget( $search_data ) {
+		?>
+		<div id="searchPreview"><div>
+		<script src="http://www.homefinder.com/widgets/js/widgetLoader.js"></script>
+		<?php
+			wp_enqueue_script( 'hf-affiliate-search', plugins_url( 'affiliate-search.js', __FILE__ ), array( 'jquery' ), null, true );
+			wp_localize_script( 'hf-affiliate-search', 'widget_data', $search_data);
 
 		}
 
