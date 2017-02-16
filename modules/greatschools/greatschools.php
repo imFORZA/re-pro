@@ -1,5 +1,5 @@
 <?php
 
-include_once( 'wp-greatschools-api.php' );
+require_once( 'wp-greatschools-api.php' );
 
-// include_once( 'widgets/widget-getschools.php' );
+// require_once( 'widgets/widget-getschools.php' );
