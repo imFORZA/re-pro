@@ -1,5 +1,4 @@
 jQuery(document).ready(function() {
-(function () {
 	var widget = new HomeFinder.Widgets.AdvertiserDirectory({
 		container: 'directoryPreview',
 		data: {
@@ -7,6 +6,4 @@ jQuery(document).ready(function() {
 			maxCount: directory_data.count
 		}
 	});
-})();
-
 });
