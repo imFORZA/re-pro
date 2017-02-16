@@ -43,7 +43,6 @@ class RentbitsRentalComparisonWidget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		$iframe_id = ! empty( $args['widget_id'] ) ? $args['widget_id'] : '';
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$location1 = ! empty( $instance['location1'] ) ? $instance['location1'] : '';
 		$location2 = ! empty( $instance['location2'] ) ? $instance['location2'] : '';

@@ -15,23 +15,29 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 	class RentbitsWidgets {
 
 		/**
+		 * Map data to be sent to JS.
+		 *
+		 * @var [Array]
+		 */
+		static private $rb_data;
+
+		/**
 		 * __construct function.
 		 *
 		 * @access public
 		 * @return void
 		 */
 		public function __construct() {
-			//add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
-			wp_enqueue_script( 'rb-widget-loader', 'http://rentbits.com/rb/common/rb_widget.js', array( 'jquery' ), null, true );
-
-
+			add_action( 'wp_footer', array( $this, 'rb_enqueues' ),  11 );
 		}
 
 		/**
-		 * Enqueue JS.
+		 * Handle multiple rb widgets js enqueues.
 		 */
-		public function enqueue() {
-			wp_enqueue_script( 'rb-widget-loader', 'http://rentbits.com/rb/common/rb_widget.js', array( 'jquery' ), null, true );
+		public function rb_enqueues() {
+			wp_enqueue_script( 'rb-widgets-js', plugins_url( 'rb-widgets.js', __FILE__ ), array( 'jquery' ), null, true );
+			wp_localize_script( 'rb-widgets-js', 'rb_data', static::$rb_data);
+
 		}
 
 		/**
@@ -75,19 +81,18 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 		 * @return void
 		 */
 		public function get_rental_comparison_widget( $loc1, $loc2, $loc3, $loc4 ) {
-			?>
-			<div id="rb_swt"></div>
-			<script type="text/javascript">
-				var loc1 = "<?php echo $loc1 ?>";
-				var loc2 = "<?php echo $loc2 ?>";
-				var loc3 = "<?php echo $loc3 ?>";
-				var loc4 = "<?php echo $loc4 ?>";
-				var rbw_width = "195px";
-				var rbw_height = "295px";
-				var rbw_url = "http://rentbits.com/rb/pageinc.do?p=widget-cmp-price&loc1="+loc1+"&loc2="+loc2+"&loc3="+loc3+"&loc4="+loc4+"";
-			</script>
-			<?php
-			//wp_enqueue_script( 'rb-widget-loader', 'http://rentbits.com/rb/common/rb_widget.js', array( 'jquery' ), null, true );
+
+			$url = 'http://rentbits.com/rb/pageinc.do?p=widget-cmp-price&loc1=' . $loc1 . '&loc2=' . $loc2 . '&loc3=' . $loc3 . '&loc4=' . $loc4;
+
+			$rb_data = array(
+				'width' => '195px',
+				'height' => '295px',
+				'url' => $url,
+			);
+			static::$rb_data[] = $rb_data;
+
+			$index = count( static::$rb_data ) - 1;
+			echo '<div id="rb-widget-' . $index . '"></div>';
 
 		}
 
@@ -98,15 +103,18 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 		 * @return void
 		 */
 		public function get_average_rental_rates_widget( $loc ) {
-			?>
-			<div id="rb_swt"></div>
-			<script type="text/javascript">
-				var loc = "<?php echo $loc ?>";
-				var rbw_height = "365px";
-				var rbw_width = "330px";
-				var rbw_url = "http://rentbits.com/rb/pageinc.do?p=widget-avg-price&loc="+loc+"";
-			</script>
-			<?php
+
+			$url = 'http://rentbits.com/rb/pageinc.do?p=widget-avg-price&loc=' . $loc;
+
+			$rb_data = array(
+				'width' => '330px',
+				'height' => '365px',
+				'url' => $url,
+			);
+			static::$rb_data[] = $rb_data;
+
+			$index = count( static::$rb_data ) - 1;
+			echo '<div id="rb-widget-' . $index . '"></div>';
 
 		}
 
