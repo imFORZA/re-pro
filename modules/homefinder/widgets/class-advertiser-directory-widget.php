@@ -45,7 +45,7 @@ class HomeFinderAdvertiserDirectory extends WP_Widget {
 
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$affiliate = ! empty( $instance['affiliate'] ) ? $instance['affiliate'] : '';
-		$count = ! empty( $instance['count'] ) ? $instance['count'] : '6';
+		$count = ! empty( $instance['count'] ) ? $instance['count'] : '';
 
 		echo $args['before_widget'];
 
@@ -71,7 +71,7 @@ class HomeFinderAdvertiserDirectory extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => '',
 			'affiliate' => '',
-			'count' => '',
+			'count' => '6',
 		) );
 
 		// Retrieve an existing value from the database.
