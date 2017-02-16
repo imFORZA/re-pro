@@ -21,3 +21,5 @@ include_once( 'streetadvisor/streetadvisor.php' );
 include_once( 'greatschools/greatschools.php' );
 
 include_once( 'homefinder/homefinder.php' );
+
+include_once( 'rentbits/rentbits.php' );
