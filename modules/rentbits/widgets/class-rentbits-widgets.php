@@ -15,7 +15,7 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 	class RentbitsWidgets {
 
 		/**
-		 * Map data to be sent to JS.
+		 * Widget data to be sent to JS.
 		 *
 		 * @var [Array]
 		 */
@@ -28,13 +28,13 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 		 * @return void
 		 */
 		public function __construct() {
-			add_action( 'wp_footer', array( $this, 'rb_enqueues' ),  11 );
+			add_action( 'wp_footer', array( $this, 'rb_enqueue' ),  11 );
 		}
 
 		/**
 		 * Handle multiple rb widgets js enqueues.
 		 */
-		public function rb_enqueues() {
+		public function rb_enqueue() {
 			wp_enqueue_script( 'rb-widgets-js', plugins_url( 'rb-widgets.js', __FILE__ ), array( 'jquery' ), null, true );
 			wp_localize_script( 'rb-widgets-js', 'rb_data', static::$rb_data);
 
