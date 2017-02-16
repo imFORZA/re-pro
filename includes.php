@@ -9,5 +9,23 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 
+
+// Google maps.
+require_once( 'modules/google-maps/gmaps.php' );
+
 // Equal Housing.
-include_once( 'modules/modules.php' );
+require_once( 'modules/equal-housing/equal-housing.php' );
+
+// Zillow.
+require_once( 'modules/zillow/zillow.php' );
+
+require_once( 'modules/trulia/trulia.php' );
+
+require_once( 'modules/inman/inman.php' );
+
+require_once( 'modules/homes-com/homes-com.php' );
+
+
+require_once( 'modules/streetadvisor/streetadvisor.php' );
+
+require_once( 'modules/greatschools/greatschools.php' );

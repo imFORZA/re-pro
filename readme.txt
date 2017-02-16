@@ -12,7 +12,23 @@ Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 == Description ==
 Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 
+Please visit our wiki on [GitHub](https://github.com/imFORZA/re-pro/wiki) for more info.
+
 == Changelog ==
+= 1.0.4 =
+* Fixed issue where files were not being included on certain hosting providers.
+
+= 1.0.3 =
+* HTTPS Check for widgets
+* New Google Maps module with shortcode, widget, and support for custom map styling.
+* Homes.com Commute Time Widget
+* Homes.com Featured Listing Widget
+* Homes.com Home Values Widget
+* Homes.com Search Widget
+* Homes.com Mortgage Calculator Widget
+* Homes.com Simple Search Widget
+* Homes.com Tall Search Widget
+
 = 1.0.2 =
 * Removed widgets no longer supported by Zillow. For details please visit https://www.zillow.com/advice-thread/Where-are-the-widgets/684351/
 

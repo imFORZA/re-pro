@@ -10,7 +10,7 @@
 	Plugin Name: Real Estate Pro
 	Plugin URI: https://www.imforza.com
 	Description: A WordPress plugin for Real Estate websites, offering tools such as widgets and badges. Built by <a href="https://www.imforza.com">imFORZA</a>.
-	Version: 1.0.2
+	Version: 1.0.4
 	Author: imFORZA
 	Contributors: imforza, bhubbard, sfgarza, matoledo
 	Text Domain: re-pro
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /** Instantiate the plugin. */
 new RePro();
-include_once( 'settings.php');
+require_once( 'settings.php');
 
 
 /**
@@ -46,7 +46,7 @@ class RePro {
 		define( 'REPRO_PLUGIN_FILE', REPRO_BASE_DIR . 're-pro.php' );
 
 		/* Include dependencies */
-		include_once( 'includes.php' );
+		require_once( 'includes.php' );
 
 		$this->init();
 	}

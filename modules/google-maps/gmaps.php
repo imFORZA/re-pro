@@ -19,7 +19,7 @@
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
-	include_once( 'maps-widget.php' );
+	require_once( 'maps-widget.php' );
 
 	/**
 	 * GreatSchools API Class.
