@@ -1,5 +1,8 @@
 # Real Estate Pro Changelog
 This is the up-to-date changelog for [Real Estate Pro](https://wordpress.org/plugins/re-pro/).
+## [1.0.4] - 2017-02-16
+- Fixed issue where files were not being included on certain hosting providers.
+
 ## [1.0.3] - 2017-02-06
 - New Google Maps module with shortcode, widget, and support for custom map styling.
 - HTTPS Check for widgets

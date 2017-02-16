@@ -15,6 +15,9 @@ Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 Please visit our wiki on [GitHub](https://github.com/imFORZA/re-pro/wiki) for more info.
 
 == Changelog ==
+= 1.0.4 =
+* Fixed issue where files were not being included on certain hosting providers.
+
 = 1.0.3 =
 * HTTPS Check for widgets
 * New Google Maps module with shortcode, widget, and support for custom map styling.
