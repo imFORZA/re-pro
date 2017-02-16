@@ -40,38 +40,6 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 
 		}
 
-		/**
-		 * HomeFinder ID Names.
-		 *
-		 * @access public
-		 * @param string $iframe_id (default: '').
-		 * @return string $iframe_id.
-		 */
-		public function rentbits_id( $widget_id = '' ) {
-
-			if ( '' !== $widget_id  ) {
-				return sanitize_html_class( $widget_id );
-			}
-
-		}
-
-		/**
-		 * HomeFinder div Class Names.
-		 *
-		 * @access public
-		 * @param string $widget_name (default: '').
-		 * @return string class name.
-		 */
-		public function rentbits_class( $widget_name = '' ) {
-
-			if ( '' !== $widget_name ) {
-				return 'rentbits rentbits-widget rentbits-' . sanitize_html_class( $widget_name ) . '-widget';
-			} else {
-				return 'rentbits rentbits-widget';
-			}
-
-		}
-
 		/* Rentbits WIDGETS. */
 
 		/**
