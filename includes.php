@@ -29,3 +29,7 @@ require_once( 'modules/homes-com/homes-com.php' );
 require_once( 'modules/streetadvisor/streetadvisor.php' );
 
 require_once( 'modules/greatschools/greatschools.php' );
+
+require_once( 'modules/homefinder/homefinder.php' );
+
+require_once( 'modules/rentbits/rentbits.php' );
