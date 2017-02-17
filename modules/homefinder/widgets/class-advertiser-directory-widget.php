@@ -53,7 +53,7 @@ class HomeFinderAdvertiserDirectory extends WP_Widget {
 
 		$homefinder_widgets = new HomeFinderWidgets();
 
-		$homefinder_widgets->get_homefinder_widget( 'directory', $instance );
+		$homefinder_widgets->get_affiliates_widget( 'directory', $instance );
 
 		echo $args['after_widget'];
 	}

@@ -52,7 +52,7 @@ class HomeFinderForeclosureHomes extends WP_Widget {
 
 		$homefinder_widgets = new HomeFinderWidgets();
 
-		$homefinder_widgets->get_foreclosure_homes_widget( $widget_id );
+		$homefinder_widgets->get_foreclosure_homes_widget();
 
 		echo $args['after_widget'];
 	}

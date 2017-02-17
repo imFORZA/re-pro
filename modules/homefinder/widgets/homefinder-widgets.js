@@ -22,6 +22,12 @@
 					]
 				}
 			});
+		} else {
+			var hfWidget = [{
+				type: data.type,
+				container: data.container + '-' + index
+			}];
+    	HomeFinder.widgetLoader.getWidgets( hfWidget );
 		}
 	});
 })();

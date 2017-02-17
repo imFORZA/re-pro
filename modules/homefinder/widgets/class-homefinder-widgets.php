@@ -82,14 +82,17 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 * @access public
 		 * @return void
 		 */
-		public function get_homes_for_sale_widget( $widget_id ) {
+		public function get_homes_for_sale_widget() {
 
-			echo '<div id="'. $this->homefinder_id( $widget_id ) .'" class="'. $this->homefinder_class( 'homes-for-sale' ) .'"></div>';
-			echo '<script src="https://www.homefinder.com/widgets/js/widgetLoader.js?ver=887bb2d54cbc812a0d20eb52dc1ba8db"></script>';
-			echo '<script type="text/javascript">';
-	  	echo 'var hfWidget = [ {type: "homeSearch", container: "'. $this->homefinder_id( $widget_id ) .'"}];';
-	    echo 'HomeFinder.widgetLoader.getWidgets(hfWidget);';
-			echo '</script>';
+			$widget_data = array(
+				'type' => 'homeSearch',
+				'container' => 'homeSearchWidget',
+			);
+			static::$hf_data[] = $widget_data;
+
+			$index = count( static::$hf_data ) - 1;
+
+			echo '<div id="homeSearchWidget-'. $index .'" class="'. $this->homefinder_class( 'homes-for-sale' ) .'"></div>';
 
 		}
 
@@ -99,14 +102,17 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 * @access public
 		 * @return void
 		 */
-		public function get_open_house_widget( $widget_id ) {
+		public function get_open_house_widget() {
 
-			echo '<div id="'. $this->homefinder_id( $widget_id ) .'" class="'. $this->homefinder_class( 'open-house' ) .'"></div>';
-			echo '<script src="https://www.homefinder.com/widgets/js/widgetLoader.js?ver=887bb2d54cbc812a0d20eb52dc1ba8db"></script>';
-			echo '<script type="text/javascript">';
-			echo 'var hfWidget = [ {type: "openHouseSearch", container: "'. $this->homefinder_id( $widget_id ) .'"} ];';
-			echo 'HomeFinder.widgetLoader.getWidgets(hfWidget);';
-			echo '</script>';
+			$widget_data = array(
+				'type' => 'openHouseSearch',
+				'container' => 'openHouseSearchWidget',
+			);
+			static::$hf_data[] = $widget_data;
+
+			$index = count( static::$hf_data ) - 1;
+
+			echo '<div id="openHouseSearchWidget-'. $index .'" class="'. $this->homefinder_class( 'open-house' ) .'"></div>';
 
 		}
 
@@ -116,14 +122,17 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 * @access public
 		 * @return void
 		 */
-		public function get_foreclosure_homes_widget( $widget_id ) {
+		public function get_foreclosure_homes_widget() {
 
-			echo '<div id="'. $this->homefinder_id( $widget_id ) .'" class="'. $this->homefinder_class( 'foreclosure-homes' ) .'"></div>';
-			echo '<script src="https://www.homefinder.com/widgets/js/widgetLoader.js?ver=887bb2d54cbc812a0d20eb52dc1ba8db"></script>';
-			echo '<script type="text/javascript">';
-      echo 'var hfWidget = [ {type: "foreclosureSearch", container: "'. $this->homefinder_id( $widget_id ) .'"} ];';
-      echo 'HomeFinder.widgetLoader.getWidgets(hfWidget);';
-  		echo '</script>';
+			$widget_data = array(
+				'type' => 'foreclosureSearch',
+				'container' => 'foreclosureSearchWidget',
+			);
+			static::$hf_data[] = $widget_data;
+
+			$index = count( static::$hf_data ) - 1;
+
+			echo '<div id="foreclosureSearchWidget-'. $index .'" class="'. $this->homefinder_class( 'foreclosure-homes' ) .'"></div>';
 
 		}
 
@@ -135,7 +144,7 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 * @param array $widget_data Widget Data
 		 * @return void
 		 */
-		public function get_homefinder_widget( $type, $widget_data ) {
+		public function get_affiliates_widget( $type, $widget_data ) {
 
 			$widget_data['type'] = $type;
 			static::$hf_data[] = $widget_data;

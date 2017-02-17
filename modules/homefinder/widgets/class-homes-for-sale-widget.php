@@ -52,7 +52,7 @@ class HomeFinderHomesForSale extends WP_Widget {
 
 		$homefinder_widgets = new HomeFinderWidgets();
 
-		$homefinder_widgets->get_homes_for_sale_widget( $widget_id );
+		$homefinder_widgets->get_homes_for_sale_widget();
 
 		echo $args['after_widget'];
 	}
