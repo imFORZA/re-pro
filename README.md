@@ -6,6 +6,10 @@ Widgets, Badges, and tools for Real Estate Websites.
 [![Test Coverage](https://codeclimate.com/repos/5813d86e995ea7007d00340e/badges/915bd36495e2a0007e2c/coverage.svg)](https://codeclimate.com/repos/5813d86e995ea7007d00340e/coverage)
 [![Issue Count](https://codeclimate.com/repos/5813d86e995ea7007d00340e/badges/915bd36495e2a0007e2c/issue_count.svg)](https://codeclimate.com/repos/5813d86e995ea7007d00340e/feed)
 [![Build Status](https://travis-ci.org/imFORZA/re-pro.svg?branch=master)](https://travis-ci.org/imFORZA/re-pro)
+[ ![Codeship Status for imFORZA/re-pro](https://app.codeship.com/projects/492614b0-d6d5-0134-dcb2-760971575778/status?branch=master)](https://app.codeship.com/projects/202882)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/imFORZA/re-pro/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/imFORZA/re-pro/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/imFORZA/re-pro/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imFORZA/re-pro/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/imFORZA/re-pro/badges/build.png?b=master)](https://scrutinizer-ci.com/g/imFORZA/re-pro/build-status/master)
 
 ## Features
 
