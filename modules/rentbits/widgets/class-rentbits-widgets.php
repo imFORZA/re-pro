@@ -28,7 +28,7 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 		 * @return void
 		 */
 		public function __construct() {
-			add_action( 'wp_footer', array( $this, 'rb_enqueue' ),  11 );
+			add_action( 'wp_footer', array( $this, 'rb_enqueue' ) );
 		}
 
 		/**
