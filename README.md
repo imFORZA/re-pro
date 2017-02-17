@@ -10,6 +10,8 @@ Widgets, Badges, and tools for Real Estate Websites.
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/imFORZA/re-pro/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/imFORZA/re-pro/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/imFORZA/re-pro/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imFORZA/re-pro/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/imFORZA/re-pro/badges/build.png?b=master)](https://scrutinizer-ci.com/g/imFORZA/re-pro/build-status/master)
+[![codebeat badge](https://codebeat.co/badges/8f63d134-7c17-4a7e-accd-4336bfe4656c)](https://codebeat.co/projects/github-com-imforza-re-pro)
+
 
 ## Features
 
