@@ -3,3 +3,12 @@ javascript:
 jscs:
   enabled: true
   config_file: .jscsrc
+scss:
+  config_file: .scss-lint.yml
+  
+eslint:
+  enabled: true
+  config_file: .eslintrc
+  ignore_file: .eslintignore
+  
+fail_on_violations: true
