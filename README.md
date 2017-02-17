@@ -11,7 +11,7 @@ Widgets, Badges, and tools for Real Estate Websites.
 [![Code Coverage](https://scrutinizer-ci.com/g/imFORZA/re-pro/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imFORZA/re-pro/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/imFORZA/re-pro/badges/build.png?b=master)](https://scrutinizer-ci.com/g/imFORZA/re-pro/build-status/master)
 [![codebeat badge](https://codebeat.co/badges/8f63d134-7c17-4a7e-accd-4336bfe4656c)](https://codebeat.co/projects/github-com-imforza-re-pro)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2c3a00a64b274e5a8d2240e282864f0c)](https://www.codacy.com/app/imFORZA/re-pro?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=imFORZA/re-pro&amp;utm_campaign=Badge_Grade)
 
 ## Features
 
