@@ -74,7 +74,6 @@ class HomeFinderOpenHouse extends WP_Widget {
 		// Retrieve an existing value from the database.
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 
-
 		// Title.
 		echo '<p>';
 		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';

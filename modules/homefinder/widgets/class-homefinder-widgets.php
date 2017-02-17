@@ -15,11 +15,11 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 	class HomeFinderWidgets {
 
 		/**
-	 * Widget data to be sent to JS.
-	 *
-	 * @var [Array]
-	 */
-	static private $hf_data;
+		 * Widget data to be sent to JS.
+		 *
+		 * @var [Array]
+		 */
+		static private $hf_data;
 
 		/**
 		 * __construct function.
@@ -38,7 +38,7 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		public function hf_enqueue() {
 			wp_enqueue_script( 'hf-widget-loader', 'http://www.homefinder.com/widgets/js/widgetLoader.js', array( 'jquery' ), null, true );
 			wp_enqueue_script( 'hf-widgets-js', plugins_url( 'homefinder-widgets.js', __FILE__ ), array( 'jquery' ), null, true );
-			wp_localize_script( 'hf-widgets-js', 'hf_data', static::$hf_data);
+			wp_localize_script( 'hf-widgets-js', 'hf_data', static::$hf_data );
 
 		}
 
@@ -46,8 +46,8 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 * HomeFinder ID Names.
 		 *
 		 * @access public
-		 * @param string $iframe_id (default: '').
-		 * @return string $iframe_id.
+		 * @param string $widget_id (default: '').
+		 * @return string $widget_id.
 		 */
 		public function homefinder_id( $widget_id = '' ) {
 
@@ -140,8 +140,8 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 * Get HomeFinder Widget.
 		 *
 		 * @access public
-		 * @param string $type Widget Type
-		 * @param array $widget_data Widget Data
+		 * @param string  $type Widget Type.
+		 * @param  [Mixed] $widget_data : Array of widget data to send to js.
 		 * @return void
 		 */
 		public function get_affiliates_widget( $type, $widget_data ) {
@@ -151,13 +151,12 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 
 			$index = count( static::$hf_data ) - 1;
 
-			if( 'search' === $type ) {
+			if ( 'search' === $type ) {
 				echo '<div id="searchPreview-' . $index . '" class="'. $this->homefinder_class( 'affiliate-search' ) .'"><div>';
 			} else if ( 'directory' === $type ) {
 				echo '<div id="directoryPreview-' . $index . '" class="'. $this->homefinder_class( 'adveritser-directory' ) .'"></div>';
 			}
 
 		}
-
 	}
 }

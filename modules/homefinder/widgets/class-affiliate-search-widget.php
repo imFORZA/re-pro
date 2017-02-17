@@ -192,7 +192,6 @@ class HomeFinderAffiliateSearch extends WP_Widget {
 
 		return $instance;
 	}
-
 }
 
 /**

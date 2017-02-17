@@ -49,7 +49,6 @@ class RentbitsRentalComparisonWidget extends WP_Widget {
 		$location3 = ! empty( $instance['location3'] ) ? $instance['location3'] : '';
 		$location4 = ! empty( $instance['location4'] ) ? $instance['location4'] : '';
 
-
 		echo $args['before_widget'];
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
@@ -135,7 +134,6 @@ class RentbitsRentalComparisonWidget extends WP_Widget {
 		$instance['location2'] = ! empty( $new_instance['location2'] ) ? strip_tags( $new_instance['location2'] ) : '';
 		$instance['location3'] = ! empty( $new_instance['location3'] ) ? strip_tags( $new_instance['location3'] ) : '';
 		$instance['location4'] = ! empty( $new_instance['location4'] ) ? strip_tags( $new_instance['location4'] ) : '';
-
 
 		return $instance;
 	}

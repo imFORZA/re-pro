@@ -1,6 +1,6 @@
 (function () {
 	hf_data.forEach(function(data, index) {
-		if( data.type === 'directory' ) {
+		if ( data.type === 'directory' ) {
 			var widget = new HomeFinder.Widgets.AdvertiserDirectory({
 				container: 'directoryPreview-' + index,
 				data: {
@@ -8,7 +8,7 @@
 					maxCount: data.count
 				}
 			});
-		} else if( data.type === 'search' ) {
+		} else if ( data.type === 'search' ) {
 			var widget = new HomeFinder.Widgets.Search({
 				container: 'searchPreview-' + index,
 				data: {
@@ -27,7 +27,7 @@
 				type: data.type,
 				container: data.container + '-' + index
 			}];
-    	HomeFinder.widgetLoader.getWidgets( hfWidget );
+			HomeFinder.widgetLoader.getWidgets( hfWidget );
 		}
 	});
 })();

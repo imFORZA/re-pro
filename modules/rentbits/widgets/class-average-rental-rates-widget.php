@@ -105,7 +105,6 @@ class RentbitsAverageRentalRatesWidget extends WP_Widget {
 		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
 
-
 		return $instance;
 	}
 }

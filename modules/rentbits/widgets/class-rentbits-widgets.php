@@ -36,7 +36,7 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 		 */
 		public function rb_enqueue() {
 			wp_enqueue_script( 'rb-widgets-js', plugins_url( 'rb-widgets.js', __FILE__ ), array( 'jquery' ), null, true );
-			wp_localize_script( 'rb-widgets-js', 'rb_data', static::$rb_data);
+			wp_localize_script( 'rb-widgets-js', 'rb_data', static::$rb_data );
 
 		}
 
@@ -46,6 +46,10 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 		 * Get Rental Comparison Widget.
 		 *
 		 * @access public
+		 * @param mixed $loc1 First Location.
+		 * @param mixed $loc2 Second Location.
+	 	 * @param mixed $loc3 Third Location.
+		 * @param mixed $loc4 Fourth Location.
 		 * @return void
 		 */
 		public function get_rental_comparison_widget( $loc1, $loc2, $loc3, $loc4 ) {
@@ -68,6 +72,7 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 		 * Get Average Rental Rates Widget.
 		 *
 		 * @access public
+		 * @param mixed $loc Location.
 		 * @return void
 		 */
 		public function get_average_rental_rates_widget( $loc ) {
@@ -85,7 +90,5 @@ if ( ! class_exists( 'RentbitsWidgets' ) ) {
 			echo '<div id="rb-widget-' . $index . '"></div>';
 
 		}
-
-
 	}
 }
