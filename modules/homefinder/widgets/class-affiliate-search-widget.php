@@ -62,7 +62,7 @@ class HomeFinderAffiliateSearch extends WP_Widget {
 
 		$homefinder_widgets = new HomeFinderWidgets();
 
-		$homefinder_widgets->get_affiliate_search_widget( $instance );
+		$homefinder_widgets->get_homefinder_widget( 'search', $instance );
 
 		echo $args['after_widget'];
 	}

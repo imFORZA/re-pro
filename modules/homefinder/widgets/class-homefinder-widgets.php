@@ -128,37 +128,27 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		}
 
 		/**
-		 * Get Affiliate Search Widget.
+		 * Get HomeFinder Widget.
 		 *
 		 * @access public
+		 * @param string $type Widget Type
+		 * @param array $widget_data Widget Data
 		 * @return void
 		 */
-		public function get_affiliate_search_widget( $search_data ) {
+		public function get_homefinder_widget( $type, $widget_data ) {
 
-			$search_data['type'] = 'search';
-			static::$hf_data[] = $search_data;
-
-			$index = count( static::$hf_data ) - 1;
-			echo '<div id="searchPreview-' . $index . '" class="'. $this->homefinder_class( 'affiliate-search' ) .'"><div>';
-
-		}
-
-		/**
-		 * Get Advertiser Directory Widget.
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function get_advertiser_directory_widget( $directory_data ) {
-
-			$directory_data['type'] = 'directory';
-			static::$hf_data[] = $directory_data;
+			$widget_data['type'] = $type;
+			static::$hf_data[] = $widget_data;
 
 			$index = count( static::$hf_data ) - 1;
-			echo '<div id="directoryPreview-' . $index . '" class="'. $this->homefinder_class( 'adveritser-directory' ) .'"></div>';
+
+			if( 'search' === $type ) {
+				echo '<div id="searchPreview-' . $index . '" class="'. $this->homefinder_class( 'affiliate-search' ) .'"><div>';
+			} else if ( 'directory' === $type ) {
+				echo '<div id="directoryPreview-' . $index . '" class="'. $this->homefinder_class( 'adveritser-directory' ) .'"></div>';
+			}
 
 		}
-
 
 	}
 }
