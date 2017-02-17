@@ -19,9 +19,31 @@ env:
   - WP_VERSION=4.6.1 WP_MULTISITE=0
 
 matrix:
+  allow_failures:
+    - php: hhvm
   include:
+    - php: 7.0
+      env: WP_VERSION=master WP_MULTISITE=1 PHPLINT=1 PHPCS=1 CHECKJS=1 COVERAGE=1
+    - php: 5.2
+      env: WP_VERSION=4.5 WP_MULTISITE=1 PHPLINT=1
+    - php: 7.0
+      env: WP_VERSION=4.5
+    - php: 7.0
+      env: WP_VERSION=4.4
+    - php: 7.0
+      env: WP_VERSION=4.3
+    - php: 5.6
+      env: WP_VERSION=4.2
+    - php: 5.6
+      env: WP_VERSION=4.5
+    - php: 5.5
+      env: WP_VERSION=4.5
+    - php: 5.4
+      env: WP_VERSION=4.5
     - php: 5.3
-      env: WP_VERSION=latest WP_MULTISITE=1
+      env: WP_VERSION=4.5
+    - php: hhvm
+      env: WP_VERSION=4.5
 
 before_script:
   - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
