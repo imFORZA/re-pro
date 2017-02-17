@@ -258,3 +258,22 @@
 	text-align: center;
 	white-space: normal;
 }
+
+
+// HomeFinder.com Widgets
+
+.homefinder-widget a,
+.homefinder-widget a:hover {
+	box-shadow: none!important;
+	color: #3183A6;
+}
+
+.homefinder-adveritser-directory-widget {
+	font-size: 15px;
+	.secondaryName,
+	.phoneNumber,
+	.agentWebsiteUrl,
+	.agentListingsUrl {
+		font-size: 13px;
+	}
+}

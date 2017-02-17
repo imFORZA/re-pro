@@ -29,3 +29,7 @@ include_once( 'modules/homes-com/homes-com.php' );
 include_once( 'modules/streetadvisor/streetadvisor.php' );
 
 include_once( 'modules/greatschools/greatschools.php' );
+
+include_once( 'modules/homefinder/homefinder.php' );
+
+include_once( 'modules/rentbits/rentbits.php' );

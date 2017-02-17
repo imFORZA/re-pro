@@ -222,3 +222,16 @@
 	margin: 0 12px .5em;
 	text-align: center;
 	white-space: normal; }
+
+.homefinder-widget a,
+.homefinder-widget a:hover {
+	box-shadow: none !important;
+	color: #3183A6; }
+
+.homefinder-adveritser-directory-widget {
+	font-size: 15px; }
+	.homefinder-adveritser-directory-widget .secondaryName,
+	.homefinder-adveritser-directory-widget .phoneNumber,
+	.homefinder-adveritser-directory-widget .agentWebsiteUrl,
+	.homefinder-adveritser-directory-widget .agentListingsUrl {
+	font-size: 13px; }
