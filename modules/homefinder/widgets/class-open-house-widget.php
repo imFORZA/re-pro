@@ -108,6 +108,8 @@ class HomeFinderOpenHouse extends WP_Widget {
  * @return void
  */
 function repro_homefinder_open_house() {
+	if ( ! is_ssl() ) {
 		register_widget( 'HomeFinderOpenHouse' );
+	}
 }
 add_action( 'widgets_init', 'repro_homefinder_open_house' );

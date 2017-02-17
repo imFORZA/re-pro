@@ -117,6 +117,8 @@ class RentbitsAverageRentalRatesWidget extends WP_Widget {
  * @return void
  */
 function repro_rentbits_avg_rental_rates() {
-	register_widget( 'RentbitsAverageRentalRatesWidget' );
+	if ( ! is_ssl() ) {
+		register_widget( 'RentbitsAverageRentalRatesWidget' );
+	}
 }
 add_action( 'widgets_init', 'repro_rentbits_avg_rental_rates' );

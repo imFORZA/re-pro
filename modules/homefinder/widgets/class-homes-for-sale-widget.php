@@ -108,6 +108,8 @@ class HomeFinderHomesForSale extends WP_Widget {
  * @return void
  */
 function repro_homefinder_homes_for_sale() {
+	if ( ! is_ssl() ) {
 		register_widget( 'HomeFinderHomesForSale' );
+	}
 }
 add_action( 'widgets_init', 'repro_homefinder_homes_for_sale' );

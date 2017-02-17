@@ -128,6 +128,8 @@ class HomeFinderAdvertiserDirectory extends WP_Widget {
  * @return void
  */
 function repro_homefinder_advertiser_directory() {
+	if ( ! is_ssl() ) {
 		register_widget( 'HomeFinderAdvertiserDirectory' );
+	}
 }
 add_action( 'widgets_init', 'repro_homefinder_advertiser_directory' );

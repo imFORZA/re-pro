@@ -202,6 +202,8 @@ class HomeFinderAffiliateSearch extends WP_Widget {
  * @return void
  */
 function repro_homefinder_affiliate_search() {
+	if ( ! is_ssl() ) {
 		register_widget( 'HomeFinderAffiliateSearch' );
+	}
 }
 add_action( 'widgets_init', 'repro_homefinder_affiliate_search' );

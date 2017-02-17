@@ -148,6 +148,8 @@ class RentbitsRentalComparisonWidget extends WP_Widget {
  * @return void
  */
 function repro_rentbits_rental_comparison() {
-	register_widget( 'RentbitsRentalComparisonWidget' );
+	if ( ! is_ssl() ) {
+		register_widget( 'RentbitsRentalComparisonWidget' );
+	}
 }
 add_action( 'widgets_init', 'repro_rentbits_rental_comparison' );

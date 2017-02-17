@@ -108,6 +108,8 @@ class HomeFinderForeclosureHomes extends WP_Widget {
  * @return void
  */
 function repro_homefinder_forclosure_homes() {
+	if ( ! is_ssl() ) {
 		register_widget( 'HomeFinderForeclosureHomes' );
+	}
 }
 add_action( 'widgets_init', 'repro_homefinder_forclosure_homes' );
