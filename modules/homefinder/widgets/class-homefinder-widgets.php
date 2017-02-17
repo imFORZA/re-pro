@@ -15,12 +15,31 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 	class HomeFinderWidgets {
 
 		/**
+	 * Widget data to be sent to JS.
+	 *
+	 * @var [Array]
+	 */
+	static private $hf_data;
+
+		/**
 		 * __construct function.
 		 *
 		 * @access public
 		 * @return void
 		 */
 		public function __construct() {
+			add_action( 'wp_footer', array( $this, 'hf_enqueue' ) );
+
+		}
+
+		/**
+		 * Enqueue JS on footer and handle multiple widgets.
+		 */
+		public function hf_enqueue() {
+			wp_enqueue_script( 'hf-widget-loader', 'http://www.homefinder.com/widgets/js/widgetLoader.js', array( 'jquery' ), null, true );
+			wp_enqueue_script( 'hf-widgets-js', plugins_url( 'homefinder-widgets.js', __FILE__ ), array( 'jquery' ), null, true );
+			wp_localize_script( 'hf-widgets-js', 'hf_data', static::$hf_data);
+
 		}
 
 		/**
@@ -116,10 +135,11 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 */
 		public function get_affiliate_search_widget( $search_data ) {
 
-			echo '<div id="searchPreview" class="'. $this->homefinder_class( 'affiliate-search' ) .'"><div>';
-			wp_enqueue_script( 'hf-widget-loader', 'http://www.homefinder.com/widgets/js/widgetLoader.js', array( 'jquery' ), null, true );
-			wp_enqueue_script( 'hf-affiliate-search', plugins_url( 'affiliate-search.js', __FILE__ ), array( 'jquery' ), null, true );
-			wp_localize_script( 'hf-affiliate-search', 'search_data', $search_data);
+			$search_data['type'] = 'search';
+			static::$hf_data[] = $search_data;
+
+			$index = count( static::$hf_data ) - 1;
+			echo '<div id="searchPreview-' . $index . '" class="'. $this->homefinder_class( 'affiliate-search' ) .'"><div>';
 
 		}
 
@@ -131,10 +151,12 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 */
 		public function get_advertiser_directory_widget( $directory_data ) {
 
-			echo '<div id="directoryPreview" class="'. $this->homefinder_class( 'adveritser-directory' ) .'"></div>';
-			wp_enqueue_script( 'hf-widget-loader', 'http://www.homefinder.com/widgets/js/widgetLoader.js', array( 'jquery' ), null, true );
-			wp_enqueue_script( 'hf-advertiser-directory', plugins_url( 'advertiser-directory.js', __FILE__ ), array( 'jquery' ), null, true );
-			wp_localize_script( 'hf-advertiser-directory', 'directory_data', $directory_data);
+			$directory_data['type'] = 'directory';
+			static::$hf_data[] = $directory_data;
+
+			$index = count( static::$hf_data ) - 1;
+			echo '<div id="directoryPreview-' . $index . '" class="'. $this->homefinder_class( 'adveritser-directory' ) .'"></div>';
+
 		}
 
 
