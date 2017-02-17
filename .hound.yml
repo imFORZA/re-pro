@@ -1,8 +1,11 @@
-javascript:
+jshint:
   config_file: .jshintrc
+  ignore_file: .jshintignore
+  
 jscs:
   enabled: true
   config_file: .jscsrc
+  
 scss:
   config_file: .scss-lint.yml
   
