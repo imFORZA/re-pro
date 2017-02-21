@@ -23,21 +23,6 @@ if ( ! class_exists( 'RealtyTracWidgets' ) ) {
 		public function __construct() {
 		}
 
-		/**
-		 * RealtyTrac ID Names.
-		 *
-		 * @access public
-		 * @param string $widget_id (default: '')
-		 * @return void
-		 */
-		public function realtytrac_id( $widget_id = '' ) {
-
-			if( '' !== $widget_id  ) {
-				return sanitize_html_class( $widget_id );
-			}
-
-		}
-
 		/* RealtyTrac WIDGETS. */
 
 		/**
@@ -69,7 +54,5 @@ if ( ! class_exists( 'RealtyTracWidgets' ) ) {
 			echo '<div id="rtTickerWidgetContainer"></div>';
 
 		}
-
-
 	}
 }

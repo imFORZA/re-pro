@@ -89,7 +89,6 @@ class RealtyTracDetailedForeclosureSearchWidget extends WP_Widget {
 		echo '	<input id="' . $this->get_field_id( 'location' ) . '" name="' . $this->get_field_name( 'location' ) . '" value="' . $location . '" class="widefat">';
 		echo '</p>';
 
-
 	}
 
 	/**
