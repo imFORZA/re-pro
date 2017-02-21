@@ -59,6 +59,7 @@ if ( ! class_exists( 'RealtyTracWidgets' ) ) {
 		 * Get Foreclosure Search Widget.
 		 *
 		 * @access public
+		 * @param mixed $type Widget Type.
 		 * @param mixed $loc Location.
 		 * @return void
 		 */
