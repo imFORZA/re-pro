@@ -55,6 +55,20 @@ if ( ! class_exists( 'RealtyTracWidgets' ) ) {
 
 		}
 
+		/**
+		 * Get Foreclosure Search Widget.
+		 *
+		 * @access public
+		 * @param mixed $loc Location.
+		 * @return void
+		 */
+		public function get_foreclosure_search_widget( $type, $loc ) {
+
+			echo '<script src="http://www.realtytrac.com/UI/jscript/widgetinit.js?widgetType=' . $type . '&location=' . $loc . '" type="text/javascript"></script>';
+			echo '<div id="rtTickerWidgetContainer"></div>';
+
+		}
+
 
 	}
 }
