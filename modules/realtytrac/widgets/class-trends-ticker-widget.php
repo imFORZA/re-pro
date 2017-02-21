@@ -24,11 +24,11 @@ class RealtyTracTrendsTickerWidget extends WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			'realty_trac_trends_ticker',
+			'realtytrac_trends_ticker',
 			__( 'RealtyTrac Real Estate Trends Ticker', 're-pro' ),
 			array(
 				'description' => __( 'Directly link your visitors to nationwide foreclosure, auction, and bank-owned real estate trends from RealtyTrac.com.', 're-pro' ),
-				'classname'   => 're-pro re-pro-widget realtry-trac-widget realty-trac-trends-ticker',
+				'classname'   => 're-pro re-pro-widget realtry-trac-widget realtytrac-trends-ticker',
 				'customize_selective_refresh' => true,
 			)
 		);
@@ -179,7 +179,7 @@ class RealtyTracTrendsTickerWidget extends WP_Widget {
 }
 
 /**
- * Register Rentbits.com Rental Comparison Widget.
+ * Register RealtyTrac Real Estate Trends Ticker Widget.
  *
  * @access public
  * @return void
