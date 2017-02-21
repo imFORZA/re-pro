@@ -23,3 +23,5 @@ require_once( 'greatschools/greatschools.php' );
 require_once( 'homefinder/homefinder.php' );
 
 require_once( 'rentbits/rentbits.php' );
+
+require_once( 'realtytrac/realtytrac.php' );

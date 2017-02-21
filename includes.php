@@ -33,3 +33,5 @@ include_once( 'modules/greatschools/greatschools.php' );
 include_once( 'modules/homefinder/homefinder.php' );
 
 include_once( 'modules/rentbits/rentbits.php' );
+
+include_once( 'modules/realtytrac/realtytrac.php' );
