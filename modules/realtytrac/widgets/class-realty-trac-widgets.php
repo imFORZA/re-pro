@@ -50,7 +50,7 @@ if ( ! class_exists( 'RealtyTracWidgets' ) ) {
 		 */
 		public function get_trends_ticker_widget( $loc, $size ) {
 
-			echo '<script src="http://www.realtytrac.com/UI/jscript/tickerwidgetinit.js?guid=39a69bb5-fc2b-42ab-7bec-17c08c7e57d5&state=' . $loc . '&size=' . $size . '" type="text/javascript"></script>';
+			echo '<script src="https://www.realtytrac.com/UI/jscript/tickerwidgetinit.js?guid=39a69bb5-fc2b-42ab-7bec-17c08c7e57d5&state=' . $loc . '&size=' . $size . '" type="text/javascript"></script>';
 			echo '<div id="rtTickerWidgetContainer"></div>';
 
 		}

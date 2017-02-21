@@ -185,8 +185,6 @@ class RealtyTracTrendsTickerWidget extends WP_Widget {
  * @return void
  */
 function repro_realty_trac_trends_ticker() {
-	//if ( ! is_ssl() ) {
-		register_widget( 'RealtyTracTrendsTickerWidget' );
-	//}
+	register_widget( 'RealtyTracTrendsTickerWidget' );
 }
 add_action( 'widgets_init', 'repro_realty_trac_trends_ticker' );

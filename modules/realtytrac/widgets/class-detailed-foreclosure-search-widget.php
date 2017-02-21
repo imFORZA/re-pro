@@ -118,8 +118,8 @@ class RealtyTracDetailedForeclosureSearchWidget extends WP_Widget {
  * @return void
  */
 function repro_realty_trac_detailed_foreclosure_search() {
-	//if ( ! is_ssl() ) {
+	if ( ! is_ssl() ) {
 		register_widget( 'RealtyTracDetailedForeclosureSearchWidget' );
-	//}
+	}
 }
 add_action( 'widgets_init', 'repro_realty_trac_detailed_foreclosure_search' );
