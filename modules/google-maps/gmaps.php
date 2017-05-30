@@ -22,7 +22,7 @@ if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
 	require_once( 'maps-widget.php' );
 
 	/**
-	 * GreatSchools API Class.
+	 * Google Maps Class.
 	 */
 	class WPAPI_GOOGLE_MAPS {
 
@@ -59,7 +59,8 @@ if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
 			'lng'		 => '178.0650',
 			'info'	 => '',
 			'style'	 => '[]',
-			'zoom'	 => 8,
+			'zoom'	 => 14,
+			'scrollwheel' => 0,
 		);
 
 		/**
@@ -81,7 +82,7 @@ if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
 		 * Enqueue JS.
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'wpapi-google-maps',plugins_url( 'google-maps.js', __FILE__ ), array( 'jquery' ), null, true );
+			wp_enqueue_script( 'wpapi-google-maps', plugins_url( 'assets/js/google-maps.min.js', REPRO_PLUGIN_FILE ), array( 'jquery' ), null, true );
 		}
 
 		/**

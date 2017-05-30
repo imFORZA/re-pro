@@ -92,9 +92,11 @@ class REProSettings {
 		$gmaps_active = isset( $this->general_settings['gmaps_active'] ) ? $this->general_settings['gmaps_active'] : '0';
 		$gmaps_key = isset( $this->general_settings['gmaps_key'] ) ? $this->general_settings['gmaps_key'] : '';
 		$gmaps_style = isset( $this->general_settings['gmaps_style'] ) ? $this->general_settings['gmaps_style'] : '';
+		$gmaps_zoom = isset( $this->general_settings['gmaps_zoom'] ) ? $this->general_settings['gmaps_zoom'] : '';
 
 		$checked = checked( '1', $gmaps_active, false );
 		$is_active = ( '1' === $gmaps_active ) ? 'Deactivate Google maps module?' : 'Activate Google maps module?';
+		$disable_zoom = checked( '1', $gmaps_zoom, false );
 
 		echo '<input style="vertical-align: top;" type="checkbox" name="re_pro_settings[gmaps_active]"' . esc_attr( $checked ) . ' value="1"> ';
 		echo '<div style="display: inline-block;">';
@@ -107,7 +109,12 @@ class REProSettings {
 		echo '<textarea style="width:500px;" rows="10" cols="50" name="re_pro_settings[gmaps_style]">';
 		esc_attr_e( $gmaps_style );
 		echo '</textarea>';
-		echo '<br /><span class="description">Insert valid json to add custom style to maps. Json styles can be generated using <a target="_blank" href="https://snazzymaps.com/">Snazzy&nbsp;Maps</a> or the <a target="_blank" href="https://mapstyle.withgoogle.com/">Google&nbsp;Maps&nbsp;Styling&nbsp;Wizard</a></span>';
+		echo '<br /><span class="description">Insert valid json to add custom style to maps. Json styles can be generated using <a target="_blank" href="https://snazzymaps.com/">Snazzy&nbsp;Maps</a> or the <a target="_blank" href="https://mapstyle.withgoogle.com/">Google&nbsp;Maps&nbsp;Styling&nbsp;Wizard</a></span><br><br>';
+
+		echo '<input style="vertical-align: top;" type="checkbox" name="re_pro_settings[gmaps_zoom]"' . esc_attr( $disable_zoom ) . ' value="1"> ';
+		echo '<div style="display: inline-block;">';
+		echo 'Disable scroll zoom in Google Maps';
+		echo '</div>';
 	}
 
 	/**

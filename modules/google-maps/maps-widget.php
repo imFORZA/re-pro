@@ -70,6 +70,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$width['val']  = ! empty( $instance['width'] ) ? $instance['width'] : '';
 		$height['val'] = ! empty( $instance['height'] ) ? $instance['height'] : '';
 		$zoom['val'] 	 = ! empty( $instance['zoom'] ) ? $instance['zoom'] : '';
+		$scrollwheel['val'] 	 = ! empty( $instance['scrollwheel'] ) ? $instance['scrollwheel'] : 0;
 
 		$title['id'] 	= $this->get_field_id( 'title' );
 		$lat['id'] 		= $this->get_field_id( 'lat' );
@@ -78,6 +79,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$width['id'] 	= $this->get_field_id( 'width' );
 		$height['id'] = $this->get_field_id( 'height' );
 		$zoom['id'] 	= $this->get_field_id( 'zoom' );
+		$scrollwheel['id'] 	= $this->get_field_id( 'scrollwheel' );
 
 		$title['name'] 	= $this->get_field_name( 'title' );
 		$lat['name'] 	 	= $this->get_field_name( 'lat' );
@@ -86,6 +88,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$width['name'] 	= $this->get_field_name( 'width' );
 		$height['name'] = $this->get_field_name( 'height' );
 		$zoom['name'] 	= $this->get_field_name( 'zoom' );
+		$scrollwheel['name'] 	= $this->get_field_name( 'scrollwheel' );
 
 		// Widget title.
 		echo '<p>';
@@ -128,6 +131,12 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		echo '	<label for="' . esc_attr( $zoom['id'] ) . '" class="wp-api-maps_zoom_label">' . esc_attr( 'Zoom:' ) . '</label>';
 		echo '	<input type="text" id="' . esc_attr( $zoom['id'] ) . '" name="' . esc_attr( $zoom['name'] ) . '" class="widefat" value="' . esc_attr( $zoom['val'] ) . '">';
 		echo '</p>';
+
+		// ScrollWheel option.
+		echo '<p>';
+		echo '	<input value="1" type="checkbox"' . checked( esc_attr( $scrollwheel['val'] ), 1, false ) . 'id="' . esc_attr( $scrollwheel['id'] ) . '" name="' . esc_attr( $scrollwheel['name'] ) . '" />';
+		echo '	<label for="' .  esc_attr( $scrollwheel['id'] ) . '">Disable Scroll Zoom</label>';
+		echo '</p>';
 	}
 
 	/**
@@ -149,6 +158,7 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 		$instance['lng'] = ! empty( $new_instance['lng'] ) ? strip_tags( $new_instance['lng'] ) : '';
 		$instance['info'] = ! empty( $new_instance['info'] ) ? strip_tags( $new_instance['info'] ) : '';
 		$instance['zoom'] = ! empty( $new_instance['zoom'] ) ? strip_tags( $new_instance['zoom'] ) : null;
+		$instance['scrollwheel'] = ! empty( $new_instance['scrollwheel'] ) ? strip_tags( $new_instance['scrollwheel'] ) : 0;
 
 		return $instance;
 	}
@@ -168,7 +178,8 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 			'lat'		 => '-17.7134',
 			'lng'		 => '178.0650',
 			'info'	 => '',
-			'zoom'	 => 8,
+			'zoom'	 => 14,
+			'scrollwheel' => 0,
 		) );
 
 		return $args;

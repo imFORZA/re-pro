@@ -10,10 +10,12 @@ function initialize_map() {
 		var mapCanvas = document.getElementById('wpapi-gmap-' + index);
 		var myLatLng = new google.maps.LatLng( single_gmap.lat , single_gmap.lng );
 		var map_style = JSON.parse(single_gmap.style);
+		var map_zoom = single_gmap.scrollwheel ? false : true;
 
 		var mapOptions = {
 			center: myLatLng,
 			zoom: Number(single_gmap.zoom),
+			scrollwheel:  map_zoom,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			styles: map_style
 		}
