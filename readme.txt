@@ -15,6 +15,10 @@ Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 Please visit our wiki on [GitHub](https://github.com/imFORZA/re-pro/wiki) for more info.
 
 == Changelog ==
+= 1.0.7 =
+* Option to disable zoom on scroll for Google maps module.
+* Minor fixes.
+
 = 1.0.4 =
 * Fixed issue where files were not being included on certain hosting providers.
 
