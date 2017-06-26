@@ -4,3 +4,5 @@ vendor/*
 .DS_Store
 Thumbs.db
 README.html
+Gemfile*
+_site
