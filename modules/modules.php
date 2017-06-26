@@ -1,25 +1,24 @@
 <?php
 
 // Google maps.
-require_once( 'google-maps/gmaps.php' );
+include_once( 'google-maps/gmaps.php' );
 
 // Equal Housing.
-require_once( 'equal-housing/equal-housing.php' );
+include_once( 'equal-housing/equal-housing.php' );
 
 // Zillow.
-require_once( 'zillow/zillow.php' );
+include_once( 'zillow/zillow.php' );
 
-require_once( 'trulia/trulia.php' );
+include_once( 'trulia/trulia.php' );
 
-require_once( 'inman/inman.php' );
+include_once( 'inman/inman.php' );
 
-require_once( 'homes-com/homes-com.php' );
+include_once( 'homes-com/homes-com.php' );
 
+include_once( 'streetadvisor/streetadvisor.php' );
 
-require_once( 'streetadvisor/streetadvisor.php' );
+include_once( 'greatschools/greatschools.php' );
 
-require_once( 'greatschools/greatschools.php' );
+include_once( 'homefinder/homefinder.php' );
 
-require_once( 'homefinder/homefinder.php' );
-
-require_once( 'rentbits/rentbits.php' );
+include_once( 'rentbits/rentbits.php' );
