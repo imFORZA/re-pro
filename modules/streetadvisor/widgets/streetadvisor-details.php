@@ -46,59 +46,59 @@ class StreetAdvisor_Details extends WP_Widget {
 
 		$streetadvisor = new StreetAdvisorAPI( 'b08f6473-8dee-41c3-9a3e-b32f335e9d2d' );
 
-$location = $streetadvisor->get_location_data( $latitude, $longitude, $level );
+		$location = $streetadvisor->get_location_data( $latitude, $longitude, $level );
 
-$name = $location['Location']['Name'];
-$ranking_description = $location['Location']['RankingDescription'];
-$score = $location['Location']['Score'];
-$photo_url = esc_url( apply_filters( 'jetpack_photon_url', $location['Location']['PhotoUrl'] ) );
-$streetadvisor_url = esc_url( $location['Location']['Url'] ); // Lets force HTTPS for this please !
+		$name = $location['Location']['Name'];
+		$ranking_description = $location['Location']['RankingDescription'];
+		$score = $location['Location']['Score'];
+		$photo_url = esc_url( apply_filters( 'jetpack_photon_url', $location['Location']['PhotoUrl'] ) );
+		$streetadvisor_url = esc_url( $location['Location']['Url'] ); // Lets force HTTPS for this please !
 
-$recommendations_greatfor = $location['Recommendations']['GreatFor'];
-$recommendations_notgreatfor = $location['Recommendations']['NotGreatFor'];
-$recommendations_wholiveshere = $location['Recommendations']['WhoLivesHere'];
-
-
-echo $args['before_widget'];
-
-echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
-
-echo '<style>.sa-column{width:100%;float:left;display:inline-block;}.streetadvisor-list{margin: 10px 0;}.streetadvisor-list li {list-style-type:circle !important;margin:0;padding:0;list-style-position: inside;}</style>';
-
-echo '<img id="" class="" src="'.$photo_url.'" srcset="" sizes="" alt="'. $name .'" height="" width="">';
+		$recommendations_greatfor = $location['Recommendations']['GreatFor'];
+		$recommendations_notgreatfor = $location['Recommendations']['NotGreatFor'];
+		$recommendations_wholiveshere = $location['Recommendations']['WhoLivesHere'];
 
 
-echo '<p>' . $name . ' has a score of <strong>' . $score . ' out of 10</strong> on <a href="'. $streetadvisor_url .'" rel="nofollow">StreetAdvisor</a>. '. $ranking_description .'</p>';
+		echo $args['before_widget'];
 
-echo '<div class="sa-column">';
+		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-echo '<strong>Great For:</strong>';
-echo '<ul class="re-pro streetadvisor-list streetadvisor-great-for">';
-foreach($recommendations_greatfor as $greatfor_item) {
-	echo '<li>' . $greatfor_item . '</li>';
-}
-echo '</ul>';
-echo '</div>';
+		echo '<style>.sa-column{width:100%;float:left;display:inline-block;}.streetadvisor-list{margin: 10px 0;}.streetadvisor-list li {list-style-type:circle !important;margin:0;padding:0;list-style-position: inside;}</style>';
 
-echo '<div class="sa-column">';
-echo '<strong>Not Great For:</strong>';
-echo '<ul class="re-pro streetadvisor-list streetadvisor-not-great-for">';
-foreach($recommendations_notgreatfor as $notgreatfor_item) {
-	echo '<li>' . $notgreatfor_item . '</li>';
-}
-echo '</ul>';
-echo '</div>';
+		echo '<img id="" class="" src="'.$photo_url.'" srcset="" sizes="" alt="'. $name .'" height="" width="">';
 
-echo '<div class="sa-column">';
-echo '<strong>Who Lives Here:</strong>';
-echo '<ul class="re-pro streetadvisor-list streetadvisor-who-lives-here">';
-foreach($recommendations_wholiveshere as $wholiveshere_item) {
-	echo '<li>' . $wholiveshere_item . '</li>';
-}
-echo '</ul>';
-echo '</div>';
 
-echo $args['after_widget'];
+		echo '<p>' . $name . ' has a score of <strong>' . $score . ' out of 10</strong> on <a href="'. $streetadvisor_url .'" rel="nofollow">StreetAdvisor</a>. '. $ranking_description .'</p>';
+
+		echo '<div class="sa-column">';
+
+		echo '<strong>Great For:</strong>';
+		echo '<ul class="re-pro streetadvisor-list streetadvisor-great-for">';
+		foreach($recommendations_greatfor as $greatfor_item) {
+			echo '<li>' . $greatfor_item . '</li>';
+		}
+		echo '</ul>';
+		echo '</div>';
+
+		echo '<div class="sa-column">';
+		echo '<strong>Not Great For:</strong>';
+		echo '<ul class="re-pro streetadvisor-list streetadvisor-not-great-for">';
+		foreach($recommendations_notgreatfor as $notgreatfor_item) {
+			echo '<li>' . $notgreatfor_item . '</li>';
+		}
+		echo '</ul>';
+		echo '</div>';
+
+		echo '<div class="sa-column">';
+		echo '<strong>Who Lives Here:</strong>';
+		echo '<ul class="re-pro streetadvisor-list streetadvisor-who-lives-here">';
+		foreach($recommendations_wholiveshere as $wholiveshere_item) {
+			echo '<li>' . $wholiveshere_item . '</li>';
+		}
+		echo '</ul>';
+		echo '</div>';
+
+		echo $args['after_widget'];
 
 	}
 
