@@ -14,11 +14,24 @@ Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 
 Please visit our wiki on [GitHub](https://github.com/imFORZA/re-pro/wiki) for more info.
 
+== Frequently Asked Questions ==
+You may have many questions regarding this plugin but this section is dedicated to answering the most common.
+
+= How do I contribute to Real Estate Pro? =
+There are opportunities for everyone at all levels to contribute. [Learn more about contributing to Real Estate Pro](https://github.com/imFORZA/re-pro).
+
+= What features are coming? =
+At the moment an official roadmap has yet to be planned, but feel free to submit requests on the [Github Repo](https://github.com/imFORZA/re-pro).
+
 == Changelog ==
 
 = 1.0.9 =
+* Small Performance Improvements
+* New User Profile Fields
+* Tested with 4.9
 
 = 1.0.8 =
+* Needs to be updated.
 
 = 1.0.7 =
 * Option to disable zoom on scroll for Google maps module.
