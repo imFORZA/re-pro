@@ -2,7 +2,7 @@
 Contributors: bhubbard, imforza, sgarza, matoledo
 Tags: Real Estate, Zillow, imFORZA, Equal Housing Opportunity, Trulia, IDX
 Requires at least: 4.6
-Tested up to: 4.7
+Tested up to: 4.9
 Stable tag: trunk
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -15,6 +15,11 @@ Real Estate Pro offers Widgets, Badges, and tools for Real Estate Websites.
 Please visit our wiki on [GitHub](https://github.com/imFORZA/re-pro/wiki) for more info.
 
 == Changelog ==
+
+= 1.0.9 =
+
+= 1.0.8 =
+
 = 1.0.7 =
 * Option to disable zoom on scroll for Google maps module.
 * Minor fixes.
