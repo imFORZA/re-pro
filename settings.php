@@ -22,7 +22,7 @@ class REProSettings {
 	 */
 	public function __construct() {
 		if ( is_admin() ) {
-			$this->general_settings = get_option('repro_settings');
+			$this->general_settings = get_option( 'repro_settings' );
 
 			add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
@@ -58,7 +58,6 @@ class REProSettings {
 			'repro_settings'
 		);
 
-
 		add_settings_field(
 			'greatschools_apikey',
 			__( 'Great Schools API Key', 're-pro' ),
@@ -67,7 +66,6 @@ class REProSettings {
 			'repro_settings'
 		);
 
-
 		add_settings_field(
 			'zillow_apikey',
 			__( 'Zillow API Key', 're-pro' ),
@@ -75,7 +73,6 @@ class REProSettings {
 			'repro_general_settings',
 			'repro_settings'
 		);
-
 
 		add_settings_field(
 			'sa_apikey',

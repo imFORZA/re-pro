@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /** Instantiate the plugin. */
 new RePro();
-require_once( 'settings.php');
+require_once( 'settings.php' );
 
 
 /**
@@ -59,7 +59,7 @@ class RePro {
 	 * @return void
 	 */
 	private function init() {
-		$this->general_settings = get_option('re_pro_settings');
+		$this->general_settings = get_option( 're_pro_settings' );
 
 		/* Language Support. */
 		load_plugin_textdomain( 're-pro', false, dirname( REPRO_BASE_NAME ) . '/languages' );
@@ -83,7 +83,7 @@ class RePro {
 		$this->init_modules();
 	}
 
-	private function init_modules(){
+	private function init_modules() {
 		$gmaps_key = isset( $this->general_settings['gmaps_key'] ) ? $this->general_settings['gmaps_key'] : null;
 
 		if ( isset( $this->general_settings['gmaps_active'] ) && isset( $gmaps_key ) ) {
@@ -91,12 +91,12 @@ class RePro {
 		}
 	}
 
-	public function gmap_style( $map_data ){
+	public function gmap_style( $map_data ) {
 		// Grab style option.
 		$map_json = ( isset( $this->general_settings['gmaps_style'] ) ) ? $this->general_settings['gmaps_style'] : '[]';
 
 		// Validate JSON.
-		json_decode($map_json);
+		json_decode( $map_json );
 		$json_valid = json_last_error();
 
 		// Set style to map_data.
