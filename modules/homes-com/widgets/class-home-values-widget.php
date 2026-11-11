@@ -96,37 +96,37 @@ class HomesHomeValuesWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Location.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'location' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'location' ) . '" name="' . $this->get_field_name( 'location' ) . '" value="' . $location . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'location' ) ) . '" class="title-label">' . esc_html__( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'location' ) ) . '" name="' . esc_attr( $this->get_field_name( 'location' ) ) . '" value="' . esc_attr( $location ) . '" class="widefat">';
 		echo '</p>';
 
 		// Average Color.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'firstColor' ) . '" class="title-label">' . __( 'Color 1:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'firstColor' ) . '" name="' . $this->get_field_name( 'firstColor' ) . '" value="' . $firstColor  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'firstColor' ) ) . '" class="title-label">' . esc_html__( 'Color 1:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'firstColor' ) ) . '" name="' . esc_attr( $this->get_field_name( 'firstColor' ) ) . '" value="' . esc_attr( $firstColor ) . '" class="widefat">';
 		echo '</p>';
 
 		// Median Color.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'secondColor' ) . '" class="title-label">' . __( 'Color 2:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'secondColor' ) . '" name="' . $this->get_field_name( 'secondColor' ) . '" value="' . $secondColor  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'secondColor' ) ) . '" class="title-label">' . esc_html__( 'Color 2:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'secondColor' ) ) . '" name="' . esc_attr( $this->get_field_name( 'secondColor' ) ) . '" value="' . esc_attr( $secondColor ) . '" class="widefat">';
 		echo '</p>';
 
 		// Home Value Types.
 		echo '<p>';
-		echo '<label for="home-values-type" class="homes_value_type_label">' . __( 'Home Value Types:', 're-pro' ) . '</label>';
+		echo '<label for="home-values-type" class="homes_value_type_label">' . esc_html__( 'Home Value Types:', 're-pro' ) . '</label>';
 		echo '<br />';
-		echo '<input value="1" type="checkbox"' . checked( $average, 1, false ) . 'id="' . $this->get_field_id( 'average' ) . '" name="' . $this->get_field_name( 'average' )  . '" />';
-		echo '<label for="' . $this->get_field_id( 'average' ) . '">Average Home Value</label>';
+		echo '<input value="1" type="checkbox"' . checked( $average, 1, false ) . 'id="' . esc_attr( $this->get_field_id( 'average' ) ) . '" name="' . esc_attr( $this->get_field_name( 'average' ) )  . '" />';
+		echo '<label for="' . esc_attr( $this->get_field_id( 'average' ) ) . '">Average Home Value</label>';
 		echo '<br />';
-		echo '<input value="1" type="checkbox"' . checked( $median, 1, false ) . 'id="' . $this->get_field_id( 'median' ) . '" name="' . $this->get_field_name( 'median' ) . '" />';
-		echo '<label for="' . $this->get_field_id( 'median' ) . '">Median Home Value</label>';
+		echo '<input value="1" type="checkbox"' . checked( $median, 1, false ) . 'id="' . esc_attr( $this->get_field_id( 'median' ) ) . '" name="' . esc_attr( $this->get_field_name( 'median' ) ) . '" />';
+		echo '<label for="' . esc_attr( $this->get_field_id( 'median' ) ) . '">Median Home Value</label>';
 		echo '</p>';
 	}
 
@@ -142,12 +142,12 @@ class HomesHomeValuesWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
-		$instance['firstColor'] = ! empty( $new_instance['firstColor'] ) ? strip_tags( $new_instance['firstColor'] ) : '';
-		$instance['secondColor'] = ! empty( $new_instance['secondColor'] ) ? strip_tags( $new_instance['secondColor'] ) : '';
-		$instance['average'] = ! empty( $new_instance['average'] ) ? strip_tags( $new_instance['average'] ) : '';
-		$instance['median'] = ! empty( $new_instance['median'] ) ? strip_tags( $new_instance['median'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['location'] = ! empty( $new_instance['location'] ) ? sanitize_text_field( $new_instance['location'] ) : '';
+		$instance['firstColor'] = ! empty( $new_instance['firstColor'] ) ? sanitize_text_field( $new_instance['firstColor'] ) : '';
+		$instance['secondColor'] = ! empty( $new_instance['secondColor'] ) ? sanitize_text_field( $new_instance['secondColor'] ) : '';
+		$instance['average'] = ! empty( $new_instance['average'] ) ? sanitize_text_field( $new_instance['average'] ) : '';
+		$instance['median'] = ! empty( $new_instance['median'] ) ? sanitize_text_field( $new_instance['median'] ) : '';
 
 		return $instance;
 	}

@@ -82,10 +82,10 @@ foreach ($reviews['Items'] as $review) {
 	echo '<div class="review" itemprop="review" itemscope itemtype="https://schema.org/Review">';
 
 	// echo '<img src="'. $user_avatar_url .'">';
-	echo '<span itemprop="reviewRating">'.$rating.'</span> stars - <strong>"<span itemprop="name">' . $title . '</span>"</strong>
-  <br /> by <span itemprop="author">'.$user_displayname.'</span><br />
-  Written on <meta itemprop="datePublished" content="' .$date .'">'.$date .'
-  <br /><span itemprop="reviewBody">'.$content.'</span>';
+	echo '<span itemprop="reviewRating">' . esc_html( $rating ) . '</span> stars - <strong>"<span itemprop="name">' . esc_html( $title ) . '</span>"</strong>
+  <br /> by <span itemprop="author">' . esc_html( $user_displayname ) . '</span><br />
+  Written on <meta itemprop="datePublished" content="' . esc_attr( $date ) . '">' . esc_html( $date ) . '
+  <br /><span itemprop="reviewBody">' . esc_html( $content ) . '</span>';
 
   // echo '<small>'.$legal . '</small>';
 
@@ -126,28 +126,28 @@ echo $args['after_widget'];
 
 		// Form fields
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title_label">' . __( 'Title', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $title ) . '">';
-		echo '	<span class="description">' . __( 'Title', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title_label">' . esc_html__( 'Title', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $title ) . '">';
+		echo '	<span class="description">' . esc_html__( 'Title', 're-pro' ) . '</span>';
 		echo '</p>';
 
 
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'latitude' ) . '" class="latitude_label">' . __( 'Latitude', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'latitude' ) . '" name="' . $this->get_field_name( 'latitude' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $latitude ) . '">';
-		echo '	<span class="description">' . __( 'Latitude', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'latitude' ) ) . '" class="latitude_label">' . esc_html__( 'Latitude', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'latitude' ) ) . '" name="' . esc_attr( $this->get_field_name( 'latitude' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $latitude ) . '">';
+		echo '	<span class="description">' . esc_html__( 'Latitude', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'longitude' ) . '" class="longitude_label">' . __( 'Longitude', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'longitude' ) . '" name="' . $this->get_field_name( 'longitude' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $longitude ) . '">';
-		echo '	<span class="description">' . __( 'Longitude', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'longitude' ) ) . '" class="longitude_label">' . esc_html__( 'Longitude', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'longitude' ) ) . '" name="' . esc_attr( $this->get_field_name( 'longitude' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $longitude ) . '">';
+		echo '	<span class="description">' . esc_html__( 'Longitude', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'level' ) . '" class="level_label">' . __( 'Level', 're-pro' ) . '</label>';
-		echo '	<input type="number" id="' . $this->get_field_id( 'level' ) . '" name="' . $this->get_field_name( 'level' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $level ) . '">';
-		echo '	<span class="description">' . __( 'Level', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'level' ) ) . '" class="level_label">' . esc_html__( 'Level', 're-pro' ) . '</label>';
+		echo '	<input type="number" id="' . esc_attr( $this->get_field_id( 'level' ) ) . '" name="' . esc_attr( $this->get_field_name( 'level' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $level ) . '">';
+		echo '	<span class="description">' . esc_html__( 'Level', 're-pro' ) . '</span>';
 		echo '</p>';
 
 
@@ -166,10 +166,10 @@ echo $args['after_widget'];
 
 		$instance = $old_instance;
 
-		$instance['latitude'] = !empty( $new_instance['latitude'] ) ? strip_tags( $new_instance['latitude'] ) : '';
-		$instance['longitude'] = !empty( $new_instance['longitude'] ) ? strip_tags( $new_instance['longitude'] ) : '';
-		$instance['level'] = !empty( $new_instance['level'] ) ? strip_tags( $new_instance['level'] ) : '';
-		$instance['title'] = !empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['latitude'] = !empty( $new_instance['latitude'] ) ? sanitize_text_field( $new_instance['latitude'] ) : '';
+		$instance['longitude'] = !empty( $new_instance['longitude'] ) ? sanitize_text_field( $new_instance['longitude'] ) : '';
+		$instance['level'] = !empty( $new_instance['level'] ) ? (string) absint( $new_instance['level'] ) : '';
+		$instance['title'] = !empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
 
 		return $instance;
 

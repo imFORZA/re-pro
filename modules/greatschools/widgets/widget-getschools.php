@@ -61,7 +61,7 @@ class greatschools_getschools extends WP_Widget {
 						$city = $school_item['city'];
 						$overview_link = $school_item['overviewLink'];
 
-						echo '<li><a href="'.$overview_link.'" rel="nofollow">' . $name . '</a></li>';
+						echo '<li><a href="' . esc_url( $overview_link ) . '" rel="nofollow">' . esc_html( $name ) . '</a></li>';
 					}
 
 
@@ -87,21 +87,21 @@ class greatschools_getschools extends WP_Widget {
 
 		// Form fields
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'greatschools_title' ) . '" class="greatschools_title_label">' . __( 'Title', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'greatschools_title' ) . '" name="' . $this->get_field_name( 'greatschools_title' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $greatschools_title ) . '">';
-		echo '	<span class="description">' . __( 'Title', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'greatschools_title' ) ) . '" class="greatschools_title_label">' . esc_html__( 'Title', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'greatschools_title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'greatschools_title' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $greatschools_title ) . '">';
+		echo '	<span class="description">' . esc_html__( 'Title', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'greatschools_state' ) . '" class="greatschools_state_label">' . __( 'State', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'greatschools_state' ) . '" name="' . $this->get_field_name( 'greatschools_state' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $greatschools_state ) . '">';
-		echo '	<span class="description">' . __( 'State', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'greatschools_state' ) ) . '" class="greatschools_state_label">' . esc_html__( 'State', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'greatschools_state' ) ) . '" name="' . esc_attr( $this->get_field_name( 'greatschools_state' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $greatschools_state ) . '">';
+		echo '	<span class="description">' . esc_html__( 'State', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'greatschools_city' ) . '" class="greatschools_city_label">' . __( 'City', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'greatschools_city' ) . '" name="' . $this->get_field_name( 'greatschools_city' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $greatschools_city ) . '">';
-		echo '	<span class="description">' . __( 'City', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'greatschools_city' ) ) . '" class="greatschools_city_label">' . esc_html__( 'City', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'greatschools_city' ) ) . '" name="' . esc_attr( $this->get_field_name( 'greatschools_city' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $greatschools_city ) . '">';
+		echo '	<span class="description">' . esc_html__( 'City', 're-pro' ) . '</span>';
 		echo '</p>';
 
 	}
@@ -110,9 +110,9 @@ class greatschools_getschools extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['greatschools_title'] = !empty( $new_instance['greatschools_title'] ) ? strip_tags( $new_instance['greatschools_title'] ) : '';
-		$instance['greatschools_state'] = !empty( $new_instance['greatschools_state'] ) ? strip_tags( $new_instance['greatschools_state'] ) : '';
-		$instance['greatschools_city'] = !empty( $new_instance['greatschools_city'] ) ? strip_tags( $new_instance['greatschools_city'] ) : '';
+		$instance['greatschools_title'] = !empty( $new_instance['greatschools_title'] ) ? sanitize_text_field( $new_instance['greatschools_title'] ) : '';
+		$instance['greatschools_state'] = !empty( $new_instance['greatschools_state'] ) ? sanitize_text_field( $new_instance['greatschools_state'] ) : '';
+		$instance['greatschools_city'] = !empty( $new_instance['greatschools_city'] ) ? sanitize_text_field( $new_instance['greatschools_city'] ) : '';
 
 		return $instance;
 

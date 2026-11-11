@@ -151,14 +151,14 @@ class WP_API_MAPS_WIDGET extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['width'] = ! empty( $new_instance['width'] ) ? strip_tags( $new_instance['width'] ) : '';
-		$instance['height'] = ! empty( $new_instance['height'] ) ? strip_tags( $new_instance['height'] ) : '';
-		$instance['lat'] = ! empty( $new_instance['lat'] ) ? strip_tags( $new_instance['lat'] ) : '';
-		$instance['lng'] = ! empty( $new_instance['lng'] ) ? strip_tags( $new_instance['lng'] ) : '';
-		$instance['info'] = ! empty( $new_instance['info'] ) ? strip_tags( $new_instance['info'] ) : '';
-		$instance['zoom'] = ! empty( $new_instance['zoom'] ) ? strip_tags( $new_instance['zoom'] ) : null;
-		$instance['scrollwheel'] = ! empty( $new_instance['scrollwheel'] ) ? strip_tags( $new_instance['scrollwheel'] ) : 0;
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['width'] = ! empty( $new_instance['width'] ) ? sanitize_text_field( $new_instance['width'] ) : '';
+		$instance['height'] = ! empty( $new_instance['height'] ) ? sanitize_text_field( $new_instance['height'] ) : '';
+		$instance['lat'] = ! empty( $new_instance['lat'] ) ? sanitize_text_field( $new_instance['lat'] ) : '';
+		$instance['lng'] = ! empty( $new_instance['lng'] ) ? sanitize_text_field( $new_instance['lng'] ) : '';
+		$instance['info'] = ! empty( $new_instance['info'] ) ? sanitize_text_field( $new_instance['info'] ) : '';
+		$instance['zoom'] = ! empty( $new_instance['zoom'] ) ? sanitize_text_field( $new_instance['zoom'] ) : null;
+		$instance['scrollwheel'] = ! empty( $new_instance['scrollwheel'] ) ? sanitize_text_field( $new_instance['scrollwheel'] ) : 0;
 
 		return $instance;
 	}

@@ -51,7 +51,7 @@ class RealtorLogoWidget extends WP_Widget {
 
 		echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 
-		echo '<img src="'. esc_url( plugins_url( '../../assets/images/realtor/realtor.svg', __FILE__ ) ) .'" alt="'. __( 'Realtor', 're-pro' ) .'" height="' . $logo_size . '" width="' . $logo_size . '" class="re-pro realtor">';
+		echo '<img src="'. esc_url( plugins_url( '../../assets/images/realtor/realtor.svg', __FILE__ ) ) .'" alt="'. esc_attr__( 'Realtor', 're-pro' ) .'" height="' . esc_attr( $logo_size ) . '" width="' . esc_attr( $logo_size ) . '" class="re-pro realtor">';
 
 		echo $args['after_widget'];
 
@@ -79,24 +79,24 @@ class RealtorLogoWidget extends WP_Widget {
 
 		// Form fields
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'logo_size' ) . '" class="logo-size-label">' . __( 'Logo Size', 're-pro' ) . '</label>';
-		echo '	<select id="' . $this->get_field_id( 'logo_size' ) . '" name="' . $this->get_field_name( 'logo_size' ) . '" class="widefat">';
-		echo '		<option value="" ' . selected( $logo_size, '', false ) . '> ' . __( 'Choose', 're-pro' ) . '</option>';
-		echo '		<option value="512" ' . selected( $logo_size, '512', false ) . '> ' . __( '512px', 're-pro' ) . '</option>';
-		echo '		<option value="256" ' . selected( $logo_size, '256', false ) . '> ' . __( '256px', 're-pro' ) . '</option>';
-		echo '		<option value="128" ' . selected( $logo_size, '128', false ) . '> ' . __( '128px', 're-pro' ) . '</option>';
-		echo '		<option value="64" ' . selected( $logo_size, '64', false ) . '> ' . __( '64px', 're-pro' ) . '</option>';
-		echo '		<option value="32" ' . selected( $logo_size, '32', false ) . '> ' . __( '32px', 're-pro' ) . '</option>';
-		echo '		<option value="24" ' . selected( $logo_size, '24', false ) . '> ' . __( '24px', 're-pro' ) . '</option>';
-		echo '		<option value="16" ' . selected( $logo_size, '16', false ) . '> ' . __( '16px', 're-pro' ) . '</option>';
-		echo '		<option value="14" ' . selected( $logo_size, '14', false ) . '> ' . __( '14px', 're-pro' ) . '</option>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'logo_size' ) ) . '" class="logo-size-label">' . esc_html__( 'Logo Size', 're-pro' ) . '</label>';
+		echo '	<select id="' . esc_attr( $this->get_field_id( 'logo_size' ) ) . '" name="' . esc_attr( $this->get_field_name( 'logo_size' ) ) . '" class="widefat">';
+		echo '		<option value="" ' . selected( $logo_size, '', false ) . '> ' . esc_html__( 'Choose', 're-pro' ) . '</option>';
+		echo '		<option value="512" ' . selected( $logo_size, '512', false ) . '> ' . esc_html__( '512px', 're-pro' ) . '</option>';
+		echo '		<option value="256" ' . selected( $logo_size, '256', false ) . '> ' . esc_html__( '256px', 're-pro' ) . '</option>';
+		echo '		<option value="128" ' . selected( $logo_size, '128', false ) . '> ' . esc_html__( '128px', 're-pro' ) . '</option>';
+		echo '		<option value="64" ' . selected( $logo_size, '64', false ) . '> ' . esc_html__( '64px', 're-pro' ) . '</option>';
+		echo '		<option value="32" ' . selected( $logo_size, '32', false ) . '> ' . esc_html__( '32px', 're-pro' ) . '</option>';
+		echo '		<option value="24" ' . selected( $logo_size, '24', false ) . '> ' . esc_html__( '24px', 're-pro' ) . '</option>';
+		echo '		<option value="16" ' . selected( $logo_size, '16', false ) . '> ' . esc_html__( '16px', 're-pro' ) . '</option>';
+		echo '		<option value="14" ' . selected( $logo_size, '14', false ) . '> ' . esc_html__( '14px', 're-pro' ) . '</option>';
 		echo '	</select>';
-		echo '	<span class="description">' . __( 'Choose the size of the logo you want to display.', 're-pro' ) . '</span>';
+		echo '	<span class="description">' . esc_html__( 'Choose the size of the logo you want to display.', 're-pro' ) . '</span>';
 		echo '</p>';
 
 	}
@@ -114,8 +114,8 @@ class RealtorLogoWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['logo_size'] = ! empty( $new_instance['logo_size'] ) ? strip_tags( $new_instance['logo_size'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['logo_size'] = ! empty( $new_instance['logo_size'] ) ? sanitize_text_field( $new_instance['logo_size'] ) : '';
 
 		return $instance;
 

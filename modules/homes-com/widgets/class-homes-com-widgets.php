@@ -89,8 +89,8 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 		public function get_commute_time_widget( $iframe_id = '', $start_addr, $color ) {
 
 			echo '<div class="commute-time-widget">';
-			echo '	<h1 style="color:#' . $color . '">Commute Time</h1>';
-			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="commute-time-frame '. $this->homes_iframe_class( 'commute-time-widget' ) .'" scrolling="no" title="'. __( 'Commute Time on Homes', 're-pro' ) .'" src="http://www.homes.com/widget/commute-time/frame/?show_only_destination=NO&text_color=%230054a0&direction_link=%2FHomesCom%2FInclude%2FListingDetail%2FMap%2FPrintDirections%2Ecfm%3FstartAddress%3D%25%25source%5Faddress%25%25%26endAddress%3D%25%25destination%5Faddress%25%25&button_color=%23' . $color .'&cobrand=&source_address=' . $start_addr . '"&property_id=" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<h1 style="color:#' . esc_attr( $color ) . '">Commute Time</h1>';
+			echo '	<iframe id="'. esc_attr( $this->homes_iframe_id( $iframe_id ) ) .'" class="commute-time-frame '. esc_attr( $this->homes_iframe_class( 'commute-time-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Commute Time on Homes', 're-pro' ) .'" src="http://www.homes.com/widget/commute-time/frame/?show_only_destination=NO&text_color=%230054a0&direction_link=%2FHomesCom%2FInclude%2FListingDetail%2FMap%2FPrintDirections%2Ecfm%3FstartAddress%3D%25%25source%5Faddress%25%25%26endAddress%3D%25%25destination%5Faddress%25%25&button_color=%23' . esc_attr( $color ) .'&cobrand=&source_address=' . esc_attr( $start_addr ) . '"&property_id=" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<div class="footer">';
 			echo '		<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '			Powered By Homes.com';
@@ -119,8 +119,8 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			}
 
 			echo '<div class="featured-listings-widget">';
-			echo '	<h1 style="color:#' . $color . '">Featured Homes for <span class="listing-stat">' . $showTitle . '</span></h1>';
-			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="featured-listings-frame '. $this->homes_iframe_class( 'featured-listings-widget' ) .'" scrolling="no" title="'. __( 'Featured Listings on Homes', 're-pro' ) .'" src="http://www.homes.com/widget/featured-listings/frame/?text_color=%23' . $color .'&listing_status=FOR%20' . $status .'&inner_color=%23' . $color .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<h1 style="color:#' . esc_attr( $color ) . '">Featured Homes for <span class="listing-stat">' . esc_attr( $showTitle ) . '</span></h1>';
+			echo '	<iframe id="'. esc_attr( $this->homes_iframe_id( $iframe_id ) ) .'" class="featured-listings-frame '. esc_attr( $this->homes_iframe_class( 'featured-listings-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Featured Listings on Homes', 're-pro' ) .'" src="http://www.homes.com/widget/featured-listings/frame/?text_color=%23' . esc_attr( $color ) .'&listing_status=FOR%20' . esc_attr( $status ) .'&inner_color=%23' . esc_attr( $color ) .'&cobrand=&location=' . esc_attr( $location ) .'" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';
@@ -152,8 +152,8 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			}
 
 			echo '<div class="home-values-widget">';
-			echo '	<h1 style="color:#' . $firstColor . '">Search Home Values</h1>';
-			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="home-values-frame '. $this->homes_iframe_class( 'home-values-widget' ) .'" scrolling="no" title="'. __( 'Home Values on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/home-values/frame/?avm_types=' . $valueTypes .'&text_color=%23' . $firstColor .'&button_color=%23' . $secondColor .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<h1 style="color:#' . esc_attr( $firstColor ) . '">Search Home Values</h1>';
+			echo '	<iframe id="'. esc_attr( $this->homes_iframe_id( $iframe_id ) ) .'" class="home-values-frame '. esc_attr( $this->homes_iframe_class( 'home-values-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Home Values on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/home-values/frame/?avm_types=' . esc_attr( $valueTypes ) .'&text_color=%23' . esc_attr( $firstColor ) .'&button_color=%23' . esc_attr( $secondColor ) .'&cobrand=&location=' . esc_attr( $location ) .'" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<div class="footer">';
 			echo	'		<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '			Powered By Homes.com';
@@ -188,8 +188,8 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			}
 
 			echo '<div class="medium-search-widget">';
-			echo '	<h1 style="color:#' . $color . '">Search Homes <span class="listing-stat">' . $showTitle . '</span> </h1>';
-			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="medium-search-frame '. $this->homes_iframe_class( 'search-widget' ) .'" scrolling="no" title="'. __( 'Search on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/medium-search/frame/?text_color=%23' . $color .'&listing_status=' . $searchTypes .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<h1 style="color:#' . esc_attr( $color ) . '">Search Homes <span class="listing-stat">' . esc_attr( $showTitle ) . '</span> </h1>';
+			echo '	<iframe id="'. esc_attr( $this->homes_iframe_id( $iframe_id ) ) .'" class="medium-search-frame '. esc_attr( $this->homes_iframe_class( 'search-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Search on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/medium-search/frame/?text_color=%23' . esc_attr( $color ) .'&listing_status=' . esc_attr( $searchTypes ) .'&cobrand=&location=' . esc_attr( $location ) .'" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';
@@ -208,11 +208,11 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 		public function get_mortgage_calc( $iframe_id = '', $color ) {
 
 			echo '<div class="mortgage-calculator-widget">';
-			echo '	<h1 style="color:#' . $color . '">Mortgage Calculator</h1>';
+			echo '	<h1 style="color:#' . esc_attr( $color ) . '">Mortgage Calculator</h1>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';
-			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="mortgage-calculator-frame '. $this->homes_iframe_class( 'mortgage-calc-widget' ) .'" scrolling="no" title="'. __( 'Mortgage Calculator on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/mortgage-calculator/frame/?text_color=%23' . $color .'&cobrand=" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<iframe id="'. esc_attr( $this->homes_iframe_id( $iframe_id ) ) .'" class="mortgage-calculator-frame '. esc_attr( $this->homes_iframe_class( 'mortgage-calc-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Mortgage Calculator on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/mortgage-calculator/frame/?text_color=%23' . esc_attr( $color ) .'&cobrand=" width="100%" seamless frameborder="0"></iframe>';
 			echo '</div>';
 
 		}
@@ -242,8 +242,8 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			}
 
 			echo '<div class="simple-search-widget">';
-			echo '<h1 style="color:#' . $color . '">Search Homes <span class="listing-stat">' . $showTitle . '</span></h1>';
-			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="simple-search-frame '. $this->homes_iframe_class( 'simple-search-widget' ) .'" scrolling="no" title="'. __( 'Simple Search on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/simple-search/frame/?text_color=%23' . $color .'&listing_status=' . $searchTypes .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '<h1 style="color:#' . esc_attr( $color ) . '">Search Homes <span class="listing-stat">' . esc_attr( $showTitle ) . '</span></h1>';
+			echo '	<iframe id="'. esc_attr( $this->homes_iframe_id( $iframe_id ) ) .'" class="simple-search-frame '. esc_attr( $this->homes_iframe_class( 'simple-search-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Simple Search on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/simple-search/frame/?text_color=%23' . esc_attr( $color ) .'&listing_status=' . esc_attr( $searchTypes ) .'&cobrand=&location=' . esc_attr( $location ) .'" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';
@@ -263,8 +263,8 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 		public function get_tall_search( $iframe_id = '', $location, $color, $status ) {
 
 			echo '<div class="tall-search-widget">';
-			echo '	<h1 style="color:#' . $color . '">Search Homes</h1>';
-			echo '	<iframe id="'. $this->homes_iframe_id( $iframe_id ) .'" class="tall-search-frame '. $this->homes_iframe_class( 'tall-search-widget' ) .'" scrolling="no" title="'. __( 'Tall Search on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/tall-search/frame/?text_color=%23' . $color .'&listing_status=' . $status .'&cobrand=&location=' . $location .'" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<h1 style="color:#' . esc_attr( $color ) . '">Search Homes</h1>';
+			echo '	<iframe id="'. esc_attr( $this->homes_iframe_id( $iframe_id ) ) .'" class="tall-search-frame '. esc_attr( $this->homes_iframe_class( 'tall-search-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Tall Search on Homes', 're-pro' ) .'"src="http://www.homes.com/widget/tall-search/frame/?text_color=%23' . esc_attr( $color ) .'&listing_status=' . esc_attr( $status ) .'&cobrand=&location=' . esc_attr( $location ) .'" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';

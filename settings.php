@@ -40,7 +40,7 @@ class REProSettings {
 	 * Initialize settings fields and sections.
 	 */
 	public function settings_init() {
-		register_setting( 'repro_settings', 'repro_settings' );
+		register_setting( 'repro_settings', 'repro_settings', array( $this, 'sanitize_settings' ) );
 
 		// General Settings.
 		add_settings_section(
@@ -109,11 +109,11 @@ class REProSettings {
 		esc_attr_e( $is_active );
 		echo '</div><br><br>';
 
-		echo '<input class="widefat" type="password" name="repro_settings[gmaps_key]" placeholder="Google maps API key" value="' . $gmaps_key . '">';
+		echo '<input class="widefat" type="password" name="repro_settings[gmaps_key]" placeholder="Google maps API key" value="' . esc_attr( $gmaps_key ) . '">';
 		echo '<span class="description"> Enter your google maps javascript api key</span><br><br>';
 
 		echo '<textarea style="width:500px;" rows="10" cols="50" name="repro_settings[gmaps_style]">';
-		esc_attr_e( $gmaps_style );
+		echo esc_textarea( $gmaps_style );
 		echo '</textarea>';
 		echo '<br /><span class="description">Insert valid json to add custom style to maps. Json styles can be generated using <a target="_blank" href="https://snazzymaps.com/">Snazzy&nbsp;Maps</a> or the <a target="_blank" href="https://mapstyle.withgoogle.com/">Google&nbsp;Maps&nbsp;Styling&nbsp;Wizard</a></span><br><br>';
 
@@ -128,7 +128,7 @@ class REProSettings {
 
 		$zillow_apikey = isset( $this->general_settings['zillow_apikey'] ) ? $this->general_settings['zillow_apikey'] : '';
 
-		echo '<input class="widefat" type="text" name="repro_settings[zillow_apikey]" placeholder="Zillow API Key" value="' . $zillow_apikey . '">';
+		echo '<input class="widefat" type="text" name="repro_settings[zillow_apikey]" placeholder="Zillow API Key" value="' . esc_attr( $zillow_apikey ) . '">';
 
 	}
 
@@ -136,7 +136,7 @@ class REProSettings {
 
 		$sa_apikey = isset( $this->general_settings['sa_apikey'] ) ? $this->general_settings['sa_apikey'] : '';
 
-		echo '<input class="widefat" type="text" name="repro_settings[sa_apikey]" placeholder="Street Advisor API Key" value="' . $sa_apikey . '">';
+		echo '<input class="widefat" type="text" name="repro_settings[sa_apikey]" placeholder="Street Advisor API Key" value="' . esc_attr( $sa_apikey ) . '">';
 
 	}
 
@@ -150,8 +150,61 @@ class REProSettings {
 
 		$greatschools_apikey = isset( $this->general_settings['greatschools_apikey'] ) ? $this->general_settings['greatschools_apikey'] : '';
 
-		echo '<input class="widefat" type="text" name="repro_settings[greatschools_apikey]" placeholder="Great Schools API Key" value="' . $greatschools_apikey . '">';
+		echo '<input class="widefat" type="text" name="repro_settings[greatschools_apikey]" placeholder="Great Schools API Key" value="' . esc_attr( $greatschools_apikey ) . '">';
 
+	}
+
+	/**
+	 * Sanitize the settings option.
+	 *
+	 * Keeps the stored shape of valid API keys, ids, flags, and map-style JSON.
+	 *
+	 * @param mixed $input Submitted settings.
+	 * @return array
+	 */
+	public function sanitize_settings( $input ) {
+		$output = array();
+
+		if ( ! is_array( $input ) ) {
+			return $output;
+		}
+
+		$text_fields = array(
+			'gmaps_key',
+			'zillow_apikey',
+			'sa_apikey',
+			'greatschools_apikey',
+		);
+
+		$flag_fields = array(
+			'gmaps_active',
+			'gmaps_zoom',
+		);
+
+		foreach ( $text_fields as $field ) {
+			if ( isset( $input[ $field ] ) && is_scalar( $input[ $field ] ) ) {
+				$output[ $field ] = sanitize_text_field( $input[ $field ] );
+			}
+		}
+
+		if ( isset( $input['gmaps_style'] ) && is_scalar( $input['gmaps_style'] ) ) {
+			$output['gmaps_style'] = sanitize_textarea_field( $input['gmaps_style'] );
+		}
+
+		foreach ( $flag_fields as $field ) {
+			if ( isset( $input[ $field ] ) ) {
+				$output[ $field ] = ( '1' === (string) $input[ $field ] ) ? '1' : '0';
+			}
+		}
+
+		foreach ( $input as $key => $value ) {
+			if ( isset( $output[ $key ] ) || ! is_string( $key ) || ! is_scalar( $value ) ) {
+				continue;
+			}
+			$output[ $key ] = sanitize_text_field( $value );
+		}
+
+		return $output;
 	}
 
 	/**

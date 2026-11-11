@@ -77,18 +77,18 @@ class TruliaRssListingWidget extends WP_Widget {
 			foreach( $rss_items as $item ) {
 
 				echo '<div style="margin:20px 0;">';
-				echo '<h4><a href="'. $item->get_link() .'" rel="nofollow" target="_blank">' . $item->get_title() . '</a></h4>';
+				echo '<h4><a href="'. esc_url( $item->get_link() ) .'" rel="nofollow" target="_blank">' . esc_html( $item->get_title() ) . '</a></h4>';
 				echo '</div>';
 
-				echo $item->get_content();
+				echo wp_kses_post( $item->get_content() );
 
 				echo '<div style="margin:20px 0;text-align:right;">';
-				echo '<small> Updated on '.$item->get_date('F j, Y') . '.</small>';
+				echo '<small> Updated on '. esc_html( $item->get_date( 'F j, Y' ) ) . '.</small>';
 				echo '</div>';
 			}
 
 		} else {
-			echo $rss->get_error_message();
+			echo esc_html( $rss->get_error_message() );
 		}
 
 		echo $args['after_widget'];
@@ -115,8 +115,8 @@ class TruliaRssListingWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 
@@ -134,7 +134,7 @@ class TruliaRssListingWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
 
 		return $instance;
 	}

@@ -87,32 +87,32 @@ class RentbitsRentalComparisonWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Location 1.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'location1' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'location1' ) . '" name="' . $this->get_field_name( 'location1' ) . '" value="' . $location1 . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'location1' ) ) . '" class="title-label">' . esc_html__( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'location1' ) ) . '" name="' . esc_attr( $this->get_field_name( 'location1' ) ) . '" value="' . esc_attr( $location1 ) . '" class="widefat">';
 		echo '</p>';
 
 		// Location 2.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'location2' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'location2' ) . '" name="' . $this->get_field_name( 'location2' ) . '" value="' . $location2 . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'location2' ) ) . '" class="title-label">' . esc_html__( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'location2' ) ) . '" name="' . esc_attr( $this->get_field_name( 'location2' ) ) . '" value="' . esc_attr( $location2 ) . '" class="widefat">';
 		echo '</p>';
 
 		// Location 3.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'location3' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'location3' ) . '" name="' . $this->get_field_name( 'location3' ) . '" value="' . $location3 . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'location3' ) ) . '" class="title-label">' . esc_html__( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'location3' ) ) . '" name="' . esc_attr( $this->get_field_name( 'location3' ) ) . '" value="' . esc_attr( $location3 ) . '" class="widefat">';
 		echo '</p>';
 
 		// Location 4.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'location4' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'location4' ) . '" name="' . $this->get_field_name( 'location4' ) . '" value="' . $location4 . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'location4' ) ) . '" class="title-label">' . esc_html__( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'location4' ) ) . '" name="' . esc_attr( $this->get_field_name( 'location4' ) ) . '" value="' . esc_attr( $location4 ) . '" class="widefat">';
 		echo '</p>';
 
 	}
@@ -129,11 +129,11 @@ class RentbitsRentalComparisonWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['location1'] = ! empty( $new_instance['location1'] ) ? strip_tags( $new_instance['location1'] ) : '';
-		$instance['location2'] = ! empty( $new_instance['location2'] ) ? strip_tags( $new_instance['location2'] ) : '';
-		$instance['location3'] = ! empty( $new_instance['location3'] ) ? strip_tags( $new_instance['location3'] ) : '';
-		$instance['location4'] = ! empty( $new_instance['location4'] ) ? strip_tags( $new_instance['location4'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['location1'] = ! empty( $new_instance['location1'] ) ? sanitize_text_field( $new_instance['location1'] ) : '';
+		$instance['location2'] = ! empty( $new_instance['location2'] ) ? sanitize_text_field( $new_instance['location2'] ) : '';
+		$instance['location3'] = ! empty( $new_instance['location3'] ) ? sanitize_text_field( $new_instance['location3'] ) : '';
+		$instance['location4'] = ! empty( $new_instance['location4'] ) ? sanitize_text_field( $new_instance['location4'] ) : '';
 
 		return $instance;
 	}
