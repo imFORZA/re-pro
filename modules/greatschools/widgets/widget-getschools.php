@@ -42,7 +42,9 @@ class greatschools_getschools extends WP_Widget {
 	$greatschools = new GreatSchoolsAPI( $greatschools_apikey );
 	$schools = $greatschools->get_schools( $greatschools_state,$greatschools_city );
 
-
+	if ( is_wp_error( $schools ) || ! is_array( $schools ) ) {
+		return;
+	}
 
 		echo $args['before_widget'];
 
@@ -52,7 +54,15 @@ class greatschools_getschools extends WP_Widget {
 
 				foreach($schools as $school) {
 
+					if ( ! is_array( $school ) ) {
+						continue;
+					}
+
 					foreach($school as $school_item) {
+
+						if ( ! is_array( $school_item ) || ! isset( $school_item['name'], $school_item['type'], $school_item['gradeRange'], $school_item['state'], $school_item['city'], $school_item['overviewLink'] ) ) {
+							continue;
+						}
 
 						$name = $school_item['name'];
 						$type =$school_item['type'];

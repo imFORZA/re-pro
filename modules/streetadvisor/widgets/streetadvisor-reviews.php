@@ -48,6 +48,10 @@ class StreetAdvisor_Reviews extends WP_Widget {
 
 $reviews = $streetadvisor->get_location_reviews( $latitude, $longitude, $level );
 
+if ( is_wp_error( $reviews ) || ! is_array( $reviews ) || ! isset( $reviews['Items'] ) || ! is_array( $reviews['Items'] ) ) {
+	return;
+}
+
 // var_dump($reviews);
 /*
 $name = $location['Location']['Name'];
@@ -69,6 +73,10 @@ echo $args['before_title'] . esc_attr( $title ) . $args['after_title'];
 foreach ($reviews['Items'] as $review) {
 
 	// var_dump($review);
+
+	if ( ! is_array( $review ) || ! isset( $review['Title'], $review['Content'], $review['Date'], $review['Rating'], $review['Legal'], $review['Url'], $review['User'] ) || ! is_array( $review['User'] ) || ! isset( $review['User']['DisplayName'], $review['User']['AvatarUrl'] ) ) {
+		continue;
+	}
 
 	$title = $review['Title'];
 	$content = $review['Content'];

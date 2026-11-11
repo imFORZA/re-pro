@@ -3,7 +3,7 @@ Contributors: bhubbard, imforza, sgarza, matoledo
 Tags: Real Estate, Zillow, imFORZA, Equal Housing Opportunity, Trulia, IDX
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 Requires PHP: 7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -55,6 +55,9 @@ There are opportunities for everyone at all levels to contribute. [Learn more ab
 At the moment an official roadmap has yet to be planned, but feel free to submit requests on the [Github Repo](https://github.com/imFORZA/re-pro).
 
 == Changelog ==
+
+= 1.0.11 =
+* Fixed a fatal error in the StreetAdvisor location widget when the remote API returns an error or an unexpected response. The StreetAdvisor reviews and GreatSchools widgets use the same guard.
 
 = 1.0.10 =
 * Security: Fixed authenticated stored cross-site scripting in settings and widget forms (CVE-2026-1845).

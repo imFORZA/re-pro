@@ -36,6 +36,12 @@ if ( ! class_exists( 'StreetAdvisorAPI' ) ) {
 		 */
 		private $base_uri = 'https://web-api-legacy.streetadvisor.com';
 		/**
+		 * Request arguments.
+		 *
+		 * @var array
+		 */
+		private $args = array();
+		/**
 		 * __construct function.
 		 *
 		 * @access public
