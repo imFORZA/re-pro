@@ -44,7 +44,12 @@ class StreetAdvisor_Details extends WP_Widget {
 		$level = !empty( $instance['level'] ) ? $instance['level'] : '';
 		$title = !empty( $instance['title'] ) ? $instance['title'] : '';
 
-		$streetadvisor = new StreetAdvisorAPI( 'b08f6473-8dee-41c3-9a3e-b32f335e9d2d' );
+		$sa_apikey = repro_setting( 'sa_apikey', '' );
+		if ( ! is_string( $sa_apikey ) || '' === $sa_apikey ) {
+			return;
+		}
+
+		$streetadvisor = new StreetAdvisorAPI( $sa_apikey );
 
 		$location = $streetadvisor->get_location_data( $latitude, $longitude, $level );
 
@@ -70,8 +75,8 @@ class StreetAdvisor_Details extends WP_Widget {
 		$name = $location['Location']['Name'];
 		$ranking_description = $location['Location']['RankingDescription'];
 		$score = $location['Location']['Score'];
-		$photo_url = esc_url( apply_filters( 'jetpack_photon_url', $location['Location']['PhotoUrl'] ) );
-		$streetadvisor_url = esc_url( $location['Location']['Url'] ); // Lets force HTTPS for this please !
+		$photo_url = apply_filters( 'jetpack_photon_url', $location['Location']['PhotoUrl'] );
+		$streetadvisor_url = $location['Location']['Url'];
 
 		$recommendations_greatfor = $location['Recommendations']['GreatFor'];
 		$recommendations_notgreatfor = $location['Recommendations']['NotGreatFor'];
@@ -84,17 +89,19 @@ class StreetAdvisor_Details extends WP_Widget {
 
 		echo '<style>.sa-column{width:100%;float:left;display:inline-block;}.streetadvisor-list{margin: 10px 0;}.streetadvisor-list li {list-style-type:circle !important;margin:0;padding:0;list-style-position: inside;}</style>';
 
-		echo '<img id="" class="" src="'.$photo_url.'" srcset="" sizes="" alt="'. $name .'" height="" width="">';
+		echo '<img id="" class="" src="'. esc_url( (string) $photo_url ) .'" srcset="" sizes="" alt="'. esc_attr( (string) $name ) .'" height="" width="">';
 
 
-		echo '<p>' . $name . ' has a score of <strong>' . $score . ' out of 10</strong> on <a href="'. $streetadvisor_url .'" rel="nofollow">StreetAdvisor</a>. '. $ranking_description .'</p>';
+		echo '<p>' . esc_html( (string) $name ) . ' has a score of <strong>' . esc_html( (string) $score ) . ' out of 10</strong> on <a href="'. esc_url( (string) $streetadvisor_url ) .'" rel="nofollow">StreetAdvisor</a>. '. esc_html( (string) $ranking_description ) .'</p>';
 
 		echo '<div class="sa-column">';
 
 		echo '<strong>Great For:</strong>';
 		echo '<ul class="re-pro streetadvisor-list streetadvisor-great-for">';
 		foreach($recommendations_greatfor as $greatfor_item) {
-			echo '<li>' . $greatfor_item . '</li>';
+			if ( is_scalar( $greatfor_item ) ) {
+				echo '<li>' . esc_html( (string) $greatfor_item ) . '</li>';
+			}
 		}
 		echo '</ul>';
 		echo '</div>';
@@ -103,7 +110,9 @@ class StreetAdvisor_Details extends WP_Widget {
 		echo '<strong>Not Great For:</strong>';
 		echo '<ul class="re-pro streetadvisor-list streetadvisor-not-great-for">';
 		foreach($recommendations_notgreatfor as $notgreatfor_item) {
-			echo '<li>' . $notgreatfor_item . '</li>';
+			if ( is_scalar( $notgreatfor_item ) ) {
+				echo '<li>' . esc_html( (string) $notgreatfor_item ) . '</li>';
+			}
 		}
 		echo '</ul>';
 		echo '</div>';
@@ -112,7 +121,9 @@ class StreetAdvisor_Details extends WP_Widget {
 		echo '<strong>Who Lives Here:</strong>';
 		echo '<ul class="re-pro streetadvisor-list streetadvisor-who-lives-here">';
 		foreach($recommendations_wholiveshere as $wholiveshere_item) {
-			echo '<li>' . $wholiveshere_item . '</li>';
+			if ( is_scalar( $wholiveshere_item ) ) {
+				echo '<li>' . esc_html( (string) $wholiveshere_item ) . '</li>';
+			}
 		}
 		echo '</ul>';
 		echo '</div>';

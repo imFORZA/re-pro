@@ -71,15 +71,15 @@ class InmanNewsWidget extends WP_Widget {
 			foreach( $rss_items as $item ) {
 
 				echo '<div style="margin:20px 0;">';
-				echo '<h4><a href="'. $item->get_link() .'" rel="nofollow" target="_blank">' . $item->get_title() . '</a></h4>';
+				echo '<h4><a href="'. esc_url( (string) $item->get_link() ) .'" rel="nofollow" target="_blank">' . esc_html( (string) $item->get_title() ) . '</a></h4>';
 				echo '</div>';
 
-				echo $item->get_content();
+				echo wp_kses_post( (string) $item->get_content() );
 
 			}
 
 		} else {
-			echo $rss->get_error_message();
+			echo esc_html( $rss->get_error_message() );
 		}
 
 		echo $args['after_widget'];

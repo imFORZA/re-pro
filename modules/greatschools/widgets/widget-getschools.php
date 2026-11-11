@@ -36,8 +36,8 @@ class greatschools_getschools extends WP_Widget {
 	$greatschools_city = !empty( $instance['greatschools_city'] ) ? $instance['greatschools_city'] : '';
 
 	// Call our API.
-	$repro_settings = get_option( 'repro_settings' );
-	$greatschools_apikey = $repro_settings['greatschools_apikey'];
+	$repro_settings = repro_get_settings();
+	$greatschools_apikey = $repro_settings['greatschools_apikey'] ?? '';
 
 	$greatschools = new GreatSchoolsAPI( $greatschools_apikey );
 	$schools = $greatschools->get_schools( $greatschools_state,$greatschools_city );
@@ -132,8 +132,8 @@ class greatschools_getschools extends WP_Widget {
 
 function greatschools_register_widgets() {
 
-	$repro_settings = get_option( 'repro_settings' );
-	$greatschools_apikey = $repro_settings['greatschools_apikey'];
+	$repro_settings = repro_get_settings();
+	$greatschools_apikey = $repro_settings['greatschools_apikey'] ?? '';
 
 	if ( ! empty( $greatschools_apikey) ) {
 	register_widget( 'greatschools_getschools' );

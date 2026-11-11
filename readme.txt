@@ -3,7 +3,7 @@ Contributors: bhubbard, imforza, sgarza, matoledo
 Tags: Real Estate, Zillow, imFORZA, Equal Housing Opportunity, Trulia, IDX
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.0.11
+Stable tag: 1.0.12
 Requires PHP: 7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -55,6 +55,14 @@ There are opportunities for everyone at all levels to contribute. [Learn more ab
 At the moment an official roadmap has yet to be planned, but feel free to submit requests on the [Github Repo](https://github.com/imFORZA/re-pro).
 
 == Changelog ==
+
+= 1.0.12 =
+* Security: Google Maps info window content is sanitized. Homes.com and Zillow widget attributes are escaped, iframe URLs are escaped, and colors are limited to hex.
+* Security: Inman feed titles, links, body HTML, and errors are escaped. StreetAdvisor response text and URLs are escaped.
+* Security: GreatSchools requests use HTTPS and the WordPress HTTP API.
+* HomeFinder's widget loader is not available over HTTPS. https://www.homefinder.com/widgets/js/widgetLoader.js redirects and returns 404, and the old HTTP URL redirects to that same missing file. The plugin no longer loads that script.
+* Google Maps reads the same settings option as the settings screen. On upgrade, map activation, the API key, and map style JSON are copied once from the legacy option when the settings screen does not already have them.
+* StreetAdvisor widgets read the Street Advisor API Key setting. Enter your own key. The previous built-in key should be considered compromised and rotated. The widgets output nothing when no key is saved.
 
 = 1.0.11 =
 * Fixed a fatal error in the StreetAdvisor location widget when the remote API returns an error or an unexpected response. The StreetAdvisor reviews and GreatSchools widgets use the same guard.

@@ -45,7 +45,7 @@ if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
 		 *
 		 * @var [Array]
 		 */
-		static private $map_data;
+		static private $map_data = array();
 
 		/**
 		 * Default map options.
@@ -70,7 +70,16 @@ if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
 		 * @param String $api_key : API Key.
 		 */
 		public function __construct( $api_key ) {
-			static::$api_key = $api_key;
+			$stored_key = repro_setting( 'gmaps_key', '' );
+			if ( ! is_string( $stored_key ) ) {
+				$stored_key = '';
+			}
+
+			if ( '' !== $stored_key ) {
+				static::$api_key = $stored_key;
+			} else {
+				static::$api_key = is_scalar( $api_key ) ? (string) $api_key : '';
+			}
 
 			add_action( 'wp_footer', array( $this, 'footer' ),  11 );
 			add_action( 'widgets_init', array( $this, 'register_widgets' ) );
@@ -89,11 +98,13 @@ if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
 		 * Handle multiple google maps js api enqueues on the footer.
 		 */
 		public function footer() {
-			wp_localize_script( 'wpapi-google-maps', 'wpapi_gmaps', static::$map_data );
+			$map_data = is_array( static::$map_data ) ? static::$map_data : array();
+			wp_localize_script( 'wpapi-google-maps', 'wpapi_gmaps', $map_data );
 
 			// Only enqueue google maps API if yoast hasnt enqueued it already.
 			if ( ! wp_script_is( 'maps-geocoder' ) ) {
-				wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=' . static::$api_key, array(), null );
+				$map_src = 'https://maps.googleapis.com/maps/api/js?key=' . rawurlencode( (string) static::$api_key );
+				wp_enqueue_script( 'google-maps-api', $map_src, array(), null );
 			}
 		}
 
@@ -106,6 +117,7 @@ if ( ! class_exists( 'WPAPI_GOOGLE_MAPS' ) ) {
 		public static function print_map( $map_data, $echo = true ) {
 
 			$map_data = apply_filters( 'wpapi_google_map_data', wp_parse_args( $map_data, static::$defaults ) );
+			$map_data['info'] = wp_kses_post( (string) ( $map_data['info'] ?? '' ) );
 			static::$map_data[] = $map_data;
 
 			$index = count( static::$map_data ) - 1;
