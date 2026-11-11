@@ -308,7 +308,7 @@ public function zillow_badges() {
 		foreach ( $zillow_badges as $zillow_badge ) {
 			if ( $badge_name === $zillow_badge['id'] ) {
 
-					echo '<a href="https://www.zillow.com/profile/'. $zid .'" ><img id="zillow-'. esc_attr( $zillow_badge['id'] ) .'-badge" class="'. sanitize_html_class( $zillow_badge['class'] ) . ' ' . sanitize_html_class( $badge_alignment ) .'" src="' . esc_url( apply_filters( 'jetpack_photon_url', $zillow_badge['url'] ) ) . '" alt="'. esc_attr( $zillow_badge['alt'] ) . '"  height="'. esc_attr( $zillow_badge['height'] ) .'" width="'. esc_attr( $zillow_badge['width'] ) .'" title="'. esc_attr( $zillow_badge['alt'] ) .'" /></a>';
+					echo '<a href="https://www.zillow.com/profile/'. esc_attr( $zid ) .'" ><img id="zillow-'. esc_attr( $zillow_badge['id'] ) .'-badge" class="'. sanitize_html_class( $zillow_badge['class'] ) . ' ' . sanitize_html_class( $badge_alignment ) .'" src="' . esc_url( apply_filters( 'jetpack_photon_url', $zillow_badge['url'] ) ) . '" alt="'. esc_attr( $zillow_badge['alt'] ) . '"  height="'. esc_attr( $zillow_badge['height'] ) .'" width="'. esc_attr( $zillow_badge['width'] ) .'" title="'. esc_attr( $zillow_badge['alt'] ) .'" /></a>';
 
 			}
 		}
@@ -364,7 +364,7 @@ public function zillow_badges() {
 		}
 
 		echo '</select>';
-		echo '<span class="description">' . __( 'Choose a badge type from the dropdown. Click Save to preview the badge. Full list of badges can be found on <a href="http://www.zillow.com/webtools/badges/" target="_blank" rel="nofollow">Zillow</a>.', 're-pro' ) . '</span>';
+		echo '<span class="description">' . wp_kses_post( __( 'Choose a badge type from the dropdown. Click Save to preview the badge. Full list of badges can be found on <a href="http://www.zillow.com/webtools/badges/" target="_blank" rel="nofollow">Zillow</a>.', 're-pro' ) ) . '</span>';
 		echo '</p>';
 
 		echo '<p>';
@@ -391,11 +391,11 @@ public function zillow_badges() {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['badge_name'] = ! empty( $new_instance['badge_name'] ) ? strip_tags( $new_instance['badge_name'] ) : '';
-		$instance['badge_alignment'] = ! empty( $new_instance['badge_alignment'] ) ? strip_tags( $new_instance['badge_alignment'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['badge_name'] = ! empty( $new_instance['badge_name'] ) ? sanitize_text_field( $new_instance['badge_name'] ) : '';
+		$instance['badge_alignment'] = ! empty( $new_instance['badge_alignment'] ) ? sanitize_text_field( $new_instance['badge_alignment'] ) : '';
 
-		$instance['zid'] = ! empty( $new_instance['zid'] ) ? strip_tags( $new_instance['zid'] ) : '';
+		$instance['zid'] = ! empty( $new_instance['zid'] ) ? sanitize_text_field( $new_instance['zid'] ) : '';
 
 		return $instance;
 

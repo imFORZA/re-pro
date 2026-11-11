@@ -108,59 +108,59 @@ class HomeFinderAffiliateSearch extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Affiliate Name.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'affiliate' ) . '" class="title-label">' . __( 'Affiliate Name:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'affiliate' ) . '" name="' . $this->get_field_name( 'affiliate' ) . '" value="' . $affiliate . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'affiliate' ) ) . '" class="title-label">' . esc_html__( 'Affiliate Name:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'affiliate' ) ) . '" name="' . esc_attr( $this->get_field_name( 'affiliate' ) ) . '" value="' . esc_attr( $affiliate ) . '" class="widefat">';
 		echo '</p>';
 
 		// Primary Search Area.
 		echo '<p>';
-		echo '	<label for="primary-search-area" class="title-label">' . __( 'Primary Search Area:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'primary_city' ) . '" name="' . $this->get_field_name( 'primary_city' ) . '" value="' . $primary_city . '" class="widefat">';
-		echo '	<span class="description">' . __( 'City', 're-pro' ) . '</span>';
-		echo '	<input id="' . $this->get_field_id( 'primary_state' ) . '" name="' . $this->get_field_name( 'primary_state' ) . '" value="' . $primary_state . '" class="widefat">';
-		echo '	<span class="description">' . __( 'State', 're-pro' ) . '</span>';
+		echo '	<label for="primary-search-area" class="title-label">' . esc_html__( 'Primary Search Area:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'primary_city' ) ) . '" name="' . esc_attr( $this->get_field_name( 'primary_city' ) ) . '" value="' . esc_attr( $primary_city ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'City', 're-pro' ) . '</span>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'primary_state' ) ) . '" name="' . esc_attr( $this->get_field_name( 'primary_state' ) ) . '" value="' . esc_attr( $primary_state ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'State', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		// Nearby Area 1.
 		echo '<p>';
-		echo '	<label for="nearby-area-1" class="title-label">' . __( 'Nearby Area 1:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'nearby_city_1' ) . '" name="' . $this->get_field_name( 'nearby_city_1' ) . '" value="' . $nearby_city_1 . '" class="widefat">';
-		echo '	<span class="description">' . __( 'City', 're-pro' ) . '</span>';
-		echo '	<input id="' . $this->get_field_id( 'nearby_state_1' ) . '" name="' . $this->get_field_name( 'nearby_state_1' ) . '" value="' . $nearby_state_1 . '" class="widefat">';
-		echo '	<span class="description">' . __( 'State', 're-pro' ) . '</span>';
+		echo '	<label for="nearby-area-1" class="title-label">' . esc_html__( 'Nearby Area 1:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'nearby_city_1' ) ) . '" name="' . esc_attr( $this->get_field_name( 'nearby_city_1' ) ) . '" value="' . esc_attr( $nearby_city_1 ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'City', 're-pro' ) . '</span>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'nearby_state_1' ) ) . '" name="' . esc_attr( $this->get_field_name( 'nearby_state_1' ) ) . '" value="' . esc_attr( $nearby_state_1 ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'State', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		// Nearby Area 2.
 		echo '<p>';
-		echo '	<label for="nearby-area-2" class="title-label">' . __( 'Nearby Area 2:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'nearby_city_2' ) . '" name="' . $this->get_field_name( 'nearby_city_2' ) . '" value="' . $nearby_city_2 . '" class="widefat">';
-		echo '	<span class="description">' . __( 'City', 're-pro' ) . '</span>';
-		echo '	<input id="' . $this->get_field_id( 'nearby_state_2' ) . '" name="' . $this->get_field_name( 'nearby_state_2' ) . '" value="' . $nearby_state_2 . '" class="widefat">';
-		echo '	<span class="description">' . __( 'State', 're-pro' ) . '</span>';
+		echo '	<label for="nearby-area-2" class="title-label">' . esc_html__( 'Nearby Area 2:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'nearby_city_2' ) ) . '" name="' . esc_attr( $this->get_field_name( 'nearby_city_2' ) ) . '" value="' . esc_attr( $nearby_city_2 ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'City', 're-pro' ) . '</span>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'nearby_state_2' ) ) . '" name="' . esc_attr( $this->get_field_name( 'nearby_state_2' ) ) . '" value="' . esc_attr( $nearby_state_2 ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'State', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		// Nearby Area 3.
 		echo '<p>';
-		echo '	<label for="nearby-area-3" class="title-label">' . __( 'Nearby Area 3:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'nearby_city_3' ) . '" name="' . $this->get_field_name( 'nearby_city_3' ) . '" value="' . $nearby_city_3 . '" class="widefat">';
-		echo '	<span class="description">' . __( 'City', 're-pro' ) . '</span>';
-		echo '	<input id="' . $this->get_field_id( 'nearby_state_3' ) . '" name="' . $this->get_field_name( 'nearby_state_3' ) . '" value="' . $nearby_state_3 . '" class="widefat">';
-		echo '	<span class="description">' . __( 'State', 're-pro' ) . '</span>';
+		echo '	<label for="nearby-area-3" class="title-label">' . esc_html__( 'Nearby Area 3:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'nearby_city_3' ) ) . '" name="' . esc_attr( $this->get_field_name( 'nearby_city_3' ) ) . '" value="' . esc_attr( $nearby_city_3 ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'City', 're-pro' ) . '</span>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'nearby_state_3' ) ) . '" name="' . esc_attr( $this->get_field_name( 'nearby_state_3' ) ) . '" value="' . esc_attr( $nearby_state_3 ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'State', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		// Nearby Area 4.
 		echo '<p>';
-		echo '	<label for="nearby-area-4" class="title-label">' . __( 'Nearby Area 4:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'nearby_city_4' ) . '" name="' . $this->get_field_name( 'nearby_city_4' ) . '" value="' . $nearby_city_4 . '" class="widefat">';
-		echo '	<span class="description">' . __( 'City', 're-pro' ) . '</span>';
-		echo '	<input id="' . $this->get_field_id( 'nearby_state_4' ) . '" name="' . $this->get_field_name( 'nearby_state_4' ) . '" value="' . $nearby_state_4 . '" class="widefat">';
-		echo '	<span class="description">' . __( 'State', 're-pro' ) . '</span>';
+		echo '	<label for="nearby-area-4" class="title-label">' . esc_html__( 'Nearby Area 4:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'nearby_city_4' ) ) . '" name="' . esc_attr( $this->get_field_name( 'nearby_city_4' ) ) . '" value="' . esc_attr( $nearby_city_4 ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'City', 're-pro' ) . '</span>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'nearby_state_4' ) ) . '" name="' . esc_attr( $this->get_field_name( 'nearby_state_4' ) ) . '" value="' . esc_attr( $nearby_state_4 ) . '" class="widefat">';
+		echo '	<span class="description">' . esc_html__( 'State', 're-pro' ) . '</span>';
 		echo '</p>';
 
 	}
@@ -177,18 +177,18 @@ class HomeFinderAffiliateSearch extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['affiliate'] = ! empty( $new_instance['affiliate'] ) ? strip_tags( $new_instance['affiliate'] ) : '';
-		$instance['primary_city'] = ! empty( $new_instance['primary_city'] ) ? strip_tags( $new_instance['primary_city'] ) : '';
-		$instance['primary_state'] = ! empty( $new_instance['primary_state'] ) ? strip_tags( $new_instance['primary_state'] ) : '';
-		$instance['nearby_city_1'] = ! empty( $new_instance['nearby_city_1'] ) ? strip_tags( $new_instance['nearby_city_1'] ) : '';
-		$instance['nearby_city_2'] = ! empty( $new_instance['nearby_city_2'] ) ? strip_tags( $new_instance['nearby_city_2'] ) : '';
-		$instance['nearby_city_3'] = ! empty( $new_instance['nearby_city_3'] ) ? strip_tags( $new_instance['nearby_city_3'] ) : '';
-		$instance['nearby_city_4'] = ! empty( $new_instance['nearby_city_4'] ) ? strip_tags( $new_instance['nearby_city_4'] ) : '';
-		$instance['nearby_state_1'] = ! empty( $new_instance['nearby_state_1'] ) ? strip_tags( $new_instance['nearby_state_1'] ) : '';
-		$instance['nearby_state_2'] = ! empty( $new_instance['nearby_state_2'] ) ? strip_tags( $new_instance['nearby_state_2'] ) : '';
-		$instance['nearby_state_3'] = ! empty( $new_instance['nearby_state_3'] ) ? strip_tags( $new_instance['nearby_state_3'] ) : '';
-		$instance['nearby_state_4'] = ! empty( $new_instance['nearby_state_4'] ) ? strip_tags( $new_instance['nearby_state_4'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['affiliate'] = ! empty( $new_instance['affiliate'] ) ? sanitize_text_field( $new_instance['affiliate'] ) : '';
+		$instance['primary_city'] = ! empty( $new_instance['primary_city'] ) ? sanitize_text_field( $new_instance['primary_city'] ) : '';
+		$instance['primary_state'] = ! empty( $new_instance['primary_state'] ) ? sanitize_text_field( $new_instance['primary_state'] ) : '';
+		$instance['nearby_city_1'] = ! empty( $new_instance['nearby_city_1'] ) ? sanitize_text_field( $new_instance['nearby_city_1'] ) : '';
+		$instance['nearby_city_2'] = ! empty( $new_instance['nearby_city_2'] ) ? sanitize_text_field( $new_instance['nearby_city_2'] ) : '';
+		$instance['nearby_city_3'] = ! empty( $new_instance['nearby_city_3'] ) ? sanitize_text_field( $new_instance['nearby_city_3'] ) : '';
+		$instance['nearby_city_4'] = ! empty( $new_instance['nearby_city_4'] ) ? sanitize_text_field( $new_instance['nearby_city_4'] ) : '';
+		$instance['nearby_state_1'] = ! empty( $new_instance['nearby_state_1'] ) ? sanitize_text_field( $new_instance['nearby_state_1'] ) : '';
+		$instance['nearby_state_2'] = ! empty( $new_instance['nearby_state_2'] ) ? sanitize_text_field( $new_instance['nearby_state_2'] ) : '';
+		$instance['nearby_state_3'] = ! empty( $new_instance['nearby_state_3'] ) ? sanitize_text_field( $new_instance['nearby_state_3'] ) : '';
+		$instance['nearby_state_4'] = ! empty( $new_instance['nearby_state_4'] ) ? sanitize_text_field( $new_instance['nearby_state_4'] ) : '';
 
 		return $instance;
 	}

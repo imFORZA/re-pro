@@ -126,28 +126,28 @@ echo $args['after_widget'];
 
 		// Form fields
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title_label">' . __( 'Title', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $title ) . '">';
-		echo '	<span class="description">' . __( 'Title', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title_label">' . esc_html__( 'Title', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $title ) . '">';
+		echo '	<span class="description">' . esc_html__( 'Title', 're-pro' ) . '</span>';
 		echo '</p>';
 
 
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'latitude' ) . '" class="latitude_label">' . __( 'Latitude', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'latitude' ) . '" name="' . $this->get_field_name( 'latitude' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $latitude ) . '">';
-		echo '	<span class="description">' . __( 'Latitude', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'latitude' ) ) . '" class="latitude_label">' . esc_html__( 'Latitude', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'latitude' ) ) . '" name="' . esc_attr( $this->get_field_name( 'latitude' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $latitude ) . '">';
+		echo '	<span class="description">' . esc_html__( 'Latitude', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'longitude' ) . '" class="longitude_label">' . __( 'Longitude', 're-pro' ) . '</label>';
-		echo '	<input type="text" id="' . $this->get_field_id( 'longitude' ) . '" name="' . $this->get_field_name( 'longitude' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $longitude ) . '">';
-		echo '	<span class="description">' . __( 'Longitude', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'longitude' ) ) . '" class="longitude_label">' . esc_html__( 'Longitude', 're-pro' ) . '</label>';
+		echo '	<input type="text" id="' . esc_attr( $this->get_field_id( 'longitude' ) ) . '" name="' . esc_attr( $this->get_field_name( 'longitude' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $longitude ) . '">';
+		echo '	<span class="description">' . esc_html__( 'Longitude', 're-pro' ) . '</span>';
 		echo '</p>';
 
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'level' ) . '" class="level_label">' . __( 'Level', 're-pro' ) . '</label>';
-		echo '	<input type="number" id="' . $this->get_field_id( 'level' ) . '" name="' . $this->get_field_name( 'level' ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $level ) . '">';
-		echo '	<span class="description">' . __( 'Level', 're-pro' ) . '</span>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'level' ) ) . '" class="level_label">' . esc_html__( 'Level', 're-pro' ) . '</label>';
+		echo '	<input type="number" id="' . esc_attr( $this->get_field_id( 'level' ) ) . '" name="' . esc_attr( $this->get_field_name( 'level' ) ) . '" class="widefat" placeholder="' . esc_attr__( '', 're-pro' ) . '" value="' . esc_attr( $level ) . '">';
+		echo '	<span class="description">' . esc_html__( 'Level', 're-pro' ) . '</span>';
 		echo '</p>';
 
 
@@ -166,10 +166,10 @@ echo $args['after_widget'];
 
 		$instance = $old_instance;
 
-		$instance['latitude'] = !empty( $new_instance['latitude'] ) ? strip_tags( $new_instance['latitude'] ) : '';
-		$instance['longitude'] = !empty( $new_instance['longitude'] ) ? strip_tags( $new_instance['longitude'] ) : '';
-		$instance['level'] = !empty( $new_instance['level'] ) ? strip_tags( $new_instance['level'] ) : '';
-		$instance['title'] = !empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['latitude'] = !empty( $new_instance['latitude'] ) ? sanitize_text_field( $new_instance['latitude'] ) : '';
+		$instance['longitude'] = !empty( $new_instance['longitude'] ) ? sanitize_text_field( $new_instance['longitude'] ) : '';
+		$instance['level'] = !empty( $new_instance['level'] ) ? sanitize_text_field( $new_instance['level'] ) : '';
+		$instance['title'] = !empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
 
 		return $instance;
 

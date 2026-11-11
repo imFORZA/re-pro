@@ -78,14 +78,14 @@ class RentbitsAverageRentalRatesWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Location.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'location' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'location' ) . '" name="' . $this->get_field_name( 'location' ) . '" value="' . $location . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'location' ) ) . '" class="title-label">' . esc_html__( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'location' ) ) . '" name="' . esc_attr( $this->get_field_name( 'location' ) ) . '" value="' . esc_attr( $location ) . '" class="widefat">';
 		echo '</p>';
 
 	}
@@ -102,8 +102,8 @@ class RentbitsAverageRentalRatesWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['location'] = ! empty( $new_instance['location'] ) ? sanitize_text_field( $new_instance['location'] ) : '';
 
 		return $instance;
 	}
