@@ -60,6 +60,35 @@ function repro_hex_color( $color ) {
 }
 
 /**
+ * Accessible name for one iframe.
+ *
+ * The detail makes the title unique when several frames share a widget name.
+ *
+ * @param string $name     Translated widget name.
+ * @param string $detail   Place, screen name, or other label.
+ * @param string $fallback Frame id used when detail is empty.
+ * @return string
+ */
+function repro_iframe_title( $name, $detail = '', $fallback = '' ) {
+	$parts    = array();
+	$detail   = trim( (string) $detail );
+	$fallback = trim( (string) $fallback );
+
+	if ( '' !== $detail ) {
+		$parts[] = $detail;
+	}
+	if ( '' !== $fallback && $fallback !== $detail ) {
+		$parts[] = $fallback;
+	}
+	if ( empty( $parts ) ) {
+		return (string) $name;
+	}
+
+	/* translators: 1: widget name, 2: place, screen name, or frame id. */
+	return sprintf( __( '%1$s: %2$s', 're-pro' ), $name, implode( ', ', $parts ) );
+}
+
+/**
  * Build an iframe URL.
  *
  * Query values are percent-encoded first so spaces survive esc_url().

@@ -98,7 +98,6 @@ foreach ($reviews['Items'] as $review) {
 
 	echo '<div class="review" itemprop="review" itemscope itemtype="https://schema.org/Review">';
 
-	// echo '<img src="'. esc_url( (string) $user_avatar_url ) .'">';
 	echo '<span itemprop="reviewRating">'. esc_html( (string) $rating ) .'</span> stars - <strong>"<span itemprop="name">' . esc_html( (string) $title ) . '</span>"</strong>
   <br /> by <span itemprop="author">'. esc_html( (string) $user_displayname ) .'</span><br />
   Written on <meta itemprop="datePublished" content="' . esc_attr( (string) $date ) .'">'. esc_html( (string) $date ) .'

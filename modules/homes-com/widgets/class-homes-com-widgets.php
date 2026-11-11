@@ -93,7 +93,7 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 
 			echo '<div class="commute-time-widget">';
 			echo '	<h1 style="color:#' . esc_attr( (string) $color ) . '">Commute Time</h1>';
-			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="commute-time-frame '. esc_attr( (string) $this->homes_iframe_class( 'commute-time-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Commute Time on Homes', 're-pro' ) .'" src="' . esc_url( $src ) . '"&property_id=" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="commute-time-frame '. esc_attr( (string) $this->homes_iframe_class( 'commute-time-widget' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Commute Time on Homes', 're-pro' ), $start_addr, $iframe_id ) ) . '" src="' . esc_url( $src ) . '"&property_id=" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<div class="footer">';
 			echo '		<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '			Powered By Homes.com';
@@ -135,7 +135,7 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 
 			echo '<div class="featured-listings-widget">';
 			echo '	<h1 style="color:#' . esc_attr( (string) $color ) . '">Featured Homes for <span class="listing-stat">' . esc_html( $showTitle ) . '</span></h1>';
-			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="featured-listings-frame '. esc_attr( (string) $this->homes_iframe_class( 'featured-listings-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Featured Listings on Homes', 're-pro' ) .'" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="featured-listings-frame '. esc_attr( (string) $this->homes_iframe_class( 'featured-listings-widget' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Featured Listings on Homes', 're-pro' ), $location, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';
@@ -181,7 +181,7 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 
 			echo '<div class="home-values-widget">';
 			echo '	<h1 style="color:#' . esc_attr( (string) $firstColor ) . '">Search Home Values</h1>';
-			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="home-values-frame '. esc_attr( (string) $this->homes_iframe_class( 'home-values-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Home Values on Homes', 're-pro' ) .'" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="home-values-frame '. esc_attr( (string) $this->homes_iframe_class( 'home-values-widget' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Home Values on Homes', 're-pro' ), $location, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<div class="footer">';
 			echo	'		<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '			Powered By Homes.com';
@@ -228,7 +228,7 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 
 			echo '<div class="medium-search-widget">';
 			echo '	<h1 style="color:#' . esc_attr( (string) $color ) . '">Search Homes <span class="listing-stat">' . esc_html( $showTitle ) . '</span> </h1>';
-			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="medium-search-frame '. esc_attr( (string) $this->homes_iframe_class( 'search-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Search on Homes', 're-pro' ) .'" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="medium-search-frame '. esc_attr( (string) $this->homes_iframe_class( 'search-widget' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Search on Homes', 're-pro' ), $location, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';
@@ -260,7 +260,7 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';
-			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="mortgage-calculator-frame '. esc_attr( (string) $this->homes_iframe_class( 'mortgage-calc-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Mortgage Calculator on Homes', 're-pro' ) .'" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="mortgage-calculator-frame '. esc_attr( (string) $this->homes_iframe_class( 'mortgage-calc-widget' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Mortgage Calculator on Homes', 're-pro' ), $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
 			echo '</div>';
 
 		}
@@ -302,7 +302,7 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 
 			echo '<div class="simple-search-widget">';
 			echo '<h1 style="color:#' . esc_attr( (string) $color ) . '">Search Homes <span class="listing-stat">' . esc_html( $showTitle ) . '</span></h1>';
-			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="simple-search-frame '. esc_attr( (string) $this->homes_iframe_class( 'simple-search-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Simple Search on Homes', 're-pro' ) .'" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="simple-search-frame '. esc_attr( (string) $this->homes_iframe_class( 'simple-search-widget' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Simple Search on Homes', 're-pro' ), $location, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';
@@ -334,7 +334,7 @@ if ( ! class_exists( 'HomesWidgets' ) ) {
 
 			echo '<div class="tall-search-widget">';
 			echo '	<h1 style="color:#' . esc_attr( (string) $color ) . '">Search Homes</h1>';
-			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="tall-search-frame '. esc_attr( (string) $this->homes_iframe_class( 'tall-search-widget' ) ) .'" scrolling="no" title="'. esc_attr__( 'Tall Search on Homes', 're-pro' ) .'" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
+			echo '	<iframe id="'. esc_attr( (string) $this->homes_iframe_id( $iframe_id ) ) .'" class="tall-search-frame '. esc_attr( (string) $this->homes_iframe_class( 'tall-search-widget' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Tall Search on Homes', 're-pro' ), $location, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="100%" seamless frameborder="0"></iframe>';
 			echo '	<a href="http://www.homes.com/widgets/" title="Homes.com" class="logo">';
 			echo '		Powered By Homes.com';
 			echo '	</a>';

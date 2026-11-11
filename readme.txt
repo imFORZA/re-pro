@@ -63,6 +63,7 @@ At the moment an official roadmap has yet to be planned, but feel free to submit
 * HomeFinder's widget loader is not available over HTTPS. https://www.homefinder.com/widgets/js/widgetLoader.js redirects and returns 404, and the old HTTP URL redirects to that same missing file. The plugin no longer loads that script.
 * Google Maps reads the same settings option as the settings screen. On upgrade, map activation, the API key, and map style JSON are copied once from the legacy option when the settings screen does not already have them.
 * StreetAdvisor widgets read the Street Advisor API Key setting. Enter your own key. The previous built-in key should be considered compromised and rotated. The widgets output nothing when no key is saved.
+* Accessibility: Removed an unused StreetAdvisor image that had no alt text, and gave each Homes.com and Zillow iframe a unique title.
 
 = 1.0.11 =
 * Fixed a fatal error in the StreetAdvisor location widget when the remote API returns an error or an unexpected response. The StreetAdvisor reviews and GreatSchools widgets use the same guard.
