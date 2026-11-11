@@ -88,31 +88,31 @@ class HomesSearchWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Location.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'location' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'location' ) . '" name="' . $this->get_field_name( 'location' ) . '" value="' . $location . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'location' ) ) . '" class="title-label">' . esc_html__( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'location' ) ) . '" name="' . esc_attr( $this->get_field_name( 'location' ) ) . '" value="' . esc_attr( $location ) . '" class="widefat">';
 		echo '</p>';
 
 		// Color.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'color' ) . '" class="title-label">' . __( 'Color:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'color' ) . '" name="' . $this->get_field_name( 'color' ) . '" value="' . $color  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'color' ) ) . '" class="title-label">' . esc_html__( 'Color:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'color' ) ) . '" name="' . esc_attr( $this->get_field_name( 'color' ) ) . '" value="' . esc_attr( $color ) . '" class="widefat">';
 		echo '</p>';
 
 		// Search Types.
 		echo '<p>';
-		echo '<label for="search-type" class="search_type_label">' . __( 'Search Types:', 're-pro' ) . '</label>';
+		echo '<label for="search-type" class="search_type_label">' . esc_html__( 'Search Types:', 're-pro' ) . '</label>';
 		echo '<br />';
-		echo '<input value="1" type="checkbox"' . checked( $sale, 1, false ) . 'id="' . $this->get_field_id( 'sale' ) . '" name="' . $this->get_field_name( 'sale' )  . '" />';
-		echo '<label for="' . $this->get_field_id( 'sale' ) . '">For Sale</label>';
+		echo '<input value="1" type="checkbox"' . checked( $sale, 1, false ) . 'id="' . esc_attr( $this->get_field_id( 'sale' ) ) . '" name="' . esc_attr( $this->get_field_name( 'sale' ) )  . '" />';
+		echo '<label for="' . esc_attr( $this->get_field_id( 'sale' ) ) . '">For Sale</label>';
 		echo '<br />';
-		echo '<input value="1" type="checkbox"' . checked( $rent, 1, false ) . 'id="' . $this->get_field_id( 'rent' ) . '" name="' . $this->get_field_name( 'rent' ) . '" />';
-		echo '<label for="' . $this->get_field_id( 'rent' ) . '">For Rent</label>';
+		echo '<input value="1" type="checkbox"' . checked( $rent, 1, false ) . 'id="' . esc_attr( $this->get_field_id( 'rent' ) ) . '" name="' . esc_attr( $this->get_field_name( 'rent' ) ) . '" />';
+		echo '<label for="' . esc_attr( $this->get_field_id( 'rent' ) ) . '">For Rent</label>';
 		echo '</p>';
 	}
 
@@ -128,11 +128,11 @@ class HomesSearchWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
-		$instance['color'] = ! empty( $new_instance['color'] ) ? strip_tags( $new_instance['color'] ) : '';
-		$instance['sale'] = ! empty( $new_instance['sale'] ) ? strip_tags( $new_instance['sale'] ) : '';
-		$instance['rent'] = ! empty( $new_instance['rent'] ) ? strip_tags( $new_instance['rent'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['location'] = ! empty( $new_instance['location'] ) ? sanitize_text_field( $new_instance['location'] ) : '';
+		$instance['color'] = ! empty( $new_instance['color'] ) ? sanitize_text_field( $new_instance['color'] ) : '';
+		$instance['sale'] = ! empty( $new_instance['sale'] ) ? sanitize_text_field( $new_instance['sale'] ) : '';
+		$instance['rent'] = ! empty( $new_instance['rent'] ) ? sanitize_text_field( $new_instance['rent'] ) : '';
 
 		return $instance;
 	}

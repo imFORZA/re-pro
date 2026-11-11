@@ -85,28 +85,28 @@ class HomesTallSearchWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Location.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'location' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'location' ) . '" name="' . $this->get_field_name( 'location' ) . '" value="' . $location . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'location' ) ) . '" class="title-label">' . esc_html__( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'location' ) ) . '" name="' . esc_attr( $this->get_field_name( 'location' ) ) . '" value="' . esc_attr( $location ) . '" class="widefat">';
 		echo '</p>';
 
 		// Color.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'color' ) . '" class="title-label">' . __( 'Color:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'color' ) . '" name="' . $this->get_field_name( 'color' ) . '" value="' . $color  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'color' ) ) . '" class="title-label">' . esc_html__( 'Color:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'color' ) ) . '" name="' . esc_attr( $this->get_field_name( 'color' ) ) . '" value="' . esc_attr( $color ) . '" class="widefat">';
 		echo '</p>';
 
 		// Listing Status.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'status' ) . '" class="title-label">' . __( 'Search Types:', 're-pro' ) . '</label>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'status' ) ) . '" class="title-label">' . esc_html__( 'Search Types:', 're-pro' ) . '</label>';
 		echo '	<br />';
-		echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="FOR SALE"' . checked( $status, 'FOR SALE', false ) . '>For Sale<br />' . "\n";
-		echo '	<input id="' . $this->get_field_id( 'status' ) . '" type="radio" name="' . $this->get_field_name( 'status' ) . '" value="FOR RENT"' . checked( $status, 'FOR RENT', false ) . '>For Rent<br />' . "\n";
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'status' ) ) . '" type="radio" name="' . esc_attr( $this->get_field_name( 'status' ) ) . '" value="FOR SALE"' . checked( $status, 'FOR SALE', false ) . '>For Sale<br />' . "\n";
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'status' ) ) . '" type="radio" name="' . esc_attr( $this->get_field_name( 'status' ) ) . '" value="FOR RENT"' . checked( $status, 'FOR RENT', false ) . '>For Rent<br />' . "\n";
 		echo '</p>';
 	}
 
@@ -122,10 +122,10 @@ class HomesTallSearchWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
-		$instance['color'] = ! empty( $new_instance['color'] ) ? strip_tags( $new_instance['color'] ) : '';
-		$instance['status'] = ! empty( $new_instance['status'] ) ? strip_tags( $new_instance['status'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['location'] = ! empty( $new_instance['location'] ) ? sanitize_text_field( $new_instance['location'] ) : '';
+		$instance['color'] = ! empty( $new_instance['color'] ) ? sanitize_text_field( $new_instance['color'] ) : '';
+		$instance['status'] = ! empty( $new_instance['status'] ) ? sanitize_text_field( $new_instance['status'] ) : '';
 
 		return $instance;
 	}
