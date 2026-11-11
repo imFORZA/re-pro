@@ -2,6 +2,7 @@
 This is the up-to-date changelog for [Real Estate Pro](https://wordpress.org/plugins/re-pro/).
 ## [1.0.10] - 2026-11-11
 - Security: Fixed authenticated stored cross-site scripting in settings and widget forms (CVE-2026-1845).
+- Fixed a fatal error in the StreetAdvisor location widget when the remote API returns an error or an unexpected response. The StreetAdvisor reviews and GreatSchools widgets use the same guard.
 
 ## [1.0.4] - 2017-02-16
 - Fixed issue where files were not being included on certain hosting providers.

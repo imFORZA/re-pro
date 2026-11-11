@@ -48,6 +48,25 @@ class StreetAdvisor_Details extends WP_Widget {
 
 		$location = $streetadvisor->get_location_data( $latitude, $longitude, $level );
 
+		if ( is_wp_error( $location ) || ! is_array( $location )
+			|| empty( $location['Location'] ) || ! is_array( $location['Location'] )
+			|| empty( $location['Recommendations'] ) || ! is_array( $location['Recommendations'] )
+		) {
+			return;
+		}
+
+		foreach ( array( 'Name', 'RankingDescription', 'Score', 'PhotoUrl', 'Url' ) as $location_key ) {
+			if ( ! isset( $location['Location'][ $location_key ] ) || is_array( $location['Location'][ $location_key ] ) || is_object( $location['Location'][ $location_key ] ) ) {
+				return;
+			}
+		}
+
+		foreach ( array( 'GreatFor', 'NotGreatFor', 'WhoLivesHere' ) as $recommendation_key ) {
+			if ( ! isset( $location['Recommendations'][ $recommendation_key ] ) || ! is_array( $location['Recommendations'][ $recommendation_key ] ) ) {
+				return;
+			}
+		}
+
 		$name = $location['Location']['Name'];
 		$ranking_description = $location['Location']['RankingDescription'];
 		$score = $location['Location']['Score'];
