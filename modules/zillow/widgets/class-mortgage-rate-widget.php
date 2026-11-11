@@ -92,21 +92,21 @@ class ZillowMortgageRateWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Zillow Screenname.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'screenname' ) . '" class="title-label">' . __( 'Zillow Screenname:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'screenname' ) . '" name="' . $this->get_field_name( 'screenname' ) . '" value="' . $screenname  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'screenname' ) ) . '" class="title-label">' . esc_html__( 'Zillow Screenname:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'screenname' ) ) . '" name="' . esc_attr( $this->get_field_name( 'screenname' ) ) . '" value="' . esc_attr( $screenname ) . '" class="widefat">';
 		echo '</p>';
 
 		// Select a State.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'region' ) . '" class="title-label">' . __( 'Region:', 're-pro' ) . '</label>';
-		echo '<select id="' . $this->get_field_id( 'region' ) . '" name="' . $this->get_field_name( 'region' ) . '" class="widefat">';
-	    echo '<option value="102001"'. selected( $region, 102001 ) .'>'. __( 'United States', 're-pro' ) .'</option>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'region' ) ) . '" class="title-label">' . esc_html__( 'Region:', 're-pro' ) . '</label>';
+		echo '<select id="' . esc_attr( $this->get_field_id( 'region' ) ) . '" name="' . esc_attr( $this->get_field_name( 'region' ) ) . '" class="widefat">';
+	    echo '<option value="102001"'. selected( $region, 102001 ) .'>'. esc_html__( 'United States', 're-pro' ) .'</option>';
 	    echo '<option value="3"'. selected( $region, 3 ) .'>Alaska</option>';
 	    echo '<option value="4"'. selected( $region, 4 ) .'>Alabama</option>';
 	    echo '<option value="6"'. selected( $region, 6 ) .'>Arkansas</option>';
@@ -165,8 +165,8 @@ class ZillowMortgageRateWidget extends WP_Widget {
 
 		// Text Color
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'textcolor' ) . '" class="title-label">' . __( 'Text Color:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'textcolor' ) . '" name="' . $this->get_field_name( 'textcolor' ) . '" value="' . $textcolor  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'textcolor' ) ) . '" class="title-label">' . esc_html__( 'Text Color:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'textcolor' ) ) . '" name="' . esc_attr( $this->get_field_name( 'textcolor' ) ) . '" value="' . esc_attr( $textcolor ) . '" class="widefat">';
 		echo '</p>';
 
 	}
@@ -183,10 +183,10 @@ class ZillowMortgageRateWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? strip_tags( $new_instance['screenname'] ) : '';
-		$instance['region'] = ! empty( $new_instance['region'] ) ? strip_tags( $new_instance['region'] ) : '';
-		$instance['textcolor'] = ! empty( $new_instance['textcolor'] ) ? strip_tags( $new_instance['textcolor'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? sanitize_text_field( $new_instance['screenname'] ) : '';
+		$instance['region'] = ! empty( $new_instance['region'] ) ? sanitize_text_field( $new_instance['region'] ) : '';
+		$instance['textcolor'] = ! empty( $new_instance['textcolor'] ) ? sanitize_text_field( $new_instance['textcolor'] ) : '';
 
 		return $instance;
 	}

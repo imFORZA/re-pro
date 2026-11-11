@@ -90,16 +90,16 @@ class ZillowMortgageCalcWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Orientation.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'orientation' ) . '" class="title-label">' . __( 'Orientation:', 're-pro' ) . '</label>';
-		echo '<select id="' . $this->get_field_id( 'orientation' ) . '" name="' . $this->get_field_name( 'orientation' ) . '" class="widefat">';
-	    echo '<option value="verticalWidget"'. selected( $orientation, 'verticalWidget' ) .'>'. __( 'Vertical', 're-pro' ) .'</option>';
-	    echo '<option value="horizontalWidget"'. selected( $orientation, 'horizontalWidget' ) .'>'. __( 'Horizontal', 're-pro' ) .'</option>';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'orientation' ) ) . '" class="title-label">' . esc_html__( 'Orientation:', 're-pro' ) . '</label>';
+		echo '<select id="' . esc_attr( $this->get_field_id( 'orientation' ) ) . '" name="' . esc_attr( $this->get_field_name( 'orientation' ) ) . '" class="widefat">';
+	    echo '<option value="verticalWidget"'. selected( $orientation, 'verticalWidget' ) .'>'. esc_html__( 'Vertical', 're-pro' ) .'</option>';
+	    echo '<option value="horizontalWidget"'. selected( $orientation, 'horizontalWidget' ) .'>'. esc_html__( 'Horizontal', 're-pro' ) .'</option>';
 		echo '</select>';
 		echo '</p>';
 
@@ -117,8 +117,8 @@ class ZillowMortgageCalcWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['orientation'] = ! empty( $new_instance['orientation'] ) ? strip_tags( $new_instance['orientation'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['orientation'] = ! empty( $new_instance['orientation'] ) ? sanitize_text_field( $new_instance['orientation'] ) : '';
 
 		return $instance;
 	}

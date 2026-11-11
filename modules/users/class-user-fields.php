@@ -75,10 +75,23 @@ function repro_user_save_profile_fields( $user_id ) {
 		return false;
 	}
 
-	update_user_meta( $user_id, 'zillow_username', $_POST['zillow_username'] );
-	update_user_meta( $user_id, 'trulia_username', $_POST['trulia_username'] );
-	update_user_meta( $user_id, 'homescom_user_id', $_POST['homescom_user_id'] );
-	update_user_meta( $user_id, 'realtorcom_url', $_POST['realtorcom_url'] );
+	check_admin_referer( 'update-user_' . $user_id );
+
+	if ( isset( $_POST['zillow_username'] ) ) {
+		update_user_meta( $user_id, 'zillow_username', sanitize_text_field( wp_unslash( $_POST['zillow_username'] ) ) );
+	}
+
+	if ( isset( $_POST['trulia_username'] ) ) {
+		update_user_meta( $user_id, 'trulia_username', sanitize_text_field( wp_unslash( $_POST['trulia_username'] ) ) );
+	}
+
+	if ( isset( $_POST['homescom_user_id'] ) ) {
+		update_user_meta( $user_id, 'homescom_user_id', sanitize_text_field( wp_unslash( $_POST['homescom_user_id'] ) ) );
+	}
+
+	if ( isset( $_POST['realtorcom_url'] ) ) {
+		update_user_meta( $user_id, 'realtorcom_url', esc_url_raw( wp_unslash( $_POST['realtorcom_url'] ) ) );
+	}
 
 } // End repro_user_save_profile_fields.
 add_action( 'personal_options_update', 'repro_user_save_profile_fields' );

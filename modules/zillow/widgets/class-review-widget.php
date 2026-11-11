@@ -95,32 +95,32 @@ class ZillowReviewWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Zillow Screenname.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'screenname' ) . '" class="title-label">' . __( 'Zillow Screenname:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'screenname' ) . '" name="' . $this->get_field_name( 'screenname' ) . '" value="' . $screenname  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'screenname' ) ) . '" class="title-label">' . esc_html__( 'Zillow Screenname:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'screenname' ) ) . '" name="' . esc_attr( $this->get_field_name( 'screenname' ) ) . '" value="' . esc_attr( $screenname ) . '" class="widefat">';
 		echo '</p>';
 
 		// Zillow User ID.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'zuid' ) . '" class="title-label">' . __( 'Zillow User ID:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'zuid' ) . '" name="' . $this->get_field_name( 'zuid' ) . '" value="' . $zuid  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'zuid' ) ) . '" class="title-label">' . esc_html__( 'Zillow User ID:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'zuid' ) ) . '" name="' . esc_attr( $this->get_field_name( 'zuid' ) ) . '" value="' . esc_attr( $zuid ) . '" class="widefat">';
 		echo '</p>';
 
 		// Width Option.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'width' ) . '" class="title-label">' . __( 'Width:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'width' ) . '" name="' . $this->get_field_name( 'width' ) . '" value="' . $width  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'width' ) ) . '" class="title-label">' . esc_html__( 'Width:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'width' ) ) . '" name="' . esc_attr( $this->get_field_name( 'width' ) ) . '" value="' . esc_attr( $width ) . '" class="widefat">';
 		echo '</p>';
 
 		// Height Option
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'height' ) . '" class="title-label">' . __( 'Height:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'height' ) . '" name="' . $this->get_field_name( 'height' ) . '" value="' . $height  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'height' ) ) . '" class="title-label">' . esc_html__( 'Height:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'height' ) ) . '" name="' . esc_attr( $this->get_field_name( 'height' ) ) . '" value="' . esc_attr( $height ) . '" class="widefat">';
 		echo '</p>';
 
 	}
@@ -137,13 +137,13 @@ class ZillowReviewWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? strip_tags( $new_instance['screenname'] ) : '';
-		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? strip_tags( $new_instance['zuid'] ) : '';
-		$instance['size'] = ! empty( $new_instance['size'] ) ? strip_tags( $new_instance['size'] ) : '';
-		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? strip_tags( $new_instance['zmod'] ) : '';
-		$instance['height'] = ! empty( $new_instance['height'] ) ? strip_tags( $new_instance['height'] ) : '';
-		$instance['width'] = ! empty( $new_instance['width'] ) ? strip_tags( $new_instance['width'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? sanitize_text_field( $new_instance['screenname'] ) : '';
+		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? sanitize_text_field( $new_instance['zuid'] ) : '';
+		$instance['size'] = ! empty( $new_instance['size'] ) ? sanitize_text_field( $new_instance['size'] ) : '';
+		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? sanitize_text_field( $new_instance['zmod'] ) : '';
+		$instance['height'] = ! empty( $new_instance['height'] ) ? sanitize_text_field( $new_instance['height'] ) : '';
+		$instance['width'] = ! empty( $new_instance['width'] ) ? sanitize_text_field( $new_instance['width'] ) : '';
 
 		return $instance;
 	}

@@ -93,26 +93,26 @@ class ZillowLargeSearchBox extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Zillow Screenname.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'screenname' ) . '" class="title-label">' . __( 'Zillow Screenname:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'screenname' ) . '" name="' . $this->get_field_name( 'screenname' ) . '" value="' . $screenname  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'screenname' ) ) . '" class="title-label">' . esc_html__( 'Zillow Screenname:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'screenname' ) ) . '" name="' . esc_attr( $this->get_field_name( 'screenname' ) ) . '" value="' . esc_attr( $screenname ) . '" class="widefat">';
 		echo '</p>';
 
 		// Location.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'location' ) . '" class="title-label">' . __( 'Location:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'location' ) . '" placeholder="El Segundo, CA" name="' . $this->get_field_name( 'location' ) . '" value="' . $location  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'location' ) ) . '" class="title-label">' . esc_html__( 'Location:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'location' ) ) . '" placeholder="El Segundo, CA" name="' . esc_attr( $this->get_field_name( 'location' ) ) . '" value="' . esc_attr( $location ) . '" class="widefat">';
 		echo '</p>';
 
 		// Home Value Info
 		echo '<p>';
 		echo '<input value="1" type="checkbox"' . checked( esc_attr( $home_val_info ), 1, false ) . 'id="' . esc_attr( $this->get_field_id( 'home_val_info' ) ) . '" name="' . esc_attr( $this->get_field_name( 'home_val_info' ) ) . '" />';
-		echo '<label for="' . $this->get_field_id( 'home_val_info' ) . '">Hide home value information</label>';
+		echo '<label for="' . esc_attr( $this->get_field_id( 'home_val_info' ) ) . '">Hide home value information</label>';
 		echo '</p>';
 
 
@@ -130,10 +130,10 @@ class ZillowLargeSearchBox extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? strip_tags( $new_instance['screenname'] ) : '';
-		$instance['location'] = ! empty( $new_instance['location'] ) ? strip_tags( $new_instance['location'] ) : '';
-		$instance['home_val_info'] = ! empty( $new_instance['home_val_info'] ) ? strip_tags( $new_instance['home_val_info'] ) : 0;
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? sanitize_text_field( $new_instance['screenname'] ) : '';
+		$instance['location'] = ! empty( $new_instance['location'] ) ? sanitize_text_field( $new_instance['location'] ) : '';
+		$instance['home_val_info'] = ! empty( $new_instance['home_val_info'] ) ? sanitize_text_field( $new_instance['home_val_info'] ) : 0;
 
 
 		return $instance;

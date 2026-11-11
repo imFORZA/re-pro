@@ -88,20 +88,20 @@ class ZillowListingsWidget extends WP_Widget {
 
 		// Title.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'title' ) . '" class="title-label">' . __( 'Tile:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $title  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'title' ) ) . '" class="title-label">' . esc_html__( 'Tile:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'title' ) ) . '" name="' . esc_attr( $this->get_field_name( 'title' ) ) . '" value="' . esc_attr( $title ) . '" class="widefat">';
 		echo '</p>';
 
 		// Zillow Screenname.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'screenname' ) . '" class="title-label">' . __( 'Zillow Screenname:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'screenname' ) . '" name="' . $this->get_field_name( 'screenname' ) . '" value="' . $screenname  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'screenname' ) ) . '" class="title-label">' . esc_html__( 'Zillow Screenname:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'screenname' ) ) . '" name="' . esc_attr( $this->get_field_name( 'screenname' ) ) . '" value="' . esc_attr( $screenname ) . '" class="widefat">';
 		echo '</p>';
 
 		// Zillow User ID.
 		echo '<p>';
-		echo '	<label for="' . $this->get_field_id( 'zuid' ) . '" class="title-label">' . __( 'Zillow User ID:', 're-pro' ) . '</label>';
-		echo '	<input id="' . $this->get_field_id( 'zuid' ) . '" name="' . $this->get_field_name( 'zuid' ) . '" value="' . $zuid  . '" class="widefat">';
+		echo '	<label for="' . esc_attr( $this->get_field_id( 'zuid' ) ) . '" class="title-label">' . esc_html__( 'Zillow User ID:', 're-pro' ) . '</label>';
+		echo '	<input id="' . esc_attr( $this->get_field_id( 'zuid' ) ) . '" name="' . esc_attr( $this->get_field_name( 'zuid' ) ) . '" value="' . esc_attr( $zuid ) . '" class="widefat">';
 		echo '</p>';
 
 	}
@@ -118,11 +118,11 @@ class ZillowListingsWidget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title'] = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? strip_tags( $new_instance['screenname'] ) : '';
-		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? strip_tags( $new_instance['zuid'] ) : '';
-		$instance['format'] = ! empty( $new_instance['format'] ) ? strip_tags( $new_instance['format'] ) : '';
-		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? strip_tags( $new_instance['zmod'] ) : '';
+		$instance['title'] = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['screenname'] = ! empty( $new_instance['screenname'] ) ? sanitize_text_field( $new_instance['screenname'] ) : '';
+		$instance['zuid'] = ! empty( $new_instance['zuid'] ) ? sanitize_text_field( $new_instance['zuid'] ) : '';
+		$instance['format'] = ! empty( $new_instance['format'] ) ? sanitize_text_field( $new_instance['format'] ) : '';
+		$instance['zmod'] = ! empty( $new_instance['zmod'] ) ? sanitize_text_field( $new_instance['zmod'] ) : '';
 
 		return $instance;
 	}
