@@ -22,7 +22,7 @@ class REProSettings {
 	 */
 	public function __construct() {
 		if ( is_admin() ) {
-			$this->general_settings = get_option( 'repro_settings' );
+			$this->general_settings = repro_get_settings();
 
 			add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
@@ -95,10 +95,11 @@ class REProSettings {
 	 * Render Christies field.
 	 */
 	public function google_maps() {
-		$gmaps_active = isset( $this->general_settings['gmaps_active'] ) ? $this->general_settings['gmaps_active'] : '0';
-		$gmaps_key = isset( $this->general_settings['gmaps_key'] ) ? $this->general_settings['gmaps_key'] : '';
-		$gmaps_style = isset( $this->general_settings['gmaps_style'] ) ? $this->general_settings['gmaps_style'] : '';
-		$gmaps_zoom = isset( $this->general_settings['gmaps_zoom'] ) ? $this->general_settings['gmaps_zoom'] : '';
+		$settings = is_array( $this->general_settings ) ? $this->general_settings : array();
+		$gmaps_active = $settings['gmaps_active'] ?? '0';
+		$gmaps_key = $settings['gmaps_key'] ?? '';
+		$gmaps_style = $settings['gmaps_style'] ?? '';
+		$gmaps_zoom = $settings['gmaps_zoom'] ?? '';
 
 		$checked = checked( '1', $gmaps_active, false );
 		$is_active = ( '1' === $gmaps_active ) ? 'Deactivate Google maps module?' : 'Activate Google maps module?';
@@ -126,7 +127,8 @@ class REProSettings {
 
 	public function zillow_module() {
 
-		$zillow_apikey = isset( $this->general_settings['zillow_apikey'] ) ? $this->general_settings['zillow_apikey'] : '';
+		$settings = is_array( $this->general_settings ) ? $this->general_settings : array();
+		$zillow_apikey = $settings['zillow_apikey'] ?? '';
 
 		echo '<input class="widefat" type="text" name="repro_settings[zillow_apikey]" placeholder="Zillow API Key" value="' . esc_attr( $zillow_apikey ) . '">';
 
@@ -134,7 +136,8 @@ class REProSettings {
 
 	public function street_advisor() {
 
-		$sa_apikey = isset( $this->general_settings['sa_apikey'] ) ? $this->general_settings['sa_apikey'] : '';
+		$settings = is_array( $this->general_settings ) ? $this->general_settings : array();
+		$sa_apikey = $settings['sa_apikey'] ?? '';
 
 		echo '<input class="widefat" type="text" name="repro_settings[sa_apikey]" placeholder="Street Advisor API Key" value="' . esc_attr( $sa_apikey ) . '">';
 
@@ -148,7 +151,8 @@ class REProSettings {
 	 */
 	public function greatschools_module() {
 
-		$greatschools_apikey = isset( $this->general_settings['greatschools_apikey'] ) ? $this->general_settings['greatschools_apikey'] : '';
+		$settings = is_array( $this->general_settings ) ? $this->general_settings : array();
+		$greatschools_apikey = $settings['greatschools_apikey'] ?? '';
 
 		echo '<input class="widefat" type="text" name="repro_settings[greatschools_apikey]" placeholder="Great Schools API Key" value="' . esc_attr( $greatschools_apikey ) . '">';
 

@@ -44,7 +44,12 @@ class StreetAdvisor_Reviews extends WP_Widget {
 		$level = !empty( $instance['level'] ) ? $instance['level'] : '';
 		$title = !empty( $instance['title'] ) ? $instance['title'] : '';
 
-		$streetadvisor = new StreetAdvisorAPI( 'b08f6473-8dee-41c3-9a3e-b32f335e9d2d' );
+		$sa_apikey = repro_setting( 'sa_apikey', '' );
+		if ( ! is_string( $sa_apikey ) || '' === $sa_apikey ) {
+			return;
+		}
+
+		$streetadvisor = new StreetAdvisorAPI( $sa_apikey );
 
 $reviews = $streetadvisor->get_location_reviews( $latitude, $longitude, $level );
 
@@ -87,13 +92,16 @@ foreach ($reviews['Items'] as $review) {
 	$user_displayname = $review['User']['DisplayName'];
 	$user_avatar_url = $review['User']['AvatarUrl'];
 
+	if ( ! is_scalar( $title ) || ! is_scalar( $content ) || ! is_scalar( $date ) || ! is_scalar( $rating ) || ! is_scalar( $user_displayname ) || ! is_scalar( $user_avatar_url ) || ! is_scalar( $url ) ) {
+		continue;
+	}
+
 	echo '<div class="review" itemprop="review" itemscope itemtype="https://schema.org/Review">';
 
-	// echo '<img src="'. $user_avatar_url .'">';
-	echo '<span itemprop="reviewRating">'.$rating.'</span> stars - <strong>"<span itemprop="name">' . $title . '</span>"</strong>
-  <br /> by <span itemprop="author">'.$user_displayname.'</span><br />
-  Written on <meta itemprop="datePublished" content="' .$date .'">'.$date .'
-  <br /><span itemprop="reviewBody">'.$content.'</span>';
+	echo '<span itemprop="reviewRating">'. esc_html( (string) $rating ) .'</span> stars - <strong>"<span itemprop="name">' . esc_html( (string) $title ) . '</span>"</strong>
+  <br /> by <span itemprop="author">'. esc_html( (string) $user_displayname ) .'</span><br />
+  Written on <meta itemprop="datePublished" content="' . esc_attr( (string) $date ) .'">'. esc_html( (string) $date ) .'
+  <br /><span itemprop="reviewBody">'. esc_html( (string) $content ) .'</span>';
 
   // echo '<small>'.$legal . '</small>';
 

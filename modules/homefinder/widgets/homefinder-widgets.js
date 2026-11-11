@@ -1,4 +1,7 @@
 (function () {
+	if ( typeof hf_data === 'undefined' || ! hf_data || typeof HomeFinder === 'undefined' ) {
+		return;
+	}
 	hf_data.forEach(function(data, index) {
 		if ( data.type === 'directory' ) {
 			var widget = new HomeFinder.Widgets.AdvertiserDirectory({

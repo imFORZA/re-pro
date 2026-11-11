@@ -86,7 +86,15 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_listings_widget( $iframe_id = '', $zuid, $format = 'normalWidget' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'listings' ) .'" scrolling="no" title="'. __( 'My Listings on Zillow', 're-rpo' ) .'" src="https://www.zillow.com/widgets/profile/NewListingsWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="500" height="300" frameborder="0" style="width:100%;"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/profile/NewListingsWidget.htm',
+				array(
+					'aid'          => $zuid,
+					'newVersion'   => 'true',
+					'widgetFormat' => $format,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'listings' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'My Listings on Zillow', 're-pro' ), $zuid, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="500" height="300" frameborder="0" style="width:100%;"></iframe>';
 
 		}
 
@@ -105,7 +113,18 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_review_widget( $iframe_id = '', $zuid, $screenname, $size = 'wide', $zmod = 'true', $width = '300', $height = '100' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'reviews' ) .'" scrolling="yes" title="'. __( 'My Reviews on Zillow', 're-pro' ) .'" src="https://www.zillow.com/widgets/reputation/Rating.htm?did=rw-widget-container&ezuid=' . $zuid .'&scrnname=' . $screenname . '&size=' .$size . '&type=iframe&zmod='. $zmod .'" width="'. $width . '" height="'. $height .'" frameborder="0"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/reputation/Rating.htm',
+				array(
+					'did'      => 'rw-widget-container',
+					'ezuid'    => $zuid,
+					'scrnname' => $screenname,
+					'size'     => $size,
+					'type'     => 'iframe',
+					'zmod'     => $zmod,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'reviews' ) ) .'" scrolling="yes" title="' . esc_attr( repro_iframe_title( __( 'My Reviews on Zillow', 're-pro' ), $screenname, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="'. esc_attr( (string) $width ) . '" height="'. esc_attr( (string) $height ) .'" frameborder="0"></iframe>';
 
 		}
 
@@ -120,7 +139,15 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_past_listings_widget( $iframe_id = '', $zuid, $format = 'normalWidget' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'past-listings' ) .'" scrolling="no" title="'. __( 'My Sales on Zillow', 're-rpo' ) .'" src="https://www.zillow.com/widgets/profile/PastSalesListingWidget.htm?aid='. $zuid .'&newVersion=true&widgetFormat='. $format .'" width="500" height="250" frameborder="0" style="width:100%;"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/profile/PastSalesListingWidget.htm',
+				array(
+					'aid'          => $zuid,
+					'newVersion'   => 'true',
+					'widgetFormat' => $format,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'past-listings' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'My Past Sales on Zillow', 're-pro' ), $zuid, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="500" height="250" frameborder="0" style="width:100%;"></iframe>';
 
 		}
 
@@ -134,7 +161,14 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_contact_widget( $iframe_id = '', $email ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'contact' ) .'" scrolling="no" title="'. __( 'Contact me on Zillow', 're-rpo' ) .'" src="https://www.zillow.com/widgets/contact/ContactFormWidget.htm?email='. antispambot( sanitize_email( $email ) ) .'&size=wide" width="350" height="250" frameborder="0" style="width:100%;"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/contact/ContactFormWidget.htm',
+				array(
+					'email' => sanitize_email( $email ),
+					'size'  => 'wide',
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'contact' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Contact Form on Zillow', 're-pro' ), $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="350" height="250" frameborder="0" style="width:100%;"></iframe>';
 
 		}
 
@@ -149,7 +183,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_affordability_calc_widget( $iframe_id = '' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'affordability-calc' ) .'" scrolling="no" title="'. __( 'Zillow Affordability Calculator', 're-rpo' ) .'" src="https://www.zillow.com/mortgage/widgets/AffordabilityCalculatorWidget.htm" width="688" height="700" frameborder="0" style="width:100%;min-height:700px;"></iframe>';
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'affordability-calc' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Zillow Affordability Calculator', 're-pro' ), $iframe_id ) ) . '" src="' . esc_url( 'https://www.zillow.com/mortgage/widgets/AffordabilityCalculatorWidget.htm' ) . '" width="688" height="700" frameborder="0" style="width:100%;min-height:700px;"></iframe>';
 
 		}
 
@@ -162,7 +196,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_monthlypay_calc_widget( $iframe_id = '' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'listings' ) .'" scrolling="no" title="'. __( 'Monthly Payment Calculator', 're-rpo' ) .'" src="https://www.zillow.com/mortgage/MortgageCalculatorWidgetLarge.htm" width="688" height="700" frameborder="0" style="width:100%;min-height:700px;"></iframe>';
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'listings' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Zillow Monthly Payment Calculator', 're-pro' ), $iframe_id ) ) . '" src="' . esc_url( 'https://www.zillow.com/mortgage/MortgageCalculatorWidgetLarge.htm' ) . '" width="688" height="700" frameborder="0" style="width:100%;min-height:700px;"></iframe>';
 
 		}
 
@@ -184,7 +218,13 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 				$width = '352';
 			}
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-calc' ) .'" scrolling="no" title="'. __( 'Zillow Mortgage Calculator', 're-rpo' ) .'" src="https://www.zillow.com/mortgage/SmallMortgageLoanCalculatorWidget.htm?widgetOrientationType='. $orientation .'" width="'. $width .'" height="'. $height .'" frameborder="0" style="width:100%;"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/mortgage/SmallMortgageLoanCalculatorWidget.htm',
+				array(
+					'widgetOrientationType' => $orientation,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'mortgage-calc' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Zillow Mortgage Calculator', 're-pro' ), $orientation, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="'. esc_attr( (string) $width ) .'" height="'. esc_attr( (string) $height ) .'" frameborder="0" style="width:100%;"></iframe>';
 
 		}
 
@@ -200,14 +240,16 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_mortgage_rate_table_widget( $iframe_id = '', $textcolor, $screenname, $region ) {
 
+			$textcolor = repro_hex_color( $textcolor );
+
 		?>
 		<div id="" class="zillow-mortage-rate-table">
 		<div class="header-labels">
-			<span class="current-label" style="color:#<?php echo $textcolor ?>">
-				<?php _e( 'Current', 're-pro' ); ?>
+			<span class="current-label" style="color:#<?php echo esc_attr( (string) $textcolor ); ?>">
+				<?php esc_html_e( 'Current', 're-pro' ); ?>
 			</span>
-			<span class="lastweek-label" style="color:#<?php echo $textcolor ?>">
-				<?php _e( 'Last Week', 're-pro' ); ?>
+			<span class="lastweek-label" style="color:#<?php echo esc_attr( (string) $textcolor ); ?>">
+				<?php esc_html_e( 'Last Week', 're-pro' ); ?>
 			</span>
 		</div>
 
@@ -215,26 +257,36 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 			<div class="rate-labels-wrapper">
 				<div id="30-year-label-row" class="rate-label-row">
 					<div id="30-year-label" class="rate-label">
-						<?php _e( '30 Year Fixed', 're-pro' ); ?>
+						<?php esc_html_e( '30 Year Fixed', 're-pro' ); ?>
 					</div>
 				</div>
 
 				<div id="15-year-label-row" class="rate-label-row">
 					<div id="15-year-label" class="rate-label">
-						<?php _e( '15 Year Fixed', 're-pro' ); ?>
+						<?php esc_html_e( '15 Year Fixed', 're-pro' ); ?>
 					</div>
 				</div>
 
 				<div id="5-1-adjustable-label-row" class="rate-label-row">
 					<div id="5-1-adjustable-label" class="rate-label">
-						<?php _e( '5/1 Adjustable', 're-pro' ); ?>
+						<?php esc_html_e( '5/1 Adjustable', 're-pro' ); ?>
 					</div>
 				</div>
 			</div>
 
 		<?php
 
-		echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-rates-table' ) .'" scrolling="no" title="'. __( 'Zillow Mortgage Rate Table', 're-pro' ) .'" src="https://www.zillow.com/mortgage/MortgageRateTable.htm?wide=1&textcolor='. $textcolor .'&scrnname='. $screenname .'&region='. $region .'&cobrand='. $screenname .'" width="130" height="100" frameborder="0" style="width:50%;"></iframe>';
+		$src = repro_iframe_src(
+			'https://www.zillow.com/mortgage/MortgageRateTable.htm',
+			array(
+				'wide'      => '1',
+				'textcolor' => $textcolor,
+				'scrnname'  => $screenname,
+				'region'    => $region,
+				'cobrand'   => $screenname,
+			)
+		);
+		echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'mortgage-rates-table' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Zillow Mortgage Rate Table', 're-pro' ), trim( (string) $region . ' ' . (string) $screenname ), $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="130" height="100" frameborder="0" style="width:50%;"></iframe>';
 
 		}
 
@@ -247,7 +299,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_rate_table_graph_widget( $iframe_id = '' ) {
 
-			echo '<iframe  id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-rates-graph' ) .'" title="'. __( 'Zillow Mortgage Rates Graph', 're-pro' ) .'" src="https://www.zillow.com/webtools/widgets/RateTableAndGraphDistributionWidget.htm" width="306" height="315" frameborder="0" scrolling="no" ></iframe>';
+			echo '<iframe  id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'mortgage-rates-graph' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Mortgage Rates Graph', 're-pro' ), $iframe_id ) ) . '" src="' . esc_url( 'https://www.zillow.com/webtools/widgets/RateTableAndGraphDistributionWidget.htm' ) . '" width="306" height="315" frameborder="0" scrolling="no" ></iframe>';
 
 		}
 
@@ -259,7 +311,7 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_mortage_rate_widget( $iframe_id = '' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-rates' ) .'" scrolling="no" title="'. __( 'Zillow Mortgage Rate Table', 're-pro' ) .'" src="https://www.zillow.com/webtools/widgets/RateTableDistributionWidget.htm" width="306" height="215" frameborder="0" style="width:100%;min-height:215px;"></iframe>';
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'mortgage-rates' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Zillow Mortgage Rate Distribution', 're-pro' ), $iframe_id ) ) . '" src="' . esc_url( 'https://www.zillow.com/webtools/widgets/RateTableDistributionWidget.htm' ) . '" width="306" height="215" frameborder="0" style="width:100%;min-height:215px;"></iframe>';
 
 		}
 
@@ -275,7 +327,17 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_paymentbreakout_calc_widget( $iframe_id = '', $price, $region_id, $textcolor = '000000' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-payment-breakout' ) .'" scrolling="no" title="'. __( 'Zillow Mortgage Payment Breakout Calculator', 're-pro' ) .'"src="https://www.zillow.com/mortgage/MortgageLoanCalculatorWidget.htm?skin=custom&price='. $price .'&rid='. $region_id .'&textcolor='. $textcolor .'" frameborder="0" title="'. __( 'Zillow Mortgage Calculator', 're-pro' ) .'" width="176" height="298px"></iframe>';
+			$textcolor = repro_hex_color( $textcolor );
+			$src       = repro_iframe_src(
+				'https://www.zillow.com/mortgage/MortgageLoanCalculatorWidget.htm',
+				array(
+					'skin'      => 'custom',
+					'price'     => $price,
+					'rid'       => $region_id,
+					'textcolor' => $textcolor,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'mortgage-payment-breakout' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Zillow Mortgage Payment Breakout Calculator', 're-pro' ), $region_id, $iframe_id ) ) . '" src="' . esc_url( $src ) . '" frameborder="0" width="176" height="298px"></iframe>';
 
 		}
 
@@ -297,7 +359,22 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_home_value_estimate_widget( $iframe_id = '', $type = 'iframe', $address, $searchbox = 'yes', $region, $skinny_widget = 'true', $textcolor = '000000', $bgcolor = 'FFFFFF' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'home-value-estimate' ) .'" scrolling="no" title="'. __( 'Zillow Home Value Estimate', 're-pro' ) .'" src="https://www.zillow.com/widgets/zestimate/ZestimateLargeWidget.htm?did=zillow-shv-large-iframe-widget&type='.$type.'&address='.$address.'&searchbox='. $searchbox .'&region='.$region.'&skinnyWidget='.$skinny_widget.'&tc='. $textcolor .'&bgc='. $bgcolor .'" width="296" frameborder="0" height="360"></iframe>';
+			$textcolor = repro_hex_color( $textcolor );
+			$bgcolor   = repro_hex_color( $bgcolor );
+			$src       = repro_iframe_src(
+				'https://www.zillow.com/widgets/zestimate/ZestimateLargeWidget.htm',
+				array(
+					'did'          => 'zillow-shv-large-iframe-widget',
+					'type'         => $type,
+					'address'      => $address,
+					'searchbox'    => $searchbox,
+					'region'       => $region,
+					'skinnyWidget' => $skinny_widget,
+					'tc'           => $textcolor,
+					'bgc'          => $bgcolor,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'home-value-estimate' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Zillow Home Value Estimate', 're-pro' ), trim( (string) $address . ' ' . (string) $region ), $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="296" frameborder="0" height="360"></iframe>';
 		}
 
 		/**
@@ -320,7 +397,25 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_realestate_stats_widget( $iframe_id = '', $cs, $did = 'rsw-wide', $dys, $mt, $region_id, $sid, $type = 'iframe', $wtype = 'rhv', $skinny_widget = 'true', $textcolor = '000000', $bgcolor = 'FFFFFF' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'realestate-stats' ) .'" title="'. __( 'Zillow Real Estate Stats', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/geo/RegionalStatsWidget.htm?cs='. $cs .'&did='. $did .'&dys='.$dys.'&mt='.$mt.'&rid='.$region_id.'&sid='.$sid.'&type='.$type.'&wtype='. $type .'&skinnyWidget='.$skinny_widget.'&textcolor='.$textcolor.'&backgroundColor='. $bgcolor .'" width="286" frameborder="0" height="280"></iframe>';
+			$textcolor = repro_hex_color( $textcolor );
+			$bgcolor   = repro_hex_color( $bgcolor );
+			$src       = repro_iframe_src(
+				'https://www.zillow.com/widgets/geo/RegionalStatsWidget.htm',
+				array(
+					'cs'              => $cs,
+					'did'             => $did,
+					'dys'             => $dys,
+					'mt'              => $mt,
+					'rid'             => $region_id,
+					'sid'             => $sid,
+					'type'            => $type,
+					'wtype'           => $type,
+					'skinnyWidget'    => $skinny_widget,
+					'textcolor'       => $textcolor,
+					'backgroundColor' => $bgcolor,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'realestate-stats' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Real Estate Stats', 're-pro' ), $region_id, $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" width="286" frameborder="0" height="280"></iframe>';
 		}
 
 		/**
@@ -340,7 +435,23 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_rent_validation_widget($iframe_id = '', $type = 'iframe', $skinny_widget = 'true', $searchbox = 'yes', $for_rent = 'true', $address, $region, $textcolor = '000000', $bgcolor = 'FFFFF' ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'rent-validation' ) .'" title="'. __( 'Zillow Rent Validation', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/zestimate/ZestimateLargeWidget.htm?did=zillow-shv-large-iframe-widget&type='.$type.'&forRent='.$for_rent.'&tc='.$textcolor.'&bgc='.$bgcolor.'&address='. $address .'&searchbox='.$searchbox.'&region='.$region.'&skinnyWidget='.$skinny_widget.'" frameborder="0" width="296" height="360"></iframe>';
+			$textcolor = repro_hex_color( $textcolor );
+			$bgcolor   = repro_hex_color( $bgcolor );
+			$src       = repro_iframe_src(
+				'https://www.zillow.com/widgets/zestimate/ZestimateLargeWidget.htm',
+				array(
+					'did'          => 'zillow-shv-large-iframe-widget',
+					'type'         => $type,
+					'forRent'      => $for_rent,
+					'tc'           => $textcolor,
+					'bgc'          => $bgcolor,
+					'address'      => $address,
+					'searchbox'    => $searchbox,
+					'region'       => $region,
+					'skinnyWidget' => $skinny_widget,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'rent-validation' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Rent Validation', 're-pro' ), trim( (string) $address . ' ' . (string) $region ), $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" frameborder="0" width="296" height="360"></iframe>';
 		}
 
 		/* LISTINGS. */
@@ -360,10 +471,20 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 			// TODO - Check for HTTPS, as this widget does not support it.
 			// TODO - Support JS Version.
 
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/fmr/FMRWidget.htm',
+				array(
+					'did'        => 'meh-large-iframe-widget-container',
+					'type'       => $type,
+					'size'       => $size,
+					'rn'         => $location,
+					'widgettype' => 'meh',
+				)
+			);
 			echo '<div class="zillow-listings-widget-container zillow-meh-widget-container">';
-			echo '<h5>Most Expensive Homes in ' . $location . '</h5>';
+			echo '<h5>Most Expensive Homes in ' . esc_html( (string) $location ) . '</h5>';
 			echo '<div class="zillow-meh-outer">';
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'expensive-homes' ) .'" title="'. __( 'Zillow Most Expensive Homes', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/fmr/FMRWidget.htm?did=meh-large-iframe-widget-container&type='. $type .'&size='.$size.'&rn='. $location .'&widgettype=meh" width="" height="121" frameborder="0" style="width:100%;"></iframe>';
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'expensive-homes' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Most Expensive Homes', 're-pro' ), $location, $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" width="" height="121" frameborder="0" style="width:100%;"></iframe>';
 			echo '</div>';
 			echo '<img alt="Zillow Real Estate" style="border:0;" src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=%2Fstatic%2Fimages%2Fpowered-by-zillow.gif" />';
 			echo '</div>';
@@ -384,9 +505,19 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 			// TODO - Check for HTTPS, as this widget does not support it.
 			// TODO - Support JS Version.
 
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/fmr/FMRWidget.htm',
+				array(
+					'did'        => 'nfs-large-iframe-widget-container',
+					'type'       => $type,
+					'size'       => $size,
+					'rn'         => $location,
+					'widgettype' => 'nfs',
+				)
+			);
 			echo '<div class="zillow-listings-widget-container zillow-nfs-widget-container">';
-			echo '<h5>Newest For Sale Homes in ' . $location . '</h5>';
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'newest-homes' ) .'" title="'. __( 'Zillow Newest For Sale Homes', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/fmr/FMRWidget.htm?did=nfs-large-iframe-widget-container&type='. $type .'&size='.$size.'&rn='. $location .'&widgettype=nfs" width="286" height="123" frameborder="0"></iframe>';
+			echo '<h5>Newest For Sale Homes in ' . esc_html( (string) $location ) . '</h5>';
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'newest-homes' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Newest For Sale Homes', 're-pro' ), $location, $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" width="286" height="123" frameborder="0"></iframe>';
 			echo '<img alt="Zillow Real Estate" style="border:0;" src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=%2Fstatic%2Fimages%2Fpowered-by-zillow.gif" />';
 			echo '</div>';
 		}
@@ -405,7 +536,18 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_zillow_search_widget( $iframe_id = '', $use_user_location = 'false', $is_public = 'true', $bucket = 'map', $zillow_screenname, $region_id ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'search' ) .'" title="'. __( 'Zillow Search', 're-pro' ) .'" src="https://www.zillow.com/widgets/search/PartnerAdWidget.htm?ulbm='.$use_user_location.'&isPublic='.$is_public.'&bucket='.$bucket.'&pn='.$zillow_screenname.'&rid='.$region_id.'&style=default" scrolling="no" frameborder="0" width="298" height="272"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/search/PartnerAdWidget.htm',
+				array(
+					'ulbm'     => $use_user_location,
+					'isPublic' => $is_public,
+					'bucket'   => $bucket,
+					'pn'       => $zillow_screenname,
+					'rid'      => $region_id,
+					'style'    => 'default',
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'search' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Search', 're-pro' ), trim( (string) $zillow_screenname . ' ' . (string) $region_id ), $iframe_id ) ) . '" src="' . esc_url( $src ) . '" scrolling="no" frameborder="0" width="298" height="272"></iframe>';
 
 		}
 
@@ -428,7 +570,17 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 			echo '	<div style="float:right;">';
 			echo '		<img alt="Zillow Real Estate Information" style="border:0;" src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=%2Fstatic%2Fimages%2Fpowered-by-zillow.gif" />';
 			echo '	</div>';
-			echo '	<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'lg-search' ) .'" scrolling="no" title="'. __( 'Zillow Search', 're-pro' ) .'" src="https://www.zillow.com/widgets/search/LargeSearchBoxWidget.htm?did=zillow-large-search-box-iframe-widget&scrnname='.$zillow_screenname.'&type='.$type.'&rgname='.$region_name.'&shvi='.$include_home_val_info.'" width="430" frameborder="0" height="400"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/search/LargeSearchBoxWidget.htm',
+				array(
+					'did'      => 'zillow-large-search-box-iframe-widget',
+					'scrnname' => $zillow_screenname,
+					'type'     => $type,
+					'rgname'   => $region_name,
+					'shvi'     => $include_home_val_info,
+				)
+			);
+			echo '	<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'lg-search' ) ) .'" scrolling="no" title="' . esc_attr( repro_iframe_title( __( 'Zillow Large Search', 're-pro' ), trim( (string) $region_name . ' ' . (string) $zillow_screenname ), $iframe_id ) ) . '" src="' . esc_url( $src ) . '" width="430" frameborder="0" height="400"></iframe>';
 			echo '</div>';
 		}
 
@@ -447,7 +599,16 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_refinance_quiz_widget( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'refq', $zillow_screenname ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'refinance-quiz' ) .'" title="'. __( 'Zillow Refinance Quiz', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=refinance-quiz-iframe-container&type=iframe&widgetcode=refq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/quiz/QuizWidget.htm',
+				array(
+					'did'        => 'refinance-quiz-iframe-container',
+					'type'       => 'iframe',
+					'widgetcode' => 'refq',
+					'scrnname'   => $zillow_screenname,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'refinance-quiz' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Refinance Quiz', 're-pro' ), $zillow_screenname, $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -464,7 +625,16 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_kindofneighbor_quiz_widget( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'konq', $zillow_screenname ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'kindofneighbor-quiz' ) .'" title="'. __( 'Zillow Kind of Neighbor Quiz', 're-pro' ) .'" scrolling="no" src="httsp://www.zillow.com/widgets/quiz/QuizWidget.htm?did=neighbor-quiz-iframe-container&type=iframe&widgetcode=konq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
+			$src = repro_iframe_src(
+				'httsp://www.zillow.com/widgets/quiz/QuizWidget.htm',
+				array(
+					'did'        => 'neighbor-quiz-iframe-container',
+					'type'       => 'iframe',
+					'widgetcode' => 'konq',
+					'scrnname'   => $zillow_screenname,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'kindofneighbor-quiz' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Kind of Neighbor Quiz', 're-pro' ), $zillow_screenname, $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -481,7 +651,16 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_mortgage_quiz( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'mq', $zillow_screenname ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-quiz' ) .'" title="'. __( 'Zillow Mortgage Quiz', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=mortgage-iframe-container&type=iframe&widgetcode=mq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/quiz/QuizWidget.htm',
+				array(
+					'did'        => 'mortgage-iframe-container',
+					'type'       => 'iframe',
+					'widgetcode' => 'mq',
+					'scrnname'   => $zillow_screenname,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'mortgage-quiz' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Mortgage Quiz', 're-pro' ), $zillow_screenname, $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -498,7 +677,16 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_mortgage_harp_quiz( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'hec', $zillow_screenname ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'mortgage-harp-quiz' ) .'" title="'. __( 'Zillow Mortgage HARP Quiz', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=mortgage-iframe-container&type=iframe&widgetcode=hec&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/quiz/QuizWidget.htm',
+				array(
+					'did'        => 'mortgage-iframe-container',
+					'type'       => 'iframe',
+					'widgetcode' => 'hec',
+					'scrnname'   => $zillow_screenname,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'mortgage-harp-quiz' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Mortgage HARP Quiz', 're-pro' ), $zillow_screenname, $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -515,7 +703,16 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_buyeriq_quiz( $widget_type = 'iframe', $iframe_id = '', $type = 'iframe', $widgetcode = 'biq', $zillow_screenname ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'buyeriq-quiz' ) .'" title="'. __( 'Zillow Buyer IQ Quiz', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/quiz/QuizWidget.htm?did=buyer-iframe-container&type=iframe&widgetcode=biq&scrnname='.$zillow_screenname.'" width="158" frameborder="0" height="317"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/quiz/QuizWidget.htm',
+				array(
+					'did'        => 'buyer-iframe-container',
+					'type'       => 'iframe',
+					'widgetcode' => 'biq',
+					'scrnname'   => $zillow_screenname,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'buyeriq-quiz' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Buyer IQ Quiz', 're-pro' ), $zillow_screenname, $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" width="158" frameborder="0" height="317"></iframe>';
 
 		}
 
@@ -534,7 +731,16 @@ if ( ! class_exists( 'ZillowWidgets' ) ) {
 		 */
 		public function get_moving_boxes_widget( $widget_type = 'iframe', $iframe_id = '', $zillow_city_id, $button_text, $custom_text, $button_link ) {
 
-			echo '<iframe id="'. $this->zillow_iframe_id( $iframe_id ) .'" class="'. $this->zillow_iframe_class( 'moving-boxes' ) .'" title="'. __( 'Zillow Moving Box Calculator', 're-pro' ) .'" scrolling="no" src="https://www.zillow.com/widgets/misc/MovingBoxEstimatorWidget.htm?bc='.$zillow_city_id.'&bt='.$button_text.'&cap='.$custom_text.'&bl='.$button_link.'" width="168" frameborder="0" height="315"></iframe>';
+			$src = repro_iframe_src(
+				'https://www.zillow.com/widgets/misc/MovingBoxEstimatorWidget.htm',
+				array(
+					'bc'  => $zillow_city_id,
+					'bt'  => $button_text,
+					'cap' => $custom_text,
+					'bl'  => $button_link,
+				)
+			);
+			echo '<iframe id="'. esc_attr( (string) $this->zillow_iframe_id( $iframe_id ) ) .'" class="'. esc_attr( (string) $this->zillow_iframe_class( 'moving-boxes' ) ) .'" title="' . esc_attr( repro_iframe_title( __( 'Zillow Moving Box Calculator', 're-pro' ), $zillow_city_id, $iframe_id ) ) . '" scrolling="no" src="' . esc_url( $src ) . '" width="168" frameborder="0" height="315"></iframe>';
 
 		}
 

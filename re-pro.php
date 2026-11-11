@@ -10,7 +10,7 @@
 	Plugin Name: Real Estate Pro
 	Plugin URI: https://www.imforza.com
 	Description: A WordPress plugin for Real Estate websites, offering tools such as widgets and badges. Built by <a href="https://www.imforza.com">imFORZA</a>.
-	Version: 1.0.11
+	Version: 1.0.12
 	Author: imFORZA
 	Contributors: imforza, bhubbard, sfgarza, matoledo
 	Text Domain: re-pro
@@ -23,6 +23,130 @@
 /* Exit if accessed directly. */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
+/**
+ * Shared settings saved by the settings screen.
+ *
+ * @return array
+ */
+function repro_get_settings() {
+	$settings = get_option( 'repro_settings' );
+	return is_array( $settings ) ? $settings : array();
+}
+
+/**
+ * One settings value, with a default when the option or key is missing.
+ *
+ * @param string $key     Setting key.
+ * @param mixed  $default Default when the key is missing.
+ * @return mixed
+ */
+function repro_setting( $key, $default = '' ) {
+	$settings = repro_get_settings();
+	return $settings[ $key ] ?? $default;
+}
+
+/**
+ * Keep a color to a 3 or 6 digit hex value, without a leading hash.
+ *
+ * @param mixed $color Color.
+ * @return string
+ */
+function repro_hex_color( $color ) {
+	$color = ltrim( (string) $color, '#' );
+	if ( preg_match( '/^[0-9a-fA-F]{3}$/', $color ) || preg_match( '/^[0-9a-fA-F]{6}$/', $color ) ) {
+		return $color;
+	}
+	return '000000';
+}
+
+/**
+ * Accessible name for one iframe.
+ *
+ * The detail makes the title unique when several frames share a widget name.
+ *
+ * @param string $name     Translated widget name.
+ * @param string $detail   Place, screen name, or other label.
+ * @param string $fallback Frame id used when detail is empty.
+ * @return string
+ */
+function repro_iframe_title( $name, $detail = '', $fallback = '' ) {
+	$parts    = array();
+	$detail   = trim( (string) $detail );
+	$fallback = trim( (string) $fallback );
+
+	if ( '' !== $detail ) {
+		$parts[] = $detail;
+	}
+	if ( '' !== $fallback && $fallback !== $detail ) {
+		$parts[] = $fallback;
+	}
+	if ( empty( $parts ) ) {
+		return (string) $name;
+	}
+
+	/* translators: 1: widget name, 2: place, screen name, or frame id. */
+	return sprintf( __( '%1$s: %2$s', 're-pro' ), $name, implode( ', ', $parts ) );
+}
+
+/**
+ * Build an iframe URL.
+ *
+ * Query values are percent-encoded first so spaces survive esc_url().
+ * Callers must escape the return value with esc_url().
+ *
+ * @param string $base URL before the query string.
+ * @param array  $args Query arguments, in order.
+ * @return string
+ */
+function repro_iframe_src( $base, $args = array() ) {
+	$pairs = array();
+	foreach ( $args as $key => $value ) {
+		$pairs[] = rawurlencode( (string) $key ) . '=' . rawurlencode( (string) $value );
+	}
+
+	$url = $base;
+	if ( ! empty( $pairs ) ) {
+		$url .= '?' . implode( '&', $pairs );
+	}
+
+	return $url;
+}
+
+/**
+ * Copy legacy Maps settings into repro_settings once.
+ *
+ * An existing repro_settings value is never overwritten. re_pro_settings is kept.
+ *
+ * @return void
+ */
+function repro_upgrade_settings() {
+	if ( get_option( 'repro_settings_upgraded_1_0_12' ) ) {
+		return;
+	}
+
+	$legacy   = get_option( 're_pro_settings' );
+	$settings = get_option( 'repro_settings' );
+	if ( ! is_array( $settings ) ) {
+		$settings = array();
+	}
+
+	$copied = false;
+	if ( is_array( $legacy ) ) {
+		foreach ( array( 'gmaps_active', 'gmaps_key', 'gmaps_style' ) as $key ) {
+			if ( array_key_exists( $key, $legacy ) && ! array_key_exists( $key, $settings ) ) {
+				$settings[ $key ] = $legacy[ $key ];
+				$copied           = true;
+			}
+		}
+	}
+
+	if ( $copied ) {
+		update_option( 'repro_settings', $settings );
+	}
+
+	update_option( 'repro_settings_upgraded_1_0_12', '1' );
+}
+
 /** Instantiate the plugin. */
 new RePro();
 require_once( __DIR__ . '/settings.php' );
@@ -32,6 +156,13 @@ require_once( __DIR__ . '/settings.php' );
  * RePro class.
  */
 class RePro {
+
+	/**
+	 * Plugin settings.
+	 *
+	 * @var array
+	 */
+	private $general_settings = array();
 
 	/**
 	 * Constructor.
@@ -59,7 +190,8 @@ class RePro {
 	 * @return void
 	 */
 	private function init() {
-		$this->general_settings = get_option( 're_pro_settings' );
+		repro_upgrade_settings();
+		$this->general_settings = repro_get_settings();
 
 		/* Language Support. */
 		load_plugin_textdomain( 're-pro', false, dirname( REPRO_BASE_NAME ) . '/languages' );
@@ -84,7 +216,7 @@ class RePro {
 	}
 
 	private function init_modules() {
-		$gmaps_key = isset( $this->general_settings['gmaps_key'] ) ? $this->general_settings['gmaps_key'] : null;
+		$gmaps_key = $this->general_settings['gmaps_key'] ?? null;
 
 		if ( isset( $this->general_settings['gmaps_active'] ) && isset( $gmaps_key ) ) {
 			new WPAPI_GOOGLE_MAPS( $gmaps_key );
@@ -93,7 +225,7 @@ class RePro {
 
 	public function gmap_style( $map_data ) {
 		// Grab style option.
-		$map_json = ( isset( $this->general_settings['gmaps_style'] ) ) ? $this->general_settings['gmaps_style'] : '[]';
+		$map_json = $this->general_settings['gmaps_style'] ?? '[]';
 
 		// Validate JSON.
 		json_decode( $map_json );

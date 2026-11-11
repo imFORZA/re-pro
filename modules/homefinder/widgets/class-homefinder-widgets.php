@@ -36,7 +36,16 @@ if ( ! class_exists( 'HomeFinderWidgets' ) ) {
 		 * Enqueue JS on footer and handle multiple widgets.
 		 */
 		public function hf_enqueue() {
-			wp_enqueue_script( 'hf-widget-loader', 'http://www.homefinder.com/widgets/js/widgetLoader.js', array( 'jquery' ), null, true );
+			if ( empty( static::$hf_data ) ) {
+				return;
+			}
+
+			/*
+			 * https://www.homefinder.com/widgets/js/widgetLoader.js is not published.
+			 * It redirects to https://homefinder.com/widgets/js/widgetLoader.js and that
+			 * file returns 404. The old http URL redirects to the same missing file.
+			 * Do not load a third-party script that is not there.
+			 */
 			wp_enqueue_script( 'hf-widgets-js', plugins_url( 'homefinder-widgets.js', __FILE__ ), array( 'jquery' ), null, true );
 			wp_localize_script( 'hf-widgets-js', 'hf_data', static::$hf_data );
 
